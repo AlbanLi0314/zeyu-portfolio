@@ -1,63 +1,94 @@
 export const experiences = [
 	{
-		company: '',
-		time: '',
-		title: '',
-		location: '',
-		description: '',
+		company: 'Cornell University',
+		time: '2020 - Present',
+		title: 'Graduate Research Assistant',
+		location: 'Ithaca, NY',
+		description: 'Leading research on DNA-polymer nanoparticle tracers for large-scale hydrological monitoring and DNA-composite hydrogels for self-healing materials. Coordinated 7-member, 4-discipline team for field deployment across 11 km² of Cayuga Lake. Developed automated high-throughput DNA-purification platform reducing costs by 91%. Mentored 3 undergraduate researchers and co-authored peer-reviewed publications.',
 	},
-	// {
-	// 	company: 'Radium Institute (Institut du Radium)',
-	// 	time: '1914 - 1934',
-	// 	title: 'Director',
-	// 	location: 'Paris, France',
-	// 	description: 'Led groundbreaking studies on radioactivity and mentored future Nobel Prize laureates.',
-	// },
+	{
+		company: 'Cornell University',
+		time: '2020 - Present',
+		title: 'Teaching Assistant',
+		location: 'Ithaca, NY',
+		description: 'Assisted faculty across 7 courses in bio-design, molecular and cellular engineering, watershed systems, engineering professionalism, and sustainable development. Delivered guest lectures on AI-driven teaching methods and integrated AI tools into curriculum.',
+	},
+	{
+		company: 'Hong Kong Baptist University',
+		time: '2016 - 2020',
+		title: 'Undergraduate Researcher',
+		location: 'Hong Kong',
+		description: 'Engineered superhydrophobic fluoropolymer surfaces with nanopatterned Teflon films. Designed automated environmental-simulation chamber. Led independent investigation of charge-mediated ice shedding. Characterized protein-DNA interaction kinetics using LSPR.',
+	},
 ];
 
 export const education = [
 	{
-		school: '',
-		time: '',
-		degree: '',
-		location: '',
-		description: '',
+		school: 'Cornell University',
+		time: '2020 - Present',
+		degree: 'Ph.D. in Biological & Environmental Engineering',
+		location: 'Ithaca, NY',
+		description: 'Developing DNA-polymer nanoparticle tracers for hydrological monitoring and DNA-composite hydrogels for self-healing materials. Research focuses on nanoparticle fabrication, additive manufacturing, polymer/biomaterials engineering, and advanced materials characterization.',
 	},
-	// {
-	// 	school: 'University of Paris',
-	// 	time: '1891 - 1895',
-	// 	degree: 'Master’s in Physics and Mathematics',
-	// 	location: 'Paris, France',
-	// 	description: 'Graduated at the top of her class in physics and second in mathematics.',
-	// },
+	{
+		school: 'Hong Kong Baptist University',
+		time: '2016 - 2020',
+		degree: 'Bachelor of Science (Honors), Chemistry with Computer Science Minor',
+		location: 'Hong Kong',
+		description: 'Focused on superhydrophobic surface engineering, nanopatterning, and computational methods. Completed top-rated undergraduate thesis on charge-mediated ice shedding.',
+	},
 ];
 
 export const skills = [
 	{
-		title: '',
-		description: '',
+		title: 'Materials Characterization',
+		description: 'SEM, DLS, EDS, UV-Vis Spectroscopy, Fluorometry, Rheometry, Electrophoresis, Tensile Testing, Contact Angle Measurement',
 	},
-	// {
-	// 	title: 'Experimental Techniques',
-	// 	description: 'Spectroscopy, Isolation of Radioactive Elements, Radiation Measurement',
-	// },
+	{
+		title: 'Fabrication & Processing',
+		description: 'Electrospray, DIW 3D Printing, SLA/FDM Printing (Polymers & Ceramics), Spin Coating, Mold Casting, Solvent Precipitation, Photolithography, Two-Photon Lithography, Nanopatterning',
+	},
+	{
+		title: 'Molecular & Bioengineering',
+		description: 'PCR, qPCR, IVT, Electrophoresis (PAGE, Agarose), DNA/RNA Extraction & Purification, Chromatography, Enzyme Recycling, LSPR Assays, Bio-cleanroom Protocols',
+	},
+	{
+		title: 'Programming & Computational',
+		description: 'Python, Java, Machine Learning (TensorFlow, PyTorch), Data Analysis (Pandas, NumPy, Seaborn)',
+	},
+	{
+		title: 'Design & Visualization',
+		description: 'CAD, SketchUp, 3ds Max, Adobe Creative Suite (Illustrator, Photoshop, InDesign), Bootstrap Studio, Scientific Figures, Video/Audio Editing',
+	},
+	{
+		title: 'Languages',
+		description: 'English (Fluent), Mandarin (Native), Cantonese (Proficient)',
+	},
 ];
 
 export const publications = [
 	{
-		title: '',
-		authors: '',
-		journal: '',
-		time: '',
+		title: 'Synthetic eDNA Particles for Tracing and Modeling Environmental DNA Transport in a Large Lake System',
+		authors: 'Zeyu Li, C. L. Ramón, A. Koeberle, et al.',
+		journal: 'Environmental Science & Technology',
+		time: '2025',
 		link: '',
-		abstract: '',
+		abstract: 'Field-deployed DNA-polymer nanoparticle tracers across 11 km² of Cayuga Lake, achieving robust qPCR detection 7 km from release. Generated data calibrating 3D hydrodynamic eDNA-transport models. (Manuscript under review)',
 	},
-	// {
-	// 	title: 'The Radiation of Uranium Compounds',
-	// 	authors: 'Marie Curie',
-	// 	journal: 'Comptes Rendus de l’Académie des Sciences',
-	// 	time: '1898',
-	// 	link: '#',
-	// 	abstract: 'Early research leading to the identification of uranium’s radioactive properties.',
-	// },
+	{
+		title: 'PolyTile 4.0: Self-healing Ceramic Tiles',
+		authors: 'C. He, Zeyu Li, L. X. Wang, et al.',
+		journal: 'ACADIA 2024',
+		time: '2024',
+		link: '',
+		abstract: 'Developed DNA–Al³⁺ hydrogels integrated into 3D printed vascular tiles. Restored crack integrity through multiple damage-heal cycles, demonstrating autonomous repair for infrastructure materials.',
+	},
+	{
+		title: 'All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability',
+		authors: 'W. Li, C. W. Chan, Zeyu Li, et al.',
+		journal: 'The Innovation',
+		time: '2023',
+		link: '',
+		abstract: 'Engineered nanopatterned Teflon films achieving ultra-low wettability and high mechanical durability through hierarchical surface architectures. (IF = 25.7)',
+	},
 ];

@@ -1,14 +1,10 @@
 ---
 import { Image } from 'astro:assets'
-import {profile} from '../../settings'
+import { profile, NAV_LINKS, template } from '@/settings'
 import SocialIcons from './SocialIcons.astro'
 import ProfilePictures from '@/assets/profile_pictures.jpg'
-import { getCollection } from 'astro:content'
-import { template } from '@/settings'
 
-const isBlogPopulated = await getCollection('blog').then(collection => collection.length > 0)
-
-const {fullName, title} = profile
+const { fullName, title } = profile
 ---
 <aside
 	class='px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col'
@@ -21,27 +17,18 @@ const {fullName, title} = profile
 					src={ProfilePictures}
 					alt={`Profile picture of ${fullName}`}
 				/>
-				<h1 class="text-lg font-black mt-8 hidden lg:block">{title} <span>{fullName}</span></h1>
+				<div class="text-center mt-6 hidden lg:block">
+					<h1 class="text-xl font-bold mb-1">{fullName}</h1>
+					<p class="text-sm text-base-content/70 leading-tight px-2">{title}</p>
+				</div>
 			</div>
 			<div class='mx-4 mt-16'>
 				<ul class='space-y-4 menu grow shrink menu-md overflow-y-auto'>
-					<li>
-                        <a href={`${template.base}/`} class='text-lg'>Home</a>
-					</li>
-					<li>
-                        <a href={`${template.base}/research`} class='text-lg'>Research</a>
-					</li>
-					<li>
-                        <a href={`${template.base}/papers`} class='text-lg'>Papers</a>
-					</li>
-					<li>
-                        <a href={`${template.base}/cv`} class='text-lg'>CV</a>
-                    </li>
-                    {isBlogPopulated &&
-					<li>
-                        <a href={`${template.base}/blog/1`} class='text-lg'>Blog</a>
-</li>
-                    }
+					{NAV_LINKS.map((link) => (
+						<li>
+							<a href={`${template.base}${link.href}`} class='text-lg'>{link.title}</a>
+						</li>
+					))}
 				</ul>
 			</div>
 		</div>

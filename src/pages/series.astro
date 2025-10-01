@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+const seriesPosts = await getCollection('series', ({ data }) => {
+	return data.draft !== true
+})
+
+// Sort by date descending
+const sortedSeries = seriesPosts.sort((a, b) => 
+	new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+)
+
+// Format date helper
+function formatDate(dateString: string): string {
+	const date = new Date(dateString)
+	return date.toLocaleDateString('en-US', { 
+		year: 'numeric', 
+		month: 'long', 
+		day: 'numeric' 
+	})
+}
+---
+
+<Layout title="Series - Zeyu Li">
+	<div class='max-w-4xl mx-auto'>
+		<h1 class='text-4xl font-bold mb-4'>Series</h1>
+		<p class='text-lg text-base-content/70 mb-12'>
+			In-depth articles, tutorials, and research notes organized as series.
+		</p>
+
+		{sortedSeries.length === 0 ? (
+			<div class='text-center py-12'>
+				<p class='text-xl text-base-content/60 mb-4'>
+					No series posts yet.
+				</p>
+				<p class='text-base-content/70'>
+					Add series posts in <code class='bg-base-200 px-2 py-1 rounded'>src/content/series/</code>
+				</p>
+			</div>
+		) : (
+			<div class='space-y-8'>
+				{sortedSeries.map((post) => (
+					<article class='card bg-base-200 hover:shadow-lg transition-shadow'>
+						<div class='card-body'>
+							<h2 class='card-title text-2xl'>
+								<a href={`/series/${post.id}`} class='link link-hover'>
+									{post.data.title}
+								</a>
+							</h2>
+							
+							<div class='flex items-center gap-4 text-sm text-base-content/70 mb-3'>
+								<time datetime={post.data.date}>
+									{formatDate(post.data.date)}
+								</time>
+								{post.data.tags && post.data.tags.length > 0 && (
+									<div class='flex gap-2'>
+										{post.data.tags.map(tag => (
+											<span class='badge badge-sm badge-outline'>{tag}</span>
+										))}
+									</div>
+								)}
+							</div>
+
+							{post.data.summary && (
+								<p class='text-base-content/80'>
+									{post.data.summary}
+								</p>
+							)}
+
+							<div class='card-actions justify-end mt-4'>
+								<a href={`/series/${post.id}`} class='btn btn-sm btn-primary'>
+									Read More →
+								</a>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+		)}
+
+		<!-- Placeholder for series categories/tags filter -->
+		<aside class='mt-12 pt-12 border-t'>
+			<h3 class='text-2xl font-bold mb-4'>Browse by Topic</h3>
+			<div class='flex flex-wrap gap-2'>
+				{/* TODO: Extract unique tags and create filter buttons */}
+				<button class='btn btn-sm btn-outline'>All Posts</button>
+				<button class='btn btn-sm btn-outline'>Tutorials</button>
+				<button class='btn btn-sm btn-outline'>Research</button>
+				<button class='btn btn-sm btn-outline'>Tools</button>
+			</div>
+		</aside>
+	</div>
+</Layout>
