@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="CV - Zeyu Li"
+  description="Curriculum Vitae of Zeyu Li"
+>
+  <h1>Curriculum Vitae</h1>
+  
+  <section class="cv-section">
+    <h2>Education</h2>
+    <div class="cv-item">
+      <h3>Ph.D. in Materials Science</h3>
+      <p class="cv-meta">University Name • 2020-2024</p>
+      <p>Dissertation: Advanced Materials for Sustainable Applications</p>
+    </div>
+    <div class="cv-item">
+      <h3>M.S. in Chemistry</h3>
+      <p class="cv-meta">University Name • 2018-2020</p>
+    </div>
+    <div class="cv-item">
+      <h3>B.S. in Chemistry</h3>
+      <p class="cv-meta">University Name • 2014-2018</p>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <h2>Professional Experience</h2>
+    <div class="cv-item">
+      <h3>Postdoctoral Researcher</h3>
+      <p class="cv-meta">Institution Name • 2024-Present</p>
+      <p>Research focus on biocompatible materials and drug delivery systems.</p>
+    </div>
+    <div class="cv-item">
+      <h3>Research Assistant</h3>
+      <p class="cv-meta">University Name • 2020-2024</p>
+      <p>Conducted research on sustainable materials and nanomaterial synthesis.</p>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <h2>Awards & Honors</h2>
+    <ul class="cv-list">
+      <li>Best Paper Award, Materials Research Society (2024)</li>
+      <li>Graduate Research Fellowship (2021-2023)</li>
+      <li>Outstanding Student Award (2022)</li>
+    </ul>
+  </section>
+
+  <section class="cv-section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3>Research Techniques</h3>
+        <ul class="cv-list">
+          <li>Materials Synthesis</li>
+          <li>Microscopy (SEM, TEM, AFM)</li>
+          <li>Spectroscopy (FTIR, Raman, NMR)</li>
+          <li>X-ray Diffraction</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>Computational Tools</h3>
+        <ul class="cv-list">
+          <li>Python</li>
+          <li>MATLAB</li>
+          <li>Origin</li>
+          <li>ChemDraw</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <p class="download-note">
+      <a href="#" download>Download full CV (PDF) →</a>
+    </p>
+  </section>
+
+  <style>
+    h1 {
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    .cv-section {
+      margin-bottom: var(--spacing-2xl);
+      padding-bottom: var(--spacing-2xl);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .cv-section:last-child {
+      border-bottom: none;
+    }
+
+    .cv-section h2 {
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-text);
+      font-size: 1.75rem;
+    }
+
+    .cv-item {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .cv-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .cv-item h3 {
+      margin-bottom: var(--spacing-xs);
+      color: var(--color-text);
+      font-size: 1.25rem;
+    }
+
+    .cv-meta {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: var(--spacing-sm);
+      font-weight: 500;
+    }
+
+    .cv-item p:last-child {
+      color: var(--color-text-secondary);
+    }
+
+    .cv-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cv-list li {
+      position: relative;
+      padding-left: var(--spacing-lg);
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-text-secondary);
+    }
+
+    .cv-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-weight: bold;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-xl);
+    }
+
+    .skill-category h3 {
+      margin-bottom: var(--spacing-md);
+      color: var(--color-text);
+      font-size: 1.125rem;
+    }
+
+    .download-note {
+      text-align: center;
+      margin-top: var(--spacing-xl);
+    }
+
+    .download-note a {
+      display: inline-block;
+      padding: var(--spacing-md) var(--spacing-xl);
+      background: var(--color-primary);
+      color: white;
+      border-radius: var(--border-radius-md);
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .download-note a:hover {
+      background: var(--color-primary-hover);
+    }
+  </style>
+</BaseLayout>

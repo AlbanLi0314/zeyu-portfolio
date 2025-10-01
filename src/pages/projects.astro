@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Card from '../components/Card.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout 
+  title="Projects - Zeyu Li"
+  description="Research projects in materials science and biotechnology"
+>
+  <h1>Research Projects</h1>
+  <p class="page-intro">
+    Explore my current and past research projects spanning materials science, 
+    biotechnology, and interdisciplinary applications.
+  </p>
+
+  <div class="projects-grid">
+    <Card 
+      title="Advanced Materials Synthesis"
+      bullets={[
+        "Development of novel synthesis methods for nanomaterials",
+        "Characterization using advanced microscopy and spectroscopy",
+        "Applications in energy storage and catalysis"
+      ]}
+      imageUrl={`${base}projects/project-placeholder.jpg`}
+      imageAlt="Advanced materials synthesis research"
+    />
+
+    <Card 
+      title="Biocompatible Polymers"
+      bullets={[
+        "Design and synthesis of biocompatible polymer systems",
+        "In vitro and in vivo biocompatibility testing",
+        "Drug delivery applications"
+      ]}
+      imageUrl={`${base}projects/project-placeholder.jpg`}
+      imageAlt="Biocompatible polymers research"
+    />
+
+    <Card 
+      title="Sustainable Materials"
+      bullets={[
+        "Development of eco-friendly material alternatives",
+        "Life cycle assessment and sustainability metrics",
+        "Industrial scale-up considerations"
+      ]}
+      imageUrl={`${base}projects/project-placeholder.jpg`}
+      imageAlt="Sustainable materials research"
+    />
+
+    <Card 
+      title="Biomaterial Interface Studies"
+      bullets={[
+        "Investigation of material-biological interfaces",
+        "Surface modification techniques",
+        "Protein adsorption and cell adhesion studies"
+      ]}
+      imageUrl={`${base}projects/project-placeholder.jpg`}
+      imageAlt="Biomaterial interface research"
+    />
+  </div>
+
+  <style>
+    h1 {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .page-intro {
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-2xl);
+      max-width: 800px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-xl);
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</BaseLayout>

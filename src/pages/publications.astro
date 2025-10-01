@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Publications - Zeyu Li"
+  description="Academic publications and research papers"
+>
+  <h1>Publications</h1>
+  <p class="page-intro">
+    A collection of peer-reviewed publications, conference papers, and other academic contributions.
+  </p>
+
+  <section class="publications-section">
+    <h2>Journal Articles</h2>
+    <ul class="publications-list">
+      <li>
+        <strong>Li, Z.</strong>, et al. (2024). "Advanced Materials for Sustainable Applications." 
+        <em>Journal of Materials Science</em>, 45(2), 123-145.
+        <a href="#" aria-label="View publication details">DOI: 10.xxxx/xxxx</a>
+      </li>
+      <li>
+        <strong>Li, Z.</strong>, et al. (2023). "Biocompatible Polymers in Drug Delivery." 
+        <em>Biomaterials</em>, 32(8), 456-478.
+        <a href="#" aria-label="View publication details">DOI: 10.xxxx/xxxx</a>
+      </li>
+    </ul>
+
+    <h2>Conference Proceedings</h2>
+    <ul class="publications-list">
+      <li>
+        <strong>Li, Z.</strong>, et al. (2024). "Novel Synthesis Methods for Nanomaterials." 
+        <em>Proceedings of Materials Research Society</em>, Boston, MA.
+      </li>
+    </ul>
+  </section>
+
+  <style>
+    h1 {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .page-intro {
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-2xl);
+      max-width: 800px;
+    }
+
+    .publications-section h2 {
+      margin-top: var(--spacing-2xl);
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-text);
+      font-size: 1.5rem;
+    }
+
+    .publications-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .publications-list li {
+      margin-bottom: var(--spacing-lg);
+      padding: var(--spacing-lg);
+      background: var(--color-surface);
+      border-left: 3px solid var(--color-primary);
+      border-radius: var(--border-radius-sm);
+    }
+
+    .publications-list strong {
+      color: var(--color-text);
+    }
+
+    .publications-list em {
+      color: var(--color-text-secondary);
+    }
+
+    .publications-list a {
+      display: block;
+      margin-top: var(--spacing-xs);
+      font-size: 0.9rem;
+      color: var(--color-link);
+    }
+  </style>
+</BaseLayout>

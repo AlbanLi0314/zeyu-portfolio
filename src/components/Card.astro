@@ -1,0 +1,107 @@
+---
+interface Props {
+  title: string;
+  bullets: string[];
+  imageUrl?: string;
+  imageAlt?: string;
+  link?: string;
+}
+
+const { title, bullets, imageUrl, imageAlt = 'Project cover image', link } = Astro.props;
+---
+
+<article class="project-card">
+  {imageUrl && (
+    <div class="card-image">
+      <img src={imageUrl} alt={imageAlt || `Cover image for ${title}`} loading="lazy" />
+    </div>
+  )}
+  <div class="card-content">
+    {link ? (
+      <h3><a href={link}>{title}</a></h3>
+    ) : (
+      <h3>{title}</h3>
+    )}
+    <ul class="card-bullets">
+      {bullets.map((bullet) => (
+        <li>{bullet}</li>
+      ))}
+    </ul>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: var(--color-surface);
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: var(--spacing-lg);
+    flex: 1;
+  }
+
+  .card-content h3 {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.25rem;
+    color: var(--color-text);
+  }
+
+  .card-content h3 a {
+    color: var(--color-text);
+    transition: color 0.2s;
+  }
+
+  .card-content h3 a:hover {
+    color: var(--color-primary);
+  }
+
+  .card-bullets {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .card-bullets li {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .card-bullets li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .card-bullets li:last-child {
+    margin-bottom: 0;
+  }
+</style>
