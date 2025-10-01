@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Home - Zeyu Li"
+  description="Personal research portfolio of Zeyu Li - Materials Science and Biotech"
+>
+  <section class="hero">
+    <h1>Zeyu Li</h1>
+    <p class="lead">Researcher in Materials Science & Biotechnology</p>
+    <p>
+      Welcome to my research portfolio. I focus on advancing materials science and biotechnology 
+      through innovative research and interdisciplinary collaboration.
+    </p>
+  </section>
+
+  <section class="intro">
+    <h2>About</h2>
+    <p>
+      This portfolio showcases my research work, publications, teaching activities, and professional 
+      contributions in the fields of materials science and biotechnology. Explore the sections above 
+      to learn more about my work.
+    </p>
+  </section>
+
+  <style>
+    .hero {
+      text-align: center;
+      padding: var(--spacing-2xl) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: var(--spacing-md);
+      color: var(--color-text);
+    }
+
+    .lead {
+      font-size: 1.5rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .intro {
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .intro h2 {
+      color: var(--color-text);
+    }
+
+    .intro p {
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      max-width: 800px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .lead {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</BaseLayout>

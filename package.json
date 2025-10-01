@@ -1,0 +1,21 @@
+{
+  "name": "zeyu-portfolio",
+  "version": "1.0.0",
+  "description": "Personal research portfolio (materials + biotech) built with Astro Academia. Light theme, fast static deploys via GitHub Pages. Sections: Home, Projects, Publications, Teaching, Talks, Writing, CV.",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.14.1",
+    "typescript": "^5.9.3"
+  }
+}

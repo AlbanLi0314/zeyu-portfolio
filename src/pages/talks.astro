@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Talks - Zeyu Li"
+  description="Conference presentations and invited talks"
+>
+  <h1>Talks & Presentations</h1>
+  <p class="page-intro">
+    Selected presentations at conferences, seminars, and other academic venues.
+  </p>
+
+  <section class="talks-section">
+    <h2>Invited Talks</h2>
+    <ul class="talks-list">
+      <li class="talk-item">
+        <h3>Sustainable Materials for the Future</h3>
+        <p class="talk-meta">MIT Materials Science Seminar • Cambridge, MA • March 2024</p>
+        <p>
+          Keynote presentation on developing sustainable alternatives to traditional materials 
+          and their potential impact on environmental challenges.
+        </p>
+      </li>
+
+      <li class="talk-item">
+        <h3>Advances in Biocompatible Polymers</h3>
+        <p class="talk-meta">Stanford Biomaterials Symposium • Stanford, CA • January 2024</p>
+        <p>
+          Overview of recent developments in biocompatible polymer design and their 
+          applications in drug delivery systems.
+        </p>
+      </li>
+    </ul>
+
+    <h2>Conference Presentations</h2>
+    <ul class="talks-list">
+      <li class="talk-item">
+        <h3>Novel Synthesis Methods for Nanomaterials</h3>
+        <p class="talk-meta">Materials Research Society Fall Meeting • Boston, MA • December 2023</p>
+        <p>Oral presentation on innovative approaches to nanomaterial synthesis.</p>
+      </li>
+
+      <li class="talk-item">
+        <h3>Biomaterial-Cell Interface Characterization</h3>
+        <p class="talk-meta">American Chemical Society National Meeting • San Francisco, CA • August 2023</p>
+        <p>Poster presentation on advanced characterization techniques for biomaterial surfaces.</p>
+      </li>
+    </ul>
+  </section>
+
+  <style>
+    h1 {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .page-intro {
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-2xl);
+      max-width: 800px;
+    }
+
+    .talks-section h2 {
+      margin-top: var(--spacing-2xl);
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-text);
+    }
+
+    .talks-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .talk-item {
+      margin-bottom: var(--spacing-xl);
+      padding: var(--spacing-lg);
+      background: var(--color-surface);
+      border-radius: var(--border-radius-md);
+      border: 1px solid var(--color-border);
+    }
+
+    .talk-item h3 {
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-text);
+      font-size: 1.25rem;
+    }
+
+    .talk-meta {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: var(--spacing-md);
+      font-weight: 500;
+    }
+
+    .talk-item p:last-child {
+      margin-bottom: 0;
+      color: var(--color-text-secondary);
+    }
+  </style>
+</BaseLayout>

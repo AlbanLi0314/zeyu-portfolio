@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Teaching - Zeyu Li"
+  description="Teaching experience and academic mentorship"
+>
+  <h1>Teaching</h1>
+  <p class="page-intro">
+    My teaching experience includes courses in materials science, chemistry, and biotechnology, 
+    as well as mentoring graduate and undergraduate students.
+  </p>
+
+  <section class="teaching-section">
+    <h2>Courses Taught</h2>
+    <div class="course-list">
+      <article class="course-item">
+        <h3>Introduction to Materials Science</h3>
+        <p class="course-meta">Undergraduate Level • Fall 2023</p>
+        <p>
+          Comprehensive introduction to the fundamental concepts of materials science, 
+          covering structure-property relationships, processing, and characterization techniques.
+        </p>
+      </article>
+
+      <article class="course-item">
+        <h3>Advanced Biomaterials</h3>
+        <p class="course-meta">Graduate Level • Spring 2024</p>
+        <p>
+          Advanced topics in biomaterials design, synthesis, and applications in 
+          medical devices and tissue engineering.
+        </p>
+      </article>
+
+      <article class="course-item">
+        <h3>Laboratory Methods in Materials Research</h3>
+        <p class="course-meta">Undergraduate Level • Fall 2022</p>
+        <p>
+          Hands-on laboratory course covering essential characterization techniques 
+          including microscopy, spectroscopy, and mechanical testing.
+        </p>
+      </article>
+    </div>
+
+    <h2>Mentorship</h2>
+    <p>
+      I have had the privilege of mentoring several graduate and undergraduate students 
+      in their research projects, helping them develop critical thinking skills and 
+      advance their scientific careers.
+    </p>
+  </section>
+
+  <style>
+    h1 {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .page-intro {
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-2xl);
+      max-width: 800px;
+    }
+
+    .teaching-section h2 {
+      margin-top: var(--spacing-2xl);
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-text);
+    }
+
+    .course-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xl);
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    .course-item {
+      padding: var(--spacing-lg);
+      background: var(--color-surface);
+      border-radius: var(--border-radius-md);
+      border: 1px solid var(--color-border);
+    }
+
+    .course-item h3 {
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-text);
+    }
+
+    .course-meta {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .course-item p:last-child {
+      margin-bottom: 0;
+      color: var(--color-text-secondary);
+    }
+  </style>
+</BaseLayout>

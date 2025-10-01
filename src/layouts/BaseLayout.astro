@@ -1,0 +1,189 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Zeyu Portfolio', 
+  description = 'Personal research portfolio in materials and biotech'
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <header class="site-header">
+      <div class="container">
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href={base} class="logo">Zeyu Li</a>
+          <ul class="nav-links">
+            <li><a href={base} class={currentPath === base || currentPath === base.replace(/\/$/, '') ? 'active' : ''}>Home</a></li>
+            <li><a href={`${base}projects/`} class={currentPath.includes('/projects') ? 'active' : ''}>Projects</a></li>
+            <li><a href={`${base}publications/`} class={currentPath.includes('/publications') ? 'active' : ''}>Publications</a></li>
+            <li><a href={`${base}teaching/`} class={currentPath.includes('/teaching') ? 'active' : ''}>Teaching</a></li>
+            <li><a href={`${base}talks/`} class={currentPath.includes('/talks') ? 'active' : ''}>Talks</a></li>
+            <li><a href={`${base}writing/`} class={currentPath.includes('/writing') ? 'active' : ''}>Writing</a></li>
+            <li><a href={`${base}cv/`} class={currentPath.includes('/cv') ? 'active' : ''}>CV</a></li>
+            <li><a href={`${base}contact/`} class={currentPath.includes('/contact') ? 'active' : ''}>Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; {new Date().getFullYear()} Zeyu Li. All rights reserved.</p>
+          <div class="social-links">
+            <a 
+              href="https://www.linkedin.com/in/yourprofile" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
+            >
+              LinkedIn
+            </a>
+            <a 
+              href="https://scholar.google.com/citations?user=yourprofile" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Google Scholar profile"
+            >
+              Google Scholar
+            </a>
+            <a 
+              href="https://orcid.org/0000-0000-0000-0000" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="ORCID profile"
+            >
+              ORCID
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .site-header {
+        background-color: var(--color-surface);
+        border-bottom: 1px solid var(--color-border);
+        padding: var(--spacing-md) 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .main-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-text);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-lg);
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: var(--color-text-secondary);
+        font-weight: 500;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-radius: var(--border-radius-sm);
+        transition: color 0.2s, background-color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--color-primary);
+        background-color: rgba(37, 99, 235, 0.1);
+      }
+
+      .nav-links a.active {
+        color: var(--color-primary);
+        font-weight: 600;
+      }
+
+      .site-footer {
+        background-color: var(--color-surface);
+        border-top: 1px solid var(--color-border);
+        padding: var(--spacing-xl) 0;
+        margin-top: var(--spacing-2xl);
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+      }
+
+      .footer-content p {
+        margin: 0;
+        color: var(--color-text-secondary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: var(--spacing-lg);
+      }
+
+      .social-links a {
+        color: var(--color-text-secondary);
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      .social-links a:hover {
+        color: var(--color-primary);
+      }
+
+      @media (max-width: 768px) {
+        .main-nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          gap: var(--spacing-sm);
+          width: 100%;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </body>
+</html>
