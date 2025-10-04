@@ -30,10 +30,15 @@ const {
 
 		<Head title={title} description={description} image={image} />
 		
-		<!-- Google Fonts: Inter for professional sans-serif typography -->
+		<!-- Google Fonts: Professional Typography System -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<!-- Headings: Inter (geometric, precise) -->
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<!-- Body: Source Sans 3 (humanist, readable) -->
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<!-- Quotes/Highlights: Merriweather (serif, scholarly) -->
+		<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
 	</head>
 	<body>
@@ -93,30 +98,101 @@ const {
 </html>
 
 <style is:global>
-	/* Professional Typography and Accessibility */
+	/* ========================================
+	   PROFESSIONAL TYPOGRAPHY SYSTEM
+	   ======================================== */
+	
+	/* Base: Humanist sans-serif for body text (warmth + readability) */
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
-		font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		font-family: 'Source Sans 3', 'Open Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+		font-weight: 400;
+		line-height: 1.75; /* Enhanced readability */
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-	/* Improve link accessibility with underline on hover */
+	/* Headings: Geometric sans-serif (precision + intelligence) */
+	h1, h2, h3, h4, h5, h6,
+	.card-title,
+	.navbar,
+	.btn,
+	.badge,
+	.stat-title,
+	.stat-value {
+		font-family: 'Inter', 'IBM Plex Sans', system-ui, sans-serif;
+		letter-spacing: -0.025em;
+	}
+
+	/* Heading weight hierarchy */
+	h1 {
+		font-weight: 700;
+		letter-spacing: -0.035em;
+	}
+	
+	h2 {
+		font-weight: 600;
+		letter-spacing: -0.03em;
+	}
+	
+	h3, h4 {
+		font-weight: 600;
+		letter-spacing: -0.025em;
+	}
+
+	/* Body text optimization */
+	p, li, td, .prose {
+		font-family: 'Source Sans 3', 'Open Sans', system-ui, sans-serif;
+		font-weight: 400;
+		line-height: 1.75;
+	}
+
+	/* Quotes and callouts: Serif for scholarly depth */
+	blockquote,
+	.prose blockquote,
+	q {
+		font-family: 'Merriweather', 'Lora', Georgia, serif;
+		font-style: italic;
+		font-weight: 400;
+		line-height: 1.65;
+	}
+
+	/* Dark mode typography adjustments */
+	[data-theme="professional-dark"] body,
+	[data-theme="professional-dark"] p,
+	[data-theme="professional-dark"] li,
+	[data-theme="professional-dark"] td {
+		font-weight: 500; /* Increased weight for legibility */
+		line-height: 1.8; /* 5-10% more spacing */
+	}
+
+	[data-theme="professional-dark"] h1,
+	[data-theme="professional-dark"] h2,
+	[data-theme="professional-dark"] h3 {
+		font-weight: 700; /* Slightly heavier in dark mode */
+	}
+
+	/* ========================================
+	   INTERACTION & ACCESSIBILITY
+	   ======================================== */
+
+	/* Link states */
 	a:not(.btn):not(.link-hover) {
-		transition: color 0.2s ease-in-out;
+		transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
 	}
 	
 	a:not(.btn):hover {
 		text-decoration-thickness: 2px;
 	}
 
-	/* Enhanced button hover states for better UX */
+	/* Button states */
 	.btn {
 		transition: all 0.2s ease-in-out;
 		font-weight: 500;
+		font-family: 'Inter', system-ui, sans-serif;
 	}
 	
 	.btn-primary:hover {
@@ -126,10 +202,10 @@ const {
 	
 	.btn-accent:hover {
 		transform: translateY(-1px);
-		box-shadow: 0 4px 12px rgba(217, 72, 15, 0.3);
+		box-shadow: 0 4px 12px rgba(14, 116, 144, 0.3); /* Updated for new teal accent */
 	}
 
-	/* Card hover effects for professional feel */
+	/* Card effects */
 	.card {
 		transition: all 0.3s ease-in-out;
 	}
@@ -139,54 +215,112 @@ const {
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 	}
 
-	/* Better focus states for accessibility */
+	/* Focus states for accessibility */
 	*:focus-visible {
 		outline: 2px solid #1F4D7A;
 		outline-offset: 2px;
 	}
 
-	/* Improved prose typography */
+	/* ========================================
+	   PROSE TYPOGRAPHY (Tailwind Typography)
+	   ======================================== */
+
 	.prose {
 		max-width: 75ch;
-		line-height: 1.7;
+		line-height: 1.75;
+		font-family: 'Source Sans 3', 'Open Sans', system-ui, sans-serif;
 	}
 	
-	.prose h1, .prose h2, .prose h3 {
+	.prose h1, .prose h2, .prose h3, .prose h4 {
+		font-family: 'Inter', 'IBM Plex Sans', system-ui, sans-serif;
 		font-weight: 600;
 		letter-spacing: -0.025em;
 	}
 	
+	.prose h1 {
+		font-weight: 700;
+	}
+	
 	.prose p {
 		margin-bottom: 1.25em;
+		line-height: 1.75;
 	}
 
-	/* Smooth scrolling for anchor links */
+	.prose blockquote {
+		font-family: 'Merriweather', 'Lora', Georgia, serif;
+		font-style: italic;
+		border-left-width: 4px;
+		padding-left: 1.5em;
+	}
+
+	.prose code {
+		font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Courier New', monospace;
+		font-size: 0.9em;
+	}
+
+	/* Dark mode prose adjustments */
+	[data-theme="professional-dark"] .prose {
+		line-height: 1.8;
+	}
+
+	[data-theme="professional-dark"] .prose p,
+	[data-theme="professional-dark"] .prose li {
+		font-weight: 500;
+	}
+
+	/* ========================================
+	   UTILITY & LAYOUT
+	   ======================================== */
+
+	/* Smooth scrolling */
 	html {
 		scroll-behavior: smooth;
 	}
 
-	/* Better spacing for sections */
+	/* Section spacing */
 	section {
 		scroll-margin-top: 2rem;
 	}
 
-	/* Enhanced badge styling */
+	/* Badge styling */
 	.badge {
 		font-weight: 500;
 		letter-spacing: 0.025em;
+		font-family: 'Inter', system-ui, sans-serif;
 	}
 
-	/* Stats styling for research impact */
+	/* Stats styling */
 	.stats {
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 	}
 	
 	.stat-value {
 		font-weight: 700;
+		font-family: 'Inter', system-ui, sans-serif;
 	}
 	
 	.stat-title {
 		font-weight: 500;
 		opacity: 0.7;
+		font-family: 'Inter', system-ui, sans-serif;
+	}
+
+	/* ========================================
+	   READING FLUENCY OPTIMIZATION
+	   ======================================== */
+
+	/* Optimal line length for reading */
+	.max-w-prose {
+		max-width: 65ch;
+	}
+
+	/* Prevent orphans in headings */
+	h1, h2, h3, h4, h5, h6 {
+		text-wrap: balance;
+	}
+
+	/* Prevent widows in body text */
+	p {
+		text-wrap: pretty;
 	}
 </style>
