@@ -49,8 +49,8 @@ export const template = {
 	website_url: 'https://zeyuli.net',
 	menu_left: false,
 	transitions: true,
-	lightTheme: 'light',
-	darkTheme: 'dark',
+	lightTheme: 'professional',
+	darkTheme: 'professional-dark',
 	excerptLength: 200,
 	postPerPage: 5,
 	base: ''
