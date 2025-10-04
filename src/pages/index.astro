@@ -19,10 +19,10 @@ const { fullName, title, institute } = profile
 		<h2 class='text-2xl text-base-content/70 mb-2 font-medium'>{title}</h2>
 		<p class='text-lg text-base-content/60 mb-8'>{institute}</p>
 		
-		<!-- CTA Buttons - Primary action uses accent color for attention -->
+		<!-- CTA Buttons - Primary action with optimized visibility -->
 		<div class='flex flex-wrap gap-4 justify-center'>
-			<a href={`${template.base}/research`} class='btn btn-accent text-white'>
-				View Research
+			<a href={`${template.base}/research`} class='btn btn-accent'>
+				<span class='font-semibold tracking-wide'>View Research</span>
 			</a>
 			<a href={`${template.base}/publications`} class='btn btn-primary'>
 				Publications

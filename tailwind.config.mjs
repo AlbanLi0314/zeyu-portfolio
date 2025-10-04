@@ -25,7 +25,7 @@ export default {
                 professional: {
                     "primary": "#1F4D7A",           // Indigo blue - trustworthy, intelligent
                     "secondary": "#2563EB",         // Lighter blue for secondary actions
-                    "accent": "#0E7490",            // Teal - subtle, professional, less attention-grabbing
+                    "accent": "#0F768C",            // Richer teal-blue - confidence and approachability
                     "neutral": "#374151",           // Dark gray for neutral elements
                     "base-100": "#F7FAFC",          // Cool off-white background
                     "base-200": "#E5E7EB",          // Slightly darker for cards/sections
@@ -44,7 +44,7 @@ export default {
                     "--tw-prose-counters": "#6B7280",
                     "--tw-prose-bullets": "#6B7280",
                     "--tw-prose-quotes": "#374151",
-                    "--tw-prose-quote-borders": "#0E7490",
+                    "--tw-prose-quote-borders": "#0F768C",
                     "--tw-prose-captions": "#6B7280",
                     "--tw-prose-code": "#1F4D7A",
                 },

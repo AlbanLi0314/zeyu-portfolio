@@ -193,6 +193,7 @@ const {
 		transition: all 0.2s ease-in-out;
 		font-weight: 500;
 		font-family: 'Inter', system-ui, sans-serif;
+		border-radius: 0.75rem; /* Soft, modern academic style */
 	}
 	
 	.btn-primary:hover {
@@ -200,9 +201,30 @@ const {
 		box-shadow: 0 4px 12px rgba(31, 77, 122, 0.3);
 	}
 	
+	/* Enhanced "View Research" button styling */
+	.btn-accent {
+		background: linear-gradient(135deg, #0F768C 0%, #166EAF 100%);
+		border: none;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		color: #FFFFFF;
+		font-weight: 600;
+	}
+	
 	.btn-accent:hover {
-		transform: translateY(-1px);
-		box-shadow: 0 4px 12px rgba(14, 116, 144, 0.3); /* Updated for new teal accent */
+		background: linear-gradient(135deg, #0C5E70 0%, #124E8A 100%);
+		transform: translateY(-2px);
+		box-shadow: 0 6px 16px rgba(15, 118, 140, 0.35);
+	}
+	
+	.btn-accent:active {
+		transform: translateY(0);
+		box-shadow: 0 2px 6px rgba(15, 118, 140, 0.3);
+	}
+	
+	/* Ensure high contrast for accessibility */
+	.btn-accent:focus-visible {
+		outline: 3px solid #0F768C;
+		outline-offset: 2px;
 	}
 
 	/* Card effects */
