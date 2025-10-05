@@ -73,7 +73,7 @@ const {
 						<div class='navbar-center lg:hidden text-lg font-semibold'>
 							{profile.fullName}
 						</div>
-						<div class='navbar-end'>
+						<div class='navbar-end mr-4'>
 							{!template.menu_left &&
 								<DarkLightController/>
 								/* <ThemeSelector transition:persist /> */
@@ -344,5 +344,18 @@ const {
 	/* Prevent widows in body text */
 	p {
 		text-wrap: pretty;
+	}
+
+	/* ========================================
+	   SIDEBAR LAYOUT FIX
+	   ======================================== */
+	
+	/* Ensure drawer-side extends to full viewport height */
+	.drawer-side {
+		min-height: 100vh;
+	}
+	
+	.drawer-side > aside {
+		min-height: 100vh;
 	}
 </style>
