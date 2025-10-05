@@ -1,7 +1,7 @@
 ---
 title: "Synthetic eDNA Particles for Tracing and Modeling Environmental DNA Transport in a Large Lake System"
 authors: ["Zeyu Li", "C. L. Ramón", "A. Koeberle", "et al."]
-venue: "Environmental Science & Technology (Under Review)"
+venue: "Under review (ES&T, 2025)"
 year: 2025
 status: "under-review"
 doi: ""
