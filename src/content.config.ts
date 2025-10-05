@@ -29,6 +29,7 @@ const papers = defineCollection({
         venue: z.string().optional(),
         year: z.number(),
         status: z.string().optional(),
+        link: z.string().optional(),
         doi: z.string().optional(),
         pdf: z.string().optional(),
         keywords: z.array(z.string()).optional(),
