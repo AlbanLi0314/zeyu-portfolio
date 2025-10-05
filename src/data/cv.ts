@@ -26,7 +26,7 @@ export const education = [
 	{
 		school: 'Cornell University',
 		time: '2020 - Present',
-		degree: 'Ph.D. in Biological & Environmental Engineering',
+		degree: 'Ph.D. in Biological & Environmental Engineering (Expected May 2026)',
 		location: 'Ithaca, NY',
 		description: 'Developing DNA-polymer nanoparticle tracers for hydrological monitoring and DNA-composite hydrogels for self-healing materials. Research focuses on nanoparticle fabrication, additive manufacturing, polymer/biomaterials engineering, and advanced materials characterization.',
 	},
@@ -70,25 +70,46 @@ export const publications = [
 	{
 		title: 'Synthetic eDNA Particles for Tracing and Modeling Environmental DNA Transport in a Large Lake System',
 		authors: 'Zeyu Li, C. L. Ramón, A. Koeberle, et al.',
-		journal: 'Environmental Science & Technology',
+		journal: 'Environmental Science & Technology (Under Review)',
 		time: '2025',
 		link: '',
-		abstract: 'Field-deployed DNA-polymer nanoparticle tracers across 11 km² of Cayuga Lake, achieving robust qPCR detection 7 km from release. Generated data calibrating 3D hydrodynamic eDNA-transport models. (Manuscript under review)',
+		abstract: 'Field-deployed DNA-polymer nanoparticle tracers across 11 km² of Cayuga Lake, achieving robust qPCR detection 7 km from release. Generated data calibrating 3D hydrodynamic eDNA-transport models.',
 	},
 	{
 		title: 'PolyTile 4.0: Self-healing Ceramic Tiles',
 		authors: 'C. He, Zeyu Li, L. X. Wang, et al.',
-		journal: 'ACADIA 2024',
+		journal: 'ACADIA 2024 (Published)',
 		time: '2024',
 		link: '',
-		abstract: 'Developed DNA–Al³⁺ hydrogels integrated into 3D printed vascular tiles. Restored crack integrity through multiple damage-heal cycles, demonstrating autonomous repair for infrastructure materials.',
+		abstract: 'Developed DNA–Al³⁺ hydrogels integrated into 3D-printed vascular tiles. Restored crack integrity through multiple damage-heal cycles, demonstrating autonomous repair for infrastructure materials.',
 	},
 	{
 		title: 'All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability',
 		authors: 'W. Li, C. W. Chan, Zeyu Li, et al.',
-		journal: 'The Innovation',
+		journal: 'The Innovation (Published)',
 		time: '2023',
 		link: '',
 		abstract: 'Engineered nanopatterned Teflon films achieving ultra-low wettability and high mechanical durability through hierarchical surface architectures. (IF = 25.7)',
+	},
+];
+
+export const patents = [
+	{
+		title: 'Crack engineering as a new route for the construction of arbitrary hierarchical architectures',
+		inventors: 'K. Ren, H. Wu, Z. Wang, S. Yao, B. Ong, W. Li, Zeyu Li, H. Sun, C.W. Chan',
+		number: 'US 11,839,998',
+		time: '2023',
+		status: 'Granted',
+		link: '',
+		abstract: 'Novel method for constructing hierarchical surface architectures through controlled crack engineering, enabling advanced surface functionalization and material design.',
+	},
+	{
+		title: '一种高耐久、一体成型超疏水曲面及其制备方法',
+		inventors: 'K. Ren, W. Li, Zeyu Li, et al.',
+		number: 'CN 201711214139.6',
+		time: '2017',
+		status: 'Granted',
+		link: '',
+		abstract: 'Method for fabricating durable superhydrophobic curved surfaces through hierarchical nanopatterning and controlled crack engineering.',
 	},
 ];

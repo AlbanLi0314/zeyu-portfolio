@@ -1,10 +1,10 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { experiences, education, skills, publications } from '../data/cv'
+import { experiences, education, skills, publications, patents } from '../data/cv'
 import CvTimeline from '@/components/ui/CvTimeline.astro'
 import { profile } from '@/settings'
 
-import type { Experience, Education, Publication } from '../types/cv'
+import type { Experience, Education, Publication, Patent } from '../types/cv'
 import List from '@/components/ui/List.astro'
 import PublicationsList from '@/components/ui/PublicationsList.astro'
 
@@ -13,6 +13,7 @@ const { fullName } = profile
 let orderedExperiences: Experience[] = []
 let orderedEducations: Education[] = []
 let orderedPublications: Publication[] = []
+let orderedPatents: Patent[] = []
 
 const orderElement = <T extends { time: string }>(a: T, b: T) => {
   const presentValues = ['present', 'now', 'current', 'today']
@@ -43,6 +44,12 @@ if (education.length > 0) {
 
 if (publications.length > 0) {
 	orderedPublications = publications.sort((a, b) => {
+		return orderElement(a, b)
+	})
+}
+
+if (patents.length > 0) {
+	orderedPatents = patents.sort((a, b) => {
 		return orderElement(a, b)
 	})
 }
@@ -109,6 +116,34 @@ if (publications.length > 0) {
 						Selected Publications
 					</h2>
 					<PublicationsList elements={orderedPublications}/>
+				</section>
+			)
+		}
+
+		{
+			orderedPatents.length > 0 && (
+				<section class='mb-12'>
+					<h2 class='text-3xl font-bold mb-6 border-b-2 border-primary pb-2'>
+						Patents
+					</h2>
+					<div class='space-y-6'>
+						{orderedPatents.map((patent) => (
+							<div class='border-b pb-4 last:border-b-0'>
+								<h3 class='text-xl font-semibold mb-2'>{patent.title}</h3>
+								<p class='text-sm text-base-content/70 mb-2'>
+									{patent.inventors}
+								</p>
+								<div class='flex gap-3 items-center text-sm mb-2'>
+									<span class='font-mono text-xs'>{patent.number}</span>
+									<span class='badge badge-success'>{patent.status}</span>
+									<span class='badge badge-outline'>{patent.time}</span>
+								</div>
+								{patent.abstract && (
+									<p class='text-sm text-base-content/80'>{patent.abstract}</p>
+								)}
+							</div>
+						))}
+					</div>
 				</section>
 			)
 		}
