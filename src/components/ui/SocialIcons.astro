@@ -56,7 +56,13 @@ const calculatedContainerSize = activeSocial.length <= 5 ? 'size-12' : activeSoc
 
 	<!-- Google Scholar -->
 	{social.scholar !== '' &&
-		<a href={social.scholar} target="_blank" class={`${calculatedContainerSize} inline-flex items-center justify-center rounded-xl hover:bg-primary/20 transition-all duration-300`}>
+		<a 
+			href={social.scholar} 
+			target="_blank" 
+			class={`${calculatedContainerSize} inline-flex items-center justify-center rounded-xl hover:bg-primary/20 transition-all duration-300`}
+			title="Google Scholar Profile"
+			aria-label="Google Scholar"
+		>
 			<Scholar class={calculatedIconSize} fill="currentColor" />
 		</a>
 	}
@@ -76,7 +82,13 @@ const calculatedContainerSize = activeSocial.length <= 5 ? 'size-12' : activeSoc
 	  }
     <!-- orcid -->
 	  {social.orcid !== '' &&
-		<a href={social.orcid} target="_blank" class={`${calculatedContainerSize} inline-flex items-center justify-center rounded-xl hover:bg-primary/20 transition-all duration-300`}>
+		<a 
+			href={social.orcid} 
+			target="_blank" 
+			class={`${calculatedContainerSize} inline-flex items-center justify-center rounded-xl hover:bg-primary/20 transition-all duration-300`}
+			title="ORCID Profile"
+			aria-label="ORCID"
+		>
 			<Orcid class={calculatedIconSize} fill="currentColor" />
 		</a>
 	}
