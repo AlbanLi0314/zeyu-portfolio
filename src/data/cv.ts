@@ -25,15 +25,29 @@ export const experiences = [
 export const education = [
 	{
 		school: 'Cornell University',
-		time: '2020 - Present',
+		time: '2020–Present',
 		degree: 'Ph.D. in Biological & Environmental Engineering (Expected May 2026)',
 		location: 'Ithaca, NY',
 		description: 'Developing DNA-polymer nanoparticle tracers for hydrological monitoring and DNA-composite hydrogels for self-healing materials. Research focuses on nanoparticle fabrication, additive manufacturing, polymer/biomaterials engineering, and advanced materials characterization.',
 	},
 	{
+		school: 'Cornell University',
+		time: 'Aug 31, 2024',
+		degree: 'M.S., Biological and Environmental Engineering',
+		location: 'Ithaca, NY',
+		description: '',
+	},
+	{
+		school: 'Cornell University',
+		time: 'May 24, 2020',
+		degree: 'M.Eng., Biological and Environmental Engineering',
+		location: 'Ithaca, NY',
+		description: '',
+	},
+	{
 		school: 'Hong Kong Baptist University',
-		time: '2016 - 2020',
-		degree: 'Bachelor of Science (Honors), Chemistry with Computer Science Minor',
+		time: 'Sep 2015–Jun 2019',
+		degree: 'B.Sc. Chemistry, Minor in Computer Science',
 		location: 'Hong Kong',
 		description: 'Focused on superhydrophobic surface engineering, nanopatterning, and computational methods. Completed top-rated undergraduate thesis on charge-mediated ice shedding.',
 	},
