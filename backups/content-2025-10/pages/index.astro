@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { profile, template } from '@/settings'
+import ProfilePictures from '@/assets/profile_pictures.jpg'
+import { Image } from 'astro:assets'
+
+const { fullName, title, institute } = profile
+---
+
+<Layout>
+	<!-- Hero Section -->
+	<section class='flex flex-col items-center text-center py-12'>
+		<Image
+			class='mask mask-circle size-48 mb-8 ring-4 ring-primary/10'
+			src={ProfilePictures}
+			alt={`Profile picture of ${fullName}`}
+		/>
+		<h1 class='text-5xl font-bold mb-4 text-primary'>{fullName}</h1>
+		<h2 class='text-2xl text-base-content/70 mb-2 font-medium'>{title}</h2>
+		<p class='text-lg text-base-content/60 mb-8'>{institute}</p>
+		
+		<!-- CTA Buttons - Primary action with optimized visibility -->
+		<div class='flex flex-wrap gap-4 justify-center'>
+			<a href={`${template.base}/research`} class='btn btn-accent'>
+				<span class='font-semibold tracking-wide'>View Research</span>
+			</a>
+			<a href={`${template.base}/publications`} class='btn btn-primary'>
+				Publications
+			</a>
+			<a href={`${template.base}/cv`} class='btn btn-outline btn-primary'>
+				Download CV
+			</a>
+			<a href={`${template.base}/contact`} class='btn btn-outline btn-primary'>
+				Get in Touch
+			</a>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section class='py-12 border-t border-base-300'>
+		<h2 class='text-3xl font-bold mb-6 text-primary'>About</h2>
+		<div class='prose max-w-none prose-lg'>
+			<p class='text-lg leading-relaxed mb-4 text-base-content'>
+				I am a Ph.D. candidate in Biological & Environmental Engineering at Cornell University, 
+				developing DNA-polymer nanoparticle tracers for large-scale hydrological monitoring and 
+				DNA-composite hydrogels for self-healing and stimulus-responsive structural materials.
+			</p>
+			<p class='text-lg leading-relaxed mb-4 text-base-content'>
+				My research led a 7-member, four-discipline collaboration that field-deployed tracers across 
+				an 11 km² lake, achieving robust detection 7 km from release with only 1 mg DNA. This work 
+				generated data calibrating 3D hydrodynamic eDNA-transport models. I have also developed 
+				programmable, 3D-printable DNA hydrogels with autonomous self-healing capabilities and 
+				an automated DNA-purification platform that reduced costs by 91%.
+			</p>
+			<p class='text-lg leading-relaxed text-base-content'>
+				Core strengths include nanoparticle fabrication, additive manufacturing, polymer and biomaterials 
+				engineering, and advanced materials characterization. I am co-author of peer-reviewed publications 
+				in high-impact journals and co-inventor on a U.S. patent.
+			</p>
+		</div>
+	</section>
+</Layout>

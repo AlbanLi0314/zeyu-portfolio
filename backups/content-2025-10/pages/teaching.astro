@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+const teachingItems = await getCollection('teaching')
+
+// Sort by term (you may want to customize this)
+const sortedTeaching = teachingItems.sort((a, b) => 
+	b.data.term.localeCompare(a.data.term)
+)
+---
+
+<Layout title="Teaching & Coursework - Zeyu Li">
+	<div class='max-w-4xl mx-auto'>
+		<h1 class='text-4xl font-bold mb-8'>Teaching & Coursework</h1>
+		
+		<!-- Teaching Section -->
+		<section class='mb-12 pb-12 border-b'>
+			<h2 class='text-3xl font-bold mb-6'>Teaching Experience</h2>
+			{sortedTeaching.length === 0 ? (
+				<p class='text-base-content/60'>
+					No teaching experience added yet. Add teaching items in <code>src/content/teaching/</code>
+				</p>
+			) : (
+				<div class='space-y-6'>
+					{sortedTeaching.map((item) => (
+						<div class='card bg-base-200 shadow-sm'>
+							<div class='card-body'>
+								<h3 class='card-title text-xl'>
+									{item.data.link ? (
+										<a href={item.data.link} class='link link-primary' target="_blank" rel="noopener noreferrer">
+											{item.data.course}
+										</a>
+									) : (
+										item.data.course
+									)}
+								</h3>
+								<div class='space-y-1 text-sm'>
+									<p><strong>Role:</strong> {item.data.role}</p>
+									<p><strong>Term:</strong> {item.data.term}</p>
+									<p><strong>Institution:</strong> {item.data.institution}</p>
+								</div>
+								{item.data.notes && (
+									<p class='mt-3 text-base-content/80'>{item.data.notes}</p>
+								)}
+							</div>
+						</div>
+					))}
+				</div>
+			)}
+		</section>
+
+		<!-- Coursework Section -->
+		<section>
+			<h2 class='text-3xl font-bold mb-6'>Selected Graduate Coursework</h2>
+			<div class='prose max-w-none'>
+				<p class='text-base-content/70 mb-4'>
+					<!-- TODO: Add your coursework here -->
+					Technical coursework completed during graduate studies:
+				</p>
+				
+				<div class='grid md:grid-cols-2 gap-4'>
+					<div class='card bg-base-200'>
+						<div class='card-body'>
+							<h3 class='card-title text-lg'>Core Courses</h3>
+							<ul class='list-disc list-inside space-y-1 text-sm'>
+								<li>Advanced Environmental Systems</li>
+								<li>Data Science for Engineers</li>
+								<li>Environmental Modeling</li>
+								<!-- Add your actual courses -->
+							</ul>
+						</div>
+					</div>
+					
+					<div class='card bg-base-200'>
+						<div class='card-body'>
+							<h3 class='card-title text-lg'>Electives</h3>
+							<ul class='list-disc list-inside space-y-1 text-sm'>
+								<li>Machine Learning Applications</li>
+								<li>Climate Change Science</li>
+								<li>Optimization Methods</li>
+								<!-- Add your actual courses -->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</Layout>

@@ -1,0 +1,107 @@
+---
+import { getCollection, render } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+import type { GetStaticPaths } from 'astro'
+
+export const getStaticPaths = (async () => {
+	const seriesPosts = await getCollection('series')
+	return seriesPosts.map(post => ({
+		params: { slug: post.id },
+		props: { post },
+	}))
+}) satisfies GetStaticPaths
+
+const { post } = Astro.props
+const { Content } = await render(post)
+
+function formatDate(dateString: string): string {
+	const date = new Date(dateString)
+	return date.toLocaleDateString('en-US', { 
+		year: 'numeric', 
+		month: 'long', 
+		day: 'numeric' 
+	})
+}
+---
+
+<Layout title={`${post.data.title} - Series`}>
+	<article class='max-w-4xl mx-auto'>
+		<header class='mb-8'>
+			<h1 class='text-4xl font-bold mb-4'>{post.data.title}</h1>
+			
+			<div class='flex items-center gap-4 text-sm text-base-content/70 mb-4'>
+				<time datetime={post.data.date}>
+					{formatDate(post.data.date)}
+				</time>
+				{post.data.tags && post.data.tags.length > 0 && (
+					<>
+						<span>·</span>
+						<div class='flex gap-2'>
+							{post.data.tags.map(tag => (
+								<span class='badge badge-sm badge-outline'>{tag}</span>
+							))}
+						</div>
+					</>
+				)}
+			</div>
+
+			{post.data.summary && (
+				<p class='text-lg text-base-content/80 italic border-l-4 border-primary pl-4'>
+					{post.data.summary}
+				</p>
+			)}
+		</header>
+
+		<div class='prose max-w-none'>
+			<Content />
+		</div>
+
+		<footer class='mt-12 pt-8 border-t'>
+			<a href='/series' class='btn btn-outline'>
+				← Back to Series
+			</a>
+		</footer>
+	</article>
+</Layout>
+
+<style>
+	.prose {
+		@apply text-base-content;
+	}
+	
+	.prose :global(h2) {
+		@apply text-2xl font-bold mt-8 mb-4;
+	}
+	
+	.prose :global(h3) {
+		@apply text-xl font-semibold mt-6 mb-3;
+	}
+	
+	.prose :global(p) {
+		@apply mb-4 leading-relaxed;
+	}
+	
+	.prose :global(ul), .prose :global(ol) {
+		@apply mb-4 pl-6;
+	}
+	
+	.prose :global(li) {
+		@apply mb-2;
+	}
+	
+	.prose :global(code) {
+		@apply bg-base-200 px-2 py-1 rounded text-sm;
+	}
+	
+	.prose :global(pre) {
+		@apply bg-base-200 p-4 rounded-lg overflow-x-auto mb-4;
+	}
+	
+	.prose :global(blockquote) {
+		@apply border-l-4 border-primary pl-4 italic my-4;
+	}
+	
+	.prose :global(a) {
+		@apply link link-primary;
+	}
+</style>

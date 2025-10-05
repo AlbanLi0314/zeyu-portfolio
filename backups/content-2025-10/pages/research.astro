@@ -1,0 +1,164 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { profile } from "@/settings";
+import BetterIcon from "@/components/ui/BetterIcon.astro";
+import {RESEARCH_ICONS} from "@/data/researchIcons";
+
+const { research_areas } = profile;
+---
+
+<Layout title="Research - Zeyu Li">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8 text-primary">Research</h1>
+
+    <div class="prose max-w-none mb-12">
+      <h2 class="text-2xl font-bold mb-4 text-primary">Research Statement</h2>
+      <p class="text-lg mb-6 text-base-content">
+        My research focuses on developing programmable DNA-based materials for environmental monitoring 
+        and self-healing infrastructure applications. By combining principles from biomaterials engineering, 
+        nanotechnology, and additive manufacturing, I create novel materials that respond to environmental 
+        stimuli and exhibit autonomous repair capabilities.
+      </p>
+      <p class="text-lg mb-6 text-base-content">
+        This interdisciplinary approach bridges environmental engineering, materials science, and molecular 
+        biology to address critical challenges in hydrological monitoring, sustainable infrastructure, and 
+        stimulus-responsive materials. My work has resulted in field-deployed tracers for large-scale 
+        ecosystem studies and self-healing composites for infrastructure applications.
+      </p>
+    </div>
+
+    <h2 class="text-3xl font-bold mb-6 text-primary">Research Areas</h2>
+    {research_areas.length === 0 ? (
+      <p class="text-base-content/60 mb-12">
+        No research areas defined yet. Add them in <code>src/settings.ts</code> under <code>profile.research_areas</code>
+      </p>
+    ) : (
+      <div class="grid gap-8 mb-12">
+        {research_areas.map((area) => (
+          <div class="card bg-base-200 hover:shadow-lg transition-shadow duration-300">
+            <div class="card-body">
+              <div class="flex gap-4 items-start">
+                <BetterIcon>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke-width="2"
+                    class="size-8 stroke-primary"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d={RESEARCH_ICONS[area.field as keyof typeof RESEARCH_ICONS]?.path || RESEARCH_ICONS['computer-science'].path}
+                    />
+                  </svg>
+                </BetterIcon>
+                <div class="flex-1">
+                  <h3 class="text-xl font-semibold mb-2 text-primary">{area.title}</h3>
+                  <p class="text-base text-base-content/80">{area.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-primary">Current Projects</h2>
+      <div class="space-y-6">
+        <div class="card bg-base-200 hover:shadow-lg transition-shadow duration-300">
+          <div class="card-body">
+            <h3 class="card-title text-primary">DNA-Polymer Nanoparticle Tracers for Hydrological Monitoring</h3>
+            <p class="text-base-content/80">
+              Fabricating and field-deploying synthetic eDNA tracers across large aquatic systems. 
+              Coordinating multi-disciplinary teams to achieve robust detection over kilometers and 
+              generate data for 3D hydrodynamic transport models. Results demonstrate viability for 
+              ecosystem-scale environmental monitoring.
+            </p>
+            <div class="card-actions justify-end mt-4">
+              <span class="badge badge-accent text-white">Under Review</span>
+              <span class="badge badge-outline">Environmental Science</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card bg-base-200 hover:shadow-lg transition-shadow duration-300">
+          <div class="card-body">
+            <h3 class="card-title text-primary">Self-Healing DNA Hydrogels for Infrastructure Materials</h3>
+            <p class="text-base-content/80">
+              Developing DNA–Al³⁺ hydrogels integrated into 3D-printed vascular ceramic tiles. 
+              Demonstrating autonomous crack repair through multiple damage-heal cycles with 
+              architecture collaborators. Applications include sustainable building materials 
+              and adaptive infrastructure.
+            </p>
+            <div class="card-actions justify-end mt-4">
+              <span class="badge badge-success">Published</span>
+              <span class="badge badge-outline">Materials Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-base-200 hover:shadow-lg transition-shadow duration-300">
+          <div class="card-body">
+            <h3 class="card-title text-primary">Photo-/Thermo-Reversible DNA Hydrogels</h3>
+            <p class="text-base-content/80">
+              Creating dual-network gels with psoralen molecular clamps that lock/unlock via UV light, 
+              enabling 3D-printable, time-programmed shape fixing and multi-cycle self-repair through 
+              localized light-heat cues. Applications in soft robotics and programmable materials.
+            </p>
+            <div class="card-actions justify-end mt-4">
+              <span class="badge badge-primary">Ongoing</span>
+              <span class="badge badge-outline">Biomaterials</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-base-200 hover:shadow-lg transition-shadow duration-300">
+          <div class="card-body">
+            <h3 class="card-title text-primary">Automated High-Throughput DNA Purification Platform</h3>
+            <p class="text-base-content/80">
+              Designed and validated a perfluorocarbon pod system for continuous biomass-solution 
+              extraction. Achieves 200 mg DNA per pod (chainable for gram-scale output) and cuts 
+              purification costs by 91% versus commercial kits, providing low-cost feedstock for 
+              materials fabrication.
+            </p>
+            <div class="card-actions justify-end mt-4">
+              <span class="badge badge-accent">Validated</span>
+              <span class="badge">Bioprocessing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pt-12 border-t">
+      <h2 class="text-3xl font-bold mb-6">Research Impact</h2>
+      <div class="prose max-w-none">
+        <p class="text-lg mb-6">
+          My research contributes to sustainable environmental monitoring and infrastructure through 
+          programmable DNA-based materials. By reducing costs and enabling large-scale field deployment, 
+          these innovations make advanced monitoring technologies more accessible while demonstrating 
+          autonomous repair capabilities for built environments.
+        </p>
+        <div class="grid md:grid-cols-3 gap-4 not-prose">
+          <div class="stat bg-base-200 rounded-lg">
+            <div class="stat-title">Publications</div>
+            <div class="stat-value text-primary">3+</div>
+            <div class="stat-desc">Peer-reviewed articles</div>
+          </div>
+          <div class="stat bg-base-200 rounded-lg">
+            <div class="stat-title">Patent</div>
+            <div class="stat-value text-secondary">1</div>
+            <div class="stat-desc">US Patent Granted</div>
+          </div>
+          <div class="stat bg-base-200 rounded-lg">
+            <div class="stat-title">Cost Reduction</div>
+            <div class="stat-value text-accent">91%</div>
+            <div class="stat-desc">DNA purification platform</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
