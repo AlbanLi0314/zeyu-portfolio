@@ -350,12 +350,11 @@ const {
 	   SIDEBAR LAYOUT FIX
 	   ======================================== */
 	
-	/* Ensure drawer-side extends to full viewport height */
+	/* Ensure drawer-side has proper positioning */
 	.drawer-side {
-		min-height: 100vh;
-	}
-	
-	.drawer-side > aside {
-		min-height: 100vh;
+		position: sticky;
+		top: 0;
+		height: 100vh;
+		overflow-y: auto;
 	}
 </style>
