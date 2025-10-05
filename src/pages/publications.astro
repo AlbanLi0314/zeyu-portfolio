@@ -50,6 +50,9 @@ const sortedPatents = patents.sort((a, b) => (b.data.year || 0) - (a.data.year |
 							)}
 							<div class='flex gap-4 items-center text-sm'>
 								<span class='badge badge-outline'>{paper.data.year}</span>
+								{paper.data.status === 'under-review' && (
+									<span class='badge badge-info text-white'>Under Review</span>
+								)}
 								{paper.data.doi && (
 									<a href={`https://doi.org/${paper.data.doi}`} class='link link-secondary' target="_blank" rel="noopener noreferrer">
 										DOI
