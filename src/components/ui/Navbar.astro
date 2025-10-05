@@ -7,9 +7,9 @@ import ProfilePictures from '@/assets/profile_pictures.jpg'
 const { fullName, title } = profile
 ---
 <aside
-	class='px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col sticky top-0'
+	class='px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col sticky top-0 navbar-sidebar'
 >
-	<div class='flex flex-col justify-between h-full overflow-y-auto'>
+	<div class='flex flex-col justify-between h-full overflow-y-auto scrollbar-hide'>
 		<div class='flex-shrink-0'>
 			<div class='flex justify-center items-center flex-col'>
 				<Image
@@ -32,8 +32,30 @@ const { fullName, title } = profile
 				</ul>
 			</div>
 		</div>
-		<div class='mx-4 mb-8 mt-auto flex-shrink-0'>
+		<div class='mx-4 mb-8 mt-auto pt-8 flex-shrink-0'>
 			<SocialIcons/>
 		</div>
 	</div>
 </aside>
+
+<style>
+	/* Hide scrollbar while keeping scroll functionality */
+	.scrollbar-hide {
+		-ms-overflow-style: none;  /* IE and Edge */
+		scrollbar-width: none;  /* Firefox */
+	}
+	
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;  /* Chrome, Safari, Opera */
+	}
+	
+	.navbar-sidebar {
+		overflow-y: auto;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+	
+	.navbar-sidebar::-webkit-scrollbar {
+		display: none;
+	}
+</style>

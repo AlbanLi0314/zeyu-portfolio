@@ -28,7 +28,6 @@ export const NAV_LINKS = [
 	{ title: 'Publications', href: '/publications' },
 	{ title: 'Teaching & Coursework', href: '/teaching' },
 	{ title: 'Skills', href: '/skills' },
-	{ title: 'Series', href: '/series' },
 	{ title: 'CV', href: '/cv' },
 	{ title: 'Contact', href: '/contact' },
 ]

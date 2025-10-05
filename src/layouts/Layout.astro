@@ -356,5 +356,23 @@ const {
 		top: 0;
 		height: 100vh;
 		overflow-y: auto;
+		/* Hide scrollbar for Chrome, Safari and Opera */
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none;  /* IE and Edge */
+	}
+	
+	.drawer-side::-webkit-scrollbar {
+		display: none; /* Chrome, Safari, Opera */
+	}
+	
+	/* Hide scrollbar in the sidebar content */
+	.drawer-side aside {
+		overflow-y: auto;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none;  /* IE and Edge */
+	}
+	
+	.drawer-side aside::-webkit-scrollbar {
+		display: none; /* Chrome, Safari, Opera */
 	}
 </style>
