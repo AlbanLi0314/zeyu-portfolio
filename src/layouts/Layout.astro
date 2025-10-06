@@ -356,12 +356,43 @@ const {
 		max-width: 100%;
 	}
 	
+	/* CRITICAL FIX: Prevent drawer-side from taking up space on mobile */
+	/* On mobile (< lg), drawer-side should be completely hidden and not reserve space */
+	@media (max-width: 1023px) {
+		.drawer-side {
+			position: fixed;
+			left: -100%;
+			width: 0;
+			visibility: hidden;
+		}
+		
+		/* When drawer is open on mobile, show it as overlay */
+		.drawer-toggle:checked ~ .drawer-side {
+			left: 0;
+			width: auto;
+			visibility: visible;
+		}
+		
+		/* Ensure main content uses full width on mobile */
+		.drawer-content {
+			margin-left: 0 !important;
+			width: 100% !important;
+		}
+	}
+	
+	/* On desktop (>= lg), drawer-side should be visible and take space */
+	@media (min-width: 1024px) {
+		.drawer-side {
+			position: sticky;
+			top: 0;
+			height: 100vh;
+			overflow-y: auto;
+			visibility: visible;
+		}
+	}
+	
 	/* Ensure drawer-side has proper positioning */
 	.drawer-side {
-		position: sticky;
-		top: 0;
-		height: 100vh;
-		overflow-y: auto;
 		/* Hide scrollbar for Chrome, Safari and Opera */
 		scrollbar-width: none; /* Firefox */
 		-ms-overflow-style: none;  /* IE and Edge */
