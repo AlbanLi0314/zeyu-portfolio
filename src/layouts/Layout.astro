@@ -46,8 +46,8 @@ const {
 			<input id='my-drawer' type='checkbox' class='drawer-toggle' />
 			<!-- Drawer content -->
             <div class='drawer-content bg-base-100'>
-				<div class='sticky top-0 bg-base-100 z-50 text-base-content shadow-sm'>
-					<nav class='navbar'>
+				<div class='sticky top-0 bg-base-100 z-50 text-base-content shadow-sm w-full'>
+					<nav class='navbar w-full'>
 						<div class='navbar-start'>
 							{template.menu_left &&
 								<DarkLightController/>
@@ -349,6 +349,12 @@ const {
 	/* ========================================
 	   SIDEBAR LAYOUT FIX
 	   ======================================== */
+	
+	/* Ensure drawer-content takes full width on mobile */
+	.drawer-content {
+		width: 100%;
+		max-width: 100%;
+	}
 	
 	/* Ensure drawer-side has proper positioning */
 	.drawer-side {
