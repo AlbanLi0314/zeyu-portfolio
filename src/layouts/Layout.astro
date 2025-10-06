@@ -350,50 +350,53 @@ const {
 	   SIDEBAR LAYOUT FIX
 	   ======================================== */
 	
-	/* Ensure drawer-content takes full width on mobile */
-	.drawer-content {
-		width: 100%;
-		max-width: 100%;
-	}
+	/* CRITICAL: Override DaisyUI drawer behavior completely on mobile */
+	/* The sidebar must be an OVERLAY, not part of the layout flow */
 	
-	/* CRITICAL FIX: Prevent drawer-side from taking up space on mobile */
-	/* On mobile (< lg), drawer-side should be completely hidden and not reserve space */
+	/* On mobile (< lg), drawer-side must be completely out of layout flow */
 	@media (max-width: 1023px) {
+		/* Remove drawer-side from layout flow completely */
 		.drawer-side {
-			position: fixed;
-			left: -100%;
-			width: 0;
-			visibility: hidden;
+			position: fixed !important;
+			left: -100% !important;
+			top: 0 !important;
+			width: 80% !important;
+			max-width: 320px !important;
+			height: 100vh !important;
+			z-index: 50 !important;
+			transition: left 0.3s ease-in-out;
 		}
 		
-		/* When drawer is open on mobile, show it as overlay */
+		/* When drawer is opened, slide it in as overlay */
 		.drawer-toggle:checked ~ .drawer-side {
-			left: 0;
-			width: auto;
-			visibility: visible;
+			left: 0 !important;
 		}
 		
-		/* Ensure main content uses full width on mobile */
-		.drawer-content {
+		/* Force drawer-content to take FULL width - no sidebar space */
+		.drawer:not(.drawer-end) > .drawer-content {
 			margin-left: 0 !important;
 			width: 100% !important;
 		}
+		
+		/* Ensure main content is never shifted */
+		.drawer-content {
+			width: 100% !important;
+			margin: 0 !important;
+		}
 	}
 	
-	/* On desktop (>= lg), drawer-side should be visible and take space */
+	/* On desktop (>= lg), drawer-side is part of layout */
 	@media (min-width: 1024px) {
 		.drawer-side {
 			position: sticky;
 			top: 0;
 			height: 100vh;
 			overflow-y: auto;
-			visibility: visible;
 		}
 	}
 	
-	/* Ensure drawer-side has proper positioning */
+	/* Hide scrollbar */
 	.drawer-side {
-		/* Hide scrollbar for Chrome, Safari and Opera */
 		scrollbar-width: none; /* Firefox */
 		-ms-overflow-style: none;  /* IE and Edge */
 	}
