@@ -40,29 +40,86 @@ const { fullName, title, institute } = profile
 	<section class='py-8 sm:py-12 border-t border-base-300'>
 		<h2 class='text-2xl sm:text-3xl font-bold mb-6 text-primary'>About</h2>
 		<div class='prose max-w-none prose-base sm:prose-lg'>
-			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-				<strong>Graduating May 2026. Available for full-time roles starting May/June 2026.</strong>
+			<p class='text-lg sm:text-xl leading-relaxed mb-8 text-base-content font-medium'>
+				I bridge biology and materials, turning cross-field science into manufacturable, measurable products that scale from prototype to production. <em>(Available for full-time roles May 2026)</em>
 			</p>
+
+			<h3 class='text-xl sm:text-2xl font-semibold mb-4 text-primary'>Academic & Research Background</h3>
 			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-				I am a PhD candidate in Biological and Environmental Engineering at <a href="https://en.wikipedia.org/wiki/Cornell_University">Cornell University</a>, advised by <a href="https://cals.cornell.edu/people/dan-luo">Prof. Dan Luo</a>.
+				<strong>Ph.D. Candidate</strong> in <strong>Biological and Environmental Engineering</strong> at <strong>Cornell University</strong> <a href="https://cals.cornell.edu/people/dan-luo" class="hover:underline"><strong>DNA Materials Lab</strong></a> with <a href="https://cals.cornell.edu/people/dan-luo" class="hover:underline"><strong>Prof. Dan Luo</strong></a>, I build DNA nanoparticle tracers for field-scale hydrology and DNA-composite hydrogels that repair themselves and respond to stimuli.
 			</p>
-			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-				I design and fabricate <strong>DNA-based materials</strong> and apply <strong>molecular biology methods</strong> to solve problems across domains including <strong>environmental science</strong>, <strong>architecture</strong>, <strong>soft-matter/polymer materials</strong>, and <strong>synthetic biology</strong>.
-			</p>
-			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-				I engineer <strong>synthetic DNA-polymer micro-particles</strong> for high-resolution measurement in large aquatic systems. Built as an end-to-end workflow across particle engineering, qPCR quantification, and 3D Lagrangian transport modeling, the approach was validated in an <strong>11 km²</strong> lake-scale field deployment with robust detection up to 7 km from release using only <strong>1 mg</strong> of DNA, and the resulting data calibrate 3D hydrodynamic transport models.
-			</p>
-			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-				I develop <strong>biomass-derived DNA hydrogels and composites</strong> as programmable, self-healing soft materials designed for practical fabrication. The work spans design, fabrication, and materials testing, and has been demonstrated through damage-repair cycles, including a project published at ACADIA 2024 as one demonstration of the approach. I also developed a <strong>low-cost DNA extraction method</strong> that reduces material costs by approximately <strong>91%</strong>, enabling scalable production and integration into processes such as 3D printing and composite manufacturing.
-			</p>
-			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-				I hold <strong>M.S.</strong> and <strong>M.Eng.</strong> degrees from Cornell University and completed my undergraduate studies at <a href="https://en.wikipedia.org/wiki/Hong_Kong_Baptist_University">Hong Kong Baptist University</a>, earning a <strong>B.Sc. in Chemistry</strong> with a <strong>Computer Science minor</strong>. working in <a href="https://chem.hkbu.edu.hk/ren">Microfabrication & Surface Materials Lab</a> supervised by <a href="https://chem.hkbu.edu.hk/ren">Prof. Kangning Ren</a>. Beyond publications and conference presentations, I also hold U.S. and China patents in structural design and materials manufacturing.
-			</p>
-			<div class='mt-8 text-center'>
-				<a href={`${template.base}/research`} class='btn btn-primary'>
-					Explore My Work →
-				</a>
+
+		<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
+			I also hold Cornell's <strong>M.S.</strong> and <strong>M.Eng.</strong> degrees, and a <strong>B.S.</strong> in <strong>Chemistry</strong> and <strong>Computer Science</strong> from <strong>Hong Kong Baptist University</strong>, where I trained in the <a href="https://renkangning.wixsite.com/rengroup" class="hover:underline"><strong>Micro-fabrication & Surface Materials Lab</strong></a> with <a href="https://chem.hkbu.edu.hk/ren" class="hover:underline"><strong>Prof. Kangning Ren</strong></a>.
+		</p>
+
+		<div class='card bg-base-200 hover:shadow-lg transition-shadow duration-300 mb-6'>
+			<div class='card-body pt-2 pb-3 px-6'>
+				<h4 class='text-lg font-semibold mb-3 text-primary text-left'>Key Achievements</h4>
+				<ul class='space-y-2 text-base leading-relaxed text-base-content/80 -ml-6'>
+					<li class='flex items-start gap-2'>
+						<span class='text-accent font-bold text-lg flex-shrink-0'>•</span>
+						<span><strong>DNA Tracers:</strong> 11 km² field-scale deployment; qPCR detection to 7 km with 1 mg DNA; hydrodynamic model calibration</span>
+					</li>
+					<li class='flex items-start gap-2'>
+						<span class='text-accent font-bold text-lg flex-shrink-0'>•</span>
+						<span><strong>DNA Hydrogels:</strong> thermally reversible; 3D-printable; stimuli-responsive</span>
+					</li>
+					<li class='flex items-start gap-2'>
+						<span class='text-accent font-bold text-lg flex-shrink-0'>•</span>
+						<span><strong>DNA Production from Biomass:</strong> cost reduced ~91%</span>
+					</li>
+					<li class='flex items-start gap-2'>
+						<span class='text-accent font-bold text-lg flex-shrink-0'>•</span>
+						<span><strong>Publications & Patents:</strong> 3 publications; 3 patents</span>
+					</li>
+				</ul>
 			</div>
+		</div>
+
+		<h3 class='text-xl sm:text-2xl font-semibold mb-4 text-primary'>Value & Approach</h3>
+		<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
+			I translate across materials, bioengineering, chemistry, environmental science, and computation to turn concepts into manufacturable, scalable solutions.
+		</p>
+		
+		<div class='grid grid-cols-1 md:grid-cols-2 gap-6 mb-6'>
+			<div class='card bg-base-200 hover:shadow-lg transition-shadow duration-300'>
+				<div class='card-body pt-3 pb-4'>
+					<h4 class='text-lg font-semibold mb-3 text-primary'>For Materials Industry</h4>
+					<p class='text-base leading-relaxed text-base-content/80'>
+						I bring cross-field training and disciplined characterization to make process-aware decisions that scale from lab to production. My toolkit spans materials characterization, polymer and hydrogel processing, nano-fabrication, and 3D printing.
+					</p>
+				</div>
+			</div>
+			
+			<div class='card bg-base-200 hover:shadow-lg transition-shadow duration-300'>
+				<div class='card-body pt-3 pb-4'>
+					<h4 class='text-lg font-semibold mb-3 text-primary'>For Biotech Industry</h4>
+					<p class='text-base leading-relaxed text-base-content/80'>
+						I treat DNA and RNA as materials, applying a chemist's perspective to design solutions built for robustness and manufacturability. I work across DNA/RNA design-and-build workflows, including sequence design, formulation, synthesis, purification, enzymatic reactions, and quantification and characterization.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Visual break before Emerging Technologies -->
+		<div class='border-t border-base-300 my-8'></div>
+
+		<h3 class='text-xl sm:text-2xl font-semibold mb-4 text-primary'>Emerging Technologies & Expertise</h3>
+		
+		<p class='text-base sm:text-lg leading-relaxed mb-4 text-base-content'>
+			<strong>AI & Automation in R&D:</strong> I integrate AI into day-to-day R&D through workflow automation, data pipelines, and lightweight agents for analysis and visualization. These practices standardize analysis and documentation and shorten the path from prototype to production. My tracer study's data analysis and figures were built with AI-assisted Python workflows.
+		</p>
+		
+		<p class='text-base leading-relaxed mb-6 text-base-content/80'>
+			<strong>Credentials:</strong> <span class='text-accent font-bold'>•</span> ML-with-Python certification <span class='text-accent font-bold'>•</span> CS minor <span class='text-accent font-bold'>•</span> Guest lecturer on practical AI for research at Cornell
+		</p>
+
+		<div class='mt-8 text-center'>
+			<a href={`${template.base}/research`} class='btn btn-accent btn-lg'>
+				<span class='font-semibold tracking-wide'>Explore My Work →</span>
+			</a>
+		</div>
 		</div>
 	</section>
 </Layout>
