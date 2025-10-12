@@ -1,145 +1,241 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { profile } from "@/settings";
-import BetterIcon from "@/components/ui/BetterIcon.astro";
-import {RESEARCH_ICONS} from "@/data/researchIcons";
 
-const { research_areas } = profile;
+const projects = [
+  {
+    id: "tracers",
+    title: "DNA-Barcoded PLGA Microspheres for Transport Mapping",
+    shortLabel: "DNA tracers",
+    tags: ["PLGA", "qPCR", "Field scale", "Lagrangian"],
+    status: "Under review (ES&T, 2025)",
+    statusColor: "badge-info",
+    outcomes: [
+      "Field trial 11 km²",
+      "Detection up to ~7 km",
+      "Multiplexable barcoding"
+    ],
+    role: "Lead researcher and first author",
+    lab: "DNA Materials Lab, Cornell BEE",
+    collaborators: "C. L. Ramón, A. Koeberle, et al.",
+    detail: `I bridge molecular biotechnology and polymer engineering to build a DNA-barcoded PLGA microsphere tracer that turns qPCR into a lake-scale process sensor. We design unique DNA tags and a TaqMan assay, encapsulate them in size-tuned, biodegradable microspheres, and then read dispersion with qPCR while calibrating 3D hydrodynamic / Lagrangian models to produce source-attribution flow maps. In field trials (278 samples over ~11 km²), we detected tags up to ~7 km and ~33 h post-release using only milligram-scale DNA, generating datasets that align with model-predicted transport. Standardized backgrounds, DI blanks, and qPCR calibration curves—plus gram-scale, barcoded batches—made the method robust across teams and conditions. The result is a transferable platform: materials-controlled particle specs for tunable transport, and biotech-grade barcoding/assays for sensitive, multiplexable readout—ready for utilities, plants, and industrial process tracing.`
+  },
+  {
+    id: "hydrogels",
+    title: "DNA Hydrogels and Composites Materials",
+    shortLabel: "DNA hydrogels",
+    tags: ["Self-healing", "DIW", "Psoralen", "Aluminum ionic"],
+    status: "Published (ACADIA 2024)",
+    statusColor: "badge-success",
+    outcomes: [
+      "ACADIA 2024 (Co-first author)",
+      "Multi-cycle self-repair",
+      "3D-printable architecture"
+    ],
+    role: "Co-first author and materials engineer",
+    lab: "DNA Materials Lab, Cornell BEE & AAP",
+    collaborators: "C. He, L. X. Wang, et al.",
+    detail: `I turn biomass DNA into programmable hydrogels and composites that can be 3D printed, shaped on demand, and self-healing in real parts. The platform uses three simple modes: thermal bonds that re-form with gentle heating, a light-activated crosslink that locks and then unlocks (the same psoralen chemistry used clinically in PUVA therapies), and an ionic mode with aluminum that sets quickly and rehydrates to close cracks. We demonstrated the concept in PolyTile 4.0—a ceramic tile with optimized vascular channels that move the DNA precursor to damage sites; flow was validated and the system was published at ACADIA 2024 (Co-first author). The same inks run in CAD-to-DIW workflows, accept payloads, and let us tune stiffness, viscosity, and swelling so designers and engineers can choose the behavior that the part needs.`
+  },
+  {
+    id: "extraction",
+    title: "Low Cost Nucleic Acid Extraction Method Inspired by Espresso Machine",
+    shortLabel: "Nucleic acid extraction",
+    tags: ["DNA/RNA capture", "Nanoparticles", "Cost modeling", "Throughput"],
+    status: "Prototype validated",
+    statusColor: "badge-secondary",
+    outcomes: [
+      "~200 mg per pod",
+      "91% cost reduction",
+      "Enzyme-friendly output"
+    ],
+    role: "Lead designer and engineer",
+    lab: "DNA Materials Lab, Cornell BEE",
+    collaborators: "Lab members",
+    detail: `I engineered a nucleic acid extraction method that uses a coffee-machine pod extractor to run simple, chainable cycles. Each pod contains novel nanoparticles that capture DNA and RNA across a wide input range, from very dilute to highly concentrated solutions, achieving high absorption density per unit material. The process reliably delivers ~200 mg per pod and reduces cost by ~91 percent compared with conventional ethanol precipitation, with a modeled path to under $1 per gram. It produces enzyme-friendly outputs suitable for downstream assays. I designed and piloted the system, modeled costs, and documented procedures for transfer.`
+  },
+  {
+    id: "superhydrophobic",
+    title: "Superhydrophobic Surfaces for Icing Control and Durable Water-Repellency",
+    shortLabel: "Surface engineering",
+    tags: ["Icing", "Electrostatic pre-charge", "Perfluoropolymer", "Wetting"],
+    status: "Published (The Innovation)",
+    statusColor: "badge-success",
+    outcomes: [
+      "The Innovation (IF 25.7, 3rd author)",
+      "Patent filings",
+      "Best Undergraduate Thesis Award"
+    ],
+    role: "Undergraduate researcher (3rd author)",
+    lab: "Micro-fabrication & Surface Materials Lab, HKBU",
+    collaborators: "Prof. Kangning Ren, H. Wu, et al.",
+    detail: `I built a lab platform to study icing on superhydrophobic surfaces and tested a simple idea: use static charge to help droplets leave faster. Precharging the surface shortened supercooled droplet contact time by up to 25 percent and improved bounce in cold, dry conditions. In a separate line, I helped develop a monolithic all-perfluoropolymer surface that keeps its water-repellent texture under real use, produced as a coating, membrane, or tape, with long-term air retention shown to 9 m depth. The work maps a clear wetting mechanism to durable, manufacturable surfaces for aircraft, energy, and infrastructure, with outcomes that include a paper in The Innovation (IF 25.7, 3rd author), patent filings, and the Best Undergraduate Thesis Award.`
+  }
+];
 ---
 
 <Layout title="Research - Zeyu Li">
-  <div class="max-w-4xl mx-auto">
-    <h1 class="text-4xl font-bold mb-8 text-primary">Research</h1>
-
-    <h2 class="text-3xl font-bold mb-6 text-primary">Research Areas</h2>
-    {research_areas.length === 0 ? (
-      <p class="text-base-content/60 mb-12">
-        No research areas defined yet. Add them in <code>src/settings.ts</code> under <code>profile.research_areas</code>
+  <div class="max-w-6xl mx-auto">
+    <!-- Hero Section -->
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold mb-8">Research</h1>
+      <p class="text-lg md:text-xl text-base-content/70 mb-6">
+        Programmable DNA materials and sensing at field scale.
       </p>
-    ) : (
-      <div class="grid gap-8 mb-12">
-        {research_areas.map((area) => (
-          <div class="card bg-base-200 hover:shadow-lg transition-shadow duration-300">
-            <div class="card-body">
-              <div class="flex gap-4 items-start">
-                <BetterIcon>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke-width="2"
-                    class="size-8 stroke-primary"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d={RESEARCH_ICONS[area.field as keyof typeof RESEARCH_ICONS]?.path || RESEARCH_ICONS['computer-science'].path}
-                    />
-                  </svg>
-                </BetterIcon>
-                <div class="flex-1">
-                  <h3 class="text-xl font-semibold mb-2 text-primary">{area.title}</h3>
-                  <p class="text-base text-base-content/80">{area.description}</p>
+
+      <!-- Compact metrics -->
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-base text-base-content/60">
+        <span><span class="font-semibold text-primary">3</span> Publications</span>
+        <span class="opacity-50">•</span>
+        <span><span class="font-semibold text-primary">2</span> Patents</span>
+        <span class="opacity-50">•</span>
+        <span><span class="font-semibold text-primary">91%</span> cost reduction (DNA extraction)</span>
+        <span class="opacity-50">•</span>
+        <span><span class="font-semibold text-primary">11 km²</span> field deployment (eDNA tracers)</span>
+      </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <div class="sticky top-16 z-30 -mx-4 sm:-mx-8 px-4 sm:px-8 py-3 mb-8 bg-base-100/80 backdrop-blur-sm border-b border-base-300">
+      <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
+        {projects.map((project) => (
+          <a 
+            href={`#${project.id}`}
+            class="btn btn-sm btn-outline whitespace-nowrap hover:btn-primary"
+          >
+            {project.shortLabel}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Project Details -->
+    <div class="space-y-16">
+      {projects.map((project) => (
+        <section id={project.id} class="scroll-mt-36">
+          <div class="grid lg:grid-cols-12 gap-8">
+            <!-- Main Content -->
+            <div class="lg:col-span-8">
+              <h2 class="text-2xl md:text-3xl font-bold mb-4 text-primary">{project.title}</h2>
+              
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag) => (
+                  <span class="badge badge-sm">{tag}</span>
+                ))}
+              </div>
+
+              <!-- Detailed Description -->
+              <div class="prose max-w-none mb-6">
+                <p class="text-lg leading-relaxed text-base-content/80">
+                  {project.detail}
+                </p>
+              </div>
+
+              <!-- Key Outcomes - Highlighted -->
+              <div class="mb-6 p-4 bg-accent/5 border-l-4 border-accent rounded-r-lg">
+                <h4 class="text-base font-semibold text-accent mb-3">Key Outcomes</h4>
+                <ul class="space-y-2">
+                  {project.outcomes.map((outcome) => (
+                    <li class="flex items-start gap-2 text-base">
+                      <span class="text-accent font-bold">✓</span>
+                      <span class="text-base-content/90">{outcome}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Placeholder Images -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="aspect-video rounded-lg bg-base-200 flex items-center justify-center text-base-content/40">
+                  <span class="text-sm">Figure placeholder</span>
+                </div>
+                <div class="aspect-video rounded-lg bg-base-200 flex items-center justify-center text-base-content/40">
+                  <span class="text-sm">Figure placeholder</span>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-    )}
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-6 text-primary">Current Projects</h2>
-      <div class="space-y-6">
-        <div class="card bg-base-200 hover:shadow-lg transition-shadow duration-300">
-          <div class="card-body">
-            <h3 class="card-title text-primary">DNA-Polymer Nanoparticle Tracers for Hydrological Monitoring</h3>
-            <div class="mb-3">
-              <span class="badge badge-info text-white">Under review (ES&T, 2025)</span>
-            </div>
-            <p class="text-base-content/80">
-              Led a seven-group, four-discipline field deployment over an 11 km² sector of Cayuga Lake, 
-              injecting emulsion-synthesized DNA-polymer nanoparticles and resolving transport via qPCR 
-              at 7 km downstream. Validated detection limits (1 mg DNA in field conditions), mapped 3D 
-              hydrodynamic flows, and co-authored manuscript under review at Environmental Science & Technology.
-            </p>
-          </div>
-        </div>
-        
-        <div class="card bg-base-200 hover:shadow-lg transition-shadow duration-300">
-          <div class="card-body">
-            <h3 class="card-title text-primary">Self-Healing DNA Hydrogels for Infrastructure Materials</h3>
-            <div class="mb-3">
-              <span class="badge badge-success text-white">Published (ACADIA 2024)</span>
-            </div>
-            <p class="text-base-content/80">
-              Designed DNA–Al³⁺ hydrogels integrated into 3D-printed ceramic "PolyTile" vessels for 
-              autonomous crack healing. Demonstrated multi-cycle self-repair in architectural prototypes 
-              and published at ACADIA 2024 with Cornell AAP collaborators, advancing bio-integrated 
-              building materials.
-            </p>
-          </div>
-        </div>
+            <!-- Sidebar -->
+            <aside class="lg:col-span-4">
+              <div class="lg:sticky lg:top-36">
+                <!-- Project Info Card -->
+                <div class="card bg-accent/5 border border-accent/20">
+                  <div class="card-body p-3">
+                    <h5 class="text-sm font-semibold text-primary mb-3">Project Info</h5>
+                    
+                    <div class="space-y-3 text-sm">
+                      <!-- Role & Collaborators -->
+                      <div>
+                        <p class="text-base-content/60 mb-1 text-xs">Role</p>
+                        <p class="text-base-content/90">{project.role}</p>
+                      </div>
+                      
+                      <div>
+                        <p class="text-base-content/60 mb-1 text-xs">Lab/Group</p>
+                        <p class="text-base-content/90">{project.lab}</p>
+                      </div>
+                      
+                      <div>
+                        <p class="text-base-content/60 mb-1 text-xs">Collaborators</p>
+                        <p class="text-base-content/90">{project.collaborators}</p>
+                      </div>
 
-        <div class="card bg-base-200 hover:shadow-lg transition-shadow duration-300">
-          <div class="card-body">
-            <h3 class="card-title text-primary">Photo-/Thermo-Reversible Psoralen-DNA Hydrogels</h3>
-            <div class="mb-3">
-              <span class="badge badge-neutral text-white">In preparation</span>
-            </div>
-            <p class="text-base-content/80">
-              Engineered dual-network gels with psoralen molecular clamps that lock via UV photocrosslinking 
-              and unlock via thermal reversal. Achieved 3D-printable, time-programmed shape-fixing and 
-              multi-cycle self-repair through localized light-heat cues—advancing soft robotics and 
-              programmable matter. Manuscript in preparation.
-            </p>
-          </div>
-        </div>
+                      <!-- Divider -->
+                      <div class="border-t border-base-300 my-3"></div>
 
-        <div class="card bg-base-200 hover:shadow-lg transition-shadow duration-300">
-          <div class="card-body">
-            <h3 class="card-title text-primary">Automated High-Throughput DNA Purification Platform</h3>
-            <div class="mb-3">
-              <span class="badge badge-secondary text-white">Prototype validated</span>
-            </div>
-            <p class="text-base-content/80">
-              Designed and validated a perfluorocarbon pod system for continuous biomass–solution DNA 
-              extraction. Achieved 200 mg DNA per pod (chainable to gram-scale) and 91% cost reduction 
-              versus commercial kits. Prototype bench-validated; provides low-cost feedstock for 
-              hydrogel materials at scale.
-            </p>
+                      <!-- Links -->
+                      <div>
+                        <p class="text-base-content/60 mb-2 text-xs">Related</p>
+                        <div class="flex flex-col gap-1">
+                          <a href="/publications" class="link link-primary text-sm">Publications</a>
+                          <a href="/cv" class="link link-primary text-sm">Full CV</a>
+                          <a href="/contact" class="link link-primary text-sm">Contact</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      ))}
+    </div>
 
-    <section class="pt-12 border-t">
-      <h2 class="text-3xl font-bold mb-6">Research Impact</h2>
-      <div class="prose max-w-none">
-        <p class="text-lg mb-6">
-          My research contributes to sustainable environmental monitoring and infrastructure through 
-          programmable DNA-based materials. By reducing costs and enabling large-scale field deployment, 
-          these innovations make advanced monitoring technologies more accessible while demonstrating 
-          autonomous repair capabilities for built environments.
-        </p>
-        <div class="grid md:grid-cols-3 gap-4 not-prose">
-          <div class="stat bg-base-200 rounded-lg">
-            <div class="stat-title">Publications</div>
-            <div class="stat-value text-primary">3</div>
-            <div class="stat-desc">Peer-reviewed articles</div>
-          </div>
-          <div class="stat bg-base-200 rounded-lg">
-            <div class="stat-title">Patents</div>
-            <div class="stat-value text-secondary">2</div>
-            <div class="stat-desc">US & CN Patents Granted</div>
-          </div>
-          <div class="stat bg-base-200 rounded-lg">
-            <div class="stat-title">Cost Reduction</div>
-            <div class="stat-value text-accent">91%</div>
-            <div class="stat-desc">DNA purification platform</div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Back to Top Button -->
+    <div class="mt-12 text-center">
+      <button 
+        onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="btn btn-outline btn-primary btn-sm"
+      >
+        ↑ Back to Top
+      </button>
+    </div>
   </div>
 </Layout>
+
+<style>
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar for horizontal nav */
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--bc) / 0.2);
+    border-radius: 2px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--bc) / 0.3);
+  }
+</style>
