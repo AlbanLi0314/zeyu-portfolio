@@ -3,83 +3,103 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="Publications & Patents - Zeyu Li">
-	<div class='max-w-4xl mx-auto'>
-		<h1 class='text-4xl font-bold mb-4'>Publications & Patents</h1>
-		<p class='text-sm text-base-content/60 mb-8 italic'>Last updated: October 13, 2025</p>
+	<div class='max-w-6xl mx-auto'>
+		<!-- Hero Section -->
+		<div class='mb-8 md:mb-12'>
+			<h1 class='text-3xl md:text-4xl font-bold mb-4 md:mb-8'>Publications & Patents</h1>
+			<p class='text-base md:text-lg lg:text-xl text-base-content/70 mb-4 md:mb-6'>
+				Research papers and patents on DNA materials, environmental sensing, and surface engineering.
+			</p>
+			
+			<!-- Compact metrics -->
+			<div class='flex flex-wrap items-center gap-x-3 md:gap-x-4 gap-y-2 text-sm md:text-base text-base-content/60'>
+				<span><span class='font-semibold text-primary'>3</span> Research Papers</span>
+				<span class='opacity-50 hidden sm:inline'>•</span>
+				<span><span class='font-semibold text-primary'>2</span> Patents</span>
+				<span class='opacity-50 hidden sm:inline'>•</span>
+				<span class='text-xs italic'>Last updated: October 13, 2025</span>
+			</div>
+		</div>
 		
 		<!-- Research Papers Section -->
-		<section class='mb-12'>
-			<h2 class='text-3xl font-bold mb-6 pb-2 border-b-2 border-primary'>Research Papers</h2>
-			<ul class='space-y-8'>
+		<section class='mb-12 md:mb-16'>
+			<h2 class='text-xl md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8 text-primary'>Research Papers</h2>
+			<ul class='space-y-12 md:space-y-16'>
 				<!-- Paper 1: eDNA Tracers -->
-				<li class='pb-6'>
-					<h3 class='text-xl font-semibold mb-2'>
+				<li>
+					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
 						Tracing Environmental DNA Transport in Large Lakes with Synthetic DNA Microparticles and Hydrodynamic Modeling
 					</h3>
-					<p class='text-base text-base-content/80 mb-2'>
+					<p class='text-base md:text-lg text-base-content/80 mb-2'>
 						<strong>Zeyu Li</strong>, C. L. Ramón, A. Koeberle, et al.
 					</p>
-					<p class='text-sm italic mb-2 text-base-content/70'>
+					<p class='text-sm md:text-base italic mb-3 text-base-content/70'>
 						Under review at <em>Environmental Science & Technology</em> (2025)
 					</p>
-					<p class='text-sm text-base-content/70 mb-3'>
-						<strong>Summary:</strong> Synthetic DNA microparticle tracers for field-scale hydrology and model validation.
-					</p>
-					<div class='flex gap-3 items-center text-sm flex-wrap'>
+					<div class='prose max-w-none mb-4 md:mb-6'>
+						<p class='text-base md:text-lg leading-relaxed text-base-content/80'>
+							<strong>Summary:</strong> Synthetic DNA microparticle tracers for field-scale hydrology and model validation.
+						</p>
+					</div>
+					<div class='flex gap-3 items-center text-sm md:text-base flex-wrap'>
 						<span class='badge badge-info'>Under Review</span>
 						<span class='badge badge-outline'>2025</span>
 					</div>
 				</li>
 
 				<!-- Paper 2: PolyTile -->
-				<li class='pb-6 border-t pt-6'>
-					<h3 class='text-xl font-semibold mb-2'>
-						<a href='https://papers.cumincad.org/cgi-bin/works/paper/acadia24_v1_14' class='link link-primary' target='_blank' rel='noopener noreferrer'>
+				<li>
+					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
+						<a href='https://papers.cumincad.org/cgi-bin/works/paper/acadia24_v1_14' class='link link-primary hover:underline' target='_blank' rel='noopener noreferrer'>
 							PolyTile 4.0: Self-healing Ceramic Tiles
 						</a>
 					</h3>
-					<p class='text-base text-base-content/80 mb-2'>
+					<p class='text-base md:text-lg text-base-content/80 mb-2'>
 						Chenming He, <strong>Zeyu Li</strong>, Lucy Xiaorui Wang, Dong Wang, Dan Luo, Jenny E. Sabin
 					</p>
-					<p class='text-sm italic mb-2 text-base-content/70'>
+					<p class='text-sm md:text-base italic mb-3 text-base-content/70'>
 						<em>ACADIA 2024: Designing Change – Proceedings</em> (2024)
 					</p>
-					<p class='text-sm text-base-content/70 mb-3'>
-						<strong>Summary:</strong> Vascular-channel optimization (Dijkstra) and DNA hydrogel integration for self-healing ceramics.
-					</p>
-					<div class='flex gap-3 items-center text-sm flex-wrap'>
+					<div class='prose max-w-none mb-4 md:mb-6'>
+						<p class='text-base md:text-lg leading-relaxed text-base-content/80'>
+							<strong>Summary:</strong> Vascular-channel optimization (Dijkstra) and DNA hydrogel integration for self-healing ceramics.
+						</p>
+					</div>
+					<div class='flex gap-3 items-center text-sm md:text-base flex-wrap'>
 						<span class='badge badge-success'>Published</span>
 						<span class='badge badge-outline'>2024</span>
-						<a href='https://papers.cumincad.org/cgi-bin/works/paper/acadia24_v1_14' class='link link-secondary' target='_blank' rel='noopener noreferrer'>
+						<a href='https://papers.cumincad.org/cgi-bin/works/paper/acadia24_v1_14' class='link link-secondary text-xs md:text-sm' target='_blank' rel='noopener noreferrer'>
 							Proceedings
 						</a>
-						<a href='https://www.sabinlab.com/polytile' class='link link-secondary' target='_blank' rel='noopener noreferrer'>
+						<a href='https://www.sabinlab.com/polytile' class='link link-secondary text-xs md:text-sm' target='_blank' rel='noopener noreferrer'>
 							Project Page
 						</a>
 					</div>
 				</li>
 
 				<!-- Paper 3: Superhydrophobic -->
-				<li class='pb-6 border-t pt-6'>
-					<h3 class='text-xl font-semibold mb-2'>
-						<a href='https://doi.org/10.1016/j.xinn.2023.100389' class='link link-primary' target='_blank' rel='noopener noreferrer'>
+				<li>
+					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
+						<a href='https://doi.org/10.1016/j.xinn.2023.100389' class='link link-primary hover:underline' target='_blank' rel='noopener noreferrer'>
 							All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability
 						</a>
 					</h3>
-					<p class='text-base text-base-content/80 mb-2'>
+					<p class='text-base md:text-lg text-base-content/80 mb-2'>
 						Wanbo Li, Chiu-Wing Chan, <strong>Zeyu Li</strong>, et al.
 					</p>
-					<p class='text-sm italic mb-2 text-base-content/70'>
+					<p class='text-sm md:text-base italic mb-3 text-base-content/70'>
 						<em>The Innovation</em> (Cell Press) 4(2):100389 (2023)
 					</p>
-					<p class='text-sm text-base-content/70 mb-3'>
-						<strong>Summary:</strong> Monolithic perfluoropolymer (MPS) surface with topology-specific wetting and ultradurability.
-					</p>
-					<div class='flex gap-3 items-center text-sm flex-wrap'>
+					<div class='prose max-w-none mb-4 md:mb-6'>
+						<p class='text-base md:text-lg leading-relaxed text-base-content/80'>
+							<strong>Summary:</strong> Monolithic perfluoropolymer (MPS) surface with topology-specific wetting and ultradurability.
+						</p>
+					</div>
+					<div class='flex gap-3 items-center text-sm md:text-base flex-wrap'>
 						<span class='badge badge-success'>Published</span>
 						<span class='badge badge-outline'>2023</span>
 						<span class='badge badge-primary'>IF 25.7</span>
-						<a href='https://doi.org/10.1016/j.xinn.2023.100389' class='link link-secondary' target='_blank' rel='noopener noreferrer'>
+						<a href='https://doi.org/10.1016/j.xinn.2023.100389' class='link link-secondary text-xs md:text-sm' target='_blank' rel='noopener noreferrer'>
 							DOI
 						</a>
 					</div>
@@ -89,50 +109,54 @@ import Layout from '../layouts/Layout.astro'
 
 		<!-- Patents Section -->
 		<section>
-			<h2 class='text-3xl font-bold mb-6 pb-2 border-b-2 border-primary'>Patents</h2>
-			<ul class='space-y-8'>
+			<h2 class='text-xl md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8 text-primary'>Patents</h2>
+			<ul class='space-y-12 md:space-y-16'>
 				<!-- Patent 1: Crack Engineering -->
-				<li class='pb-6'>
-					<h3 class='text-xl font-semibold mb-2'>
-						<a href='https://patentimages.storage.googleapis.com/23/c1/2e/ae5d7a7ba0f149/US11839998.pdf' class='link link-primary' target='_blank' rel='noopener noreferrer'>
+				<li>
+					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
+						<a href='https://patentimages.storage.googleapis.com/23/c1/2e/ae5d7a7ba0f149/US11839998.pdf' class='link link-primary hover:underline' target='_blank' rel='noopener noreferrer'>
 							Crack engineering as a new route for the construction of arbitrary hierarchical architectures
 						</a>
 					</h3>
-					<p class='text-base text-base-content/80 mb-2'>
+					<p class='text-base md:text-lg text-base-content/80 mb-2'>
 						Kangning Ren, Hongkai Wu, Zuankai Wang, Shuhuai Yao, Beng Ong, Wanbo Li, <strong>Zeyu Li</strong>, Han Sun, Chiu-Wing Chan
 					</p>
-					<p class='text-sm text-base-content/70 mb-3'>
-						<strong>Summary:</strong> Crack-guided structural design for programmable hierarchical materials.
-					</p>
-					<div class='flex gap-3 items-center text-sm flex-wrap'>
+					<div class='prose max-w-none mb-4 md:mb-6'>
+						<p class='text-base md:text-lg leading-relaxed text-base-content/80'>
+							<strong>Summary:</strong> Crack-guided structural design for programmable hierarchical materials.
+						</p>
+					</div>
+					<div class='flex gap-3 items-center text-sm md:text-base flex-wrap'>
 						<span class='font-mono text-xs bg-base-200 px-2 py-1 rounded'>US 11,839,998</span>
 						<span class='badge badge-success'>Granted</span>
 						<span class='badge badge-outline'>2023</span>
-						<a href='https://patentimages.storage.googleapis.com/23/c1/2e/ae5d7a7ba0f149/US11839998.pdf' class='link link-secondary' target='_blank' rel='noopener noreferrer'>
+						<a href='https://patentimages.storage.googleapis.com/23/c1/2e/ae5d7a7ba0f149/US11839998.pdf' class='link link-secondary text-xs md:text-sm' target='_blank' rel='noopener noreferrer'>
 							PDF
 						</a>
 					</div>
 				</li>
 
 				<!-- Patent 2: Biomass Reactor -->
-				<li class='pb-6 border-t pt-6'>
-					<h3 class='text-xl font-semibold mb-2'>
-						<a href='https://patents.google.com/patent/CN107903925A/en' class='link link-primary' target='_blank' rel='noopener noreferrer'>
+				<li>
+					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
+						<a href='https://patents.google.com/patent/CN107903925A/en' class='link link-primary hover:underline' target='_blank' rel='noopener noreferrer'>
 							Reactor and method of spiral propulsion biomass continuous thermal cracking
 						</a>
 					</h3>
-					<p class='text-base text-base-content/80 mb-2'>
+					<p class='text-base md:text-lg text-base-content/80 mb-2'>
 						Qingbo Li, <strong>Zeyu Li</strong>, Ligang Lin
 					</p>
-					<p class='text-sm text-base-content/70 mb-3'>
-						<strong>Summary:</strong> Continuous biomass pyrolysis reactor using spiral propulsion for efficient thermal cracking.
-					</p>
-					<div class='flex gap-3 items-center text-sm flex-wrap'>
+					<div class='prose max-w-none mb-4 md:mb-6'>
+						<p class='text-base md:text-lg leading-relaxed text-base-content/80'>
+							<strong>Summary:</strong> Continuous biomass pyrolysis reactor using spiral propulsion for efficient thermal cracking.
+						</p>
+					</div>
+					<div class='flex gap-3 items-center text-sm md:text-base flex-wrap'>
 						<span class='font-mono text-xs bg-base-200 px-2 py-1 rounded'>CN 201711214139.6</span>
 						<span class='font-mono text-xs bg-base-200 px-2 py-1 rounded'>CN 107903925A</span>
 						<span class='badge badge-outline'>Application 2017</span>
 						<span class='badge badge-outline'>Publication 2018</span>
-						<a href='https://patents.google.com/patent/CN107903925A/en' class='link link-secondary' target='_blank' rel='noopener noreferrer'>
+						<a href='https://patents.google.com/patent/CN107903925A/en' class='link link-secondary text-xs md:text-sm' target='_blank' rel='noopener noreferrer'>
 							Link
 						</a>
 					</div>
