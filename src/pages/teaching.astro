@@ -1,87 +1,172 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { getCollection } from 'astro:content'
 
-const teachingItems = await getCollection('teaching')
+// Teaching data
+const teaching = [
+  { code: "BEE 7600", title: "Nucleic Acid Engineering" },
+  { code: "BEE 5600/3600", title: "Molecular and Cellular Bioengineering" },
+  { code: "BEE 2600", title: "Principles of Biological Engineering" },
+  { code: "ENGRI 1337", title: "Introduction to Biological Engineering" },
+  { code: "ENGRG 5330", title: "Engineering Professionalism" },
+  { code: "BEE 5730/4730", title: "Watershed Engineering" }
+]
 
-// Sort by term (you may want to customize this)
-const sortedTeaching = teachingItems.sort((a, b) => 
-	b.data.term.localeCompare(a.data.term)
-)
+// Coursework data
+const coursework = {
+  chem: [
+    "General Chemistry",
+    "Organic Chemistry I",
+    "Analytical Chemistry",
+    "Analytical Chemistry Laboratory",
+    "Organic Chemistry Laboratory I & II",
+    "Instrumental Analysis",
+    "Instrumental Analysis Laboratory",
+    "Physical Chemistry I & II",
+    "Inorganic Chemistry",
+    "Inorganic Chemistry Laboratory",
+    "Physical Chemistry Laboratory I",
+    "Biochemistry",
+    "Integrated Chemistry Laboratory",
+    "Advanced Materials",
+    "Nanomaterials: Chemistry and Physics",
+    "Principles of Chemical Biology",
+    "Fundamental Principles of Polymer Chemistry",
+    "Polymer Mechanics",
+    "Interface and Surface Phenomena",
+    "Materials Structure and Mechanical Properties",
+    "Chemistry of Materials",
+    "Solid-State Chemistry",
+    "Advanced X-Ray Characterization"
+  ],
+  bio: [
+    "Nucleic Acid Engineering",
+    "Molecular and Cellular Bioengineering",
+    "Principles of Biological Engineering",
+    "Advanced Topics in Biomaterials",
+    "Principles of Biochemistry: Molecular Biology",
+    "Biophysical Methods"
+  ],
+  ai: [
+    "Essence of Computing",
+    "Computer Organization",
+    "Object-Oriented Programming",
+    "Data Structures and Algorithms",
+    "Data Communications and Networking",
+    "Machine Learning",
+    "Numerical Methods for Data Science",
+    "AI for Science"
+  ]
+}
 ---
 
 <Layout title="Teaching & Coursework - Zeyu Li">
-	<div class='max-w-4xl mx-auto'>
-		<h1 class='text-4xl font-bold mb-8'>Teaching & Coursework</h1>
-		
+	<div class='max-w-6xl mx-auto'>
+		<!-- Hero Section -->
+		<div class='mb-8 md:mb-12'>
+			<h1 class='text-3xl md:text-4xl font-bold mb-4 md:mb-8'>Teaching & Coursework</h1>
+			<p class='text-base md:text-lg lg:text-xl text-base-content/70 mb-4 md:mb-6'>
+				Courses taught as TA at Cornell and curated coursework across chemistry, biology, and computer science.
+			</p>
+			
+			<!-- Compact metrics -->
+			<div class='flex flex-wrap items-center gap-x-3 md:gap-x-4 gap-y-2 text-sm md:text-base text-base-content/60'>
+				<span><span class='font-semibold text-primary'>6</span> Courses Taught</span>
+				<span class='opacity-50 hidden sm:inline'>•</span>
+				<span><span class='font-semibold text-primary'>4+</span> Years TA Experience</span>
+				<span class='opacity-50 hidden sm:inline'>•</span>
+				<span><span class='font-semibold text-primary'>37+</span> Courses Taken</span>
+			</div>
+		</div>
+
 		<!-- Teaching Section -->
-		<section class='mb-12 pb-12 border-b'>
-			<h2 class='text-3xl font-bold mb-6'>Teaching Experience</h2>
-			{sortedTeaching.length === 0 ? (
-				<p class='text-base-content/60'>
-					No teaching experience added yet. Add teaching items in <code>src/content/teaching/</code>
-				</p>
-			) : (
-				<div class='space-y-6'>
-					{sortedTeaching.map((item) => (
-						<div class='card bg-base-200 shadow-sm'>
-							<div class='card-body'>
-								<h3 class='card-title text-xl'>
-									{item.data.link ? (
-										<a href={item.data.link} class='link link-primary' target="_blank" rel="noopener noreferrer">
-											{item.data.course}
-										</a>
-									) : (
-										item.data.course
-									)}
-								</h3>
-								<div class='space-y-1 text-sm'>
-									<p><strong>Role:</strong> {item.data.role}</p>
-									<p><strong>Term:</strong> {item.data.term}</p>
-									<p><strong>Institution:</strong> {item.data.institution}</p>
-								</div>
-								{item.data.notes && (
-									<p class='mt-3 text-base-content/80'>{item.data.notes}</p>
-								)}
+		<section class='mb-12 md:mb-16'>
+			<h2 class='text-2xl md:text-3xl font-bold mb-6 md:mb-8'>Teaching</h2>
+			<div class='space-y-8 md:space-y-12'>
+				<div>
+					<h3 class='text-xl md:text-2xl font-bold mb-4 md:mb-6'>Courses Taught</h3>
+					<div class='card bg-base-200 border border-base-300'>
+						<div class='card-body p-4 md:p-6'>
+							<div class='space-y-3'>
+								{teaching.map((course) => (
+									<div class='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 hover:bg-base-300 p-2 rounded transition-colors min-w-0'>
+										<span class='text-sm md:text-base font-medium text-base-content/80 break-words'>{course.title}</span>
+										<span class='badge badge-outline text-xs flex-shrink-0'>{course.code}</span>
+									</div>
+								))}
 							</div>
 						</div>
-					))}
+					</div>
 				</div>
-			)}
-		</section>
 
-		<!-- Coursework Section -->
-		<section>
-			<h2 class='text-3xl font-bold mb-6'>Selected Graduate Coursework</h2>
-			<div class='prose max-w-none'>
-				<p class='text-base-content/70 mb-4'>
-					<!-- TODO: Add your coursework here -->
-					Technical coursework completed during graduate studies:
-				</p>
-				
-				<div class='grid md:grid-cols-2 gap-4'>
-					<div class='card bg-base-200'>
-						<div class='card-body'>
-							<h3 class='card-title text-lg'>Core Courses</h3>
-							<ul class='list-disc list-inside space-y-1 text-sm'>
-								<li>Advanced Environmental Systems</li>
-								<li>Data Science for Engineers</li>
-								<li>Environmental Modeling</li>
-								<!-- Add your actual courses -->
+				<!-- TA Experience Highlight -->
+				<div>
+					<div class='p-3 md:p-4 bg-accent/5 border-l-4 border-accent rounded-r-lg'>
+						<ul class='space-y-2 md:space-y-3'>
+								<li class='flex items-start gap-2 text-sm md:text-base min-w-0'>
+									<span class='text-accent font-bold flex-shrink-0'>✓</span>
+									<span class='text-base-content/80 break-words'><strong>Course instruction and lab support.</strong> Assisted faculty across 6 courses in bio-design, molecular and cellular engineering, watershed systems, engineering professionalism, and sustainable development; prepared recitation slides, demonstrated laboratory procedures, and managed course materials on Canvas.</span>
+								</li>
+								<li class='flex items-start gap-2 text-sm md:text-base min-w-0'>
+									<span class='text-accent font-bold flex-shrink-0'>✓</span>
+									<span class='text-base-content/80 break-words'><strong>AI-driven teaching and curriculum development.</strong> Delivered guest lectures across courses to train students in leveraging AI for learning and research, while integrating AI tools into assignments, review sessions and data analysis.</span>
+								</li>
 							</ul>
 						</div>
 					</div>
-					
-					<div class='card bg-base-200'>
-						<div class='card-body'>
-							<h3 class='card-title text-lg'>Electives</h3>
-							<ul class='list-disc list-inside space-y-1 text-sm'>
-								<li>Machine Learning Applications</li>
-								<li>Climate Change Science</li>
-								<li>Optimization Methods</li>
-								<!-- Add your actual courses -->
-							</ul>
-						</div>
+				</div>
+		</section>
+
+		<!-- Coursework Section -->
+		<section class='space-y-8 md:space-y-12'>
+			<h2 class='text-2xl md:text-3xl font-bold mb-6 md:mb-8'>Coursework</h2>
+			
+			<!-- Chemistry & Material -->
+			<div>
+				<h3 class='text-xl md:text-2xl font-bold mb-4 md:mb-6'>Chemistry & Material</h3>
+				<div class='card bg-base-200 border border-base-300'>
+					<div class='card-body p-4 md:p-6'>
+						<ul class='grid sm:grid-cols-2 gap-x-6 gap-y-2'>
+							{coursework.chem.map((course) => (
+								<li class='flex items-start gap-2 text-sm md:text-base text-base-content/80'>
+									<span class='text-primary mt-1'>•</span>
+									<span>{course}</span>
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Biology & Bioengineering -->
+			<div>
+				<h3 class='text-xl md:text-2xl font-bold mb-4 md:mb-6'>Biology & Bioengineering</h3>
+				<div class='card bg-base-200 border border-base-300'>
+					<div class='card-body p-4 md:p-6'>
+						<ul class='grid sm:grid-cols-2 gap-x-6 gap-y-2'>
+							{coursework.bio.map((course) => (
+								<li class='flex items-start gap-2 text-sm md:text-base text-base-content/80'>
+									<span class='text-primary mt-1'>•</span>
+									<span>{course}</span>
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- AI & Computer Science -->
+			<div>
+				<h3 class='text-xl md:text-2xl font-bold mb-4 md:mb-6'>AI & Computer Science</h3>
+				<div class='card bg-base-200 border border-base-300'>
+					<div class='card-body p-4 md:p-6'>
+						<ul class='grid sm:grid-cols-2 gap-x-6 gap-y-2'>
+							{coursework.ai.map((course) => (
+								<li class='flex items-start gap-2 text-sm md:text-base text-base-content/80'>
+									<span class='text-primary mt-1'>•</span>
+									<span>{course}</span>
+								</li>
+							))}
+						</ul>
 					</div>
 				</div>
 			</div>
