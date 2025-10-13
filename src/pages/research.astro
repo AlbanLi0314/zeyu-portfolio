@@ -175,8 +175,9 @@ const projects = [
               </div>
 
               <!-- Project Images -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-                <div class="relative group overflow-hidden rounded-lg aspect-video cursor-pointer">
+              <!-- Mobile: Horizontal scroll, Desktop: Grid -->
+              <div class="flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible scrollbar-thin -mx-4 px-4 sm:mx-0 sm:px-0">
+                <div class="relative group flex-shrink-0 w-[280px] sm:w-auto overflow-hidden rounded-lg aspect-video cursor-pointer">
                   <img 
                     src={`/${project.id === 'tracers' ? 'A1' : project.id === 'hydrogels' ? 'B1' : project.id === 'extraction' ? 'C1' : 'D1'}.jpg`}
                     alt={project.captions[0]}
@@ -188,7 +189,7 @@ const projects = [
                     </p>
                   </div>
                 </div>
-                <div class="relative group overflow-hidden rounded-lg aspect-video cursor-pointer">
+                <div class="relative group flex-shrink-0 w-[280px] sm:w-auto overflow-hidden rounded-lg aspect-video cursor-pointer">
                   <img 
                     src={`/${project.id === 'tracers' ? 'A2' : project.id === 'hydrogels' ? 'B2' : project.id === 'extraction' ? 'C2' : 'D2'}.jpg`}
                     alt={project.captions[1]}
