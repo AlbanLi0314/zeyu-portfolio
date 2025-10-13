@@ -7,69 +7,97 @@ const projects = [
     id: "tracers",
     title: "DNA-Barcoded PLGA Microspheres for Transport Mapping",
     shortLabel: "DNA tracers",
-    tags: ["PLGA", "qPCR", "Field scale", "Lagrangian"],
-    status: "Under review (ES&T, 2025)",
-    statusColor: "badge-info",
+    tags: ["micro/nanoparticles", "biodegradable", "PLGA", "transport modeling", "field-scale", "qPCR", "TaqMan assay", "source attribution"],
     outcomes: [
-      "Field trial 11 km²",
-      "Detection up to ~7 km",
-      "Multiplexable barcoding"
+      "Field experiment: 11 km², ~33 h",
+      "qPCR detection to ~7 km with < 1 mg DNA release",
+      "Paper under review at ES&T",
+      "Supported by DoD SERDP",
+      "Seminars at ACS, UIUC, Penn State, and Cornell"
     ],
-    role: "Lead researcher and first author",
-    lab: "DNA Materials Lab, Cornell BEE",
-    collaborators: "C. L. Ramón, A. Koeberle, et al.",
-    detail: `I bridge molecular biotechnology and polymer engineering to build a DNA-barcoded PLGA microsphere tracer that turns qPCR into a lake-scale process sensor. We design unique DNA tags and a TaqMan assay, encapsulate them in size-tuned, biodegradable microspheres, and then read dispersion with qPCR while calibrating 3D hydrodynamic / Lagrangian models to produce source-attribution flow maps. In field trials (278 samples over ~11 km²), we detected tags up to ~7 km and ~33 h post-release using only milligram-scale DNA, generating datasets that align with model-predicted transport. Standardized backgrounds, DI blanks, and qPCR calibration curves—plus gram-scale, barcoded batches—made the method robust across teams and conditions. The result is a transferable platform: materials-controlled particle specs for tunable transport, and biotech-grade barcoding/assays for sensitive, multiplexable readout—ready for utilities, plants, and industrial process tracing.`
+    role: "First author; project lead",
+    collaborators: [
+      { name: "Dr. Cintia Ramón", affiliation: "University of Granada, Spain", url: "https://produccioncientifica.ugr.es/investigadores/453644/detalle?lang=en" },
+      { name: "Prof. David Lodge", affiliation: "Cornell University", url: "https://ecologyandevolution.cornell.edu/david-m-lodge" },
+      { name: "Prof. Edwin Cowen", affiliation: "Cornell University", url: "https://www.engineering.cornell.edu/people/edwin-todd-cowen/" },
+      { name: "Prof. Jose Andrés", affiliation: "Cornell University", url: "https://fellows.atkinson.cornell.edu/view.php?NetID=jaa53" },
+      { name: "Prof. M. Todd Walter", affiliation: "Cornell University", url: "https://cals.cornell.edu/people/m-todd-walter" },
+      { name: "Prof. Dan Luo", affiliation: "Cornell University", url: "https://cals.cornell.edu/people/dan-luo" }
+    ],
+    links: [
+      { name: "SERDP program", url: "https://serdp-estcp.mil" },
+      { name: "Environmental Science & Technology (ES&T)", url: "https://pubs.acs.org/journal/esthag" }
+    ],
+    detail: `I bridge molecular biotechnology and polymer engineering to build a DNA-barcoded PLGA microsphere tracer that turns qPCR into a lake-scale process sensor. We design unique DNA tags and a TaqMan assay, encapsulate them in size-tuned, biodegradable microspheres, and then read dispersion with qPCR while calibrating 3D hydrodynamic / Lagrangian models to produce source-attribution flow maps. In field trials (278 samples over ~11 km²), we detected tags up to ~7 km and ~33 h post-release using only milligram-scale DNA, generating datasets that align with model-predicted transport. Standardized backgrounds, DI blanks, and qPCR calibration curves—plus gram-scale, barcoded batches—made the method robust across teams and conditions. The result is a transferable platform: materials-controlled particle specs for tunable transport, and biotech-grade barcoding/assays for sensitive, multiplexable readout—ready for utilities, plants, and industrial process tracing.`,
+    captions: ["Flowchart of DNA PLGA Microspheres for tracing", "SEM image of DNA PLGA Microspheres"]
   },
   {
     id: "hydrogels",
     title: "DNA Hydrogels and Composites Materials",
     shortLabel: "DNA hydrogels",
-    tags: ["Self-healing", "DIW", "Psoralen", "Aluminum ionic"],
-    status: "Published (ACADIA 2024)",
-    statusColor: "badge-success",
+    tags: ["hydrogels", "self-healing", "thermal-reversible", "photo-reversible", "3D printable", "composites", "biomass"],
     outcomes: [
-      "ACADIA 2024 (Co-first author)",
-      "Multi-cycle self-repair",
-      "3D-printable architecture"
+      "Demo published on Acadia (2024)",
+      "Supported by Cornell SPROUT Awards",
+      "Manuscript in preparation",
+      "3D-printable via DIW"
     ],
-    role: "Co-first author and materials engineer",
-    lab: "DNA Materials Lab, Cornell BEE & AAP",
-    collaborators: "C. He, L. X. Wang, et al.",
-    detail: `I turn biomass DNA into programmable hydrogels and composites that can be 3D printed, shaped on demand, and self-healing in real parts. The platform uses three simple modes: thermal bonds that re-form with gentle heating, a light-activated crosslink that locks and then unlocks (the same psoralen chemistry used clinically in PUVA therapies), and an ionic mode with aluminum that sets quickly and rehydrates to close cracks. We demonstrated the concept in PolyTile 4.0—a ceramic tile with optimized vascular channels that move the DNA precursor to damage sites; flow was validated and the system was published at ACADIA 2024 (Co-first author). The same inks run in CAD-to-DIW workflows, accept payloads, and let us tune stiffness, viscosity, and swelling so designers and engineers can choose the behavior that the part needs.`
+    role: "Co-first author; project lead",
+    collaborators: [
+      { name: "Mr. Chenming He", affiliation: "Harvard University", url: "https://chenminghe.com" },
+      { name: "Prof. Jenny Sabin", affiliation: "Cornell University", url: "https://aap.cornell.edu/people/jenny-sabin" },
+      { name: "Prof. Dan Luo", affiliation: "Cornell University", url: "https://cals.cornell.edu/people/dan-luo" },
+      { name: "Dr. Dong Wang", affiliation: "Cornell University", url: "https://cals.cornell.edu/people/dong-wang" }
+    ],
+    links: [
+      { name: "PolyTile 4.0", url: "https://static1.squarespace.com/static/64b192628e05927c6c0820c4/t/67b262b35e57fb7b443cc571/1739743925250/PolyTile4.0_Paper.pdf" },
+      { name: "Cornell SPROUT Awards", url: "https://www.engineering.cornell.edu/faculty-resources/sprout-awards/" },
+      { name: "Acadia", url: "https://www.acadia.org" }
+    ],
+    detail: `I turn biomass DNA into programmable hydrogels and composites that can be 3D printed, shaped on demand, and self-healing in real parts. The platform uses three simple modes: thermal bonds that re-form with gentle heating, a light-activated crosslink that locks and then unlocks (the same psoralen chemistry used clinically in PUVA therapies), and an ionic mode with aluminum that sets quickly and rehydrates to close cracks. We demonstrated the concept in PolyTile 4.0—a ceramic tile with optimized vascular channels that move the DNA precursor to damage sites; flow was validated and the system was published at ACADIA 2024 (Co-first author). The same inks run in CAD-to-DIW workflows, accept payloads, and let us tune stiffness, viscosity, and swelling so designers and engineers can choose the behavior that the part needs.`,
+    captions: ["$1 and $1 of DNA (from salmon)", "3D printed DNA hydrogel"]
   },
   {
     id: "extraction",
     title: "Low Cost Nucleic Acid Extraction Method Inspired by Espresso Machine",
     shortLabel: "Nucleic acid extraction",
-    tags: ["DNA/RNA capture", "Nanoparticles", "Cost modeling", "Throughput"],
-    status: "Prototype validated",
-    statusColor: "badge-secondary",
+    tags: ["extraction", "purification", "device design", "high-capacity", "high-throughput", "DNA", "RNA", "low-cost", "downstream processing"],
     outcomes: [
-      "~200 mg per pod",
-      "91% cost reduction",
-      "Enzyme-friendly output"
+      "200 mg nucleic acid per pod",
+      "91% cost reduction vs ethanol precipitation",
+      "Enzyme-friendly outputs for downstream assays"
     ],
-    role: "Lead designer and engineer",
-    lab: "DNA Materials Lab, Cornell BEE",
-    collaborators: "Lab members",
-    detail: `I engineered a nucleic acid extraction method that uses a coffee-machine pod extractor to run simple, chainable cycles. Each pod contains novel nanoparticles that capture DNA and RNA across a wide input range, from very dilute to highly concentrated solutions, achieving high absorption density per unit material. The process reliably delivers ~200 mg per pod and reduces cost by ~91 percent compared with conventional ethanol precipitation, with a modeled path to under $1 per gram. It produces enzyme-friendly outputs suitable for downstream assays. I designed and piloted the system, modeled costs, and documented procedures for transfer.`
+    role: "Inventor",
+    collaborators: [
+      { name: "Prof. Dan Luo", affiliation: "Cornell University", url: "https://cals.cornell.edu/people/dan-luo" }
+    ],
+    links: [],
+    detail: `I engineered a nucleic acid extraction method that uses a coffee-machine pod extractor to run simple, chainable cycles. Each pod contains novel nanoparticles that capture DNA and RNA across a wide input range, from very dilute to highly concentrated solutions, achieving high absorption density per unit material. The process reliably delivers ~200 mg per pod and reduces cost by ~91 percent compared with conventional ethanol precipitation, with a modeled path to under $1 per gram. It produces enzyme-friendly outputs suitable for downstream assays. I designed and piloted the system, modeled costs, and documented procedures for transfer.`,
+    captions: ["Novel nanoparticles capture DNA", "High adsorption yield across wide DNA concentration range"]
   },
   {
     id: "superhydrophobic",
     title: "Superhydrophobic Surfaces for Icing Control and Durable Water-Repellency",
     shortLabel: "Surface engineering",
-    tags: ["Icing", "Electrostatic pre-charge", "Perfluoropolymer", "Wetting"],
-    status: "Published (The Innovation)",
-    statusColor: "badge-success",
+    tags: ["superhydrophobic", "anti-icing", "contact angle", "electrostatic", "durable coating", "micro/nano texture", "fluoropolymer", "nano-fabrication", "lithography"],
     outcomes: [
-      "The Innovation (IF 25.7, 3rd author)",
-      "Patent filings",
-      "Best Undergraduate Thesis Award"
+      "Published at The Innovation (2023) (IF 25.7, 3rd author)",
+      "Patent filings (granted 2023)",
+      "Best Undergraduate Thesis Award (2019)"
     ],
-    role: "Undergraduate researcher (3rd author)",
-    lab: "Micro-fabrication & Surface Materials Lab, HKBU",
-    collaborators: "Prof. Kangning Ren, H. Wu, et al.",
-    detail: `I built a lab platform to study icing on superhydrophobic surfaces and tested a simple idea: use static charge to help droplets leave faster. Precharging the surface shortened supercooled droplet contact time by up to 25 percent and improved bounce in cold, dry conditions. In a separate line, I helped develop a monolithic all-perfluoropolymer surface that keeps its water-repellent texture under real use, produced as a coating, membrane, or tape, with long-term air retention shown to 9 m depth. The work maps a clear wetting mechanism to durable, manufacturable surfaces for aircraft, energy, and infrastructure, with outcomes that include a paper in The Innovation (IF 25.7, 3rd author), patent filings, and the Best Undergraduate Thesis Award.`
+    role: "3rd author; co-inventor; undergraduate researcher",
+    collaborators: [
+      { name: "Prof. Wanbo Li", affiliation: "Shanghai Jiao Tong University", url: "https://me.sjtu.edu.cn/en/FullTimeTeacher/liwanbo.html" },
+      { name: "Prof. Nicola Pugno", affiliation: "Polytechnic University of Turin", url: "https://www.sems.qmul.ac.uk/staff/n.pugno" },
+      { name: "Prof. Richard Zare", affiliation: "Stanford University", url: "https://chemistry.stanford.edu/people/richard-zare" },
+      { name: "Prof. Hongkai Wu", affiliation: "Hong Kong Univ. Sci. & Tech.", url: "https://hongkaiwulab.ust.hk" },
+      { name: "Prof. Kangning Ren", affiliation: "Hong Kong Baptist University", url: "https://chem.hkbu.edu.hk/ren" }
+    ],
+    links: [
+      { name: "All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability", url: "https://www.cell.com/the-innovation/fulltext/S2666-6758(23)00017-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS2666675823000176%3Fshowall%3Dtrue" }
+    ],
+    detail: `I built a lab platform to study icing on superhydrophobic surfaces and tested a simple idea: use static charge to help droplets leave faster. Precharging the surface shortened supercooled droplet contact time by up to 25 percent and improved bounce in cold, dry conditions. In a separate line, I helped develop a monolithic all-perfluoropolymer surface that keeps its water-repellent texture under real use, produced as a coating, membrane, or tape, with long-term air retention shown to 9 m depth. The work maps a clear wetting mechanism to durable, manufacturable surfaces for aircraft, energy, and infrastructure, with outcomes that include a paper in The Innovation (IF 25.7, 3rd author), patent filings, and the Best Undergraduate Thesis Award.`,
+    captions: ["All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability", "Lab platform build to study icing on superhydrophobic surfaces"]
   }
 ];
 ---
@@ -96,18 +124,19 @@ const projects = [
     </div>
 
     <!-- Sticky Navigation -->
-    <div class="sticky top-16 z-30 -mx-4 sm:-mx-8 px-4 sm:px-8 py-3 mb-8 bg-base-100/80 backdrop-blur-sm border-b border-base-300">
-      <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
+    <nav class="sticky top-16 z-30 -mx-4 sm:-mx-8 px-4 sm:px-8 py-3 mb-8 bg-base-100/80 backdrop-blur-sm border-b border-base-300">
+      <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-thin" id="project-nav">
         {projects.map((project) => (
           <a 
             href={`#${project.id}`}
-            class="btn btn-sm btn-outline whitespace-nowrap hover:btn-primary"
+            class="project-nav-link btn btn-sm btn-outline whitespace-nowrap"
+            data-target={project.id}
           >
             {project.shortLabel}
           </a>
         ))}
       </div>
-    </div>
+    </nav>
 
     <!-- Project Details -->
     <div class="space-y-16">
@@ -145,13 +174,31 @@ const projects = [
                 </ul>
               </div>
 
-              <!-- Placeholder Images -->
+              <!-- Project Images -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="aspect-video rounded-lg bg-base-200 flex items-center justify-center text-base-content/40">
-                  <span class="text-sm">Figure placeholder</span>
+                <div class="relative group overflow-hidden rounded-lg aspect-video cursor-pointer">
+                  <img 
+                    src={`/${project.id === 'tracers' ? 'A1' : project.id === 'hydrogels' ? 'B1' : project.id === 'extraction' ? 'C1' : 'D1'}.jpg`}
+                    alt={project.captions[0]}
+                    class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-125"
+                  />
+                  <div class="absolute inset-0 bg-white/0 group-hover:bg-white/70 transition-all duration-300 flex items-center justify-center p-4">
+                    <p class="text-sm text-center font-medium text-base-content opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {project.captions[0]}
+                    </p>
+                  </div>
                 </div>
-                <div class="aspect-video rounded-lg bg-base-200 flex items-center justify-center text-base-content/40">
-                  <span class="text-sm">Figure placeholder</span>
+                <div class="relative group overflow-hidden rounded-lg aspect-video cursor-pointer">
+                  <img 
+                    src={`/${project.id === 'tracers' ? 'A2' : project.id === 'hydrogels' ? 'B2' : project.id === 'extraction' ? 'C2' : 'D2'}.jpg`}
+                    alt={project.captions[1]}
+                    class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-125"
+                  />
+                  <div class="absolute inset-0 bg-white/0 group-hover:bg-white/70 transition-all duration-300 flex items-center justify-center p-4">
+                    <p class="text-sm text-center font-medium text-base-content opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {project.captions[1]}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -165,34 +212,43 @@ const projects = [
                     <h5 class="text-sm font-semibold text-primary mb-3">Project Info</h5>
                     
                     <div class="space-y-3 text-sm">
-                      <!-- Role & Collaborators -->
+                      <!-- Role -->
                       <div>
-                        <p class="text-base-content/60 mb-1 text-xs">Role</p>
+                        <p class="text-base-content/80 mb-1 text-sm font-semibold">Role</p>
                         <p class="text-base-content/90">{project.role}</p>
                       </div>
                       
-                      <div>
-                        <p class="text-base-content/60 mb-1 text-xs">Lab/Group</p>
-                        <p class="text-base-content/90">{project.lab}</p>
-                      </div>
-                      
-                      <div>
-                        <p class="text-base-content/60 mb-1 text-xs">Collaborators</p>
-                        <p class="text-base-content/90">{project.collaborators}</p>
-                      </div>
-
-                      <!-- Divider -->
-                      <div class="border-t border-base-300 my-3"></div>
-
-                      <!-- Links -->
-                      <div>
-                        <p class="text-base-content/60 mb-2 text-xs">Related</p>
-                        <div class="flex flex-col gap-1">
-                          <a href="/publications" class="link link-primary text-sm">Publications</a>
-                          <a href="/cv" class="link link-primary text-sm">Full CV</a>
-                          <a href="/contact" class="link link-primary text-sm">Contact</a>
+                      <!-- Collaborators -->
+                      {project.collaborators.length > 0 && (
+                        <div>
+                          <p class="text-base-content/80 mb-2 text-sm font-semibold">Selected Collaborators</p>
+                          <div class="space-y-2">
+                            {project.collaborators.map((collab) => (
+                              <div>
+                                <a href={collab.url} target="_blank" rel="noopener noreferrer" class="link link-primary text-sm hover:underline">
+                                  {collab.name}
+                                </a>
+                                <p class="text-xs text-base-content/60 italic">{collab.affiliation}</p>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
+
+                      <!-- Related Links -->
+                      {project.links.length > 0 && (
+                        <>
+                          <div class="border-t border-base-300 my-3"></div>
+                          <div>
+                            <p class="text-base-content/80 mb-2 text-sm font-semibold">Related</p>
+                            <div class="flex flex-col gap-1">
+                              {project.links.map((link) => (
+                                <a href={link.url} target="_blank" rel="noopener noreferrer" class="link link-primary text-sm">{link.name}</a>
+                              ))}
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -202,18 +258,70 @@ const projects = [
         </section>
       ))}
     </div>
-
-    <!-- Back to Top Button -->
-    <div class="mt-12 text-center">
-      <button 
-        onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-        class="btn btn-outline btn-primary btn-sm"
-      >
-        ↑ Back to Top
-      </button>
-    </div>
   </div>
+
+  <!-- Sticky Back to Top FAB (appears after 600px scroll) -->
+  <button 
+    id="back-to-top-fab"
+    class="fixed bottom-8 right-8 btn btn-circle btn-primary shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-40"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    aria-label="Back to top"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
 </Layout>
+
+<script>
+  // Back to Top FAB visibility
+  const fab = document.getElementById('back-to-top-fab');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) {
+      fab?.classList.remove('opacity-0', 'pointer-events-none');
+      fab?.classList.add('opacity-100', 'pointer-events-auto');
+    } else {
+      fab?.classList.remove('opacity-100', 'pointer-events-auto');
+      fab?.classList.add('opacity-0', 'pointer-events-none');
+    }
+  });
+
+  // Highlight active section in navigation
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.project-nav-link');
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '-150px 0px -66% 0px',
+    threshold: 0
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        
+        // Remove active state from all links
+        navLinks.forEach(link => {
+          link.classList.remove('btn-primary');
+          link.classList.add('btn-outline');
+        });
+        
+        // Add active state to current link
+        const activeLink = document.querySelector(`.project-nav-link[data-target="${id}"]`);
+        if (activeLink) {
+          activeLink.classList.remove('btn-outline');
+          activeLink.classList.add('btn-primary');
+        }
+      }
+    });
+  }, observerOptions);
+  
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
 
 <style>
   /* Smooth scrolling for anchor links */
