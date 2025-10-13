@@ -124,8 +124,8 @@ const projects = [
     </div>
 
     <!-- Sticky Navigation -->
-    <nav class="sticky top-16 z-30 -mx-4 sm:-mx-8 px-0 sm:px-8 py-2 md:py-3 mb-6 md:mb-8 bg-base-100/80 backdrop-blur-sm border-b border-base-300 overflow-hidden">
-      <div class="flex gap-2 overflow-x-auto pb-2 px-4 sm:px-0 scrollbar-thin" id="project-nav">
+    <nav class="sticky top-16 z-30 py-2 md:py-3 mb-6 md:mb-8 bg-base-100/80 backdrop-blur-sm border-b border-base-300 -mx-4 sm:-mx-8 max-w-full">
+      <div class="flex gap-2 overflow-x-auto overflow-y-hidden pb-2 px-4 sm:px-8 scrollbar-thin max-w-full" id="project-nav" style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
         {projects.map((project) => (
           <a 
             href={`#${project.id}`}
