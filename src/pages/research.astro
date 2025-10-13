@@ -175,30 +175,38 @@ const projects = [
               </div>
 
               <!-- Project Images -->
-              <!-- Mobile: Horizontal scroll, Desktop: Grid -->
-              <div class="flex gap-2 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible scrollbar-thin image-gallery">
-                <div class="relative group flex-shrink-0 w-[calc(50vw-2rem)] max-w-[280px] sm:w-auto overflow-hidden rounded-lg aspect-video cursor-pointer">
-                  <img 
-                    src={`/${project.id === 'tracers' ? 'A1' : project.id === 'hydrogels' ? 'B1' : project.id === 'extraction' ? 'C1' : 'D1'}.jpg`}
-                    alt={project.captions[0]}
-                    class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-125"
-                  />
-                  <div class="absolute inset-0 bg-white/0 group-hover:bg-white/70 transition-all duration-300 flex items-center justify-center p-3 md:p-4">
-                    <p class="text-xs md:text-sm text-center font-medium text-base-content opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {project.captions[0]}
-                    </p>
+              <!-- Mobile: Horizontal scroll cards, Desktop: Grid -->
+              <div class="flex gap-3 overflow-x-auto pb-3 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible scrollbar-thin image-gallery snap-x snap-mandatory">
+                <div class="relative group flex-shrink-0 w-[calc(100%-1rem)] max-w-[500px] sm:w-auto overflow-hidden rounded-2xl shadow-md cursor-pointer snap-center">
+                  <div class="aspect-video">
+                    <img 
+                      src={`/${project.id === 'tracers' ? 'A1' : project.id === 'hydrogels' ? 'B1' : project.id === 'extraction' ? 'C1' : 'D1'}.jpg`}
+                      alt={project.captions[0]}
+                      class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-125"
+                    />
+                  </div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+                      <p class="text-xs md:text-sm text-white font-medium drop-shadow-lg">
+                        {project.captions[0]}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div class="relative group flex-shrink-0 w-[calc(50vw-2rem)] max-w-[280px] sm:w-auto overflow-hidden rounded-lg aspect-video cursor-pointer">
-                  <img 
-                    src={`/${project.id === 'tracers' ? 'A2' : project.id === 'hydrogels' ? 'B2' : project.id === 'extraction' ? 'C2' : 'D2'}.jpg`}
-                    alt={project.captions[1]}
-                    class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-125"
-                  />
-                  <div class="absolute inset-0 bg-white/0 group-hover:bg-white/70 transition-all duration-300 flex items-center justify-center p-3 md:p-4">
-                    <p class="text-xs md:text-sm text-center font-medium text-base-content opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {project.captions[1]}
-                    </p>
+                <div class="relative group flex-shrink-0 w-[calc(100%-1rem)] max-w-[500px] sm:w-auto overflow-hidden rounded-2xl shadow-md cursor-pointer snap-center">
+                  <div class="aspect-video">
+                    <img 
+                      src={`/${project.id === 'tracers' ? 'A2' : project.id === 'hydrogels' ? 'B2' : project.id === 'extraction' ? 'C2' : 'D2'}.jpg`}
+                      alt={project.captions[1]}
+                      class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-125"
+                    />
+                  </div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+                      <p class="text-xs md:text-sm text-white font-medium drop-shadow-lg">
+                        {project.captions[1]}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -345,6 +353,16 @@ const projects = [
       min-width: 0 !important;
       max-width: 100% !important;
     }
+    
+    /* CRITICAL: Prevent image gallery from causing overflow */
+    .image-gallery {
+      max-width: 100% !important;
+    }
+    
+    /* Ensure individual images stay within bounds */
+    .image-gallery > div {
+      max-width: calc(100vw - 4rem) !important;
+    }
   }
 
   /* Ensure sticky navigation works properly */
@@ -354,21 +372,37 @@ const projects = [
     background-color: var(--fallback-b1, oklch(var(--b1)/1));
   }
 
-  /* Image gallery on very small screens */
-  @media (max-width: 399px) {
+  /* App Store style horizontal scroll for image gallery */
+  .image-gallery {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  
+  .image-gallery::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  
+  .image-gallery > div {
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
+  }
+  
+  /* On desktop, restore scrollbar and remove snap */
+  @media (min-width: 640px) {
     .image-gallery {
-      /* Ensure smooth horizontal scrolling */
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: none;
+      scrollbar-width: auto;
+      -ms-overflow-style: auto;
     }
     
-    .image-gallery > div {
-      scroll-snap-align: start;
-      scroll-snap-stop: normal;
+    .image-gallery::-webkit-scrollbar {
+      display: block;
     }
   }
 
-  /* Custom scrollbar for horizontal nav and image galleries */
+  /* Custom scrollbar for horizontal nav */
   .scrollbar-thin::-webkit-scrollbar {
     height: 4px;
   }
