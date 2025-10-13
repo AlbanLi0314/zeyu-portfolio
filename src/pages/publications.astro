@@ -1,181 +1,143 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { getCollection } from 'astro:content'
-
-const papers = await getCollection('papers')
-const patents = await getCollection('patents')
-
-// Sort by year descending
-const sortedPapers = papers.sort((a, b) => b.data.year - a.data.year)
-const sortedPatents = patents.sort((a, b) => (b.data.year || 0) - (a.data.year || 0))
 ---
 
-<Layout title="Publications - Zeyu Li">
+<Layout title="Publications & Patents - Zeyu Li">
 	<div class='max-w-4xl mx-auto'>
-		<h1 class='text-4xl font-bold mb-8'>Publications</h1>
+		<h1 class='text-4xl font-bold mb-4'>Publications & Patents</h1>
+		<p class='text-sm text-base-content/60 mb-8 italic'>Last updated: October 13, 2025</p>
 		
-		<!-- Tabs Navigation -->
-		<div class='tabs tabs-boxed mb-8' role="tablist">
-			<a href="#papers" class='tab tab-active' role="tab" data-tab="papers">
-				Papers ({sortedPapers.length})
-			</a>
-			<a href="#patents" class='tab' role="tab" data-tab="patents">
-				Patents ({sortedPatents.length})
-			</a>
-		</div>
+		<!-- Research Papers Section -->
+		<section class='mb-12'>
+			<h2 class='text-3xl font-bold mb-6 pb-2 border-b-2 border-primary'>Research Papers</h2>
+			<ul class='space-y-8'>
+				<!-- Paper 1: eDNA Tracers -->
+				<li class='pb-6'>
+					<h3 class='text-xl font-semibold mb-2'>
+						Tracing Environmental DNA Transport in Large Lakes with Synthetic DNA Microparticles and Hydrodynamic Modeling
+					</h3>
+					<p class='text-base text-base-content/80 mb-2'>
+						<strong>Zeyu Li</strong>, C. L. Ramón, A. Koeberle, et al.
+					</p>
+					<p class='text-sm italic mb-2 text-base-content/70'>
+						Under review at <em>Environmental Science & Technology</em> (2025)
+					</p>
+					<p class='text-sm text-base-content/70 mb-3'>
+						<strong>Summary:</strong> Synthetic DNA microparticle tracers for field-scale hydrology and model validation.
+					</p>
+					<div class='flex gap-3 items-center text-sm flex-wrap'>
+						<span class='badge badge-info'>Under Review</span>
+						<span class='badge badge-outline'>2025</span>
+					</div>
+				</li>
 
-		<!-- Papers Section -->
-		<section id="papers" class="tab-content" style="display: none;">
-			<h2 class='text-3xl font-bold mb-6'>Research Papers</h2>
-			{sortedPapers.length === 0 ? (
-				<p class='text-base-content/60'>No papers yet. Add papers in <code>src/content/papers/</code></p>
-			) : (
-				<ul class='space-y-6'>
-					{sortedPapers.map((paper) => (
-						<li class='border-b pb-6 last:border-b-0'>
-							<h3 class='text-xl font-semibold mb-2'>
-								{paper.data.link ? (
-									<a href={paper.data.link} class='link link-primary' target="_blank" rel="noopener noreferrer">
-										{paper.data.title}
-									</a>
-								) : (
-									paper.data.title
-								)}
-							</h3>
-							<p class='text-sm text-base-content/70 mb-2'>
-								{paper.data.authors.join(', ')}
-							</p>
-							{paper.data.venue && (
-								<p class='text-sm italic mb-2'>{paper.data.venue}</p>
-							)}
-							<div class='flex gap-4 items-center text-sm'>
-								<span class='badge badge-outline'>{paper.data.year}</span>
-								{paper.data.status === 'under-review' && (
-									<span class='badge badge-info text-white'>Under Review</span>
-								)}
-								{paper.data.doi && (
-									<a href={`https://doi.org/${paper.data.doi}`} class='link link-secondary' target="_blank" rel="noopener noreferrer">
-										DOI
-									</a>
-								)}
-								{paper.data.pdf && (
-									<a href={paper.data.pdf} class='link link-secondary' target="_blank" rel="noopener noreferrer">
-										PDF
-									</a>
-								)}
-								{paper.data.featured && (
-									<span class='badge badge-primary'>Featured</span>
-								)}
-							</div>
-							{paper.data.keywords && paper.data.keywords.length > 0 && (
-								<div class='flex gap-2 mt-3 flex-wrap'>
-									{paper.data.keywords.map(keyword => (
-										<span class='badge badge-sm'>{keyword}</span>
-									))}
-								</div>
-							)}
-						</li>
-					))}
-				</ul>
-			)}
+				<!-- Paper 2: PolyTile -->
+				<li class='pb-6 border-t pt-6'>
+					<h3 class='text-xl font-semibold mb-2'>
+						<a href='https://papers.cumincad.org/cgi-bin/works/paper/acadia24_v1_14' class='link link-primary' target='_blank' rel='noopener noreferrer'>
+							PolyTile 4.0: Self-healing Ceramic Tiles
+						</a>
+					</h3>
+					<p class='text-base text-base-content/80 mb-2'>
+						Chenming He, <strong>Zeyu Li</strong>, Lucy Xiaorui Wang, Dong Wang, Dan Luo, Jenny E. Sabin
+					</p>
+					<p class='text-sm italic mb-2 text-base-content/70'>
+						<em>ACADIA 2024: Designing Change – Proceedings</em> (2024)
+					</p>
+					<p class='text-sm text-base-content/70 mb-3'>
+						<strong>Summary:</strong> Vascular-channel optimization (Dijkstra) and DNA hydrogel integration for self-healing ceramics.
+					</p>
+					<div class='flex gap-3 items-center text-sm flex-wrap'>
+						<span class='badge badge-success'>Published</span>
+						<span class='badge badge-outline'>2024</span>
+						<a href='https://papers.cumincad.org/cgi-bin/works/paper/acadia24_v1_14' class='link link-secondary' target='_blank' rel='noopener noreferrer'>
+							Proceedings
+						</a>
+						<a href='https://www.sabinlab.com/polytile' class='link link-secondary' target='_blank' rel='noopener noreferrer'>
+							Project Page
+						</a>
+					</div>
+				</li>
+
+				<!-- Paper 3: Superhydrophobic -->
+				<li class='pb-6 border-t pt-6'>
+					<h3 class='text-xl font-semibold mb-2'>
+						<a href='https://doi.org/10.1016/j.xinn.2023.100389' class='link link-primary' target='_blank' rel='noopener noreferrer'>
+							All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability
+						</a>
+					</h3>
+					<p class='text-base text-base-content/80 mb-2'>
+						Wanbo Li, Chiu-Wing Chan, <strong>Zeyu Li</strong>, et al.
+					</p>
+					<p class='text-sm italic mb-2 text-base-content/70'>
+						<em>The Innovation</em> (Cell Press) 4(2):100389 (2023)
+					</p>
+					<p class='text-sm text-base-content/70 mb-3'>
+						<strong>Summary:</strong> Monolithic perfluoropolymer (MPS) surface with topology-specific wetting and ultradurability.
+					</p>
+					<div class='flex gap-3 items-center text-sm flex-wrap'>
+						<span class='badge badge-success'>Published</span>
+						<span class='badge badge-outline'>2023</span>
+						<span class='badge badge-primary'>IF 25.7</span>
+						<a href='https://doi.org/10.1016/j.xinn.2023.100389' class='link link-secondary' target='_blank' rel='noopener noreferrer'>
+							DOI
+						</a>
+					</div>
+				</li>
+			</ul>
 		</section>
 
 		<!-- Patents Section -->
-		<section id="patents" class="tab-content" style="display: none;">
-			<h2 class='text-3xl font-bold mb-6'>Patents</h2>
-			{sortedPatents.length === 0 ? (
-				<p class='text-base-content/60'>No patents yet. Add patents in <code>src/content/patents/</code></p>
-			) : (
-				<ul class='space-y-6'>
-					{sortedPatents.map((patent) => (
-						<li class='border-b pb-6 last:border-b-0'>
-							<h3 class='text-xl font-semibold mb-2'>
-								{patent.data.link ? (
-									<a href={patent.data.link} class='link link-primary' target="_blank" rel="noopener noreferrer">
-										{patent.data.title}
-									</a>
-								) : (
-									patent.data.title
-								)}
-							</h3>
-							<p class='text-sm text-base-content/70 mb-2'>
-								{patent.data.inventors.join(', ')}
-							</p>
-							{patent.data.summary && (
-								<p class='text-sm mb-2'>{patent.data.summary}</p>
-							)}
-							<div class='flex gap-4 items-center text-sm'>
-								{patent.data.number && (
-									<span class='font-mono text-xs'>{patent.data.number}</span>
-								)}
-								{patent.data.year && (
-									<span class='badge badge-outline'>{patent.data.year}</span>
-								)}
-								{patent.data.status && (
-									<span class={`badge ${patent.data.status === 'granted' ? 'badge-success' : 'badge-warning'}`}>
-										{patent.data.status}
-									</span>
-								)}
-							</div>
-						</li>
-					))}
-				</ul>
-			)}
+		<section>
+			<h2 class='text-3xl font-bold mb-6 pb-2 border-b-2 border-primary'>Patents</h2>
+			<ul class='space-y-8'>
+				<!-- Patent 1: Crack Engineering -->
+				<li class='pb-6'>
+					<h3 class='text-xl font-semibold mb-2'>
+						<a href='https://patentimages.storage.googleapis.com/23/c1/2e/ae5d7a7ba0f149/US11839998.pdf' class='link link-primary' target='_blank' rel='noopener noreferrer'>
+							Crack engineering as a new route for the construction of arbitrary hierarchical architectures
+						</a>
+					</h3>
+					<p class='text-base text-base-content/80 mb-2'>
+						Kangning Ren, Hongkai Wu, Zuankai Wang, Shuhuai Yao, Beng Ong, Wanbo Li, <strong>Zeyu Li</strong>, Han Sun, Chiu-Wing Chan
+					</p>
+					<p class='text-sm text-base-content/70 mb-3'>
+						<strong>Summary:</strong> Crack-guided structural design for programmable hierarchical materials.
+					</p>
+					<div class='flex gap-3 items-center text-sm flex-wrap'>
+						<span class='font-mono text-xs bg-base-200 px-2 py-1 rounded'>US 11,839,998</span>
+						<span class='badge badge-success'>Granted</span>
+						<span class='badge badge-outline'>2023</span>
+						<a href='https://patentimages.storage.googleapis.com/23/c1/2e/ae5d7a7ba0f149/US11839998.pdf' class='link link-secondary' target='_blank' rel='noopener noreferrer'>
+							PDF
+						</a>
+					</div>
+				</li>
+
+				<!-- Patent 2: Biomass Reactor -->
+				<li class='pb-6 border-t pt-6'>
+					<h3 class='text-xl font-semibold mb-2'>
+						<a href='https://patents.google.com/patent/CN107903925A/en' class='link link-primary' target='_blank' rel='noopener noreferrer'>
+							Reactor and method of spiral propulsion biomass continuous thermal cracking
+						</a>
+					</h3>
+					<p class='text-base text-base-content/80 mb-2'>
+						Qingbo Li, <strong>Zeyu Li</strong>, Ligang Lin
+					</p>
+					<p class='text-sm text-base-content/70 mb-3'>
+						<strong>Summary:</strong> Continuous biomass pyrolysis reactor using spiral propulsion for efficient thermal cracking.
+					</p>
+					<div class='flex gap-3 items-center text-sm flex-wrap'>
+						<span class='font-mono text-xs bg-base-200 px-2 py-1 rounded'>CN 201711214139.6</span>
+						<span class='font-mono text-xs bg-base-200 px-2 py-1 rounded'>CN 107903925A</span>
+						<span class='badge badge-outline'>Application 2017</span>
+						<span class='badge badge-outline'>Publication 2018</span>
+						<a href='https://patents.google.com/patent/CN107903925A/en' class='link link-secondary' target='_blank' rel='noopener noreferrer'>
+							Link
+						</a>
+					</div>
+				</li>
+			</ul>
 		</section>
 	</div>
 </Layout>
-
-<script>
-	// Wait for DOM to be fully loaded
-	const tabs = document.querySelectorAll('.tab[data-tab]');
-	const paperSection = document.getElementById('papers');
-	const patentSection = document.getElementById('patents');
-	
-	function showTab(tabName: string) {
-		// Hide both sections
-		if (paperSection) paperSection.style.display = 'none';
-		if (patentSection) patentSection.style.display = 'none';
-		
-		// Show the selected section
-		if (tabName === 'papers' && paperSection) {
-			paperSection.style.display = 'block';
-		} else if (tabName === 'patents' && patentSection) {
-			patentSection.style.display = 'block';
-		}
-		
-		// Update tab styling
-		tabs.forEach(tab => {
-			const tabData = tab.getAttribute('data-tab');
-			if (tabData === tabName) {
-				tab.classList.add('tab-active');
-			} else {
-				tab.classList.remove('tab-active');
-			}
-		});
-	}
-	
-	// Initialize - show papers by default
-	showTab('papers');
-	
-	// Add click handlers
-	tabs.forEach(tab => {
-		tab.addEventListener('click', (e) => {
-			e.preventDefault();
-			const tabName = tab.getAttribute('data-tab');
-			if (tabName) {
-				showTab(tabName);
-			}
-		});
-	});
-</script>
-
-<style>
-	.tab-content {
-		animation: fadeIn 0.3s ease-in;
-	}
-	
-	@keyframes fadeIn {
-		from { opacity: 0; }
-		to { opacity: 1; }
-	}
-</style>
