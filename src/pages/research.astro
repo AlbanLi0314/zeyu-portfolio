@@ -124,7 +124,7 @@ const projects = [
     </div>
 
     <!-- Sticky Navigation -->
-    <nav class="sticky top-16 z-30 py-2 md:py-3 mb-6 md:mb-8 bg-base-100/80 backdrop-blur-sm border-b border-base-300 overflow-x-hidden">
+    <nav class="sticky top-16 z-30 py-2 md:py-3 mb-6 md:mb-8 bg-base-100 backdrop-blur-sm border-b border-base-300">
       <div class="flex gap-2 overflow-x-auto overflow-y-hidden pb-2 scrollbar-thin w-full" id="project-nav" style="-webkit-overflow-scrolling: touch;">
         {projects.map((project) => (
           <a 
@@ -175,9 +175,9 @@ const projects = [
               </div>
 
               <!-- Project Images -->
-              <!-- Mobile: Horizontal scroll, Desktop: Grid -->
-              <div class="flex gap-2 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible scrollbar-thin">
-                <div class="relative group flex-shrink-0 w-[calc(50vw-2rem)] max-w-[280px] sm:w-auto overflow-hidden rounded-lg aspect-video cursor-pointer">
+              <!-- Mobile (<400px): Horizontal scroll with larger images, Tablet (400-639px): 2 cols fit screen, Desktop: Grid -->
+              <div class="flex gap-2 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible scrollbar-thin image-gallery">
+                <div class="relative group flex-shrink-0 w-[70vw] max-w-[280px] sm:w-auto overflow-hidden rounded-lg aspect-video cursor-pointer">
                   <img 
                     src={`/${project.id === 'tracers' ? 'A1' : project.id === 'hydrogels' ? 'B1' : project.id === 'extraction' ? 'C1' : 'D1'}.jpg`}
                     alt={project.captions[0]}
@@ -189,7 +189,7 @@ const projects = [
                     </p>
                   </div>
                 </div>
-                <div class="relative group flex-shrink-0 w-[calc(50vw-2rem)] max-w-[280px] sm:w-auto overflow-hidden rounded-lg aspect-video cursor-pointer">
+                <div class="relative group flex-shrink-0 w-[70vw] max-w-[280px] sm:w-auto overflow-hidden rounded-lg aspect-video cursor-pointer">
                   <img 
                     src={`/${project.id === 'tracers' ? 'A2' : project.id === 'hydrogels' ? 'B2' : project.id === 'extraction' ? 'C2' : 'D2'}.jpg`}
                     alt={project.captions[1]}
@@ -347,7 +347,28 @@ const projects = [
     }
   }
 
-  /* Custom scrollbar for horizontal nav */
+  /* Ensure sticky navigation works properly */
+  nav.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: var(--fallback-b1, oklch(var(--b1)/1));
+  }
+
+  /* Image gallery on very small screens */
+  @media (max-width: 399px) {
+    .image-gallery {
+      /* Ensure smooth horizontal scrolling */
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .image-gallery > div {
+      scroll-snap-align: start;
+      scroll-snap-stop: normal;
+    }
+  }
+
+  /* Custom scrollbar for horizontal nav and image galleries */
   .scrollbar-thin::-webkit-scrollbar {
     height: 4px;
   }
