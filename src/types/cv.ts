@@ -38,6 +38,14 @@ export interface Patent {
   abstract?: string;
 }
 
+export interface Conference {
+  title: string;
+  type: 'Oral' | 'Poster';
+  venue: string;
+  location: string;
+  time: string;
+}
+
 export function isExperience(element: Experience | Education): element is Experience {
   return 'title' in element && 'company' in element;
 }

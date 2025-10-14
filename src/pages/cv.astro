@@ -1,10 +1,10 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { experiences, education, skills, publications, patents } from '../data/cv'
+import { experiences, education, skills, publications, patents, conferences } from '../data/cv'
 import CvTimeline from '@/components/ui/CvTimeline.astro'
 import { profile } from '@/settings'
 
-import type { Experience, Education, Publication, Patent } from '../types/cv'
+import type { Experience, Education, Publication, Patent, Conference } from '../types/cv'
 import List from '@/components/ui/List.astro'
 import PublicationsList from '@/components/ui/PublicationsList.astro'
 
@@ -14,6 +14,7 @@ let orderedExperiences: Experience[] = []
 let orderedEducations: Education[] = []
 let orderedPublications: Publication[] = []
 let orderedPatents: Patent[] = []
+let orderedConferences: Conference[] = []
 
 const orderElement = <T extends { time: string }>(a: T, b: T) => {
   const presentValues = ['present', 'now', 'current', 'today']
@@ -53,17 +54,23 @@ if (patents.length > 0) {
 		return orderElement(a, b)
 	})
 }
+
+if (conferences.length > 0) {
+	orderedConferences = conferences.sort((a, b) => {
+		return orderElement(a, b)
+	})
+}
 ---
 
 <Layout title="Curriculum Vitae - Zeyu Li">
-	<div class='max-w-4xl mx-auto'>
-		<div class='flex justify-between items-start mb-12'>
+	<div class='max-w-6xl mx-auto'>
+		<div class='flex flex-col sm:flex-row justify-between items-start gap-4 mb-8 md:mb-12'>
 			<div>
-				<h1 class='text-4xl font-bold mb-2'>Curriculum Vitae</h1>
-				<p class='text-xl text-base-content/70'>{fullName}</p>
+				<h1 class='text-3xl md:text-4xl font-bold mb-2 md:mb-4'>Curriculum Vitae</h1>
+				<p class='text-lg md:text-xl text-base-content/70'>{fullName}</p>
 			</div>
-			<div>
-				<a href='/cv.pdf' class='btn btn-primary' download>
+			<div class='flex-shrink-0'>
+				<a href='/Resume_Zeyu%20Li.pdf' class='btn btn-primary' download>
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 					</svg>
@@ -83,8 +90,8 @@ if (patents.length > 0) {
 
 		{
 			orderedEducations.length > 0 && (
-				<section class='mb-12'>
-					<h2 class='text-3xl font-bold mb-6 border-b-2 border-primary pb-2'>
+				<section class='mb-8 md:mb-12'>
+					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
 						Education
 					</h2>
 					<CvTimeline elements={orderedEducations} colored={true} />
@@ -94,8 +101,8 @@ if (patents.length > 0) {
 
 		{
 			orderedExperiences.length > 0 && (
-				<section class='mb-12'>
-					<h2 class='text-3xl font-bold mb-6 border-b-2 border-primary pb-2'>
+				<section class='mb-8 md:mb-12'>
+					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
 						Experience
 					</h2>
 					<CvTimeline elements={orderedExperiences} colored={true} />
@@ -105,9 +112,9 @@ if (patents.length > 0) {
 
 		{
 			orderedPublications.length > 0 && (
-				<section class='mb-12'>
-					<h2 class='text-3xl font-bold mb-6 border-b-2 border-primary pb-2'>
-						Selected Publications
+				<section class='mb-8 md:mb-12'>
+					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
+						Publications
 					</h2>
 					<PublicationsList elements={orderedPublications}/>
 				</section>
@@ -116,25 +123,47 @@ if (patents.length > 0) {
 
 		{
 			orderedPatents.length > 0 && (
-				<section class='mb-12'>
-					<h2 class='text-3xl font-bold mb-6 border-b-2 border-primary pb-2'>
+				<section class='mb-8 md:mb-12'>
+					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
 						Patents
 					</h2>
-					<div class='space-y-6'>
+					<div class='space-y-4 md:space-y-6'>
 						{orderedPatents.map((patent) => (
 							<div class='border-b pb-4 last:border-b-0'>
-								<h3 class='text-xl font-semibold mb-2'>{patent.title}</h3>
+								<h3 class='text-base md:text-lg font-semibold mb-2'>{patent.title}</h3>
 								<p class='text-sm text-base-content/70 mb-2'>
 									{patent.inventors}
 								</p>
-								<div class='flex gap-3 items-center text-sm mb-2'>
+								<div class='flex flex-wrap gap-2 md:gap-3 items-center text-sm'>
 									<span class='font-mono text-xs'>{patent.number}</span>
-									<span class='badge badge-success'>{patent.status}</span>
+									<span class='badge badge-outline'>{patent.status}</span>
 									<span class='badge badge-outline'>{patent.time}</span>
 								</div>
-								{patent.abstract && (
-									<p class='text-sm text-base-content/80'>{patent.abstract}</p>
-								)}
+							</div>
+						))}
+					</div>
+				</section>
+			)
+		}
+
+		{
+			orderedConferences.length > 0 && (
+				<section class='mb-8 md:mb-12'>
+					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
+						Conference Presentations
+					</h2>
+					<div class='space-y-4 md:space-y-6'>
+						{orderedConferences.map((conf) => (
+							<div class='border-b pb-4 last:border-b-0'>
+								<div class='flex items-start gap-3 mb-2'>
+									<span class={`badge ${conf.type === 'Oral' ? 'badge-primary' : 'badge-accent'} flex-shrink-0`}>
+										{conf.type}
+									</span>
+									<h3 class='text-base md:text-lg font-semibold'>{conf.title}</h3>
+								</div>
+								<p class='text-sm text-base-content/70'>
+									{conf.venue}, {conf.location} ({conf.time})
+								</p>
 							</div>
 						))}
 					</div>
@@ -144,8 +173,8 @@ if (patents.length > 0) {
 
 		{
 			skills.length > 0 && (
-				<section class='mb-12'>
-					<h2 class='text-3xl font-bold mb-6 border-b-2 border-primary pb-2'>
+				<section class='mb-8 md:mb-12'>
+					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
 						Skills
 					</h2>
 					<List listTitle='' listItems={skills}/>
