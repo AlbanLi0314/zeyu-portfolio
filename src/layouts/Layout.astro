@@ -47,14 +47,14 @@ const {
 			<input id='my-drawer' type='checkbox' class='drawer-toggle' />
 			<!-- Drawer content -->
             <div class='drawer-content bg-base-100'>
-				<div class='sticky top-0 bg-base-100 z-50 text-base-content shadow-sm w-full'>
-					<nav class='navbar w-full'>
+				<div class='sticky top-0 bg-base-100/80 backdrop-blur-md z-50 text-base-content shadow-sm w-full'>
+					<nav class='navbar w-full min-h-0 h-14'>
 						<div class='navbar-start'>
 							{template.menu_left &&
 								<DarkLightController/>
 								/* <ThemeSelector transition:persist /> */
 							}
-							<label for='my-drawer' class='btn btn-square btn-ghost lg:hidden'>
+							<label for='my-drawer' class='btn btn-square btn-ghost lg:hidden btn-sm'>
 								<BetterIcon>
 									<svg
 										xmlns='http://www.w3.org/2000/svg'
