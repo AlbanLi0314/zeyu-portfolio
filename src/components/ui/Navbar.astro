@@ -100,10 +100,12 @@ const { fullName, title } = profile
 </style>
 
 <script is:inline>
-	document.addEventListener('DOMContentLoaded', () => {
+	// Function to setup email copy functionality
+	function setupEmailCopy() {
 		// Desktop email button
 		const copyEmailBtn = document.getElementById('copy-email-btn');
-		if (copyEmailBtn) {
+		if (copyEmailBtn && !copyEmailBtn.dataset.listenerAttached) {
+			copyEmailBtn.dataset.listenerAttached = 'true';
 			copyEmailBtn.addEventListener('click', async () => {
 				const email = 'zl788@cornell.edu';
 				try {
@@ -117,13 +119,15 @@ const { fullName, title } = profile
 					}, 2000);
 				} catch (err) {
 					console.error('Failed to copy email:', err);
+					alert('Failed to copy email. Please copy manually: zl788@cornell.edu');
 				}
 			});
 		}
 		
 		// Mobile email button
 		const copyEmailBtnMobile = document.getElementById('copy-email-btn-mobile');
-		if (copyEmailBtnMobile) {
+		if (copyEmailBtnMobile && !copyEmailBtnMobile.dataset.listenerAttached) {
+			copyEmailBtnMobile.dataset.listenerAttached = 'true';
 			copyEmailBtnMobile.addEventListener('click', async () => {
 				const email = 'zl788@cornell.edu';
 				try {
@@ -137,8 +141,19 @@ const { fullName, title } = profile
 					}, 2000);
 				} catch (err) {
 					console.error('Failed to copy email:', err);
+					alert('Failed to copy email. Please copy manually: zl788@cornell.edu');
 				}
 			});
 		}
-	});
+	}
+	
+	// Setup on initial load
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', setupEmailCopy);
+	} else {
+		setupEmailCopy();
+	}
+	
+	// Re-setup after page navigation (if using view transitions)
+	document.addEventListener('astro:page-load', setupEmailCopy);
 </script>

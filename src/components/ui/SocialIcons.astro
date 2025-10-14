@@ -107,11 +107,13 @@ const calculatedContainerSize = activeSocial.length <= 5 ? 'size-12' : activeSoc
 </div>
 
 <script is:inline>
-	document.addEventListener('DOMContentLoaded', () => {
+	// Function to setup email icon copy functionality
+	function setupEmailIconCopy() {
 		const copyEmailIconBtn = document.getElementById('copy-email-icon-btn');
 		const emailCopiedTooltip = document.getElementById('email-copied-tooltip');
 		
-		if (copyEmailIconBtn && emailCopiedTooltip) {
+		if (copyEmailIconBtn && emailCopiedTooltip && !copyEmailIconBtn.dataset.listenerAttached) {
+			copyEmailIconBtn.dataset.listenerAttached = 'true';
 			copyEmailIconBtn.addEventListener('click', async () => {
 				const email = 'zl788@cornell.edu';
 				try {
@@ -128,8 +130,19 @@ const calculatedContainerSize = activeSocial.length <= 5 ? 'size-12' : activeSoc
 					}, 1500);
 				} catch (err) {
 					console.error('Failed to copy email:', err);
+					alert('Failed to copy email. Please copy manually: zl788@cornell.edu');
 				}
 			});
 		}
-	});
+	}
+	
+	// Setup on initial load
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', setupEmailIconCopy);
+	} else {
+		setupEmailIconCopy();
+	}
+	
+	// Re-setup after page navigation (if using view transitions)
+	document.addEventListener('astro:page-load', setupEmailIconCopy);
 </script>
