@@ -1,128 +1,106 @@
 ---
 import Layout from '../layouts/Layout.astro'
 
-// TODO: Move these to a data file or CMS
+// Skills data organized by category
 const skills = {
+	'AI Tools': [
+		'ChatGPT',
+		'Claude',
+		'GitHub Copilot',
+		'Jupyter / Code Interpreter'
+	],
 	'Materials Characterization': [
-		'SEM', 'DLS', 'EDS', 'UV-Vis Spectroscopy',
-		'Fluorometry', 'Rheometry', 'Electrophoresis',
-		'Tensile Testing', 'Contact-Angle Measurement'
+		'SEM',
+		'DLS',
+		'EDS',
+		'UV-Vis Spectroscopy',
+		'Fluorometry',
+		'Rheometry',
+		'Electrophoresis',
+		'Tensile Testing',
+		'Contact Angle Measurement'
 	],
 	'Fabrication & Processing': [
-		'Electrospray', 'DIW 3D Printing', 'SLA/FDM Printing',
-		'Spin Coating', 'Mold Casting', 'Solvent Precipitation',
-		'Photolithography', 'Two-Photon Lithography', 'Nanopatterning'
+		'Electrospray',
+		'DIW 3D Printing',
+		'SLA/FDM Printing (Polymers & Ceramics)',
+		'Spin Coating',
+		'Mold Casting',
+		'Solvent Precipitation',
+		'Photolithography',
+		'Two-Photon Lithography',
+		'Nanopatterning'
 	],
-	'Molecular & Bioengineering': [
-		'PCR', 'qPCR', 'IVT', 'PAGE/Agarose Electrophoresis',
-		'DNA/RNA Extraction & Purification', 'Chromatography-Column Design',
-		'Enzyme Recycling', 'LSPR Binding Assays', 'Bio-Cleanroom Protocols'
+	'Molecular & Bioengineering Techniques': [
+		'PCR',
+		'qPCR',
+		'IVT',
+		'Electrophoresis (PAGE, Agarose)',
+		'DNA/RNA Extraction & Purification',
+		'Chromatography Column Design',
+		'Enzyme Recycling',
+		'LSPR-based Binding Assays',
+		'Bio-cleanroom Protocols'
 	],
-	'Programming & Computational': [
-		'Python', 'Java', 'TensorFlow', 'PyTorch',
-		'Pandas', 'NumPy', 'Seaborn', 'Data Analysis & Visualization'
+	'Programming & Computational Modeling': [
+		'Python',
+		'Java',
+		'Basic Machine Learning (TensorFlow, PyTorch)',
+		'Data Analysis & Visualization (Pandas, NumPy, Seaborn)',
+		'Computer Science Minor (Hong Kong Baptist University)'
 	],
-	'Design & Visualization': [
-		'CAD', 'SketchUp', 'Autodesk 3ds Max',
-		'Adobe Illustrator', 'Photoshop', 'InDesign',
-		'Bootstrap Studio', 'Scientific Figure Production',
+	'2D/3D Design & Visualization': [
+		'CAD',
+		'SketchUp',
+		'Autodesk 3ds Max',
+		'Adobe Creative Suite (Illustrator, Photoshop, InDesign)',
+		'Bootstrap Studio',
+		'Scientific Figure Production',
 		'Video & Audio Editing'
 	],
 	'Languages': [
-		'English (Fluent)', 'Mandarin (Native)', 'Cantonese (Proficient)'
+		'English (Fluent)',
+		'Mandarin (Native)',
+		'Cantonese (Proficient)'
 	]
 }
 ---
 
 <Layout title="Skills - Zeyu Li">
-	<div class='max-w-4xl mx-auto'>
-		<h1 class='text-4xl font-bold mb-8'>Skills & Technologies</h1>
-		
-		<p class='text-lg text-base-content/70 mb-12'>
-			A comprehensive overview of my technical skills, programming languages, and tools I work with.
-		</p>
-
-		<div class='space-y-12'>
-			{Object.entries(skills).map(([category, items]) => (
-				<section>
-					<h2 class='text-2xl font-bold mb-6'>{category}</h2>
-					<div class='flex flex-wrap gap-3'>
-						{items.map((skill) => (
-							<span class='badge badge-lg badge-outline hover:badge-primary transition-colors cursor-default'>
-								{skill}
-							</span>
-						))}
-					</div>
-				</section>
-			))}
+	<div class='max-w-6xl mx-auto'>
+		<!-- Hero Section -->
+		<div class='mb-8 md:mb-12'>
+			<h1 class='text-3xl md:text-4xl font-bold mb-4 md:mb-8'>Skills</h1>
+			<p class='text-base md:text-lg lg:text-xl text-base-content/70'>
+				Technical skills and expertise across materials science, bioengineering, programming, and design.
+			</p>
 		</div>
 
-		<!-- Additional Skills Grid -->
-		<section class='mt-16 pt-12 border-t'>
-			<h2 class='text-3xl font-bold mb-8'>Proficiency Levels</h2>
-			<div class='grid md:grid-cols-2 gap-6'>
-				<div class='card bg-base-200'>
-					<div class='card-body'>
-						<h3 class='card-title'>Advanced / Expert</h3>
-						<ul class='list-disc list-inside space-y-2 text-sm'>
-							<li>DNA/RNA Extraction & Purification</li>
-							<li>PCR & qPCR</li>
-							<li>SEM Imaging & EDS Analysis</li>
-							<li>3D Printing (DIW, SLA, FDM)</li>
-							<li>Nanoparticle Fabrication</li>
-							<li>Materials Characterization</li>
-						</ul>
+		<!-- Skills Grid -->
+		<div class='grid sm:grid-cols-2 gap-4 md:gap-6'>
+			{Object.entries(skills).map(([category, items]) => {
+				// AI Tools spans both columns and has 2-column list
+				const isAITools = category === 'AI Tools';
+				const cardClass = isAITools ? 'sm:col-span-2' : '';
+				
+				return (
+					<div class={cardClass}>
+						<div class='card bg-base-100 border-2 border-base-300 h-full'>
+							<div class='card-body p-4 md:p-6'>
+								<h2 class='text-lg md:text-xl font-bold mb-3 md:mb-4'>{category}</h2>
+								<ul class={`space-y-1.5 md:space-y-2 text-sm md:text-base ${isAITools ? 'grid sm:grid-cols-2 gap-x-6' : ''}`}>
+									{items.map((skill) => (
+										<li class='flex items-start gap-2'>
+											<span class='text-primary mt-1'>•</span>
+											<span>{skill}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
 					</div>
-				</div>
-
-				<div class='card bg-base-200'>
-					<div class='card-body'>
-						<h3 class='card-title'>Intermediate / Proficient</h3>
-						<ul class='list-disc list-inside space-y-2 text-sm'>
-							<li>Python Programming & Data Analysis</li>
-							<li>Machine Learning (TensorFlow, PyTorch)</li>
-							<li>Rheometry & Tensile Testing</li>
-							<li>Photolithography & Nanopatterning</li>
-							<li>CAD & 3D Design Software</li>
-							<li>Scientific Figure Production</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class='card bg-base-200'>
-					<div class='card-body'>
-						<h3 class='card-title'>Working Knowledge</h3>
-						<ul class='list-disc list-inside space-y-2 text-sm'>
-							<li>Two-Photon Lithography</li>
-							<li>Java Programming</li>
-							<li>LSPR-based Binding Assays</li>
-							<li>Video & Audio Editing</li>
-							<li>Bootstrap Studio Web Design</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class='card bg-base-200'>
-					<div class='card-body'>
-						<h3 class='card-title'>Education & Training</h3>
-						<ul class='list-disc list-inside space-y-2 text-sm'>
-							<li>Ph.D. BEE, Cornell University — Expected May 2026</li>
-							<li>M.S. BEE, Cornell University — Aug 31, 2024</li>
-							<li>M.Eng. BEE, Cornell University — May 24, 2020</li>
-							<li>B.Sc. Chemistry, Minor in Computer Science, HKBU — Sep 2015–Jun 2019</li>
-							<li>Bio-cleanroom Certified</li>
-							<li>Laboratory Safety Training</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
+				);
+			})}
+		</div>
 	</div>
 </Layout>
-
-<style>
-	.badge:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-	}
-</style>

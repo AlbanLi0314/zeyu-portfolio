@@ -84,12 +84,12 @@ const coursework = {
 			<div class='space-y-8 md:space-y-12'>
 				<div>
 					<h3 class='text-xl md:text-2xl font-bold mb-4 md:mb-6'>Courses Taught</h3>
-					<div class='card bg-base-200 border border-base-300'>
+					<div class='card bg-base-100 border-2 border-base-300'>
 						<div class='card-body p-4 md:p-6'>
 							<div class='space-y-3'>
 								{teaching.map((course) => (
-									<div class='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 hover:bg-base-300 p-2 rounded transition-colors min-w-0'>
-										<span class='text-sm md:text-base font-medium text-base-content/80 break-words'>{course.title}</span>
+									<div class='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 hover:bg-base-200 p-2 rounded transition-colors min-w-0'>
+										<span class='text-sm md:text-base font-medium break-words'>{course.title}</span>
 										<span class='badge badge-outline text-xs flex-shrink-0'>{course.code}</span>
 									</div>
 								))}
@@ -104,11 +104,11 @@ const coursework = {
 						<ul class='space-y-2 md:space-y-3'>
 								<li class='flex items-start gap-2 text-sm md:text-base min-w-0'>
 									<span class='text-accent font-bold flex-shrink-0'>✓</span>
-									<span class='text-base-content/80 break-words'><strong>Course instruction and lab support.</strong> Assisted faculty across 6 courses in bio-design, molecular and cellular engineering, watershed systems, engineering professionalism, and sustainable development; prepared recitation slides, demonstrated laboratory procedures, and managed course materials on Canvas.</span>
+									<span class='break-words'><strong>Course instruction and lab support.</strong> Assisted faculty across 6 courses in bio-design, molecular and cellular engineering, watershed systems, engineering professionalism, and sustainable development; prepared recitation slides, demonstrated laboratory procedures, and managed course materials on Canvas.</span>
 								</li>
 								<li class='flex items-start gap-2 text-sm md:text-base min-w-0'>
 									<span class='text-accent font-bold flex-shrink-0'>✓</span>
-									<span class='text-base-content/80 break-words'><strong>AI-driven teaching and curriculum development.</strong> Delivered guest lectures across courses to train students in leveraging AI for learning and research, while integrating AI tools into assignments, review sessions and data analysis.</span>
+									<span class='break-words'><strong>AI-driven teaching and curriculum development.</strong> Delivered guest lectures across courses to train students in leveraging AI for learning and research, while integrating AI tools into assignments, review sessions and data analysis.</span>
 								</li>
 							</ul>
 						</div>
@@ -123,11 +123,11 @@ const coursework = {
 			<!-- Chemistry & Material -->
 			<div>
 				<h3 class='text-xl md:text-2xl font-bold mb-4 md:mb-6'>Chemistry & Material</h3>
-				<div class='card bg-base-200 border border-base-300'>
+				<div class='card bg-base-100 border-2 border-base-300'>
 					<div class='card-body p-4 md:p-6'>
 						<ul class='grid sm:grid-cols-2 gap-x-6 gap-y-2'>
 							{coursework.chem.map((course) => (
-								<li class='flex items-start gap-2 text-sm md:text-base text-base-content/80'>
+								<li class='flex items-start gap-2 text-sm md:text-base'>
 									<span class='text-primary mt-1'>•</span>
 									<span>{course}</span>
 								</li>
@@ -140,11 +140,11 @@ const coursework = {
 			<!-- Biology & Bioengineering -->
 			<div>
 				<h3 class='text-xl md:text-2xl font-bold mb-4 md:mb-6'>Biology & Bioengineering</h3>
-				<div class='card bg-base-200 border border-base-300'>
+				<div class='card bg-base-100 border-2 border-base-300'>
 					<div class='card-body p-4 md:p-6'>
 						<ul class='grid sm:grid-cols-2 gap-x-6 gap-y-2'>
 							{coursework.bio.map((course) => (
-								<li class='flex items-start gap-2 text-sm md:text-base text-base-content/80'>
+								<li class='flex items-start gap-2 text-sm md:text-base'>
 									<span class='text-primary mt-1'>•</span>
 									<span>{course}</span>
 								</li>
@@ -157,11 +157,11 @@ const coursework = {
 			<!-- AI & Computer Science -->
 			<div>
 				<h3 class='text-xl md:text-2xl font-bold mb-4 md:mb-6'>AI & Computer Science</h3>
-				<div class='card bg-base-200 border border-base-300'>
+				<div class='card bg-base-100 border-2 border-base-300'>
 					<div class='card-body p-4 md:p-6'>
 						<ul class='grid sm:grid-cols-2 gap-x-6 gap-y-2'>
 							{coursework.ai.map((course) => (
-								<li class='flex items-start gap-2 text-sm md:text-base text-base-content/80'>
+								<li class='flex items-start gap-2 text-sm md:text-base'>
 									<span class='text-primary mt-1'>•</span>
 									<span>{course}</span>
 								</li>
