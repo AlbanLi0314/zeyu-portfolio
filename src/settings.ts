@@ -1,6 +1,6 @@
 export const profile = {
 	fullName: 'Zeyu (Alban) Li',
-	title: 'Ph.D. Candidate in Biological and Environmental Engineering',
+	title: 'Ph.D. Candidate at Cornell',
 	institute: 'Cornell University',
 	author_name: 'Zeyu Li',
 	research_areas: [
@@ -29,12 +29,12 @@ export const NAV_LINKS = [
 	{ title: 'Teaching & Coursework', href: '/teaching' },
 	{ title: 'Skills', href: '/skills' },
 	{ title: 'CV', href: '/cv' },
-	{ title: 'Contact', href: '/contact' },
+	{ title: 'AI Integration', href: '/ai' },
 ]
 
 export const social = {
 	email: 'zl788@cornell.edu',
-	linkedin: 'www.linkedin.com/in/albanli',
+	linkedin: 'https://www.linkedin.com/in/albanli',
 	x: '',
 	github: 'https://github.com/AlbanLi0314',
 	gitlab: '',

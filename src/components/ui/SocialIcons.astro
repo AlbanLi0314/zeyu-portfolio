@@ -21,9 +21,13 @@ const calculatedContainerSize = activeSocial.length <= 5 ? 'size-12' : activeSoc
 
 	<!-- Email -->
 	{social.email !== '' &&
-		<a href={`mailto:${social.email}`}  class={`${calculatedContainerSize} inline-flex items-center justify-center rounded-xl hover:bg-primary/20 transition-all duration-300`}>
+		<button 
+			id="copy-email-icon-btn"
+			class={`${calculatedContainerSize} inline-flex items-center justify-center rounded-xl hover:bg-primary/20 transition-all duration-300 cursor-pointer`}
+			title="Click to copy email"
+		>
 			<Envelope class={calculatedIconSize} fill="currentColor" />
-		</a>
+		</button>
 	}
 
 	<!-- GitHub -->
@@ -93,3 +97,22 @@ const calculatedContainerSize = activeSocial.length <= 5 ? 'size-12' : activeSoc
 		</a>
 	}
 </div>
+
+<script>
+	document.getElementById('copy-email-icon-btn')?.addEventListener('click', async () => {
+		const email = 'zl788@cornell.edu';
+		try {
+			await navigator.clipboard.writeText(email);
+			const btn = document.getElementById('copy-email-icon-btn');
+			if (btn) {
+				// Show visual feedback by changing background color
+				btn.classList.add('bg-success/30');
+				setTimeout(() => {
+					btn.classList.remove('bg-success/30');
+				}, 1000);
+			}
+		} catch (err) {
+			console.error('Failed to copy email:', err);
+		}
+	});
+</script>

@@ -1,0 +1,174 @@
+---
+// Floating Contact Button - appears on all pages
+---
+
+<!-- Floating Contact Button -->
+<button 
+	type="button"
+	id="floating-contact-btn"
+	class="btn btn-circle btn-primary fixed bottom-6 right-6 shadow-lg z-40 hover:scale-110 transition-transform"
+	onclick="contact_modal.showModal()"
+	aria-label="Contact Me"
+>
+	<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+	</svg>
+</button>
+
+<!-- Contact Modal -->
+<dialog id="contact_modal" class="modal">
+	<div class="modal-box max-w-md">
+		<form method="dialog">
+			<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+		</form>
+		<h3 class="font-bold text-xl mb-2">Let's Connect!</h3>
+		<p class="text-sm text-base-content/70 mb-6">Interested in collaboration or just want to chat? Leave your contact info and I'll get back to you soon.</p>
+		
+		<form
+			id="floating-contact-form"
+			action="https://formspree.io/f/manpllrv"
+			method="POST"
+			class="space-y-4"
+		>
+			<div class="form-control">
+				<label class="label">
+					<span class="label-text font-semibold">Your Name</span>
+				</label>
+				<input 
+					type="text" 
+					name="name" 
+					placeholder="John Doe" 
+					class="input input-bordered w-full" 
+					required 
+				/>
+			</div>
+			
+			<div class="form-control">
+				<label class="label">
+					<span class="label-text font-semibold">Your Email</span>
+				</label>
+				<input 
+					type="email" 
+					name="email" 
+					placeholder="you@example.com" 
+					class="input input-bordered w-full" 
+					required 
+				/>
+			</div>
+			
+			<div class="form-control">
+				<label class="label">
+					<span class="label-text font-semibold">Message</span>
+				</label>
+				<textarea 
+					name="message" 
+					placeholder="I'd like to discuss..." 
+					class="textarea textarea-bordered w-full h-24"
+					required
+				></textarea>
+			</div>
+
+			<!-- Hidden field to differentiate from CV requests -->
+			<input type="hidden" name="_subject" value="New Contact from Portfolio Website" />
+			
+			<div class="text-xs text-base-content/60 mb-4">
+				Your information is kept private and will only be used to respond to your inquiry.
+			</div>
+			
+			<div class="modal-action">
+				<button type="button" class="btn btn-ghost" onclick="contact_modal.close()">Cancel</button>
+				<button type="submit" class="btn btn-primary" id="floating-submit-btn">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+					</svg>
+					Send Message
+				</button>
+			</div>
+		</form>
+
+		<!-- Success Message (hidden by default) -->
+		<div id="floating-success-message" class="hidden">
+			<div class="alert alert-success">
+				<svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+				</svg>
+				<span>Thank you! I'll get back to you soon.</span>
+			</div>
+			<div class="modal-action">
+				<button class="btn btn-primary" onclick="contact_modal.close(); location.reload();">Close</button>
+			</div>
+		</div>
+	</div>
+	<form method="dialog" class="modal-backdrop">
+		<button>close</button>
+	</form>
+</dialog>
+
+<style>
+	#floating-contact-btn {
+		animation: pulse-soft 3s ease-in-out infinite;
+	}
+
+	@keyframes pulse-soft {
+		0%, 100% {
+			box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+		}
+		50% {
+			box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+		}
+	}
+
+	@media print {
+		#floating-contact-btn {
+			display: none;
+		}
+	}
+
+	/* Adjust position on mobile to avoid overlapping with theme switcher */
+	@media (max-width: 640px) {
+		#floating-contact-btn {
+			bottom: 1rem;
+			right: 1rem;
+		}
+	}
+</style>
+
+<script>
+	// Handle form submission with AJAX for floating contact form
+	const floatingForm = document.getElementById('floating-contact-form') as HTMLFormElement | null;
+	const floatingSuccessMessage = document.getElementById('floating-success-message');
+	const floatingSubmitBtn = document.getElementById('floating-submit-btn') as HTMLButtonElement | null;
+	
+	if (floatingForm && floatingSuccessMessage && floatingSubmitBtn) {
+		floatingForm.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			
+			// Disable button and show loading
+			floatingSubmitBtn.disabled = true;
+			floatingSubmitBtn.innerHTML = '<span class="loading loading-spinner"></span> Sending...';
+			
+			try {
+				const formData = new FormData(floatingForm);
+				const response = await fetch(floatingForm.action, {
+					method: 'POST',
+					body: formData,
+					headers: {
+						'Accept': 'application/json'
+					}
+				});
+				
+				if (response.ok) {
+					// Hide form, show success message
+					floatingForm.classList.add('hidden');
+					floatingSuccessMessage.classList.remove('hidden');
+				} else {
+					throw new Error('Form submission failed');
+				}
+			} catch (error) {
+				alert('There was an error sending your message. Please try again or contact me directly.');
+				floatingSubmitBtn.disabled = false;
+				floatingSubmitBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg> Send Message';
+			}
+		});
+	}
+</script>

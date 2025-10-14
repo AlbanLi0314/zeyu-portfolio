@@ -13,20 +13,34 @@ const { fullName, title } = profile
 		<div class='flex-shrink-0'>
 			<div class='flex justify-center items-center flex-col'>
 				<Image
-					class='mask mask-circle size-44'
+					class='mask mask-circle size-32'
 					src={ProfilePictures}
 					alt={`Profile picture of ${fullName}`}
 				/>
-				<div class="text-center mt-6 hidden lg:block">
+				<div class="text-center mt-4 hidden lg:block">
 					<h1 class="text-xl font-bold mb-1">{fullName}</h1>
-					<p class="text-sm text-base-content/70 leading-tight px-2">{title}</p>
+					<p class="text-base text-base-content/70 leading-tight px-2">{title}</p>
+					<button 
+						id="copy-email-btn"
+						class="text-sm text-base-content/60 hover:text-primary mt-1 cursor-pointer transition-colors"
+						title="Click to copy email"
+					>
+						zl788@cornell.edu
+					</button>
 				</div>
 			</div>
-			<div class='mx-4 mt-16'>
+			<div class='mx-4 mt-8'>
 				<ul class='space-y-4 menu grow shrink menu-md overflow-y-auto'>
 					{NAV_LINKS.map((link) => (
 						<li>
-							<a href={`${template.base}${link.href}`} class='text-lg'>{link.title}</a>
+							<a 
+								href={`${template.base}${link.href}`} 
+								class={link.title === 'AI Integration' 
+									? 'text-lg text-[#4A7C8C] hover:text-[#5A8C9C]' 
+									: 'text-lg'}
+							>
+								{link.title}
+							</a>
 						</li>
 					))}
 				</ul>
@@ -59,3 +73,24 @@ const { fullName, title } = profile
 		display: none;
 	}
 </style>
+
+<script>
+	document.getElementById('copy-email-btn')?.addEventListener('click', async () => {
+		const email = 'zl788@cornell.edu';
+		try {
+			await navigator.clipboard.writeText(email);
+			const btn = document.getElementById('copy-email-btn');
+			if (btn) {
+				const originalText = btn.textContent;
+				btn.textContent = 'Copied!';
+				btn.classList.add('text-success');
+				setTimeout(() => {
+					btn.textContent = originalText;
+					btn.classList.remove('text-success');
+				}, 2000);
+			}
+		} catch (err) {
+			console.error('Failed to copy email:', err);
+		}
+	});
+</script>

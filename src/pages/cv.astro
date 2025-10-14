@@ -1,186 +1,326 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { experiences, education, skills, publications, patents, conferences } from '../data/cv'
-import CvTimeline from '@/components/ui/CvTimeline.astro'
 import { profile } from '@/settings'
 
-import type { Experience, Education, Publication, Patent, Conference } from '../types/cv'
-import List from '@/components/ui/List.astro'
-import PublicationsList from '@/components/ui/PublicationsList.astro'
-
 const { fullName } = profile
-
-let orderedExperiences: Experience[] = []
-let orderedEducations: Education[] = []
-let orderedPublications: Publication[] = []
-let orderedPatents: Patent[] = []
-let orderedConferences: Conference[] = []
-
-const orderElement = <T extends { time: string }>(a: T, b: T) => {
-  const presentValues = ['present', 'now', 'current', 'today']
-  if (
-			presentValues.includes(
-				(a['time'] as string)?.split(' - ')[1]?.toLowerCase()
-			)
-		) {
-			// If the date is 'present', it should be the first element
-			return -1
-		}
-		const dateA = new Date((a['time'] as string)?.split(' - ')[1])
-		const dateB = new Date((b['time'] as string)?.split(' - ')[1])
-		return dateB.getTime() - dateA.getTime()
-}
-
-if (experiences.length > 0) {
-	orderedExperiences = experiences.sort((a, b) => {
-		return orderElement(a, b)
-	})
-}
-
-if (education.length > 0) {
-	orderedEducations = education.sort((a, b) => {
-		return orderElement(a, b)
-	})
-}
-
-if (publications.length > 0) {
-	orderedPublications = publications.sort((a, b) => {
-		return orderElement(a, b)
-	})
-}
-
-if (patents.length > 0) {
-	orderedPatents = patents.sort((a, b) => {
-		return orderElement(a, b)
-	})
-}
-
-if (conferences.length > 0) {
-	orderedConferences = conferences.sort((a, b) => {
-		return orderElement(a, b)
-	})
-}
 ---
 
 <Layout title="Curriculum Vitae - Zeyu Li">
 	<div class='max-w-6xl mx-auto'>
-		<div class='flex flex-col sm:flex-row justify-between items-start gap-4 mb-8 md:mb-12'>
-			<div>
-				<h1 class='text-3xl md:text-4xl font-bold mb-2 md:mb-4'>Curriculum Vitae</h1>
-				<p class='text-lg md:text-xl text-base-content/70'>{fullName}</p>
-			</div>
-			<div class='flex-shrink-0'>
-				<a href='/Resume_Zeyu%20Li.pdf' class='btn btn-primary' download>
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-					</svg>
-					Download PDF
-				</a>
+		<!-- Hero Section -->
+		<div class='mb-8 md:mb-12'>
+			<div class='flex flex-col sm:flex-row justify-between items-start gap-4'>
+				<div>
+					<h1 class='text-3xl md:text-4xl font-bold mb-2 md:mb-4'>Curriculum Vitae</h1>
+					<p class='text-base md:text-lg lg:text-xl text-base-content/70'>{fullName}</p>
+					<p class='text-sm md:text-base text-accent font-semibold mt-2'>Available for full-time roles May 2026</p>
+				</div>
+				<div class='flex flex-col sm:flex-row gap-3 w-full sm:w-auto'>
+					<a href='/cv.pdf' class='btn btn-primary flex-shrink-0' download>
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+						</svg>
+						Download PDF
+					</a>
+					<button type="button" class='btn btn-accent flex-shrink-0' onclick="cv_modal.showModal()">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+						</svg>
+						Email Me This CV
+					</button>
+				</div>
 			</div>
 		</div>
 
-		{orderedEducations.length === 0 && orderedExperiences.length === 0 && orderedPublications.length === 0 && skills.length === 0 && (
-			<div class='alert alert-info'>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-				</svg>
-				<span>CV sections are empty. Add your information in <code>src/data/cv.ts</code></span>
+		<!-- Education -->
+		<section class='mb-8 md:mb-12'>
+			<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6'>Education</h2>
+			<div class='space-y-4'>
+				<!-- Cornell University -->
+				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
+					<div class='flex flex-col gap-4'>
+						<!-- Institution Header -->
+						<div class='pb-3 border-b-2 border-base-300'>
+							<div class='font-bold text-xl md:text-2xl text-base-content'>Cornell University</div>
+							<div class='text-base text-base-content/60 mt-1'>Ithaca, NY</div>
+						</div>
+						
+						<!-- Degrees -->
+						<div class='space-y-4'>
+							<!-- PhD -->
+							<div class='pl-4 border-l-4 border-primary'>
+								<div class='font-bold text-lg md:text-xl text-base-content'>Ph.D., Biological & Environmental Engineering</div>
+								<div class='text-base text-base-content/60 mt-1'>Expected May 2026</div>
+								<div class='text-sm md:text-base text-base-content/70 mt-2 italic'>DNA Materials Lab · Advisor: Dan Luo</div>
+							</div>
+							
+							<!-- MS -->
+							<div class='pl-4 border-l-4 border-accent'>
+								<div class='font-bold text-lg text-base-content'>M.S., Biological & Environmental Engineering</div>
+								<div class='text-base text-base-content/60 mt-1'>August 2024</div>
+							</div>
+							
+							<!-- MEng -->
+							<div class='pl-4 border-l-4 border-secondary'>
+								<div class='font-bold text-lg text-base-content'>M.Eng., Biological & Environmental Engineering</div>
+								<div class='text-base text-base-content/60 mt-1'>May 2020</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Hong Kong Baptist University -->
+				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
+					<div class='flex flex-col gap-4'>
+						<!-- Institution Header -->
+						<div class='pb-3 border-b-2 border-base-300'>
+							<div class='font-bold text-xl md:text-2xl text-base-content'>Hong Kong Baptist University</div>
+							<div class='text-base text-base-content/60 mt-1'>Kowloon, Hong Kong</div>
+						</div>
+						
+						<!-- Degree -->
+						<div class='pl-4 border-l-4 border-primary'>
+							<div class='font-bold text-lg md:text-xl text-base-content'>B.Sc. (Hons.) Chemistry (Major), Computer Science (Minor)</div>
+							<div class='text-base text-base-content/60 mt-1'>June 2019</div>
+							<div class='text-sm md:text-base text-base-content/70 mt-2 italic'>Microfabrication & Surface Materials Lab · Supervisor: Kangning Ren</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		)}
+		</section>
 
-		{
-			orderedEducations.length > 0 && (
-				<section class='mb-8 md:mb-12'>
-					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
-						Education
-					</h2>
-					<CvTimeline elements={orderedEducations} colored={true} />
-				</section>
-			)
-		}
+		<!-- Experience -->
+		<section class='mb-8 md:mb-12'>
+			<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6'>Experience</h2>
+			<div class='space-y-6'>
+				<!-- Graduate Research Assistant -->
+				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
+					<div class='font-bold text-lg md:text-xl text-base-content mb-2'>Graduate Research Assistant</div>
+					<div class='text-base text-base-content/60 mb-1'>DNA Materials Lab, Cornell University · Ithaca, NY</div>
+					<div class='text-base text-base-content/60 mb-4'>Feb 2021 – Present</div>
+					<ul class='list-disc list-outside space-y-2 text-base md:text-lg ml-5 text-base-content'>
+						<li><strong>DNA-polymer nanoparticle tracers:</strong> fabricated via emulsion and electrospray; field-deployed across an 11 km² sector of Cayuga Lake; coordinated four disciplines; achieved qPCR detection 7 km from release with only 1 mg DNA; generated datasets now used to calibrate 3D hydrodynamic eDNA-transport models (first author, ES&T under review, 2025).</li>
+						<li><strong>Self-healing DNA hydrogels for ceramic composite repair:</strong> DNA–Al³⁺ hydrogels integrated into CAD-designed, 3D-printed vascular tiles; multi-cycle healing validated by tensile testing and EDS mapping (ACADIA 2024).</li>
+						<li><strong>Photo/thermo-reversible psoralen-clamped DNA hydrogels:</strong> enabling 3D-printable, time-programmed shape fixing and repeated repair.</li>
+						<li><strong>Automated high-throughput DNA-purification platform:</strong> perfluorocarbon pod system delivering ~200 mg per pod (chainable to gram scale) and ~91% cost reduction.</li>
+						<li><strong>Advanced characterization:</strong> tensile & rheology; SEM/DLS; UV-Vis/fluorescence; contact angle; EDS mapping.</li>
+						<li><strong>Leadership:</strong> mentored 3 undergrads; coordinated field team; presented at ACADIA 2024, ACS Fall 2023, Belt-and-Road Youth Forum 2023.</li>
+					</ul>
+				</div>
 
-		{
-			orderedExperiences.length > 0 && (
-				<section class='mb-8 md:mb-12'>
-					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
-						Experience
-					</h2>
-					<CvTimeline elements={orderedExperiences} colored={true} />
-				</section>
-			)
-		}
+				<!-- Graduate Teaching Assistant -->
+				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
+					<div class='font-bold text-lg md:text-xl text-base-content mb-2'>Graduate Teaching Assistant</div>
+					<div class='text-base text-base-content/60 mb-1'>Department of Biological & Environmental Engineering, Cornell University · Ithaca, NY</div>
+					<div class='text-base text-base-content/60 mb-4'>Feb 2021 – Present</div>
+					<ul class='list-disc list-outside space-y-2 text-base md:text-lg ml-5 text-base-content'>
+						<li><strong>Course instruction and lab support:</strong> across bio-design, molecular & cellular engineering, watershed systems, engineering professionalism, and sustainable development; created recitation slides, demonstrations, and Canvas materials.</li>
+						<li><strong>AI-driven teaching and curriculum:</strong> delivered guest lectures and integrated AI tools into assignments, review sessions, and data analysis.</li>
+					</ul>
+				</div>
 
-		{
-			orderedPublications.length > 0 && (
-				<section class='mb-8 md:mb-12'>
-					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
-						Publications
-					</h2>
-					<PublicationsList elements={orderedPublications}/>
-				</section>
-			)
-		}
+				<!-- Undergraduate Research Assistant -->
+				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
+					<div class='font-bold text-lg md:text-xl text-base-content mb-2'>Undergraduate Research Assistant & Senior Research Assistant</div>
+					<div class='text-base text-base-content/60 mb-1'>Hong Kong Baptist University · Kowloon, Hong Kong</div>
+					<div class='text-base text-base-content/60 mb-4'>Jun 2017 – Aug 2019 & Oct 2020 – Jan 2021</div>
+					<ul class='list-disc list-outside space-y-2 text-base md:text-lg ml-5 text-base-content'>
+						<li><strong>Superhydrophobic fluoropolymer surfaces:</strong> engineered nanopatterned Teflon films via photolithography, two-photon lithography, and chemical etching; achieved ultra-low wettability and high durability; contributed to a peer-reviewed article and a U.S. patent on hierarchical surface architectures.</li>
+						<li><strong>Environmental-simulation platform:</strong> designed an automated chamber controlling humidity, temperature, and airflow for wetting-behavior and coating-durability testing.</li>
+						<li><strong>Static-electricity anti-icing study:</strong> led an investigation of charge-mediated ice shedding, resulting in a top-rated undergraduate thesis.</li>
+					</ul>
+				</div>
 
-		{
-			orderedPatents.length > 0 && (
-				<section class='mb-8 md:mb-12'>
-					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
-						Patents
-					</h2>
-					<div class='space-y-4 md:space-y-6'>
-						{orderedPatents.map((patent) => (
-							<div class='border-b pb-4 last:border-b-0'>
-								<h3 class='text-base md:text-lg font-semibold mb-2'>{patent.title}</h3>
-								<p class='text-sm text-base-content/70 mb-2'>
-									{patent.inventors}
-								</p>
-								<div class='flex flex-wrap gap-2 md:gap-3 items-center text-sm'>
-									<span class='font-mono text-xs'>{patent.number}</span>
-									<span class='badge badge-outline'>{patent.status}</span>
-									<span class='badge badge-outline'>{patent.time}</span>
-								</div>
-							</div>
-						))}
+				<!-- Research Exchange Program -->
+				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
+					<div class='font-bold text-lg md:text-xl text-base-content mb-2'>Research Exchange Program</div>
+					<div class='text-base text-base-content/60 mb-1'>Georgia State University · Atlanta, GA</div>
+					<div class='text-base text-base-content/60 mb-4'>Jun 2018 – Aug 2018</div>
+					<ul class='list-disc list-outside space-y-2 text-base md:text-lg ml-5 text-base-content'>
+						<li><strong>Protein–DNA interaction kinetics:</strong> characterized PU.1 transcription-factor binding to DNA using localized surface plasmon resonance (LSPR).</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- Publications & Patents -->
+		<section class='mb-8 md:mb-12'>
+			<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6'>Publications & Patents</h2>
+			<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
+				<div class='mb-6'>
+					<h3 class='font-bold text-lg md:text-xl text-base-content mb-4'>Papers</h3>
+					<div class='space-y-4'>
+						<p class='text-base md:text-lg text-base-content'><em>Tracing Environmental DNA Transport in Large Lakes with Synthetic DNA Microparticles and Hydrodynamic Modeling</em>. <span class='text-base-content/60'>Environmental Science & Technology (under review), 2025</span>.</p>
+						<p class='text-base md:text-lg text-base-content'><em>PolyTile 4.0: Self-healing Ceramic Tiles</em>. <span class='text-base-content/60'>ACADIA, 2024</span>.</p>
+						<p class='text-base md:text-lg text-base-content'><em>All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability</em>. <span class='text-base-content/60'>The Innovation, 2023</span>.</p>
 					</div>
-				</section>
-			)
-		}
+				</div>
 
-		{
-			orderedConferences.length > 0 && (
-				<section class='mb-8 md:mb-12'>
-					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
-						Conference Presentations
-					</h2>
-					<div class='space-y-4 md:space-y-6'>
-						{orderedConferences.map((conf) => (
-							<div class='border-b pb-4 last:border-b-0'>
-								<div class='flex items-start gap-3 mb-2'>
-									<span class={`badge ${conf.type === 'Oral' ? 'badge-primary' : 'badge-accent'} flex-shrink-0`}>
-										{conf.type}
-									</span>
-									<h3 class='text-base md:text-lg font-semibold'>{conf.title}</h3>
-								</div>
-								<p class='text-sm text-base-content/70'>
-									{conf.venue}, {conf.location} ({conf.time})
-								</p>
-							</div>
-						))}
+				<div class='border-t-2 border-base-300 pt-6'>
+					<h3 class='font-bold text-lg md:text-xl text-base-content mb-4'>Patents</h3>
+					<div class='space-y-4'>
+						<p class='text-base md:text-lg text-base-content'>Crack engineering as a new route for the construction of arbitrary hierarchical architectures. <span class='text-base-content/60'>US 11,839,998 (2023)</span>.</p>
+						<p class='text-base md:text-lg text-base-content'>Reactor and method of spiral propulsion biomass continuous thermal cracking. <span class='text-base-content/60'>CN 201711214139.6 (2017)</span>.</p>
 					</div>
-				</section>
-			)
-		}
+				</div>
+			</div>
+		</section>
 
-		{
-			skills.length > 0 && (
-				<section class='mb-8 md:mb-12'>
-					<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6 border-b-2 border-primary pb-2'>
-						Skills
-					</h2>
-					<List listTitle='' listItems={skills}/>
-				</section>
-			)
-		}
+		<!-- Conference Presentations -->
+		<section class='mb-8 md:mb-12'>
+			<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6'>Conference Presentations</h2>
+			<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8 space-y-6'>
+				<div>
+					<div class='mb-2'>
+						<span class='font-semibold text-base md:text-lg text-base-content'>"DNA Nano Tracer for Hydrological and Environmental Investigations."</span>
+					</div>
+					<div class='text-base text-base-content/60'>International Forum for Green Low Carbon Innovation and Development, Anji, China (2023).</div>
+				</div>
+				<div>
+					<div class='mb-2'>
+						<span class='font-semibold text-base md:text-lg text-base-content'>"DNA-PLGA Nanosphere Tracers: A reliable Tool for Studying Environmental DNA (eDNA) Transport in Aquatic Ecosystems."</span>
+					</div>
+					<div class='text-base text-base-content/60'>ACS Fall 2023 National Meeting, San Francisco, CA (2023).</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Skills -->
+		<section class='mb-8 md:mb-12'>
+			<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6'>Skills</h2>
+			<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
+				<div class='grid sm:grid-cols-2 gap-6 md:gap-8'>
+					<div>
+						<div class='font-bold text-lg text-base-content mb-2'>Materials Characterization</div>
+						<p class='text-base md:text-lg text-base-content'>SEM, DLS, EDS, UV-Vis, Fluorometry, Rheometry, Electrophoresis, Tensile Testing, Contact Angle</p>
+					</div>
+					<div>
+						<div class='font-bold text-lg text-base-content mb-2'>Fabrication & Processing</div>
+						<p class='text-base md:text-lg text-base-content'>Electrospray, DIW 3D Printing, SLA/FDM Printing, Spin Coating, Mold Casting, Solvent Precipitation, Photolithography, Two-Photon Lithography, Nanopatterning</p>
+					</div>
+					<div>
+						<div class='font-bold text-lg text-base-content mb-2'>Molecular & Bioengineering</div>
+						<p class='text-base md:text-lg text-base-content'>PCR, qPCR, IVT, Electrophoresis (PAGE/Agarose), DNA/RNA Extraction & Purification, Chromatography, Enzyme Recycling, LSPR Assays, Bio-cleanroom Protocols</p>
+					</div>
+					<div>
+						<div class='font-bold text-lg text-base-content mb-2'>Programming & Computational</div>
+						<p class='text-base md:text-lg text-base-content'>Python, Java, ML (TensorFlow, PyTorch), Data Analysis (Pandas, NumPy, Seaborn)</p>
+					</div>
+					<div>
+						<div class='font-bold text-lg text-base-content mb-2'>Design & Visualization</div>
+						<p class='text-base md:text-lg text-base-content'>CAD, SketchUp, 3ds Max, Adobe Creative Suite, Bootstrap Studio, Scientific Figures, Video/Audio Editing</p>
+					</div>
+					<div>
+						<div class='font-bold text-lg text-base-content mb-2'>Languages</div>
+						<p class='text-base md:text-lg text-base-content'>English (Fluent); Mandarin (Native); Cantonese (Proficient)</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Download PDF Button -->
+		<div class='flex justify-center gap-4 flex-wrap mt-8 md:mt-12 mb-8'>
+			<a href='/cv.pdf' class='btn btn-primary btn-lg' download>
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+				</svg>
+				Download PDF
+			</a>
+			<button type="button" class='btn btn-accent btn-lg' onclick="cv_modal.showModal()">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+				</svg>
+				Email Me This CV
+			</button>
+		</div>
+
+		<!-- Email Modal -->
+		<dialog id="cv_modal" class="modal">
+			<div class="modal-box max-w-md">
+				<form method="dialog">
+					<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+				</form>
+				<h3 class="font-bold text-xl mb-2">Get CV via Email</h3>
+				<p class="text-sm text-base-content/70 mb-6">Enter your email and I'll send you my CV along with additional information.</p>
+				
+				<form
+					id="cv-email-form"
+					action="https://formspree.io/f/manpllrv"
+					method="POST"
+					class="space-y-4"
+				>
+					<div class="form-control">
+						<label class="label">
+							<span class="label-text font-semibold">Your Name</span>
+						</label>
+						<input 
+							type="text" 
+							name="name" 
+							placeholder="John Doe" 
+							class="input input-bordered w-full" 
+							required 
+						/>
+					</div>
+					
+					<div class="form-control">
+						<label class="label">
+							<span class="label-text font-semibold">Your Email</span>
+						</label>
+						<input 
+							type="email" 
+							name="email" 
+							placeholder="you@example.com" 
+							class="input input-bordered w-full" 
+							required 
+						/>
+					</div>
+					
+					<div class="form-control">
+						<label class="label">
+							<span class="label-text font-semibold">Message (Optional)</span>
+						</label>
+						<textarea 
+							name="message" 
+							placeholder="I'm interested in..." 
+							class="textarea textarea-bordered w-full h-24"
+						></textarea>
+					</div>
+
+					<!-- Hidden field to track this is a CV request -->
+					<input type="hidden" name="_subject" value="CV Request from Portfolio" />
+					
+					<div class="text-xs text-base-content/60 mb-4">
+						By submitting, you agree to receive my CV and occasional updates. Your information is kept private.
+					</div>
+					
+					<div class="modal-action">
+						<button type="button" class="btn btn-ghost" onclick="cv_modal.close()">Cancel</button>
+						<button type="submit" class="btn btn-primary" id="submit-btn">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+							</svg>
+							Send Request
+						</button>
+					</div>
+				</form>
+
+				<!-- Success Message (hidden by default) -->
+				<div id="success-message" class="hidden">
+					<div class="alert alert-success">
+						<svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+						</svg>
+						<span>Thank you! I'll send you my CV shortly.</span>
+					</div>
+					<div class="modal-action">
+						<button class="btn btn-primary" onclick="cv_modal.close(); location.reload();">Close</button>
+					</div>
+				</div>
+			</div>
+			<form method="dialog" class="modal-backdrop">
+				<button>close</button>
+			</form>
+		</dialog>
 	</div>
 </Layout>
 
@@ -191,3 +331,43 @@ if (conferences.length > 0) {
 		}
 	}
 </style>
+
+<script>
+	// Handle form submission with AJAX
+	const form = document.getElementById('cv-email-form') as HTMLFormElement | null;
+	const successMessage = document.getElementById('success-message');
+	const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+	
+	if (form && successMessage && submitBtn) {
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			
+			// Disable button and show loading
+			submitBtn.disabled = true;
+			submitBtn.innerHTML = '<span class="loading loading-spinner"></span> Sending...';
+			
+			try {
+				const formData = new FormData(form);
+				const response = await fetch(form.action, {
+					method: 'POST',
+					body: formData,
+					headers: {
+						'Accept': 'application/json'
+					}
+				});
+				
+				if (response.ok) {
+					// Hide form, show success message
+					form.classList.add('hidden');
+					successMessage.classList.remove('hidden');
+				} else {
+					throw new Error('Form submission failed');
+				}
+			} catch (error) {
+				alert('There was an error sending your request. Please try again or contact me directly.');
+				submitBtn.disabled = false;
+				submitBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg> Send Request';
+			}
+		});
+	}
+</script>

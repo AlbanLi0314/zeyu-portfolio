@@ -268,34 +268,9 @@ const projects = [
       ))}
     </div>
   </div>
-
-  <!-- Sticky Back to Top FAB (appears after 600px scroll) -->
-  <button 
-    id="back-to-top-fab"
-    class="fixed bottom-6 right-6 md:bottom-8 md:right-8 btn btn-circle btn-primary shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-40 btn-sm md:btn-md"
-    onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-    aria-label="Back to top"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-    </svg>
-  </button>
 </Layout>
 
 <script>
-  // Back to Top FAB visibility
-  const fab = document.getElementById('back-to-top-fab');
-  
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 600) {
-      fab?.classList.remove('opacity-0', 'pointer-events-none');
-      fab?.classList.add('opacity-100', 'pointer-events-auto');
-    } else {
-      fab?.classList.remove('opacity-100', 'pointer-events-auto');
-      fab?.classList.add('opacity-0', 'pointer-events-none');
-    }
-  });
-
   // Highlight active section in navigation
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.project-nav-link');

@@ -6,6 +6,7 @@ import DarkLightController from '../components/ui/DarkLightController.astro'
 import ThemeSelector from '../components/ui/ThemeSelector.astro'
 import Navbar from '../components/ui/Navbar.astro'
 import Head from '../components/Head.astro'
+import FloatingContactButton from '../components/ui/FloatingContactButton.astro'
 
 import { seo, profile, template } from '../settings'
 import Footer from '../components/ui/Footer.astro'
@@ -94,6 +95,9 @@ const {
 				<Navbar />
 			</div>
 		</div>
+		
+		<!-- Floating Contact Button - appears on all pages -->
+		<FloatingContactButton />
 	</body>
 </html>
 
