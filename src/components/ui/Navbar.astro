@@ -21,17 +21,33 @@ const { fullName, title } = profile
 	<div class='flex flex-col justify-between h-full overflow-y-auto scrollbar-hide'>
 		<div class='flex-shrink-0'>
 			<div class='flex justify-center items-center flex-col'>
+				<!-- Headshot - only visible on desktop -->
 				<Image
-					class='mask mask-circle size-32'
+					class='mask mask-circle size-32 hidden lg:block'
 					src={ProfilePictures}
 					alt={`Profile picture of ${fullName}`}
 				/>
+				
+				<!-- Text info for desktop (below headshot) -->
 				<div class="text-center mt-4 hidden lg:block">
 					<h1 class="text-xl font-bold mb-1">{fullName}</h1>
 					<p class="text-base text-base-content/70 leading-tight px-2">{title}</p>
 					<button 
 						id="copy-email-btn"
 						class="text-sm text-base-content/60 hover:text-primary mt-1 cursor-pointer transition-colors"
+						title="Click to copy email"
+					>
+						zl788@cornell.edu
+					</button>
+				</div>
+				
+				<!-- Text info for mobile (no headshot) -->
+				<div class="text-center lg:hidden w-full px-2">
+					<h1 class="text-lg font-bold mb-2">{fullName}</h1>
+					<p class="text-sm text-base-content/70 leading-tight mb-2">{title}</p>
+					<button 
+						id="copy-email-btn-mobile"
+						class="text-sm text-base-content/60 hover:text-primary cursor-pointer transition-colors"
 						title="Click to copy email"
 					>
 						zl788@cornell.edu
@@ -55,7 +71,7 @@ const { fullName, title } = profile
 				</ul>
 			</div>
 		</div>
-		<div class='mx-4 mb-8 mt-auto pt-8 flex-shrink-0'>
+		<div class='mx-4 mb-4 mt-auto pt-8 flex-shrink-0'>
 			<SocialIcons/>
 		</div>
 	</div>
@@ -85,6 +101,7 @@ const { fullName, title } = profile
 
 <script is:inline>
 	document.addEventListener('DOMContentLoaded', () => {
+		// Desktop email button
 		const copyEmailBtn = document.getElementById('copy-email-btn');
 		if (copyEmailBtn) {
 			copyEmailBtn.addEventListener('click', async () => {
@@ -97,6 +114,26 @@ const { fullName, title } = profile
 					setTimeout(() => {
 						copyEmailBtn.textContent = originalText;
 						copyEmailBtn.classList.remove('text-success');
+					}, 2000);
+				} catch (err) {
+					console.error('Failed to copy email:', err);
+				}
+			});
+		}
+		
+		// Mobile email button
+		const copyEmailBtnMobile = document.getElementById('copy-email-btn-mobile');
+		if (copyEmailBtnMobile) {
+			copyEmailBtnMobile.addEventListener('click', async () => {
+				const email = 'zl788@cornell.edu';
+				try {
+					await navigator.clipboard.writeText(email);
+					const originalText = copyEmailBtnMobile.textContent;
+					copyEmailBtnMobile.textContent = 'Copied!';
+					copyEmailBtnMobile.classList.add('text-success');
+					setTimeout(() => {
+						copyEmailBtnMobile.textContent = originalText;
+						copyEmailBtnMobile.classList.remove('text-success');
 					}, 2000);
 				} catch (err) {
 					console.error('Failed to copy email:', err);
