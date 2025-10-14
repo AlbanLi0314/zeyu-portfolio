@@ -17,17 +17,25 @@ const calculatedContainerSize = activeSocial.length <= 5 ? 'size-12' : activeSoc
 
 ---
 
-<div class='flex flex-wrap justify-between items-center'>
+<div class='flex flex-wrap justify-between items-center relative'>
 
 	<!-- Email -->
 	{social.email !== '' &&
-		<button 
-			id="copy-email-icon-btn"
-			class={`${calculatedContainerSize} inline-flex items-center justify-center rounded-xl hover:bg-primary/20 transition-all duration-300 cursor-pointer`}
-			title="Click to copy email"
-		>
-			<Envelope class={calculatedIconSize} fill="currentColor" />
-		</button>
+		<div class="relative">
+			<button 
+				id="copy-email-icon-btn"
+				class={`${calculatedContainerSize} inline-flex items-center justify-center rounded-xl hover:bg-primary/20 transition-all duration-300 cursor-pointer`}
+				title="Click to copy email"
+			>
+				<Envelope class={calculatedIconSize} fill="currentColor" />
+			</button>
+			<span 
+				id="email-copied-tooltip" 
+				class="hidden absolute -top-8 left-1/2 transform -translate-x-1/2 bg-success text-success-content text-xs px-2 py-1 rounded whitespace-nowrap"
+			>
+				Copied!
+			</span>
+		</div>
 	}
 
 	<!-- GitHub -->
@@ -101,16 +109,23 @@ const calculatedContainerSize = activeSocial.length <= 5 ? 'size-12' : activeSoc
 <script is:inline>
 	document.addEventListener('DOMContentLoaded', () => {
 		const copyEmailIconBtn = document.getElementById('copy-email-icon-btn');
-		if (copyEmailIconBtn) {
+		const emailCopiedTooltip = document.getElementById('email-copied-tooltip');
+		
+		if (copyEmailIconBtn && emailCopiedTooltip) {
 			copyEmailIconBtn.addEventListener('click', async () => {
 				const email = 'zl788@cornell.edu';
 				try {
 					await navigator.clipboard.writeText(email);
-					// Show visual feedback by changing background color
+					
+					// Show "Copied!" tooltip
+					emailCopiedTooltip.classList.remove('hidden');
 					copyEmailIconBtn.classList.add('bg-success/30');
+					
+					// Hide after 1.5 seconds
 					setTimeout(() => {
+						emailCopiedTooltip.classList.add('hidden');
 						copyEmailIconBtn.classList.remove('bg-success/30');
-					}, 1000);
+					}, 1500);
 				} catch (err) {
 					console.error('Failed to copy email:', err);
 				}
