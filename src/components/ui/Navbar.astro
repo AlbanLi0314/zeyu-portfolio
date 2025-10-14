@@ -74,23 +74,25 @@ const { fullName, title } = profile
 	}
 </style>
 
-<script>
-	document.getElementById('copy-email-btn')?.addEventListener('click', async () => {
-		const email = 'zl788@cornell.edu';
-		try {
-			await navigator.clipboard.writeText(email);
-			const btn = document.getElementById('copy-email-btn');
-			if (btn) {
-				const originalText = btn.textContent;
-				btn.textContent = 'Copied!';
-				btn.classList.add('text-success');
-				setTimeout(() => {
-					btn.textContent = originalText;
-					btn.classList.remove('text-success');
-				}, 2000);
-			}
-		} catch (err) {
-			console.error('Failed to copy email:', err);
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		const copyEmailBtn = document.getElementById('copy-email-btn');
+		if (copyEmailBtn) {
+			copyEmailBtn.addEventListener('click', async () => {
+				const email = 'zl788@cornell.edu';
+				try {
+					await navigator.clipboard.writeText(email);
+					const originalText = copyEmailBtn.textContent;
+					copyEmailBtn.textContent = 'Copied!';
+					copyEmailBtn.classList.add('text-success');
+					setTimeout(() => {
+						copyEmailBtn.textContent = originalText;
+						copyEmailBtn.classList.remove('text-success');
+					}, 2000);
+				} catch (err) {
+					console.error('Failed to copy email:', err);
+				}
+			});
 		}
 	});
 </script>
