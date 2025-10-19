@@ -7,7 +7,12 @@ const projects = [
     id: "tracers",
     title: "DNA-Barcoded PLGA Microspheres for Transport Mapping",
     shortLabel: "DNA tracers",
-    tags: ["micro/nanoparticles", "biodegradable", "PLGA", "transport modeling", "field-scale", "qPCR", "TaqMan assay", "source attribution"],
+    summary: "DNA-barcoded PLGA microspheres mapped lake flows, detecting tracers ~7 km across ~11 km² with milligram DNA input, matching a calibrated 3D model for source attribution.",
+    problem: "Large water bodies like lakes pose a challenge for environmental monitoring because it is difficult to track where water (and the substances in water) travels over time. Traditional tracers (dyes, salts, etc.) require prohibitively large quantities and still don't allow precise source tracking. We faced the need for a sensitive, environmental-friendly tracer that could map water flow paths across kilometers and attribute detections to specific release sources in a complex lake system.",
+    approach: "We developed a synthetic eDNA tracer by encapsulating unique DNA barcodes in biodegradable PLGA microspheres. These particles were released into a lake and tracked via quantitative PCR (qPCR) detection of their DNA tags, while a 3D hydrodynamic model was used in parallel to map dispersion patterns and infer source locations. This approach combined polymer engineering (for particle design), molecular biology (DNA barcoding and qPCR), and environmental modeling.",
+    results: "We executed a lake-scale field trial on Cayuga Lake, releasing uniquely barcoded DNA-PLGA microspheres and sampling 278 points over ~11 km² for ~33 hours. qPCR detected tracers to ~7 km from release with milligram-scale DNA input, and dispersion patterns aligned with a calibrated 3D hydrodynamic/Lagrangian model. The deployment validated multiplexable barcoding in one experiment and produced a robust dataset suitable for model tuning and source-attribution mapping. Outcomes to date include a manuscript under review at Environmental Science & Technology, program support from DoD SERDP, and seminars delivered at ACS, UIUC, Penn State, and Cornell, underscoring both technical rigor and community interest.",
+    impact: "This work provided one of the first lake-scale demonstration that precise spatiotemporal source tracking of eDNA is achievable. By using synthetic DNA particles, the team established a robust, standardized benchmark for eDNA transport studies. The result is a transferable tracer platform tunable by particle size and assay design for sensitive, multiplexed monitoring of water flows and contaminants. Utilities and environmental agencies could deploy such DNA tracers to map pollution sources or verify water circulation patterns with unprecedented sensitivity.",
+    nextSteps: "Ongoing work is shifting to cheap, biomass-derived DNA tracers to enable 104–106 times higher tracer quantities while maintaining the similar cost, and direct field detection without PCR amplification. In parallel, a portable detection device is being designed for rapid on-site readout, and new field deployments of biomass DNA tracers are planned in diverse environments to further validate and refine the approach.",
     outcomes: [
       "Field experiment: 11 km², ~33 h",
       "qPCR detection to ~7 km with < 1 mg DNA release",
@@ -28,14 +33,18 @@ const projects = [
       { name: "SERDP program", url: "https://serdp-estcp.mil" },
       { name: "Environmental Science & Technology (ES&T)", url: "https://pubs.acs.org/journal/esthag" }
     ],
-    detail: `I bridge molecular biotechnology and polymer engineering to build a DNA-barcoded PLGA microsphere tracer that turns qPCR into a lake-scale process sensor. We design unique DNA tags and a TaqMan assay, encapsulate them in size-tuned, biodegradable microspheres, and then read dispersion with qPCR while calibrating 3D hydrodynamic / Lagrangian models to produce source-attribution flow maps. In field trials (278 samples over ~11 km²), we detected tags up to ~7 km and ~33 h post-release using only milligram-scale DNA, generating datasets that align with model-predicted transport. Standardized backgrounds, DI blanks, and qPCR calibration curves—plus gram-scale, barcoded batches—made the method robust across teams and conditions. The result is a transferable platform: materials-controlled particle specs for tunable transport, and biotech-grade barcoding/assays for sensitive, multiplexable readout—ready for utilities, plants, and industrial process tracing.`,
     captions: ["Flowchart of DNA PLGA Microspheres for tracing", "SEM image of DNA PLGA Microspheres"]
   },
   {
     id: "hydrogels",
     title: "DNA Hydrogels and Composites Materials",
     shortLabel: "DNA hydrogels",
-    tags: ["hydrogels", "self-healing", "thermal-reversible", "photo-reversible", "3D printable", "composites", "biomass"],
+    summary: "Biomass DNA hydrogels with thermal, UV, and ionic crosslinks print and enable refillable, self-repair in architected parts, positioning DNA as a materials-grade, water-processable feedstock.",
+    problem: "Bio-derived polymers like cellulose, starch, and collagen serve large markets, yet manufacturers face narrow processing windows, plasticizers that weaken parts, and limited chemical tunability. We address these gaps with biomass DNA as a polymer feedstock: an abundant, water-processable biopolymer with thousands of functional sites per molecule and mature biology toolkits for powerful, precise modification.",
+    approach: "We built a biomass-DNA hydrogel platform from salmon and herring DNA and tuned three crosslink modes: thermally reversible physical crosslinks (heat/cool), UV-reversible psoralen crosslinks, and rapid ionic crosslinks with multivalent cations (e.g., Al³⁺). Formulations were tuned for application-specific rheology, stiffness, and swelling.",
+    results: "The biomass-DNA hydrogel formed self-supporting networks that healed by thermal re-annealing, could be locked and later released with psoralen under UV, and stiffened rapidly via multivalent-ion crosslinking. Formulations printed cleanly as direct-ink-writing lattices and cast as films or membranes, with stiffness, viscosity, and swelling tuned by DNA concentration and crosslink type and density. As a demo, PolyTile 4.0's embedded channels routed dehydrated DNA precursor to cracks; upon rehydration with salts the gel set in place and sealed damage, validating on-demand delivery and multi-cycle repair in an architected part.",
+    impact: "These results position biomass DNA as a materials-grade feedstock for low-cost, water-based processing and true reprocessability, enabling refillable self-healing and printable reinforcements at practical scale. The platform integrates with vascular composites and is extensible to concrete and porous ceramics. It can carry barrier or sensing payloads for environmental modules. Public disclosure at ACADIA 2024 indicates readiness for broader prototyping and cross-disciplinary collaboration.",
+    nextSteps: "We will map the programmability of the biomass DNA hydrogel across thermal, UV psoralen, and multivalent ion crosslinking, quantifying G′, tan δ, swelling ratios, lock and release kinetics, ionic set times, and durability over cycles, with controls and repeatability. We will log results to a compact dataset to fit simple predictors of G′ from DNA wt percent and salt. A manuscript in preparation will focus on the hydrogel as a stand-alone platform and screen gel-only use cases such as barrier membranes, sensing payloads, and direct ink writing, with clear methods and benchmarks.",
     outcomes: [
       "Demo published on Acadia (2024)",
       "Supported by Cornell SPROUT Awards",
@@ -54,14 +63,18 @@ const projects = [
       { name: "Cornell SPROUT Awards", url: "https://www.engineering.cornell.edu/faculty-resources/sprout-awards/" },
       { name: "Acadia", url: "https://www.acadia.org" }
     ],
-    detail: `I turn biomass DNA into programmable hydrogels and composites that can be 3D printed, shaped on demand, and self-healing in real parts. The platform uses three simple modes: thermal bonds that re-form with gentle heating, a light-activated crosslink that locks and then unlocks (the same psoralen chemistry used clinically in PUVA therapies), and an ionic mode with aluminum that sets quickly and rehydrates to close cracks. We demonstrated the concept in PolyTile 4.0—a ceramic tile with optimized vascular channels that move the DNA precursor to damage sites; flow was validated and the system was published at ACADIA 2024 (Co-first author). The same inks run in CAD-to-DIW workflows, accept payloads, and let us tune stiffness, viscosity, and swelling so designers and engineers can choose the behavior that the part needs.`,
     captions: ["$1 and $1 of DNA (from salmon)", "3D printed DNA hydrogel"]
   },
   {
     id: "extraction",
     title: "Low Cost Nucleic Acid Extraction Method Inspired by Espresso Machine",
     shortLabel: "Nucleic acid extraction",
-    tags: ["extraction", "purification", "device design", "high-capacity", "high-throughput", "DNA", "RNA", "low-cost", "downstream processing"],
+    summary: "Pod-based, espresso-style extraction captured >90% DNA in 0.01–4 M salts and ~200 mg per pod, cutting ~91% using ethanol-free method toward <$1 per gram.",
+    problem: "Bulk DNA/RNA extraction in labs still relies on manual, batch protocols with solvent-intensive precipitation. Phenol–chloroform, silica, and magnetic-bead methods consume large ethanol volumes and require repeated handling, which slows gram-scale production and raises cost.",
+    approach: "We designed an espresso-style continuous-flow extractor with a continuous inlet and outlet. Samples pass through pod cartridges packed with a custom fluoropolymer-based capture medium that adsorbs DNA/RNA in-line while permeate exits. After bind and wash, we recover nucleic acids by vapor-removing the capture medium, then recycling it for reuse. We built bench prototypes and outlined throughput scaling via pod swapping and parallelization.",
+    results: "Bench prototypes yielded ~200 mg DNA/RNA per pod (modeled capacity ~209 mg). Using fluoropolymer capture media, we observed >90% DNA capture across 0.01–4 M salts and 10–500 ng/µL inputs. Apparent adsorption capacity exceeded common silica media and was comparable to ion-exchange under our test conditions. Bound DNA showed reduced nuclease degradation in preliminary tests. An ethanol-free vapor recovery step cut estimated consumables by ~91% versus ethanol precipitation. Modeling indicates a path to < $1 per gram with pod reuse.",
+    impact: "Replacing ethanol precipitation with a vapor-removable capture medium and shifting from batch to a pod-based continuous platform reduces solvent use and operator touch time. The approach targets practical gram-level DNA supply for eDNA tracers, DNA hydrogels, and routine enzymatic workflows, with a cost trajectory suitable for scale-out.",
+    nextSteps: "Finalize a continuous, automated prototype with pod parallelization and vapor-removal regeneration. Benchmark head-to-head with silica and ion-exchange across biomass sources and environmental waters, reporting recovery, purity, and nuclease resistance with replicates. Optimize capture-medium cycling, pod lifetime, and inline concentration to move toward sub-$1 per gram. Pilot on-site extraction in small field trials.",
     outcomes: [
       "200 mg nucleic acid per pod",
       "91% cost reduction vs ethanol precipitation",
@@ -72,14 +85,18 @@ const projects = [
       { name: "Prof. Dan Luo", affiliation: "Cornell University", url: "https://cals.cornell.edu/people/dan-luo" }
     ],
     links: [],
-    detail: `I engineered a nucleic acid extraction method that uses a coffee-machine pod extractor to run simple, chainable cycles. Each pod contains novel nanoparticles that capture DNA and RNA across a wide input range, from very dilute to highly concentrated solutions, achieving high absorption density per unit material. The process reliably delivers ~200 mg per pod and reduces cost by ~91 percent compared with conventional ethanol precipitation, with a modeled path to under $1 per gram. It produces enzyme-friendly outputs suitable for downstream assays. I designed and piloted the system, modeled costs, and documented procedures for transfer.`,
     captions: ["Novel nanoparticles capture DNA", "High adsorption yield across wide DNA concentration range"]
   },
   {
     id: "superhydrophobic",
     title: "Superhydrophobic Surfaces for Icing Control and Durable Water-Repellency",
     shortLabel: "Surface engineering",
-    tags: ["superhydrophobic", "anti-icing", "contact angle", "electrostatic", "durable coating", "micro/nano texture", "fluoropolymer", "nano-fabrication", "lithography"],
+    summary: "Perfluoropolymer textures with electrostatic pre-charge maintained repellency after abrasion, UV, chemicals, and pressure, and cut droplet contact time ~27% at −10 °C to suppress icing.",
+    problem: "Superhydrophobic coatings often lose the Cassie state under abrasion, chemicals, UV, or pressure. Once hysteresis rises, droplets adhere; in subzero conditions, droplets that linger beyond nucleation times freeze and anchor, degrading safety, efficiency, and maintenance budgets in aviation, energy, and infrastructure.",
+    approach: "We combined two strategies. First, we built a controlled icing rig, pre-charged samples, and quantified impact, contact time, and rebound by high-speed imaging. Second, we patterned an all-perfluoropolymer surface into micro- and nano-textures as a monolithic layer on diverse substrates, fabricated as rigid panels, freestanding films, and peel-and-stick tapes. We then evaluated wetting, immersion stability, abrasion, chemical resistance, and UV aging.",
+    results: "Static contact angle: 155–160°. After 1,500 abrasion cycles on 1200-grit under 100 g load, angle ≥150° with roll-off ≈10.8°; failure onset ≈1,800 cycles. No change up to 300 kPa compression; at 500 kPa, angle ≈154°, roll-off ≈11°. Doubly reentrant cavities retained ≈92.7% trapped gas after 30 days at ≈90 kPa hydrostatic pressure. Repellency persisted after 7 days in corrosive vapors, continuous 185 nm UV for 7 days, and 200 °C for 7 days. Films survived >100,000 folds; tapes endured thousands of aggressive peel cycles without delamination. At −10 °C with ≈5 µL supercooled droplets, negative pre-charge at −25 kV cut contact time from ≈15 ms to ≈11 ms (≈27% reduction) and increased rebound rate. Durability was published in The Innovation (2023); the architecture is covered by US Patent 11,839,998.",
+    impact: "Pairing intrinsically durable, monolithic perfluoropolymer textures with an active electrostatic method that shortens droplet contact time maintains the Cassie state after real wear and suppresses icing onset. This reduces reliance on heat and chemical deicers, increases uptime for turbines and power assets, and enables practical retrofits via films and tapes aligned to certification-grade durability protocols.",
+    nextSteps: "Expand icing tests across droplet sizes, wind speeds, and substrate curvatures; report field-relevant contact-time thresholds and icing-delay statistics. Advance tape and film prototypes to qualification with standardized abrasion, UV, chemical, and pressure cycling, and evaluate electrostatic pre-charge integration for large-area, low-power operation.",
     outcomes: [
       "Published at The Innovation (2023) (IF 25.7, 3rd author)",
       "Patent filings (granted 2023)",
@@ -96,7 +113,6 @@ const projects = [
     links: [
       { name: "All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability", url: "https://www.cell.com/the-innovation/fulltext/S2666-6758(23)00017-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS2666675823000176%3Fshowall%3Dtrue" }
     ],
-    detail: `I built a lab platform to study icing on superhydrophobic surfaces and tested a simple idea: use static charge to help droplets leave faster. Precharging the surface shortened supercooled droplet contact time by up to 25 percent and improved bounce in cold, dry conditions. In a separate line, I helped develop a monolithic all-perfluoropolymer surface that keeps its water-repellent texture under real use, produced as a coating, membrane, or tape, with long-term air retention shown to 9 m depth. The work maps a clear wetting mechanism to durable, manufacturable surfaces for aircraft, energy, and infrastructure, with outcomes that include a paper in The Innovation (IF 25.7, 3rd author), patent filings, and the Best Undergraduate Thesis Award.`,
     captions: ["All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability", "Lab platform build to study icing on superhydrophobic surfaces"]
   }
 ];
@@ -147,18 +163,48 @@ const projects = [
             <div class="lg:col-span-8">
               <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 text-primary leading-tight">{project.title}</h2>
               
-              <!-- Tags -->
-              <div class="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
-                {project.tags.map((tag) => (
-                  <span class="badge badge-sm text-xs">{tag}</span>
-                ))}
+              <!-- Summary -->
+              <div class="mb-4 md:mb-5 p-3 md:p-4 bg-primary/5 border-l-4 border-primary rounded-r-lg">
+                <p class="text-sm md:text-base leading-relaxed text-base-content/90 italic">
+                  {project.summary}
+                </p>
               </div>
 
-              <!-- Detailed Description -->
-              <div class="prose max-w-none mb-4 md:mb-6">
-                <p class="text-base md:text-lg leading-relaxed text-base-content/80">
-                  {project.detail}
-                </p>
+              <!-- Expandable Detailed Description -->
+              <div class="mb-4 md:mb-6">
+                <details class="collapse collapse-plus rounded-lg">
+                  <summary class="collapse-title text-base md:text-lg font-semibold text-primary cursor-pointer">
+                    Full Project Details
+                  </summary>
+                  <div class="collapse-content">
+                    <div class="prose max-w-none pt-2">
+                      <h4 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Problem</h4>
+                      <p class="text-sm md:text-base leading-relaxed text-base-content/80 mb-4">
+                        {project.problem}
+                      </p>
+
+                      <h4 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Approach</h4>
+                      <p class="text-sm md:text-base leading-relaxed text-base-content/80 mb-4">
+                        {project.approach}
+                      </p>
+
+                      <h4 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Results</h4>
+                      <p class="text-sm md:text-base leading-relaxed text-base-content/80 mb-4">
+                        {project.results}
+                      </p>
+
+                      <h4 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Impact</h4>
+                      <p class="text-sm md:text-base leading-relaxed text-base-content/80 mb-4">
+                        {project.impact}
+                      </p>
+
+                      <h4 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Next Steps</h4>
+                      <p class="text-sm md:text-base leading-relaxed text-base-content/80">
+                        {project.nextSteps}
+                      </p>
+                    </div>
+                  </div>
+                </details>
               </div>
 
               <!-- Key Outcomes - Highlighted -->
