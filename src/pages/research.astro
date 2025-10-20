@@ -12,7 +12,7 @@ const projects = [
     approach: "We developed a synthetic eDNA tracer by encapsulating unique DNA barcodes in biodegradable PLGA microspheres. These particles were released into a lake and tracked via quantitative PCR (qPCR) detection of their DNA tags, while a 3D hydrodynamic model was used in parallel to map dispersion patterns and infer source locations. This approach combined polymer engineering (for particle design), molecular biology (DNA barcoding and qPCR), and environmental modeling.",
     results: "We executed a lake-scale field trial on Cayuga Lake, releasing uniquely barcoded DNA-PLGA microspheres and sampling 278 points over ~11 km² for ~33 hours. qPCR detected tracers to ~7 km from release with milligram-scale DNA input, and dispersion patterns aligned with a calibrated 3D hydrodynamic/Lagrangian model. The deployment validated multiplexable barcoding in one experiment and produced a robust dataset suitable for model tuning and source-attribution mapping. Outcomes to date include a manuscript under review at Environmental Science & Technology, program support from DoD SERDP, and seminars delivered at ACS, UIUC, Penn State, and Cornell, underscoring both technical rigor and community interest.",
     impact: "This work provided one of the first lake-scale demonstration that precise spatiotemporal source tracking of eDNA is achievable. By using synthetic DNA particles, the team established a robust, standardized benchmark for eDNA transport studies. The result is a transferable tracer platform tunable by particle size and assay design for sensitive, multiplexed monitoring of water flows and contaminants. Utilities and environmental agencies could deploy such DNA tracers to map pollution sources or verify water circulation patterns with unprecedented sensitivity.",
-    nextSteps: "Ongoing work is shifting to cheap, biomass-derived DNA tracers to enable 104–106 times higher tracer quantities while maintaining the similar cost, and direct field detection without PCR amplification. In parallel, a portable detection device is being designed for rapid on-site readout, and new field deployments of biomass DNA tracers are planned in diverse environments to further validate and refine the approach.",
+    nextSteps: "Ongoing work is shifting to cheap, biomass-derived DNA tracers to enable 10⁴–10⁶ times higher tracer quantities while maintaining the similar cost, and direct field detection without PCR amplification. In parallel, a portable detection device is being designed for rapid on-site readout, and new field deployments of biomass DNA tracers are planned in diverse environments to further validate and refine the approach.",
     outcomes: [
       "Field experiment: 11 km², ~33 h",
       "qPCR detection to ~7 km with < 1 mg DNA release",
@@ -163,21 +163,18 @@ const projects = [
             <div class="lg:col-span-8">
               <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 text-primary leading-tight">{project.title}</h2>
               
-              <!-- Summary -->
-              <div class="mb-4 md:mb-5 p-3 md:p-4 bg-primary/5 border-l-4 border-primary rounded-r-lg">
-                <p class="text-sm md:text-base leading-relaxed text-base-content/90 italic">
-                  {project.summary}
-                </p>
-              </div>
-
-              <!-- Expandable Detailed Description -->
+              <!-- Summary Box with Integrated Expand Button -->
               <div class="mb-4 md:mb-6">
-                <details class="collapse collapse-plus rounded-lg">
-                  <summary class="collapse-title text-base md:text-lg font-semibold text-primary cursor-pointer">
-                    Full Project Details
-                  </summary>
-                  <div class="collapse-content">
-                    <div class="prose max-w-none pt-2">
+                <div class="p-3 md:p-4 bg-primary/5 border-l-4 border-primary rounded-r-lg">
+                  <p class="text-base md:text-lg leading-relaxed text-base-content font-medium mb-3">
+                    {project.summary}
+                  </p>
+                  <details class="collapse collapse-arrow">
+                    <summary class="collapse-title text-sm md:text-base font-medium text-base-content/60 cursor-pointer hover:text-primary text-center py-2 px-0 min-h-0">
+                      Click for Full Details
+                    </summary>
+                    <div class="collapse-content px-0">
+                      <div class="prose max-w-none pt-4">
                       <h4 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Problem</h4>
                       <p class="text-sm md:text-base leading-relaxed text-base-content/80 mb-4">
                         {project.problem}
@@ -206,6 +203,7 @@ const projects = [
                   </div>
                 </details>
               </div>
+            </div>
 
               <!-- Key Outcomes - Highlighted -->
               <div class="mb-4 md:mb-6 p-3 md:p-4 bg-accent/5 border-l-4 border-accent rounded-r-lg">
