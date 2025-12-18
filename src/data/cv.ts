@@ -4,7 +4,7 @@ export const experiences = [
 		time: 'Feb 2021 - Present',
 		title: 'Graduate Research Assistant',
 		location: 'Ithaca, NY',
-		description: 'DNA Materials Lab. DNA-polymer nanoparticle tracers: fabricated via emulsion and electrospray; field-deployed across an 11 km² sector of Cayuga Lake; coordinated four disciplines; achieved qPCR detection 7 km from release with ~1 mg DNA; generated datasets now used to calibrate 3D hydrodynamic eDNA-transport models (first author, ES&T under review, 2025). Self-healing DNA hydrogels for ceramic composite repair: DNA–Al³⁺ hydrogels integrated into CAD-designed, 3D-printed vascular tiles; multi-cycle healing validated by tensile testing and EDS mapping (ACADIA 2024). Photo/thermo-reversible psoralen-clamped DNA hydrogels enabling 3D-printable, time-programmed shape fixing and repeated repair. Automated high-throughput DNA-purification platform: perfluorocarbon pod system delivering ~200 mg per pod (chainable to gram scale) and ~91% cost reduction. Advanced characterization: tensile & rheology; SEM/DLS; UV-Vis/fluorescence; contact angle; EDS mapping. Leadership: mentored 3 undergrads; coordinated field team; presented at ACADIA 2024, ACS Fall 2023, Belt-and-Road Youth Forum 2023.',
+		description: 'DNA Materials Lab. DNA-polymer nanoparticle tracers: fabricated via emulsion and electrospray; field-deployed across an 11 km² sector of Cayuga Lake; coordinated four disciplines; achieved qPCR detection 7 km from release with ~1 mg DNA; generated datasets now used to calibrate 3D hydrodynamic eDNA-transport models (first author, ES&T, 2025). Self-healing DNA hydrogels for ceramic composite repair: DNA–Al³⁺ hydrogels integrated into CAD-designed, 3D-printed vascular tiles; multi-cycle healing validated by tensile testing and EDS mapping (ACADIA 2024). Photo/thermo-reversible psoralen-clamped DNA hydrogels enabling 3D-printable, time-programmed shape fixing and repeated repair. Automated high-throughput DNA-purification platform: perfluorocarbon pod system delivering ~200 mg per pod (chainable to gram scale) and ~91% cost reduction. Advanced characterization: tensile & rheology; SEM/DLS; UV-Vis/fluorescence; contact angle; EDS mapping. Leadership: mentored 3 undergrads; coordinated field team; presented at ACADIA 2024, ACS Fall 2023, Belt-and-Road Youth Forum 2023.',
 	},
 	{
 		company: 'Cornell University',
@@ -89,11 +89,11 @@ export const skills = [
 
 export const publications = [
 	{
-		title: 'Tracing Environmental DNA Transport in Large Lakes with Synthetic DNA Microparticles and Hydrodynamic Modeling',
+		title: 'Tracing Environmental DNA Transport in a Large Lake with Synthetic DNA Microparticles and Hydrodynamic Modeling',
 		authors: 'Li, Z., Ramón, C. L., Koeberle, A., et al.',
-		journal: 'Environmental Science & Technology (under review)',
+		journal: 'Environmental Science & Technology',
 		time: '2025',
-		link: '',
+		link: 'https://doi.org/10.1021/acs.est.5c11071',
 		abstract: '',
 	},
 	{

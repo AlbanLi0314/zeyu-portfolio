@@ -1,10 +1,10 @@
 ---
-title: "Synthetic eDNA Particles for Tracing and Modeling Environmental DNA Transport in a Large Lake System"
+title: "Tracing Environmental DNA Transport in a Large Lake with Synthetic DNA Microparticles and Hydrodynamic Modeling"
 authors: ["Zeyu Li", "C. L. Ramón", "A. Koeberle", "et al."]
-venue: "Under review (ES&T, 2025)"
+venue: "Environmental Science & Technology"
 year: 2025
-status: "under-review"
-doi: ""
+status: "published"
+doi: "10.1021/acs.est.5c11071"
 pdf: ""
 keywords: ["environmental DNA", "hydrological monitoring", "nanoparticle tracers", "DNA-polymer composites", "qPCR"]
 featured: true
