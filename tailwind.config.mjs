@@ -4,12 +4,12 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                // Headings: Geometric sans-serif for precision and intelligence
-                sans: ['Inter', 'IBM Plex Sans', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-                // Body: Humanist sans-serif for readability and warmth
-                body: ['Source Sans 3', 'Open Sans', 'system-ui', 'sans-serif'],
-                // Quotes/Highlights: Serif for scholarly depth
-                serif: ['Merriweather', 'Lora', 'Georgia', 'serif'],
+                // All text: Inter for readability and professionalism
+                sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                // Body: Also Inter for consistency
+                body: ['Inter', 'system-ui', 'sans-serif'],
+                // Technical/Code: Roboto Mono for engineering feel
+                mono: ['Roboto Mono', 'monospace'],
             },
             lineHeight: {
                 'relaxed-plus': '1.75',  // Body text - enhanced readability

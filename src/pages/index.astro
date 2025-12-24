@@ -8,6 +8,23 @@ const { fullName, title, institute } = profile
 ---
 
 <Layout>
+	<style>
+		/* Apply Roboto Mono to technical labels and 'Seeking R&D' status */
+		:global(em) {
+			font-family: 'Roboto Mono', monospace !important;
+			font-style: normal !important;
+		}
+		
+		:global(code, kbd, samp, pre) {
+			font-family: 'Roboto Mono', monospace !important;
+		}
+		
+		/* Increase line-height for all paragraph text */
+		:global(p) {
+			line-height: 1.7 !important;
+		}
+	</style>
+	
 	<!-- Hero Section -->
 	<section class='flex flex-col items-center text-center py-8 sm:py-12'>
 		<Image
@@ -41,17 +58,17 @@ const { fullName, title, institute } = profile
 	<section class='py-8 sm:py-12 border-t border-base-300'>
 		<h2 class='text-2xl sm:text-3xl font-bold mb-6 text-primary'>About</h2>
 		<div class='prose max-w-none prose-base sm:prose-lg'>
-			<p class='text-lg sm:text-xl leading-relaxed mb-8 text-base-content font-medium'>
+			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
 				I bridge DNA biotechnology and materials science to create manufacturable solutions that scale from lab prototype to production. <em class='text-accent'>(Available for full-time roles in Materials or Biotech R&D, starting May 2026.)</em>
 			</p>
 
 			<h3 class='text-xl sm:text-2xl font-semibold mb-4 text-primary'>Academic & Research Background</h3>
 			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-				<strong>Ph.D. Candidate</strong> in <strong>Biological and Environmental Engineering</strong> at <strong>Cornell University</strong> <a href="https://cals.cornell.edu/people/dan-luo" class="hover:underline"><strong>DNA Materials Lab</strong></a> with <a href="https://cals.cornell.edu/people/dan-luo" class="hover:underline"><strong>Prof. Dan Luo</strong></a>, specializing in polymer materials and DNA biotechnology. I build DNA nanoparticle tracers for field-scale hydrology and DNA-composite hydrogels that repair themselves and respond to stimuli.
+				Ph.D. Candidate in Biological and Environmental Engineering at Cornell University <a href="https://cals.cornell.edu/people/dan-luo" class="hover:underline">DNA Materials Lab</a> with <a href="https://cals.cornell.edu/people/dan-luo" class="hover:underline">Prof. Dan Luo</a>, specializing in polymer materials and DNA biotechnology. I build DNA nanoparticle tracers for field-scale hydrology and DNA-composite hydrogels that repair themselves and respond to stimuli.
 			</p>
 
 		<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-			I also hold Cornell's <strong>M.S.</strong> and <strong>M.Eng.</strong> degrees, and a <strong>B.S.</strong> in <strong>Chemistry</strong> and <strong>Computer Science</strong> from <strong>Hong Kong Baptist University</strong>, where I trained in the <a href="https://renkangning.wixsite.com/rengroup" class="hover:underline"><strong>Micro-fabrication & Surface Materials Lab</strong></a> with <a href="https://chem.hkbu.edu.hk/ren" class="hover:underline"><strong>Prof. Kangning Ren</strong></a>.
+			I also hold Cornell's M.S. and M.Eng. degrees, and a B.S. in Chemistry and Computer Science from Hong Kong Baptist University, where I trained in the <a href="https://renkangning.wixsite.com/rengroup" class="hover:underline">Micro-fabrication & Surface Materials Lab</a> with <a href="https://chem.hkbu.edu.hk/ren" class="hover:underline">Prof. Kangning Ren</a>.
 		</p>
 
 		<div class='mb-6 p-3 md:p-4 bg-accent/5 border-l-4 border-accent rounded-r-lg'>
