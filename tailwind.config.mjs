@@ -21,59 +21,59 @@ export default {
     daisyui: {
         themes: [
             {
-                // Custom Professional Light Theme
+                // Precision Biotech Light Theme - Deep Teal & Muted Cyan
                 professional: {
-                    "primary": "#1F4D7A",           // Indigo blue - trustworthy, intelligent
-                    "secondary": "#2563EB",         // Lighter blue for secondary actions
-                    "accent": "#0F768C",            // Richer teal-blue - confidence and approachability
-                    "neutral": "#374151",           // Dark gray for neutral elements
-                    "base-100": "#F7FAFC",          // Cool off-white background
-                    "base-200": "#E5E7EB",          // Slightly darker for cards/sections
-                    "base-300": "#D1D5DB",          // Border and divider color
-                    "base-content": "#111827",      // Deep gray-blue for body text
-                    "info": "#3B82F6",              // Blue for informational elements
+                    "primary": "#0e7490",           // Deep Teal - primary buttons, active states
+                    "secondary": "#164e63",         // Midnight Cyan - headings, footer, strong text
+                    "accent": "#06b6d4",            // Bright Cyan - key impact numbers, highlights
+                    "neutral": "#334155",           // Slate Grey - body text
+                    "base-100": "#ffffff",          // Pure white background
+                    "base-200": "#ecfeff",          // Pale Cyan - badges, tag backgrounds
+                    "base-300": "#cbd5e1",          // Light Slate - borders, dividers
+                    "base-content": "#334155",      // Slate Grey for body text
+                    "info": "#0e7490",              // Deep Teal
                     "success": "#10B981",           // Green for success states
                     "warning": "#F59E0B",           // Amber for warnings
                     "error": "#EF4444",             // Red for errors
                     
                     // Text colors for prose
-                    "--tw-prose-body": "#111827",
-                    "--tw-prose-headings": "#1F4D7A",
-                    "--tw-prose-links": "#1F4D7A",
-                    "--tw-prose-bold": "#0F172A",
-                    "--tw-prose-counters": "#6B7280",
-                    "--tw-prose-bullets": "#6B7280",
-                    "--tw-prose-quotes": "#374151",
-                    "--tw-prose-quote-borders": "#0F768C",
-                    "--tw-prose-captions": "#6B7280",
-                    "--tw-prose-code": "#1F4D7A",
+                    "--tw-prose-body": "#334155",
+                    "--tw-prose-headings": "#164e63",
+                    "--tw-prose-links": "#0e7490",
+                    "--tw-prose-bold": "#164e63",
+                    "--tw-prose-counters": "#334155",
+                    "--tw-prose-bullets": "#0e7490",
+                    "--tw-prose-quotes": "#334155",
+                    "--tw-prose-quote-borders": "#06b6d4",
+                    "--tw-prose-captions": "#334155",
+                    "--tw-prose-code": "#0e7490",
                 },
-                // Custom Professional Dark Theme
+                // Precision Biotech Dark Theme
                 "professional-dark": {
-                    "primary": "#3B82F6",           // Brighter blue for dark mode
-                    "secondary": "#60A5FA",         // Lighter blue secondary
-                    "accent": "#22D3EE",            // Cyan - softer glow on dark backgrounds
-                    "neutral": "#1F2937",           // Dark neutral
-                    "base-100": "#0F172A",          // Deep blue-gray background
-                    "base-200": "#1E293B",          // Slightly lighter for cards
+                    "primary": "#22d3ee",           // Bright Cyan for dark mode
+                    "secondary": "#67e8f9",         // Lighter cyan secondary
+                    "accent": "#06b6d4",            // Cyan accent
+                    "neutral": "#1e293b",           // Dark slate
+                    "base-100": "#0f172a",          // Deep slate background
+                    "base-200": "#1e293b",          // Slightly lighter for cards
                     "base-300": "#334155",          // Borders and dividers
-                    "base-content": "#E5E7EB",      // Light gray text (not pure white)
-                    "info": "#60A5FA",              // Blue info
+                    "base-content": "#e2e8f0",      // Light slate text
+                    "info": "#22d3ee",              // Cyan info
                     "success": "#34D399",           // Green success
                     "warning": "#FBBF24",           // Amber warning
                     "error": "#F87171",             // Red error
                     
-                    // Dark mode text colors - increased weight for legibility
-                    "--tw-prose-body": "#E5E7EB",
-                    "--tw-prose-headings": "#F2F3F5",
-                    "--tw-prose-links": "#60A5FA",
-                    "--tw-prose-bold": "#F2F3F5",
-                    "--tw-prose-counters": "#9CA3AF",
-                    "--tw-prose-bullets": "#9CA3AF",
-                    "--tw-prose-quotes": "#D1D5DB",
-                    "--tw-prose-quote-borders": "#22D3EE",
-                    "--tw-prose-captions": "#9CA3AF",
-                    "--tw-prose-code": "#60A5FA",
+                    // Dark mode text colors
+                    "--tw-prose-body": "#e2e8f0",
+                    "--tw-prose-headings": "#f1f5f9",
+                    "--tw-prose-links": "#22d3ee",
+                    "--tw-prose-bold": "#f1f5f9",
+                    "--tw-prose-counters": "#94a3b8",
+                    "--tw-prose-bullets": "#22d3ee",
+                    "--tw-prose-quotes": "#cbd5e1",
+                    "--tw-prose-quote-borders": "#06b6d4",
+                    "--tw-prose-captions": "#94a3b8",
+                    "--tw-prose-code": "#22d3ee",
                 },
             },
             "light",

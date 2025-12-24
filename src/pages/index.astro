@@ -9,10 +9,26 @@ const { fullName, title, institute } = profile
 
 <Layout>
 	<style>
+		/* Precision Biotech Color Scheme */
+		:root {
+			--color-primary: #0e7490;
+			--color-primary-hover: #155e75;
+			--color-secondary: #164e63;
+			--color-accent: #06b6d4;
+			--color-bg-light: #ecfeff;
+			--color-text-body: #334155;
+			--color-border: #cbd5e1;
+		}
+		
 		/* Apply Roboto Mono to technical labels and 'Seeking R&D' status */
 		:global(em) {
 			font-family: 'Roboto Mono', monospace !important;
 			font-style: normal !important;
+			color: var(--color-primary) !important;
+			background-color: var(--color-bg-light) !important;
+			padding: 0.125rem 0.5rem !important;
+			border: 1px solid var(--color-primary) !important;
+			border-radius: 0.25rem !important;
 		}
 		
 		:global(code, kbd, samp, pre) {
@@ -22,6 +38,94 @@ const { fullName, title, institute } = profile
 		/* Increase line-height for all paragraph text */
 		:global(p) {
 			line-height: 1.7 !important;
+			color: var(--color-text-body) !important;
+		}
+		
+		/* Headings - Midnight Cyan */
+		:global(h1, h2, h3, h4) {
+			color: #164e63 !important;
+		}
+		
+		/* Links - Primary Teal */
+		:global(a:not(.btn)) {
+			color: #0e7490 !important;
+			text-decoration: underline !important;
+		}
+		:global(a:not(.btn):hover) {
+			color: #155e75 !important;
+		}
+		
+		/* Primary Buttons */
+		:global(.btn-primary) {
+			background-color: #0e7490 !important;
+			border-color: #0e7490 !important;
+			color: white !important;
+		}
+		:global(.btn-primary:hover) {
+			background-color: #155e75 !important;
+			border-color: #155e75 !important;
+		}
+		
+		/* Accent Buttons */
+		:global(.btn-accent) {
+			background-color: #0e7490 !important;
+			border-color: #0e7490 !important;
+			color: white !important;
+		}
+		:global(.btn-accent:hover) {
+			background-color: #155e75 !important;
+			border-color: #155e75 !important;
+		}
+		
+		/* Outline Buttons */
+		:global(.btn-outline) {
+			background-color: transparent !important;
+			border-color: #0e7490 !important;
+			color: #0e7490 !important;
+		}
+		:global(.btn-outline:hover) {
+			background-color: #ecfeff !important;
+			border-color: #0e7490 !important;
+			color: #0e7490 !important;
+		}
+		
+		/* Accent text for checkmarks and highlights */
+		:global(.text-accent) {
+			color: #06b6d4 !important;
+		}
+		
+		/* Border accents */
+		:global(.border-accent) {
+			border-color: #06b6d4 !important;
+		}
+		
+		/* Light background sections */
+		:global(.bg-accent\/5) {
+			background-color: #ecfeff !important;
+		}
+		
+		/* Cards */
+		:global(.card.bg-base-200) {
+			background-color: #ecfeff !important;
+			border: 1px solid #cbd5e1 !important;
+		}
+		
+		/* Dividers */
+		:global(.border-base-300) {
+			border-color: #cffafe !important;
+		}
+		
+		/* Navigation link styles */
+		:global(.nav-link-biotech) {
+			color: #334155 !important;
+		}
+		:global(.nav-link-biotech:hover), :global(.nav-link-biotech.active) {
+			color: #0e7490 !important;
+		}
+		
+		/* Strong text */
+		:global(strong) {
+			color: #164e63 !important;
 		}
 	</style>
 	
