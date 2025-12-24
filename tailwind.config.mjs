@@ -21,44 +21,44 @@ export default {
     daisyui: {
         themes: [
             {
-                // Precision Biotech Light Theme - Deep Teal & Muted Cyan
+                // Midnight / Heavy R&D Theme - High Contrast Dark Teal
                 professional: {
-                    "primary": "#0e7490",           // Deep Teal - primary buttons, active states
-                    "secondary": "#164e63",         // Midnight Cyan - headings, footer, strong text
-                    "accent": "#06b6d4",            // Bright Cyan - key impact numbers, highlights
-                    "neutral": "#334155",           // Slate Grey - body text
+                    "primary": "#115e59",           // Deep Pine/Petrol Teal - authoritative
+                    "secondary": "#042f2e",         // Midnight Teal - headings, footer
+                    "accent": "#115e59",            // Same as primary for consistency
+                    "neutral": "#0f172a",           // Slate 900 - almost black
                     "base-100": "#ffffff",          // Pure white background
-                    "base-200": "#ecfeff",          // Pale Cyan - badges, tag backgrounds
-                    "base-300": "#cbd5e1",          // Light Slate - borders, dividers
-                    "base-content": "#334155",      // Slate Grey for body text
-                    "info": "#0e7490",              // Deep Teal
+                    "base-200": "#ffffff",          // Pure white - no light backgrounds
+                    "base-300": "#e2e8f0",          // Clean light grey for dividers
+                    "base-content": "#0f172a",      // Slate 900 for body text
+                    "info": "#115e59",              // Deep Pine Teal
                     "success": "#10B981",           // Green for success states
                     "warning": "#F59E0B",           // Amber for warnings
                     "error": "#EF4444",             // Red for errors
                     
                     // Text colors for prose
-                    "--tw-prose-body": "#334155",
-                    "--tw-prose-headings": "#164e63",
-                    "--tw-prose-links": "#0e7490",
-                    "--tw-prose-bold": "#164e63",
-                    "--tw-prose-counters": "#334155",
-                    "--tw-prose-bullets": "#0e7490",
-                    "--tw-prose-quotes": "#334155",
-                    "--tw-prose-quote-borders": "#06b6d4",
+                    "--tw-prose-body": "#0f172a",
+                    "--tw-prose-headings": "#042f2e",
+                    "--tw-prose-links": "#115e59",
+                    "--tw-prose-bold": "#042f2e",
+                    "--tw-prose-counters": "#0f172a",
+                    "--tw-prose-bullets": "#115e59",
+                    "--tw-prose-quotes": "#0f172a",
+                    "--tw-prose-quote-borders": "#115e59",
                     "--tw-prose-captions": "#334155",
-                    "--tw-prose-code": "#0e7490",
+                    "--tw-prose-code": "#115e59",
                 },
-                // Precision Biotech Dark Theme
+                // Heavy R&D Dark Theme
                 "professional-dark": {
-                    "primary": "#22d3ee",           // Bright Cyan for dark mode
-                    "secondary": "#67e8f9",         // Lighter cyan secondary
-                    "accent": "#06b6d4",            // Cyan accent
-                    "neutral": "#1e293b",           // Dark slate
+                    "primary": "#2dd4bf",           // Teal for dark mode
+                    "secondary": "#5eead4",         // Lighter teal secondary
+                    "accent": "#14b8a6",            // Teal accent
+                    "neutral": "#0f172a",           // Dark slate
                     "base-100": "#0f172a",          // Deep slate background
                     "base-200": "#1e293b",          // Slightly lighter for cards
                     "base-300": "#334155",          // Borders and dividers
                     "base-content": "#e2e8f0",      // Light slate text
-                    "info": "#22d3ee",              // Cyan info
+                    "info": "#2dd4bf",              // Teal info
                     "success": "#34D399",           // Green success
                     "warning": "#FBBF24",           // Amber warning
                     "error": "#F87171",             // Red error
@@ -66,14 +66,14 @@ export default {
                     // Dark mode text colors
                     "--tw-prose-body": "#e2e8f0",
                     "--tw-prose-headings": "#f1f5f9",
-                    "--tw-prose-links": "#22d3ee",
+                    "--tw-prose-links": "#2dd4bf",
                     "--tw-prose-bold": "#f1f5f9",
                     "--tw-prose-counters": "#94a3b8",
-                    "--tw-prose-bullets": "#22d3ee",
+                    "--tw-prose-bullets": "#2dd4bf",
                     "--tw-prose-quotes": "#cbd5e1",
-                    "--tw-prose-quote-borders": "#06b6d4",
+                    "--tw-prose-quote-borders": "#14b8a6",
                     "--tw-prose-captions": "#94a3b8",
-                    "--tw-prose-code": "#22d3ee",
+                    "--tw-prose-code": "#2dd4bf",
                 },
             },
             "light",

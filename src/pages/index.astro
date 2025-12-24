@@ -9,123 +9,144 @@ const { fullName, title, institute } = profile
 
 <Layout>
 	<style>
-		/* Precision Biotech Color Scheme */
+		/* Midnight / Heavy R&D Color Scheme - High Contrast */
 		:root {
-			--color-primary: #0e7490;
-			--color-primary-hover: #155e75;
-			--color-secondary: #164e63;
-			--color-accent: #06b6d4;
-			--color-bg-light: #ecfeff;
-			--color-text-body: #334155;
-			--color-border: #cbd5e1;
+			--color-bg: #ffffff;
+			--color-text-main: #0f172a;
+			--color-primary: #115e59;
+			--color-secondary: #042f2e;
+			--color-border: #e2e8f0;
 		}
 		
 		/* Apply Roboto Mono to technical labels and 'Seeking R&D' status */
 		:global(em) {
 			font-family: 'Roboto Mono', monospace !important;
 			font-style: normal !important;
-			color: var(--color-primary) !important;
-			background-color: var(--color-bg-light) !important;
+			color: #115e59 !important;
+			background-color: transparent !important;
 			padding: 0.125rem 0.5rem !important;
-			border: 1px solid var(--color-primary) !important;
+			border: 1px solid #115e59 !important;
 			border-radius: 0.25rem !important;
+			font-weight: 600 !important;
 		}
 		
 		:global(code, kbd, samp, pre) {
 			font-family: 'Roboto Mono', monospace !important;
+			background-color: #ffffff !important;
+			border: 1px solid #cbd5e1 !important;
+			color: #334155 !important;
 		}
 		
 		/* Increase line-height for all paragraph text */
 		:global(p) {
 			line-height: 1.7 !important;
-			color: var(--color-text-body) !important;
+			color: #0f172a !important;
 		}
 		
-		/* Headings - Midnight Cyan */
+		/* Headings - Midnight Teal (almost black with green hint) */
 		:global(h1, h2, h3, h4) {
-			color: #164e63 !important;
+			color: #042f2e !important;
 		}
 		
-		/* Links - Primary Teal */
+		/* Links - Deep Pine Teal with underline */
 		:global(a:not(.btn)) {
-			color: #0e7490 !important;
+			color: #115e59 !important;
 			text-decoration: underline !important;
 		}
 		:global(a:not(.btn):hover) {
-			color: #155e75 !important;
+			color: #042f2e !important;
 		}
 		
-		/* Primary Buttons */
+		/* Primary Buttons - Deep Pine Teal, no shadow */
 		:global(.btn-primary) {
-			background-color: #0e7490 !important;
-			border-color: #0e7490 !important;
-			color: white !important;
+			background-color: #115e59 !important;
+			border-color: #115e59 !important;
+			color: #ffffff !important;
+			box-shadow: none !important;
 		}
 		:global(.btn-primary:hover) {
-			background-color: #155e75 !important;
-			border-color: #155e75 !important;
+			background-color: #042f2e !important;
+			border-color: #042f2e !important;
 		}
 		
-		/* Accent Buttons */
+		/* Accent Buttons - Same as Primary */
 		:global(.btn-accent) {
-			background-color: #0e7490 !important;
-			border-color: #0e7490 !important;
-			color: white !important;
+			background-color: #115e59 !important;
+			border-color: #115e59 !important;
+			color: #ffffff !important;
+			box-shadow: none !important;
 		}
 		:global(.btn-accent:hover) {
-			background-color: #155e75 !important;
-			border-color: #155e75 !important;
+			background-color: #042f2e !important;
+			border-color: #042f2e !important;
 		}
 		
-		/* Outline Buttons */
+		/* Outline/Secondary Buttons - Transparent with border */
 		:global(.btn-outline) {
 			background-color: transparent !important;
-			border-color: #0e7490 !important;
-			color: #0e7490 !important;
+			border-color: #115e59 !important;
+			color: #115e59 !important;
+			box-shadow: none !important;
 		}
 		:global(.btn-outline:hover) {
-			background-color: #ecfeff !important;
-			border-color: #0e7490 !important;
-			color: #0e7490 !important;
+			background-color: #f8fafc !important;
+			border-color: #115e59 !important;
+			color: #115e59 !important;
 		}
 		
-		/* Accent text for checkmarks and highlights */
+		/* Accent text for checkmarks and highlights - Deep Pine Teal */
 		:global(.text-accent) {
-			color: #06b6d4 !important;
+			color: #115e59 !important;
 		}
 		
 		/* Border accents */
 		:global(.border-accent) {
-			border-color: #06b6d4 !important;
+			border-color: #115e59 !important;
 		}
 		
-		/* Light background sections */
+		/* Remove light teal backgrounds - force white */
 		:global(.bg-accent\/5) {
-			background-color: #ecfeff !important;
+			background-color: #ffffff !important;
+			border: 1px solid #e2e8f0 !important;
 		}
 		
-		/* Cards */
-		:global(.card.bg-base-200) {
-			background-color: #ecfeff !important;
-			border: 1px solid #cbd5e1 !important;
+		/* Cards - Pure white with clean border */
+		:global(.card.bg-base-200), :global(.card) {
+			background-color: #ffffff !important;
+			border: 1px solid #e2e8f0 !important;
 		}
 		
-		/* Dividers */
+		/* Dividers - Clean light grey */
 		:global(.border-base-300) {
-			border-color: #cffafe !important;
+			border-color: #e2e8f0 !important;
 		}
 		
 		/* Navigation link styles */
 		:global(.nav-link-biotech) {
-			color: #334155 !important;
+			color: #0f172a !important;
 		}
 		:global(.nav-link-biotech:hover), :global(.nav-link-biotech.active) {
-			color: #0e7490 !important;
+			color: #115e59 !important;
 		}
 		
-		/* Strong text */
+		/* Strong text - Midnight Teal */
 		:global(strong) {
-			color: #164e63 !important;
+			color: #042f2e !important;
+		}
+		
+		/* Body and section backgrounds - Pure White */
+		:global(body), :global(section), :global(.container) {
+			background-color: #ffffff !important;
+		}
+		
+		/* Text primary color override */
+		:global(.text-primary) {
+			color: #115e59 !important;
+		}
+		
+		/* Base-200 backgrounds - Force white */
+		:global(.bg-base-200) {
+			background-color: #ffffff !important;
 		}
 	</style>
 	
