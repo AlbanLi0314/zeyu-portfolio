@@ -141,12 +141,12 @@ const projects = [
     </div>
 
     <!-- Sticky Navigation -->
-    <nav class="sticky top-14 z-30 py-2 md:py-3 mb-6 md:mb-8 bg-base-100/80 backdrop-blur-md border-b border-base-300">
-      <div class="flex gap-2 overflow-x-auto overflow-y-hidden pb-2 scrollbar-thin w-full" id="project-nav" style="-webkit-overflow-scrolling: touch;">
+    <nav class="sticky top-10 z-40 py-1 mb-4 bg-base-100/80 backdrop-blur-md shadow-sm">
+      <div class="flex gap-2 overflow-x-auto overflow-y-hidden pb-1 scrollbar-thin w-full" id="project-nav" style="-webkit-overflow-scrolling: touch;">
         {projects.map((project) => (
           <a 
             href={`#${project.id}`}
-            class="project-nav-link btn btn-sm btn-outline whitespace-nowrap flex-shrink-0"
+            class="project-nav-link btn btn-sm btn-primary btn-outline whitespace-nowrap flex-shrink-0"
             data-target={project.id}
           >
             {project.shortLabel}
@@ -333,15 +333,16 @@ const projects = [
         
         // Remove active state from all links
         navLinks.forEach(link => {
-          link.classList.remove('btn-primary');
           link.classList.add('btn-outline');
+          // Ensure btn-primary is always present for green color
+          link.classList.add('btn-primary');
         });
         
         // Add active state to current link
         const activeLink = document.querySelector(`.project-nav-link[data-target="${id}"]`);
         if (activeLink) {
           activeLink.classList.remove('btn-outline');
-          activeLink.classList.add('btn-primary');
+          // btn-primary is already there or added above
         }
       }
     });
@@ -389,7 +390,7 @@ const projects = [
   nav.sticky {
     position: -webkit-sticky;
     position: sticky;
-    background-color: var(--fallback-b1, oklch(var(--b1)/1));
+    /* background-color removed to allow utility classes to control transparency */
   }
 
   /* App Store style horizontal scroll for image gallery */

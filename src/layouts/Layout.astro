@@ -39,6 +39,190 @@ const {
 		<!-- Technical/Code: Roboto Mono for engineering elements -->
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
+		<style is:global>
+			/* Midnight / Heavy R&D Color Scheme - High Contrast */
+			:root {
+				--color-bg: #ffffff;
+				--color-text-main: #0f172a;
+				--color-primary: #115e59;
+				--color-secondary: #042f2e;
+				--color-border: #e2e8f0;
+			}
+			
+			/* Apply Roboto Mono to technical labels and 'Seeking R&D' status */
+			em {
+				font-family: 'Roboto Mono', monospace !important;
+				font-style: normal !important;
+				color: #115e59 !important;
+				background-color: transparent !important;
+				padding: 0.125rem 0.5rem !important;
+				border: 1px solid #115e59 !important;
+				border-radius: 0.25rem !important;
+				font-weight: 600 !important;
+			}
+			
+			code, kbd, samp, pre {
+				font-family: 'Roboto Mono', monospace !important;
+				background-color: #ffffff !important;
+				border: 1px solid #cbd5e1 !important;
+				color: #334155 !important;
+			}
+			
+			/* Increase line-height for all paragraph text */
+			p {
+				line-height: 1.7 !important;
+				color: #0f172a !important;
+			}
+			
+			/* Headings - Midnight Teal (almost black with green hint) */
+			h1, h2, h3, h4 {
+				color: #042f2e !important;
+			}
+			
+			/* Links - Deep Pine Teal with underline */
+			a:not(.btn) {
+				color: #115e59 !important;
+				text-decoration: underline !important;
+			}
+			a:not(.btn):hover {
+				color: #042f2e !important;
+			}
+			
+			/* Primary Buttons - Deep Pine Teal, no shadow */
+			.btn-primary {
+				background-color: #115e59 !important;
+				border-color: #115e59 !important;
+				color: #ffffff !important;
+				box-shadow: none !important;
+			}
+			.btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary:focus-visible {
+				background-color: #042f2e !important;
+				border-color: #042f2e !important;
+				outline: none !important;
+			}
+			
+			/* Accent Buttons - Same as Primary */
+			.btn-accent {
+				background-color: #115e59 !important;
+				border-color: #115e59 !important;
+				color: #ffffff !important;
+				box-shadow: none !important;
+			}
+			.btn-accent:hover, .btn-accent:active, .btn-accent:focus, .btn-accent:focus-visible {
+				background-color: #042f2e !important;
+				border-color: #042f2e !important;
+				outline: none !important;
+			}
+			
+			/* Outline/Secondary Buttons - Transparent with border */
+			.btn-outline {
+				background-color: transparent !important;
+				border-color: #115e59 !important;
+				color: #115e59 !important;
+				box-shadow: none !important;
+			}
+			.btn-outline:hover, .btn-outline:active, .btn-outline:focus, .btn-outline:focus-visible {
+				background-color: #115e59 !important; /* Dark Green */
+				border-color: #115e59 !important;
+				color: #ffffff !important;
+				outline: none !important;
+			}
+
+			/* Secondary Buttons - Ensure they are also green/teal family */
+			.btn-secondary {
+				background-color: #042f2e !important;
+				border-color: #042f2e !important;
+				color: #ffffff !important;
+			}
+			.btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus, .btn-secondary:focus-visible {
+				background-color: #115e59 !important;
+				border-color: #115e59 !important;
+				color: #ffffff !important;
+				outline: none !important;
+			}
+
+			/* Ghost Buttons - Light teal hover */
+			.btn-ghost:hover, .btn-ghost:active, .btn-ghost:focus, .btn-ghost:focus-visible {
+				background-color: #ccfbf1 !important; /* Teal-100 */
+				color: #115e59 !important;
+			}
+			
+			/* Accent text for checkmarks and highlights - Deep Pine Teal */
+			.text-accent {
+				color: #115e59 !important;
+			}
+			
+			/* Border accents */
+			.border-accent {
+				border-color: #115e59 !important;
+			}
+			
+			/* Remove light teal backgrounds - force white */
+			.bg-accent\/5 {
+				background-color: #ffffff !important;
+				border: 1px solid #e2e8f0 !important;
+			}
+			
+			/* Cards - Pure white with clean border */
+			.card.bg-base-200, .card {
+				background-color: #ffffff !important;
+				border: 1px solid #e2e8f0 !important;
+			}
+			
+			/* Dividers - Clean light grey */
+			.border-base-300 {
+				border-color: #e2e8f0 !important;
+			}
+			
+			/* Navigation link styles */
+			.nav-link-biotech {
+				color: #0f172a !important;
+			}
+			.nav-link-biotech:hover, .nav-link-biotech.active {
+				color: #115e59 !important;
+			}
+			
+			/* Strong text - Midnight Teal */
+			strong {
+				color: #042f2e !important;
+			}
+			
+			/* Body and section backgrounds - Pure White */
+			body, section, .container {
+				background-color: #ffffff !important;
+			}
+			
+			/* Text primary color override */
+			.text-primary {
+				color: #115e59 !important;
+			}
+			
+			/* Base-200 backgrounds - Force white */
+			.bg-base-200 {
+				background-color: #ffffff !important;
+			}
+
+			/* GLOBAL FOCUS RING OVERRIDE - Remove all blue rings */
+			:focus-visible {
+				outline: 2px solid #115e59 !important;
+				outline-offset: 2px !important;
+			}
+			
+			/* Button Focus - Ensure green ring */
+			.btn:focus, .btn:focus-visible {
+				outline: none !important;
+				box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #115e59 !important;
+				border-color: #115e59 !important;
+			}
+			
+			/* Fix for specific button states that might still show blue */
+			.btn-active, .btn.btn-active {
+				background-color: #115e59 !important;
+				border-color: #115e59 !important;
+				color: #ffffff !important;
+			}
+		</style>
+
 	</head>
 	<body>
 		<div class={`bg-base-100 drawer lg:drawer-open ${template.menu_left ? 'drawer-end' : ''}`}>
@@ -46,7 +230,7 @@ const {
 			<!-- Drawer content -->
             <div class='drawer-content bg-base-100'>
 				<div class='sticky top-0 bg-base-100/80 backdrop-blur-md z-50 text-base-content shadow-sm w-full'>
-					<nav class='navbar w-full min-h-0 h-14'>
+					<nav class='navbar w-full min-h-0 h-10 px-2'>
 						<div class='navbar-start'>
 							{template.menu_left &&
 								<DarkLightController/>
@@ -69,10 +253,10 @@ const {
 								</BetterIcon>
 							</label>
 						</div>
-						<div class='navbar-center lg:hidden text-lg font-semibold'>
+						<div class='navbar-center lg:hidden text-base font-semibold'>
 							{profile.fullName}
 						</div>
-						<div class='navbar-end mr-4'>
+						<div class='navbar-end mr-2'>
 							{!template.menu_left &&
 								<DarkLightController/>
 								/* <ThemeSelector transition:persist /> */

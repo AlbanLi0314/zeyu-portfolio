@@ -8,147 +8,6 @@ const { fullName, title, institute } = profile
 ---
 
 <Layout>
-	<style>
-		/* Midnight / Heavy R&D Color Scheme - High Contrast */
-		:root {
-			--color-bg: #ffffff;
-			--color-text-main: #0f172a;
-			--color-primary: #115e59;
-			--color-secondary: #042f2e;
-			--color-border: #e2e8f0;
-		}
-		
-		/* Apply Roboto Mono to technical labels and 'Seeking R&D' status */
-		:global(em) {
-			font-family: 'Roboto Mono', monospace !important;
-			font-style: normal !important;
-			color: #115e59 !important;
-			background-color: transparent !important;
-			padding: 0.125rem 0.5rem !important;
-			border: 1px solid #115e59 !important;
-			border-radius: 0.25rem !important;
-			font-weight: 600 !important;
-		}
-		
-		:global(code, kbd, samp, pre) {
-			font-family: 'Roboto Mono', monospace !important;
-			background-color: #ffffff !important;
-			border: 1px solid #cbd5e1 !important;
-			color: #334155 !important;
-		}
-		
-		/* Increase line-height for all paragraph text */
-		:global(p) {
-			line-height: 1.7 !important;
-			color: #0f172a !important;
-		}
-		
-		/* Headings - Midnight Teal (almost black with green hint) */
-		:global(h1, h2, h3, h4) {
-			color: #042f2e !important;
-		}
-		
-		/* Links - Deep Pine Teal with underline */
-		:global(a:not(.btn)) {
-			color: #115e59 !important;
-			text-decoration: underline !important;
-		}
-		:global(a:not(.btn):hover) {
-			color: #042f2e !important;
-		}
-		
-		/* Primary Buttons - Deep Pine Teal, no shadow */
-		:global(.btn-primary) {
-			background-color: #115e59 !important;
-			border-color: #115e59 !important;
-			color: #ffffff !important;
-			box-shadow: none !important;
-		}
-		:global(.btn-primary:hover) {
-			background-color: #042f2e !important;
-			border-color: #042f2e !important;
-		}
-		
-		/* Accent Buttons - Same as Primary */
-		:global(.btn-accent) {
-			background-color: #115e59 !important;
-			border-color: #115e59 !important;
-			color: #ffffff !important;
-			box-shadow: none !important;
-		}
-		:global(.btn-accent:hover) {
-			background-color: #042f2e !important;
-			border-color: #042f2e !important;
-		}
-		
-		/* Outline/Secondary Buttons - Transparent with border */
-		:global(.btn-outline) {
-			background-color: transparent !important;
-			border-color: #115e59 !important;
-			color: #115e59 !important;
-			box-shadow: none !important;
-		}
-		:global(.btn-outline:hover) {
-			background-color: #f8fafc !important;
-			border-color: #115e59 !important;
-			color: #115e59 !important;
-		}
-		
-		/* Accent text for checkmarks and highlights - Deep Pine Teal */
-		:global(.text-accent) {
-			color: #115e59 !important;
-		}
-		
-		/* Border accents */
-		:global(.border-accent) {
-			border-color: #115e59 !important;
-		}
-		
-		/* Remove light teal backgrounds - force white */
-		:global(.bg-accent\/5) {
-			background-color: #ffffff !important;
-			border: 1px solid #e2e8f0 !important;
-		}
-		
-		/* Cards - Pure white with clean border */
-		:global(.card.bg-base-200), :global(.card) {
-			background-color: #ffffff !important;
-			border: 1px solid #e2e8f0 !important;
-		}
-		
-		/* Dividers - Clean light grey */
-		:global(.border-base-300) {
-			border-color: #e2e8f0 !important;
-		}
-		
-		/* Navigation link styles */
-		:global(.nav-link-biotech) {
-			color: #0f172a !important;
-		}
-		:global(.nav-link-biotech:hover), :global(.nav-link-biotech.active) {
-			color: #115e59 !important;
-		}
-		
-		/* Strong text - Midnight Teal */
-		:global(strong) {
-			color: #042f2e !important;
-		}
-		
-		/* Body and section backgrounds - Pure White */
-		:global(body), :global(section), :global(.container) {
-			background-color: #ffffff !important;
-		}
-		
-		/* Text primary color override */
-		:global(.text-primary) {
-			color: #115e59 !important;
-		}
-		
-		/* Base-200 backgrounds - Force white */
-		:global(.bg-base-200) {
-			background-color: #ffffff !important;
-		}
-	</style>
 	
 	<!-- Hero Section -->
 	<section class='flex flex-col items-center text-center py-8 sm:py-12'>
@@ -159,8 +18,9 @@ const { fullName, title, institute } = profile
 		/>
 		<h1 class='text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 text-primary whitespace-nowrap'>{fullName}</h1>
 		<h2 class='text-sm sm:text-lg lg:text-xl text-base-content/70 mb-2 font-medium px-2'>Ph.D. Candidate in Biological and Environmental Engineering</h2>
-		<p class='text-sm sm:text-lg font-semibold text-primary mb-1'>{institute}</p>
-		<p class='text-sm sm:text-lg font-semibold text-primary mb-8'>DNA Material Lab</p>
+		<p class='text-sm sm:text-lg font-semibold text-primary mb-8'>
+			{institute} <span class="mx-2 opacity-50">|</span> DNA Material Lab
+		</p>
 		
 		<!-- CTA Buttons - Primary action with optimized visibility -->
 		<div class='flex flex-wrap gap-4 justify-center'>
@@ -184,12 +44,12 @@ const { fullName, title, institute } = profile
 		<h2 class='text-2xl sm:text-3xl font-bold mb-6 text-primary'>About</h2>
 		<div class='prose max-w-none prose-base sm:prose-lg'>
 			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-				I bridge DNA biotechnology and materials science to create manufacturable solutions that scale from lab prototype to production. <em class='text-accent'>(Available for full-time roles in Materials or Biotech R&D, starting May 2026.)</em>
+				I bridge DNA biotechnology and materials science to create manufacturable solutions that scale from lab prototype to production. <span class="bg-primary text-white px-2 py-0.5 rounded">(Available for full-time roles starting May 2026.)</span>
 			</p>
 
 			<h3 class='text-xl sm:text-2xl font-semibold mb-4 text-primary'>Academic & Research Background</h3>
 			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-				Ph.D. Candidate in Biological and Environmental Engineering at Cornell University <a href="https://cals.cornell.edu/people/dan-luo" class="hover:underline">DNA Materials Lab</a> with <a href="https://cals.cornell.edu/people/dan-luo" class="hover:underline">Prof. Dan Luo</a>, specializing in polymer materials and DNA biotechnology. I build DNA nanoparticle tracers for field-scale hydrology and DNA-composite hydrogels that repair themselves and respond to stimuli.
+				Ph.D. Candidate in Biological and Environmental Engineering at Cornell University <a href="https://albanli0314.github.io/LuolabCornell/" class="hover:underline">DNA Materials Lab</a> with <a href="https://cals.cornell.edu/people/dan-luo" class="hover:underline">Prof. Dan Luo</a>, specializing in polymer materials and DNA biotechnology. I build DNA nanoparticle tracers for field-scale hydrology and DNA-composite hydrogels that repair themselves and respond to stimuli.
 			</p>
 
 		<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
@@ -219,7 +79,7 @@ const { fullName, title, institute } = profile
 		</div>
 
 		<h3 class='text-xl sm:text-2xl font-semibold mb-4 text-primary'>Value & Approach</h3>
-		<p class='text-lg sm:text-xl leading-relaxed mb-6 text-base-content font-medium'>
+		<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
 			I translate across materials, bioengineering, chemistry, environmental science, and computation to turn concepts into manufacturable, scalable solutions.
 		</p>
 		
