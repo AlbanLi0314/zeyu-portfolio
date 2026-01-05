@@ -16,10 +16,10 @@ const { fullName, title, institute } = profile
 			src={ProfilePictures}
 			alt={`Profile picture of ${fullName}`}
 		/>
-		<h1 class='text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 text-primary whitespace-nowrap'>{fullName}</h1>
-		<h2 class='text-sm sm:text-lg lg:text-xl text-base-content/70 mb-2 font-medium px-2'>Ph.D. Candidate in Biological and Environmental Engineering</h2>
-		<p class='text-sm sm:text-lg font-semibold text-primary mb-8'>
-			{institute} <span class="mx-2 opacity-50">|</span> DNA Material Lab
+		<h1 class='text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 text-primary whitespace-nowrap'>Zeyu (Alban) Li</h1>
+		<h2 class='text-sm sm:text-lg lg:text-xl text-primary mb-2 font-medium px-2'>Ph.D. Candidate <span class="mx-2 opacity-50">|</span> Cornell University <span class="mx-2 opacity-50">|</span> DNA Material Lab</h2>
+		<p class='text-sm sm:text-lg font-semibold text-base-content/70 mb-8'>
+			Materials Scientist <span class="mx-2 opacity-50">|</span> Nucleic Acid Scientist <span class="mx-2 opacity-50">|</span> Specializing in DNA Technology & Polymer Engineering
 		</p>
 		
 		<!-- CTA Buttons - Primary action with optimized visibility -->
@@ -41,76 +41,178 @@ const { fullName, title, institute } = profile
 
 	<!-- About Section -->
 	<section class='py-8 sm:py-12 border-t border-base-300'>
-		<h2 class='text-2xl sm:text-3xl font-bold mb-6 text-primary'>About</h2>
+		<h2 class='text-xl sm:text-2xl font-semibold mb-10 text-primary'>About</h2>
 		<div class='prose max-w-none prose-base sm:prose-lg'>
-			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
+			<p class='text-base sm:text-lg leading-relaxed mb-16 text-base-content'>
 				I bridge DNA biotechnology and materials science to create manufacturable solutions that scale from lab prototype to production. <span class="bg-primary text-white px-2 py-0.5 rounded">(Available for full-time roles starting May 2026.)</span>
 			</p>
 
-			<h3 class='text-xl sm:text-2xl font-semibold mb-4 text-primary'>Academic & Research Background</h3>
-			<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-				Ph.D. Candidate in Biological and Environmental Engineering at Cornell University <a href="https://albanli0314.github.io/LuolabCornell/" class="hover:underline">DNA Materials Lab</a> with <a href="https://cals.cornell.edu/people/dan-luo" class="hover:underline">Prof. Dan Luo</a>, specializing in polymer materials and DNA biotechnology. I build DNA nanoparticle tracers for field-scale hydrology and DNA-composite hydrogels that repair themselves and respond to stimuli.
-			</p>
-
-		<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-			I also hold Cornell's M.S. and M.Eng. degrees, and a B.S. in Chemistry and Computer Science from Hong Kong Baptist University, where I trained in the <a href="https://renkangning.wixsite.com/rengroup" class="hover:underline">Micro-fabrication & Surface Materials Lab</a> with <a href="https://chem.hkbu.edu.hk/ren" class="hover:underline">Prof. Kangning Ren</a>.
-		</p>
-
-		<div class='mb-6 p-3 md:p-4 bg-accent/5 border-l-4 border-accent rounded-r-lg'>
-			<h4 class='text-sm md:text-base font-semibold text-accent mb-2 md:mb-3'>Key Achievements</h4>
-			<ul class='space-y-1.5 md:space-y-2'>
-				<li class='flex items-start gap-2 text-sm md:text-base'>
-					<span class='text-accent font-bold'>✓</span>
-					<span class='text-base-content/90'><strong>DNA Tracers:</strong> 11 km² field-scale deployment; qPCR detection to 7 km with 1 mg DNA; hydrodynamic model calibration</span>
-				</li>
-				<li class='flex items-start gap-2 text-sm md:text-base'>
-					<span class='text-accent font-bold'>✓</span>
-					<span class='text-base-content/90'><strong>DNA Hydrogels:</strong> thermally reversible; 3D-printable; stimuli-responsive</span>
-				</li>
-				<li class='flex items-start gap-2 text-sm md:text-base'>
-					<span class='text-accent font-bold'>✓</span>
-					<span class='text-base-content/90'><strong>DNA Production from Biomass:</strong> cost reduced ~91%</span>
-				</li>
-				<li class='flex items-start gap-2 text-sm md:text-base'>
-					<span class='text-accent font-bold'>✓</span>
-					<span class='text-base-content/90'><strong>Publications & Patents:</strong> <span class='font-semibold text-primary'>3</span> publications; <span class='font-semibold text-primary'>2</span> patents</span>
-				</li>
-			</ul>
+		<div class='mb-16'>
+			<h3 class='text-xl sm:text-2xl font-semibold mb-8 text-primary'>
+				Key Achievements
+			</h3>
+			<div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent'>
+					<div class='card-body p-4'>
+						<h4 class='text-lg font-semibold mb-2 text-primary'>Large-Scale Field Deployment</h4>
+						<p class='text-base leading-relaxed text-base-content/80'>
+							Led an <strong>11 km²</strong> field deployment of DNA-barcoded microparticle tracers for a <strong>U.S. Department of Defense (DoD)</strong> funded project; achieved qPCR detection <strong>7 km</strong> downstream from <strong>&lt;1 mg</strong> DNA release.
+						</p>
+					</div>
+				</div>
+				
+				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent'>
+					<div class='card-body p-4'>
+						<h4 class='text-lg font-semibold mb-2 text-primary'>Process Optimization & Cost Reduction</h4>
+						<p class='text-base leading-relaxed text-base-content/80'>
+							Built a perfluorocarbon-pod purification platform delivering <strong>~200 mg</strong> DNA per pod and reducing material costs by <strong>~91%</strong>.
+						</p>
+					</div>
+				</div>
+				
+				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent'>
+					<div class='card-body p-4'>
+						<h4 class='text-lg font-semibold mb-2 text-primary'>Functional Materials Engineering</h4>
+						<p class='text-base leading-relaxed text-base-content/80'>
+							Developed a <strong>DNA–Al³⁺</strong> hydrogel composite that is <strong>3D-printable</strong> and <strong>self-healing</strong> for structural repair applications.
+						</p>
+					</div>
+				</div>
+				
+				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent'>
+					<div class='card-body p-4'>
+						<h4 class='text-lg font-semibold mb-2 text-primary'>Leadership, Mentoring & Innovation</h4>
+						<p class='text-base leading-relaxed text-base-content/80'>
+							Co-authored <strong>3 publications</strong> and co-invented <strong>2 patents</strong>; coordinated collaborations across <strong>7 research groups</strong>. Mentored <strong>3 undergraduate researchers</strong> and served as Teaching Assistant/Co-instructor for <strong>7 university courses</strong>.
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
 
-		<h3 class='text-xl sm:text-2xl font-semibold mb-4 text-primary'>Value & Approach</h3>
-		<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-			I translate across materials, bioengineering, chemistry, environmental science, and computation to turn concepts into manufacturable, scalable solutions.
-		</p>
+			<h3 class='text-xl sm:text-2xl font-semibold mb-8 text-primary'>Academic & Research Background</h3>
+			
+			<div class="space-y-12">
+				<!-- Cornell University -->
+				<div>
+					<div class="mb-4">
+						<h4 class="text-lg font-semibold text-primary">Cornell University</h4>
+						<p class="text-base font-medium text-base-content/80">Ph.D. | M.S. | M.Eng. | Biological & Environmental Engineering</p>
+					</div>
+					
+					<div class="space-y-3">
+						<div class="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-1 sm:gap-4">
+							<span class="text-sm font-semibold text-primary pt-0.5">Lab</span>
+							<span class="text-base text-base-content/80 leading-relaxed"><a href="https://albanli0314.github.io/LuolabCornell/" class="hover:underline text-primary">DNA Materials Lab</a> (<a href="https://cals.cornell.edu/people/dan-luo" class="hover:underline text-primary">Prof. Dan Luo</a>)</span>
+						</div>
+						
+						<div class="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-1 sm:gap-4">
+							<span class="text-sm font-semibold text-primary pt-0.5">Concentration</span>
+							<span class="text-base text-secondary font-medium leading-relaxed">Materials Science, Biological Engineering, Bioenvironmental Engineering</span>
+						</div>
+						
+						<div class="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-1 sm:gap-4">
+							<span class="text-sm font-semibold text-primary pt-1.5">Key Skills</span>
+							<div class="flex flex-wrap gap-1">
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">DNA Technologies</span>
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">qPCR</span>
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Bio-cleanroom</span>
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Rheometry</span>
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">SEM/EDS</span>
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">3D Printing</span>
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">AI Tools</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Hong Kong Baptist University -->
+				<div>
+					<div class="mb-4">
+						<h4 class="text-lg font-semibold text-primary">Hong Kong Baptist University</h4>
+						<p class="text-base font-medium text-base-content/80">B.Sc. | Chemistry (Hons) | Computer Science (Minor)</p>
+					</div>
+					
+					<div class="space-y-3">
+						<div class="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-1 sm:gap-4">
+							<span class="text-sm font-semibold text-primary pt-0.5">Lab</span>
+							<span class="text-base text-base-content/80 leading-relaxed"><a href="https://renkangning.wixsite.com/rengroup" class="hover:underline text-primary">Micro-fabrication & Surface Materials Lab</a> (<a href="https://chem.hkbu.edu.hk/ren" class="hover:underline text-primary">Prof. Kangning Ren</a>)</span>
+						</div>
+						
+						<div class="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-1 sm:gap-4">
+							<span class="text-sm font-semibold text-primary pt-0.5">Research</span>
+							<span class="text-base text-secondary font-medium leading-relaxed">Micro-fabrication and Surface Materials Engineering</span>
+						</div>
+						
+						<div class="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-1 sm:gap-4">
+							<span class="text-sm font-semibold text-primary pt-1.5">Key Skills</span>
+							<div class="flex flex-wrap gap-1">
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Photolithography</span>
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Nanopatterning</span>
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Surface Chemistry</span>
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Python</span>
+								<span class="px-2.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Java</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<div class="mb-16"></div>
+
+		<h3 class='text-xl sm:text-2xl font-semibold mb-8 text-primary'>Value & Approach</h3>
 		
-		<div class='grid grid-cols-1 md:grid-cols-2 gap-6 mb-6'>
+		<div class='grid grid-cols-1 md:grid-cols-2 gap-6 mb-16'>
 			<div class='card bg-base-200 hover:shadow-lg transition-shadow duration-300'>
 				<div class='card-body pt-3 pb-4'>
 					<h4 class='text-lg font-semibold mb-3 text-primary'>For Materials Industry</h4>
-					<p class='text-base leading-relaxed text-base-content/80'>
-						I bring cross-field training and disciplined characterization to make process-aware decisions that scale from lab to production. My toolkit spans materials characterization, polymer and hydrogel processing, nano-fabrication, and 3D printing.
-					</p>
+					<ul class='list-disc list-outside ml-0 space-y-4 text-base leading-relaxed text-base-content/80'>
+						<li>
+							<strong class="block mb-1">Cross-Disciplinary "Translator"</strong>
+							I translate ambiguous customer applications into precise material specifications. Leveraging broad exposure across architecture, ecology, and engineering, I bridge technical gaps—a skill honed through coordinating complex, field-scale deployments across 7 research groups.
+						</li>
+						<li>
+							<strong class="block mb-1">Independent Execution</strong>
+							I back up strategy with hands-on execution. From polymer fabrication to mechanical & surface characterization, I independently turn specifications into validated prototypes, ensuring that hydrogels and functional coatings perform in the real world.
+						</li>
+					</ul>
 				</div>
 			</div>
 			
 			<div class='card bg-base-200 hover:shadow-lg transition-shadow duration-300'>
 				<div class='card-body pt-3 pb-4'>
 					<h4 class='text-lg font-semibold mb-3 text-primary'>For Biotech Industry</h4>
-					<p class='text-base leading-relaxed text-base-content/80'>
-						I treat DNA and RNA as materials, applying a chemist's perspective to design solutions built for robustness and manufacturability. I work across DNA/RNA design-and-build workflows, including sequence design, formulation, synthesis, purification, enzymatic reactions, and quantification and characterization.
-					</p>
+					<ul class='list-disc list-outside ml-0 space-y-4 text-base leading-relaxed text-base-content/80'>
+						<li>
+							<strong class="block mb-1">The "Chemist's Lens"</strong>
+							I differentiate by treating DNA/RNA as functional macromolecules, applying polymer physics to solve stability and formulation bottlenecks. This materials-first approach improves manufacturability and has proven to reduce material costs by ~91%.
+						</li>
+						<li>
+							<strong class="block mb-1">Full-Stack Proficiency</strong>
+							I master the end-to-end workflow, from upstream enzymatic reactions to downstream purification and qPCR quantification. I execute with strict contamination control, ensuring that assay design translates flawlessly into robust, quantitative results.
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 
-		<!-- Visual break before Emerging Technologies -->
-		<div class='border-t border-base-300 my-8'></div>
-
-		<h3 class='text-xl sm:text-2xl font-semibold mb-4 text-primary'>Emerging Technologies & Expertise</h3>
+		<h3 class='text-xl sm:text-2xl font-semibold mb-8 text-primary'>Computational R&D & AI Integration</h3>
 		
-		<p class='text-base sm:text-lg leading-relaxed mb-6 text-base-content'>
-			<strong>AI & Automation in R&D:</strong> I integrate AI into day-to-day R&D through workflow automation, data pipelines, and lightweight agents for analysis and visualization. These practices standardize analysis and documentation and shorten the path from prototype to production. My tracer study's data analysis and figures were built with AI-assisted Python workflows. I also hold an <strong>ML-with-Python certification</strong> and a <strong>CS minor</strong>, and I regularly <strong>guest lecture on practical AI for research</strong> at Cornell.
+		<p class='text-lg leading-relaxed mb-6 text-base-content'>
+			I engineer AI tools to automate the unmanageable and achieve the unreachable, while teaching others to do the same.
 		</p>
+
+		<ul class='list-disc list-outside ml-0 space-y-4 text-base leading-relaxed text-base-content/80 mb-12'>
+			<li>
+				<strong>Workflow Automation & Standardization:</strong> Integrate AI via data pipelines and lightweight agents to solve automation bottlenecks—standardizing documentation and significantly shortening the path from prototype to production.
+			</li>
+			<li>
+				<strong>Applied Impact:</strong> Engineered AI-assisted Python workflows for my 11 km² tracer study, automating analysis that would be impossible manually, transforming raw sensor data into publication-ready insights with unprecedented speed.
+			</li>
+			<li>
+				<strong>AI Leadership & Education:</strong> Leveraging my CS Minor and ML-with-Python certification, I serve as a Co-Instructor and Guest Lecturer at Cornell. I teach building AI agents, prompt engineering, data analysis, and web coding—empowering students and researchers to upgrade their scientific toolkit.
+			</li>
+		</ul>
 
 		<div class='mt-8 text-center'>
 			<a href={`${template.base}/research`} class='btn btn-accent btn-lg'>
