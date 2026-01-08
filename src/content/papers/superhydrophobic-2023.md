@@ -22,4 +22,4 @@ Engineered nanopatterned Teflon films achieving ultra-low wettability and high m
 
 ## Impact
 
-Published in *The Innovation* (Impact Factor: 25.7)
+Published in *The Innovation* (Impact Factor: 33.2)
