@@ -1,0 +1,51 @@
+---
+---
+
+<section class="mb-12 md:mb-16 fade-in-up">
+  <div class="grid md:grid-cols-9 gap-8 md:gap-10 items-center">
+    <!-- Left: Text -->
+    <div class="md:col-span-4">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight text-primary">
+        DNA materials engineer. Integrates AI workflows. Ships AI products.
+      </h1>
+      <p class="text-base md:text-lg text-base-content/70 mb-6 leading-relaxed">
+        I turn messy scientific problems into AI-executable workflows. Grounded in a decade of DNA materials and real experiments, I ship tools that make research run faster and cleaner.
+      </p>
+      <a href="#research" class="btn btn-primary no-underline">
+        See how I work ↓
+      </a>
+    </div>
+
+    <!-- Right: Manim animation -->
+    <div class="md:col-span-5">
+      <div class="aspect-video rounded-xl overflow-hidden">
+        <video
+          id="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          class="w-full h-full object-contain"
+        >
+          <source src="/videos/dna-materials-full.webm" type="video/webm" />
+          <source src="/videos/dna-materials-full.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="text-xs text-base-content/60 mt-2 text-center">Domain expertise is the foundation. Mastering AI elevates it to a new dimension.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initHeroVideo() {
+    const video = document.getElementById('hero-video') as HTMLVideoElement;
+    if (video) {
+      video.muted = true;
+      video.play().catch(() => {});
+    }
+  }
+  initHeroVideo();
+  document.addEventListener('astro:page-load', initHeroVideo);
+</script>
+

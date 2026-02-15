@@ -1,0 +1,180 @@
+---
+import { Image } from 'astro:assets';
+
+import reportImg from '@/assets/ai/pipeline-report.png';
+import dataImg from '@/assets/ai/pipeline-data.png';
+import vizImg from '@/assets/ai/pipeline-viz.png';
+---
+
+<section id="research" class="mb-16 md:mb-20 scroll-mt-28 md:scroll-mt-32 pt-8 border-t border-base-300 fade-in-up">
+  <h2 class="text-2xl md:text-3xl font-bold mb-4 text-primary">How I Apply AI to Research</h2>
+
+  <p class="text-base text-base-content/70 leading-relaxed mb-12 max-w-3xl">
+    From a 33-hour, 11 km² eDNA tracer campaign (~1,000 qPCR measurements; ~1,400 GPS coordinates) to a 100-day continuous nucleic-acid reactor, I use AI-assisted coding to turn raw outputs into reproducible analyses, publication figures, and structured reports.
+  </p>
+
+  <div class="pipeline-steps relative">
+    <!-- Vertical progress line (desktop only) -->
+    <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
+      <div class="pipeline-track h-full w-full bg-base-300/50"></div>
+      <div class="pipeline-fill absolute top-0 left-0 w-full bg-primary/30 transition-all duration-100" style="height: 0%"></div>
+    </div>
+
+    <div class="flex flex-col gap-16 md:gap-24">
+
+      <!-- Step 1: Text left, Image right -->
+      <div class="pipeline-step stagger-card grid md:grid-cols-2 gap-8 md:gap-12 items-center relative" data-step="1">
+        <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+          <div class="pipeline-dot w-3 h-3 rounded-full bg-base-300 border-2 border-base-300 transition-all duration-300"></div>
+        </div>
+        <div>
+          <span class="pipeline-number text-sm font-mono text-primary/30 mb-2 block transition-all duration-300">01</span>
+          <h3 class="text-xl font-bold text-primary mb-3">Automated Reporting</h3>
+          <p class="text-base text-base-content/70 leading-relaxed">
+            Feed experiment design + raw qPCR data into a structured tracking report. No manual formatting.
+          </p>
+        </div>
+        <div class="rounded-xl overflow-hidden bg-base-200/50 pipeline-image">
+          <Image
+            src={reportImg}
+            alt="Automated reporting pipeline screenshot"
+            class="w-full h-auto"
+            widths={[480, 640, 960]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+      </div>
+
+      <!-- Step 2: Image left, Text right -->
+      <div class="pipeline-step stagger-card grid md:grid-cols-2 gap-8 md:gap-12 items-center relative" data-step="2">
+        <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+          <div class="pipeline-dot w-3 h-3 rounded-full bg-base-300 border-2 border-base-300 transition-all duration-300"></div>
+        </div>
+        <div class="order-2 md:order-1 rounded-xl overflow-hidden bg-base-200/50 pipeline-image">
+          <Image
+            src={dataImg}
+            alt="Data pipeline processing screenshot"
+            class="w-full h-auto"
+            widths={[480, 640]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+        <div class="order-1 md:order-2">
+          <span class="pipeline-number text-sm font-mono text-primary/30 mb-2 block transition-all duration-300">02</span>
+          <h3 class="text-xl font-bold text-primary mb-3">Data Pipeline</h3>
+          <p class="text-base text-base-content/70 leading-relaxed">
+            Automated a 33-hour field campaign pipeline. ~1,000 qPCR measurements, ~1,400 GPS coordinates — from raw to analysis-ready in minutes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 3: Text left, Image right -->
+      <div class="pipeline-step stagger-card grid md:grid-cols-2 gap-8 md:gap-12 items-center relative" data-step="3">
+        <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+          <div class="pipeline-dot w-3 h-3 rounded-full bg-base-300 border-2 border-base-300 transition-all duration-300"></div>
+        </div>
+        <div>
+          <span class="pipeline-number text-sm font-mono text-primary/30 mb-2 block transition-all duration-300">03</span>
+          <h3 class="text-xl font-bold text-primary mb-3">Scientific Visualization</h3>
+          <p class="text-base text-base-content/70 leading-relaxed">
+            Publication figures, journal cover art, and 3D molecular renders. ~20 Python scripts, all AI-assisted.
+          </p>
+        </div>
+        <div class="rounded-xl overflow-hidden bg-base-200/50 pipeline-image">
+          <Image
+            src={vizImg}
+            alt="Scientific visualization examples"
+            class="w-full h-auto"
+            widths={[480, 640]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  function initPipeline() {
+    const container = document.querySelector('.pipeline-steps');
+    if (!container) return;
+
+    const fill = container.querySelector('.pipeline-fill') as HTMLElement;
+    const steps = container.querySelectorAll('.pipeline-step');
+
+    // Scroll-driven progress line
+    const updateProgress = () => {
+      if (!fill) return;
+      const rect = container.getBoundingClientRect();
+      const viewH = window.innerHeight;
+      const start = rect.top - viewH * 0.5;
+      const end = rect.bottom - viewH * 0.5;
+      const progress = Math.min(1, Math.max(0, -start / (end - start)));
+      fill.style.height = `${progress * 100}%`;
+    };
+
+    // Step activation on scroll
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const dot = entry.target.querySelector('.pipeline-dot') as HTMLElement;
+        const num = entry.target.querySelector('.pipeline-number') as HTMLElement;
+        const img = entry.target.querySelector('.pipeline-image') as HTMLElement;
+
+        if (entry.isIntersecting) {
+          dot?.classList.add('pipeline-dot-active');
+          num?.classList.add('pipeline-number-active');
+          img?.classList.add('pipeline-image-active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -30% 0px', threshold: 0 });
+
+    steps.forEach((step) => stepObserver.observe(step));
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  initPipeline();
+  document.addEventListener('astro:page-load', initPipeline);
+</script>
+
+<style>
+  .pipeline-fill {
+    height: 0%;
+  }
+
+  .pipeline-dot-active {
+    background-color: #115e59 !important;
+    border-color: #115e59 !important;
+    box-shadow: 0 0 0 4px rgba(17, 94, 89, 0.15);
+    transform: scale(1.3);
+  }
+
+  .pipeline-number-active {
+    color: #115e59 !important;
+    opacity: 1;
+  }
+
+  .pipeline-image {
+    opacity: 0.6;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .pipeline-image-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pipeline-image {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .pipeline-dot-active {
+      transform: none;
+    }
+  }
+</style>

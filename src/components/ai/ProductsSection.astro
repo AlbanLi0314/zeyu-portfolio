@@ -1,0 +1,55 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import AlsoBuilt from './AlsoBuilt.astro';
+
+import resonanceImg from '@/assets/ai/resonance.png';
+import echoImg from '@/assets/ai/echo.png';
+---
+
+<section id="products" class="mb-16 md:mb-20 scroll-mt-28 md:scroll-mt-32 pt-8 border-t border-base-300 fade-in-up">
+  <h2 class="text-2xl md:text-3xl font-bold mb-10 text-primary">Products I've Shipped</h2>
+
+  <div class="flex flex-col gap-8">
+    <!-- Featured: Resonance -->
+    <ProjectCard
+      title="Resonance"
+      description="The perfect person to discuss that paper with is probably right on your campus — you just don't know it yet. Upload it, chat with Gemini, and we'll connect you."
+      imageSrc={resonanceImg}
+      tags={['RAG', 'Semantic Search', 'Multi-LLM', 'Hackathon']}
+      metrics="78% first-match accuracy · 230 Cornell researchers indexed · Hybrid FAISS + BM25 search"
+      href="https://github.com/AlbanLi0314/resonance"
+      ctaText="View on GitHub"
+      href2="https://resonance-aounkapvlodwxrz2n49wye.streamlit.app"
+      ctaText2="Try it now"
+      external={true}
+      featured={true}
+    />
+
+    <!-- Featured: Echo -->
+    <ProjectCard
+      title="Echo (回响)"
+      description="Reconnecting after a falling out is emotionally risky — you don't know if they're open to it, and one message can make things worse. Echo lets both people privately signal their intention first. Only when there's mutual openness does it reveal a match, so no one has to make the first move alone."
+      imageSrc={echoImg}
+      tags={['React 18', 'Firebase Auth', 'Gemini API', 'NVC Analysis', 'Vercel']}
+      metrics="Double-blind matching · SMS verification · Gemini NVC message check · Real-time sync · EN/中文 · 988 crisis resources"
+      href="https://echo-app-ebon.vercel.app"
+      ctaText="Try it now"
+      external={true}
+      featured={true}
+    />
+
+    <!-- WIP: CoBrain -->
+    <div class="stagger-card flex items-start gap-4 p-5 md:p-6 rounded-2xl border border-dashed border-base-300">
+      <div class="w-2 h-2 rounded-full bg-base-300 mt-2 flex-shrink-0"></div>
+      <div>
+        <div class="flex items-center gap-3 mb-1">
+          <h3 class="text-base font-bold text-base-content/60">CoBrain</h3>
+          <span class="text-[0.65rem] font-mono text-base-content/35 tracking-wide">WIP</span>
+        </div>
+        <p class="text-sm text-base-content/45 leading-relaxed">A shared, evidence-first brain for your lab. Upload PDFs, capture your group's definitions and standards, and ask questions to get cited, auditable answers — with built-in quality gates and refusal when evidence is thin.</p>
+      </div>
+    </div>
+  </div>
+
+  <AlsoBuilt />
+</section>

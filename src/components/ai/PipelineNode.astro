@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  imageSrc: ImageMetadata;
+}
+
+const { icon, title, description, imageSrc } = Astro.props;
+
+const iconMap: Record<string, string> = {
+  'data': '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" /></svg>',
+  'viz': '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" /></svg>',
+  'report': '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>',
+};
+
+const svgIcon = iconMap[icon] || iconMap['data'];
+---
+
+<div class="pipeline-node flex flex-col items-center text-center flex-1 min-w-0">
+  <div class="w-full mb-4 rounded-xl overflow-hidden border border-base-300">
+    <Image
+      src={imageSrc}
+      alt={title}
+      class="w-full h-auto object-cover"
+      widths={[320, 480]}
+      sizes="(max-width: 768px) 100vw, 33vw"
+    />
+  </div>
+  <div class="flex items-center gap-2 mb-2 text-primary">
+    <Fragment set:html={svgIcon} />
+    <h4 class="text-base font-bold">{title}</h4>
+  </div>
+  <p class="text-sm text-base-content/70 leading-relaxed max-w-xs">{description}</p>
+</div>

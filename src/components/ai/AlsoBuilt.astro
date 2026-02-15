@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import zeyuliImg from '@/assets/ai/zeyuli.png';
+import skicornellImg from '@/assets/ai/skicornell.png';
+
+const items = [
+  {
+    name: 'zeyuli.net',
+    description: 'Personal academic site, Astro framework, AI-assisted design & deployment.',
+    href: 'https://zeyuli.net',
+    imageSrc: zeyuliImg,
+  },
+  {
+    name: 'skicornell.me',
+    description: 'Cornell ski survival guide — real-time weather + live cams.',
+    href: 'https://albanli0314.github.io/cornell-ski-guide/',
+    imageSrc: skicornellImg,
+  },
+];
+---
+
+<div class="mt-10 pt-6 border-t border-base-300">
+  <p class="text-sm font-semibold text-base-content/60 mb-4 uppercase tracking-wide">Also built</p>
+  <div class="flex flex-col sm:flex-row gap-4 sm:gap-8">
+    {items.map((item) => (
+      <a href={item.href} target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group also-built-link cursor-pointer p-3 rounded-xl hover:bg-base-200/50 transition-colors">
+        <div class="w-16 h-16 rounded-xl overflow-hidden border-2 border-base-300 flex-shrink-0">
+          <Image
+            src={item.imageSrc}
+            alt={item.name}
+            class="w-full h-full object-cover"
+            width={64}
+            height={64}
+          />
+        </div>
+        <div>
+          <p class="text-sm font-bold group-hover:text-primary transition-colors">{item.name}</p>
+          <p class="text-xs text-base-content/60 leading-relaxed">{item.description}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .also-built-link {
+    text-decoration: none !important;
+  }
+  .also-built-link p {
+    text-decoration: none !important;
+  }
+</style>

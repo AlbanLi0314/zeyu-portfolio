@@ -13,11 +13,11 @@ import Layout from '../layouts/Layout.astro'
 			
 			<!-- Compact metrics -->
 			<div class='flex flex-wrap items-center gap-x-3 md:gap-x-4 gap-y-2 text-sm md:text-base text-base-content/60'>
-				<span><span class='font-semibold text-primary'>3</span> Research Papers</span>
+				<span><span class='font-semibold text-primary'>4</span> Research Papers</span>
 				<span class='opacity-50 hidden sm:inline'>•</span>
 				<span><span class='font-semibold text-primary'>2</span> Patents</span>
 				<span class='opacity-50 hidden sm:inline'>•</span>
-				<span class='text-xs italic'>Last updated: October 13, 2025</span>
+				<span class='text-xs italic'>Last updated: February 14, 2026</span>
 			</div>
 		</div>
 		
@@ -25,7 +25,29 @@ import Layout from '../layouts/Layout.astro'
 		<section class='mb-12 md:mb-16'>
 			<h2 class='text-xl md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8 fade-in-up'>Research Papers</h2>
 			<ul class='space-y-12 md:space-y-16'>
-				<!-- Paper 1: eDNA Tracers -->
+				<!-- Paper 1: Chip Reactor (Nature, Under Review) -->
+				<li class="stagger-item">
+					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
+						A Chip Reactor for Perpetual Nucleic Acid Production and On-chip Information Processing
+					</h3>
+					<p class='text-base md:text-lg text-base-content/80 mb-2'>
+						Dong Wang, <strong>Zeyu Li</strong>, Junru Li, Yongming Han, Ting Sun, Fengqin Li, Peifeng Liu, Dan Luo
+					</p>
+					<p class='text-sm md:text-base italic mb-3 text-base-content/70'>
+						<em>Nature</em> (2026)
+					</p>
+					<div class='prose max-w-none mb-4 md:mb-6'>
+						<p class='text-base md:text-lg leading-relaxed text-base-content/80'>
+							<strong>Summary:</strong> Continuous-flow chip reactor with covalently immobilized DNA templates for perpetual nucleic acid production; demonstrated 100-day mRNA synthesis and on-chip RNA logic gate for information processing.
+						</p>
+					</div>
+					<div class='flex gap-3 items-center text-sm md:text-base flex-wrap'>
+						<span class='badge badge-outline'>Under Review</span>
+						<span class='badge badge-outline'>2026</span>
+					</div>
+				</li>
+
+				<!-- Paper 2: eDNA Tracers -->
 				<li class="stagger-item">
 					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
 						<a href='https://doi.org/10.1021/acs.est.5c11071' class='link link-primary hover:underline' target='_blank' rel='noopener noreferrer'>
@@ -33,7 +55,7 @@ import Layout from '../layouts/Layout.astro'
 						</a>
 					</h3>
 					<p class='text-base md:text-lg text-base-content/80 mb-2'>
-						<strong>Zeyu Li</strong>, C. L. Ramón, A. Koeberle, et al.
+						<strong>Zeyu Li</strong>, Cintia L. Ramón, Steve Bogdanowicz, Alexander L. Koeberle, Dong Wang, Francisco J. Rueda, Edwin A. Cowen, M. Todd Walter, Suresh A. Sethi, David M. Lodge, Dan Luo, Jose A. Andrés
 					</p>
 					<p class='text-sm md:text-base italic mb-3 text-base-content/70'>
 						<em>Environmental Science & Technology</em> (2025)
@@ -60,7 +82,7 @@ import Layout from '../layouts/Layout.astro'
 						</a>
 					</h3>
 					<p class='text-base md:text-lg text-base-content/80 mb-2'>
-						Chenming He, <strong>Zeyu Li</strong>, Lucy Xiaorui Wang, Dong Wang, Dan Luo, Jenny E. Sabin
+						Chenming He*, <strong>Zeyu Li*</strong>, Lucy Xiaorui Wang, Dong Wang, Dan Luo, Jenny E. Sabin <span class='text-sm text-base-content/60'>(*Co-first author)</span>
 					</p>
 					<p class='text-sm md:text-base italic mb-3 text-base-content/70'>
 						<em>ACADIA 2024: Designing Change – Proceedings</em> (2024)
@@ -90,7 +112,7 @@ import Layout from '../layouts/Layout.astro'
 						</a>
 					</h3>
 					<p class='text-base md:text-lg text-base-content/80 mb-2'>
-						Wanbo Li, Chiu-Wing Chan, <strong>Zeyu Li</strong>, et al.
+						Wanbo Li, Chiu-Wing Chan, <strong>Zeyu Li</strong>, Sin-Yung Siu, Siyu Chen, Han Sun, Zeyu Liu, Yisu Wang, Chong Hu, Nicola Maria Pugno, Richard N. Zare, Hongkai Wu, Kangning Ren
 					</p>
 					<p class='text-sm md:text-base italic mb-3 text-base-content/70'>
 						<em>The Innovation</em> (Cell Press) 4(2):100389 (2023)

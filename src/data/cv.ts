@@ -89,8 +89,16 @@ export const skills = [
 
 export const publications = [
 	{
+		title: 'A Chip Reactor for Perpetual Nucleic Acid Production and On-chip Information Processing',
+		authors: 'Wang, D., Li, Z., Li, J., Han, Y., Sun, T., Li, F., Liu, P., Luo, D.',
+		journal: 'Nature',
+		time: '2026',
+		link: '',
+		abstract: '',
+	},
+	{
 		title: 'Tracing Environmental DNA Transport in a Large Lake with Synthetic DNA Microparticles and Hydrodynamic Modeling',
-		authors: 'Li, Z., Ramón, C. L., Koeberle, A., et al.',
+		authors: 'Li, Z., Ramón, C. L., Bogdanowicz, S., Koeberle, A. L., Wang, D., Rueda, F. J., Cowen, E. A., Walter, M. T., Sethi, S. A., Lodge, D. M., Luo, D., Andrés, J. A.',
 		journal: 'Environmental Science & Technology',
 		time: '2025',
 		link: 'https://doi.org/10.1021/acs.est.5c11071',
@@ -98,7 +106,7 @@ export const publications = [
 	},
 	{
 		title: 'PolyTile 4.0: Self-healing Ceramic Tiles',
-		authors: 'He, C., Li, Z., Wang, L. X., et al.',
+		authors: 'He, C.*, Li, Z.*, Wang, L. X., Wang, D., Luo, D., Sabin, J. E.',
 		journal: 'ACADIA',
 		time: '2024',
 		link: '',
@@ -106,7 +114,7 @@ export const publications = [
 	},
 	{
 		title: 'All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability',
-		authors: 'Li, W., Chan, C. W., Li, Z., et al.',
+		authors: 'Li, W., Chan, C. W., Li, Z., Siu, S. Y., Chen, S., Sun, H., Liu, Z., Wang, Y., Hu, C., Pugno, N. M., Zare, R. N., Wu, H., Ren, K.',
 		journal: 'The Innovation',
 		time: '2023',
 		link: '',

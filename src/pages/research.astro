@@ -120,6 +120,18 @@ const projects = [
 ---
 
 <Layout title="Research - Zeyu Li">
+  <Fragment slot="top-nav">
+    {projects.map((project) => (
+      <a
+        href={`#${project.id}`}
+        class="project-nav-link text-xs font-medium text-base-content/40 hover:text-primary transition-colors cursor-pointer px-2 py-1 rounded"
+        data-target={project.id}
+      >
+        {project.shortLabel}
+      </a>
+    ))}
+  </Fragment>
+
   <div class="max-w-6xl mx-auto">
     <!-- Hero Section -->
     <div class="mb-8 md:mb-12">
@@ -130,7 +142,7 @@ const projects = [
 
       <!-- Compact metrics -->
       <div class="flex flex-wrap items-center gap-x-3 md:gap-x-4 gap-y-2 text-sm md:text-base text-base-content/60">
-        <span><span class="font-semibold text-primary">3</span> Publications</span>
+        <span><span class="font-semibold text-primary">4</span> Publications</span>
         <span class="opacity-50 hidden sm:inline">•</span>
         <span><span class="font-semibold text-primary">2</span> Patents</span>
         <span class="opacity-50 hidden sm:inline">•</span>
@@ -139,21 +151,6 @@ const projects = [
         <span><span class="font-semibold text-primary">11 km²</span> field deployment (eDNA tracers)</span>
       </div>
     </div>
-
-    <!-- Sticky Navigation -->
-    <nav class="sticky top-10 z-40 py-1 mb-4 bg-base-100/80 backdrop-blur-md shadow-sm">
-      <div class="flex gap-2 overflow-x-auto overflow-y-hidden pb-1 scrollbar-thin w-full" id="project-nav" style="-webkit-overflow-scrolling: touch;">
-        {projects.map((project) => (
-          <a 
-            href={`#${project.id}`}
-            class="project-nav-link btn btn-sm btn-primary btn-outline whitespace-nowrap flex-shrink-0"
-            data-target={project.id}
-          >
-            {project.shortLabel}
-          </a>
-        ))}
-      </div>
-    </nav>
 
     <!-- Project Details -->
     <div class="space-y-12 md:space-y-16">
@@ -316,41 +313,40 @@ const projects = [
 </Layout>
 
 <script>
-  // Highlight active section in navigation
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.project-nav-link');
-  
-  const observerOptions = {
-    root: null,
-    rootMargin: '-150px 0px -66% 0px',
-    threshold: 0
-  };
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        
-        // Remove active state from all links
-        navLinks.forEach(link => {
-          link.classList.add('btn-outline');
-          // Ensure btn-primary is always present for green color
-          link.classList.add('btn-primary');
-        });
-        
-        // Add active state to current link
-        const activeLink = document.querySelector(`.project-nav-link[data-target="${id}"]`);
-        if (activeLink) {
-          activeLink.classList.remove('btn-outline');
-          // btn-primary is already there or added above
+  const setupResearchNav = () => {
+    const sections = document.querySelectorAll<HTMLElement>('section[id]');
+    const navLinks = document.querySelectorAll<HTMLElement>('.project-nav-link');
+
+    if (!navLinks.length) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -66% 0px',
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+
+          navLinks.forEach((link) => {
+            link.classList.remove('research-nav-active');
+          });
+
+          const activeLink = document.querySelector(`.project-nav-link[data-target="${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('research-nav-active');
+          }
         }
-      }
-    });
-  }, observerOptions);
-  
-  sections.forEach(section => {
-    observer.observe(section);
-  });
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+  };
+
+  setupResearchNav();
+  document.addEventListener('astro:page-load', setupResearchNav);
 </script>
 
 <style>
@@ -359,38 +355,55 @@ const projects = [
     scroll-behavior: smooth;
   }
 
+  /* Nav link styles */
+  .project-nav-link {
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 0.25rem;
+  }
+
+  .project-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #115e59;
+    transition: width 0.2s ease, left 0.2s ease;
+  }
+
+  .research-nav-active {
+    color: #115e59 !important;
+    font-weight: 600;
+  }
+
+  .research-nav-active::after {
+    width: 100%;
+    left: 0;
+  }
+
   /* Force mobile responsiveness - override any minimum widths */
   @media (max-width: 639px) {
     body, html {
       max-width: 100vw !important;
       overflow-x: hidden !important;
     }
-    
+
     .max-w-6xl {
       max-width: 100% !important;
     }
-    
-    .navbar, nav {
-      min-width: 0 !important;
-      max-width: 100% !important;
-    }
-    
+
     /* CRITICAL: Prevent image gallery from causing overflow */
     .image-gallery {
       max-width: 100% !important;
     }
-    
+
     /* Ensure individual images stay within bounds */
     .image-gallery > div {
       max-width: calc(100vw - 4rem) !important;
     }
-  }
-
-  /* Ensure sticky navigation works properly */
-  nav.sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    /* background-color removed to allow utility classes to control transparency */
   }
 
   /* App Store style horizontal scroll for image gallery */
@@ -400,16 +413,16 @@ const projects = [
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE/Edge */
   }
-  
+
   .image-gallery::-webkit-scrollbar {
     display: none; /* Chrome/Safari */
   }
-  
+
   .image-gallery > div {
     scroll-snap-align: center;
     scroll-snap-stop: normal;
   }
-  
+
   /* On desktop, restore scrollbar and remove snap */
   @media (min-width: 640px) {
     .image-gallery {
@@ -417,27 +430,18 @@ const projects = [
       scrollbar-width: auto;
       -ms-overflow-style: auto;
     }
-    
+
     .image-gallery::-webkit-scrollbar {
       display: block;
     }
   }
 
-  /* Custom scrollbar for horizontal nav */
-  .scrollbar-thin::-webkit-scrollbar {
-    height: 4px;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: hsl(var(--bc) / 0.2);
-    border-radius: 2px;
-  }
-  
-  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--bc) / 0.3);
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .project-nav-link {
+      transition: none;
+    }
   }
 </style>

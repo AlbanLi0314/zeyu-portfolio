@@ -1,6 +1,6 @@
 ---
 title: "Tracing Environmental DNA Transport in a Large Lake with Synthetic DNA Microparticles and Hydrodynamic Modeling"
-authors: ["Zeyu Li", "C. L. Ramón", "A. Koeberle", "et al."]
+authors: ["Zeyu Li", "Cintia L. Ramón", "Steve Bogdanowicz", "Alexander L. Koeberle", "Dong Wang", "Francisco J. Rueda", "Edwin A. Cowen", "M. Todd Walter", "Suresh A. Sethi", "David M. Lodge", "Dan Luo", "Jose A. Andrés"]
 venue: "Environmental Science & Technology"
 year: 2025
 status: "published"

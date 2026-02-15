@@ -1,6 +1,6 @@
 ---
 title: "PolyTile 4.0: Self-healing Ceramic Tiles"
-authors: ["C. He", "Zeyu Li", "L. X. Wang", "et al."]
+authors: ["Chenming He*", "Zeyu Li*", "Lucy Xiaorui Wang", "Dong Wang", "Dan Luo", "Jenny E. Sabin"]
 venue: "ACADIA 2024"
 year: 2024
 doi: ""

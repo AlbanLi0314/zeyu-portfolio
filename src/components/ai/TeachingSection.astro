@@ -1,0 +1,33 @@
+---
+import CompactCard from './CompactCard.astro';
+---
+
+<section id="teaching" class="mb-16 md:mb-20 scroll-mt-28 md:scroll-mt-32 pt-8 border-t border-base-300 fade-in-up">
+  <h2 class="text-2xl md:text-3xl font-bold mb-4 text-primary">Teaching AI at Cornell</h2>
+
+  <p class="text-base text-base-content/70 leading-relaxed mb-8 max-w-3xl">
+    I design hands-on AI tooling modules for Cornell bioengineering undergrads. I co-taught one course (~45 students; ~50% of the content) and gave guest lectures in two others. The focus is practical: how to break a messy question into steps, use AI-assisted scripting to move faster, and still keep scientific checks in place.
+  </p>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="stagger-card">
+      <CompactCard
+        title="BEE 3400 — AI Tooling Module"
+        items={[
+          'Co-instructor (~50% of content) · ~45 students',
+          'Labs: problem breakdown → AI-assisted scripting → data processing + visualization',
+        ]}
+      />
+    </div>
+
+    <div class="stagger-card">
+      <CompactCard
+        title="AI Integration Module"
+        items={[
+          'Built confidence-gated exam grading and automated notebook assessment',
+          'Reduced grading turnaround to <24 hours',
+        ]}
+      />
+    </div>
+  </div>
+</section>

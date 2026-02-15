@@ -1,0 +1,166 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description: string;
+  imageSrc: ImageMetadata;
+  tags: string[];
+  metrics: string;
+  href: string;
+  status?: 'wip';
+  ctaText?: string;
+  external?: boolean;
+  featured?: boolean;
+  href2?: string;
+  ctaText2?: string;
+}
+
+const { title, description, imageSrc, tags, metrics, href, status, ctaText, external, featured, href2, ctaText2 } = Astro.props;
+---
+
+{featured ? (
+  <!-- Featured: horizontal layout -->
+  <div class="stagger-card project-card project-card-featured rounded-2xl overflow-hidden bg-base-100 border border-base-300">
+    <div class="flex flex-col md:flex-row">
+      <figure class="relative md:w-[45%] flex-shrink-0">
+        <div class="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden">
+          <Image
+            src={imageSrc}
+            alt={title}
+            class="w-full h-full object-cover transition-transform duration-500 project-card-img"
+            widths={[480, 640, 960]}
+            sizes="(max-width: 768px) 100vw, 45vw"
+          />
+        </div>
+        {status === 'wip' && (
+          <span class="absolute top-3 right-3 text-xs font-mono text-base-content/40 bg-white/90 px-2 py-0.5 rounded">WIP</span>
+        )}
+      </figure>
+
+      <div class="p-6 md:p-8 flex flex-col gap-3 md:w-[55%]">
+        <h3 class="text-xl font-bold leading-tight">{title}</h3>
+        <p class="text-sm text-base-content/60 leading-relaxed">{description}</p>
+        <p class="text-xs text-base-content/50 leading-relaxed">{metrics}</p>
+        <div class="flex items-center gap-4 pt-2">
+          {href && href !== '#' ? (
+            <a
+              href={href}
+              class="text-sm font-semibold text-primary hover:text-secondary project-card-cta"
+              {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              {ctaText || 'View Details'} →
+            </a>
+          ) : (
+            <span class="text-sm text-base-content/40">
+              {ctaText || 'Coming Soon'}
+            </span>
+          )}
+          {href2 && (
+            <a
+              href={href2}
+              class="text-sm font-semibold text-primary hover:text-secondary project-card-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {ctaText2 || 'Try it'} →
+            </a>
+          )}
+        </div>
+        <div class="flex flex-wrap gap-1.5 mt-auto pt-3">
+          {tags.map((tag) => (
+            <span class="tag-chip">{tag}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+) : (
+  <!-- Standard: vertical layout -->
+  <div class="stagger-card project-card rounded-2xl overflow-hidden bg-base-100 border border-base-300">
+    <figure class="relative">
+      <div class="aspect-[16/10] w-full overflow-hidden">
+        <Image
+          src={imageSrc}
+          alt={title}
+          class="w-full h-full object-cover transition-transform duration-500 project-card-img"
+          widths={[320, 480, 640]}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
+      {status === 'wip' && (
+        <span class="absolute top-3 right-3 text-xs font-mono text-base-content/40 bg-white/90 px-2 py-0.5 rounded">WIP</span>
+      )}
+    </figure>
+
+    <div class="p-5 md:p-6 flex flex-col gap-3">
+      <h3 class="text-lg font-bold leading-tight">{title}</h3>
+      <p class="text-sm text-base-content/60 leading-relaxed">{description}</p>
+      <p class="text-xs text-base-content/50 leading-relaxed">{metrics}</p>
+      <div class="flex items-center gap-4 pt-1">
+        {href && href !== '#' ? (
+          <a
+            href={href}
+            class="text-sm font-semibold text-primary hover:text-secondary project-card-cta"
+            {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          >
+            {ctaText || 'View Details'} →
+          </a>
+        ) : (
+          <span class="text-sm text-base-content/40">
+            {ctaText || 'Coming Soon'}
+          </span>
+        )}
+      </div>
+      <div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+        {tags.map((tag) => (
+          <span class="tag-chip">{tag}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
+
+<style>
+  .project-card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+  }
+  .project-card:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+    transform: translateY(-3px);
+  }
+  .project-card:hover .project-card-img {
+    transform: scale(1.03);
+  }
+  .project-card-cta {
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+  }
+  .project-card-featured {
+    overflow: hidden;
+  }
+  .tag-chip {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    background-color: #f1f5f9;
+    color: #64748b;
+    line-height: 1.5;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-card-img {
+      transition: none;
+    }
+    .project-card:hover {
+      transform: none;
+    }
+    .project-card:hover .project-card-img {
+      transform: none;
+    }
+  }
+</style>

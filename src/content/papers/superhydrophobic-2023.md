@@ -1,6 +1,6 @@
 ---
 title: "All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability"
-authors: ["W. Li", "C. W. Chan", "Zeyu Li", "et al."]
+authors: ["Wanbo Li", "Chiu-Wing Chan", "Zeyu Li", "Sin-Yung Siu", "Siyu Chen", "Han Sun", "Zeyu Liu", "Yisu Wang", "Chong Hu", "Nicola Maria Pugno", "Richard N. Zare", "Hongkai Wu", "Kangning Ren"]
 venue: "The Innovation"
 year: 2023
 doi: ""
