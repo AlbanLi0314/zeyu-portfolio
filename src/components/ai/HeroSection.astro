@@ -4,12 +4,12 @@
 <section class="mb-12 md:mb-16 fade-in-up">
   <div class="grid md:grid-cols-9 gap-8 md:gap-10 items-center">
     <!-- Left: Text -->
-    <div class="md:col-span-4">
-      <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight text-primary">
-        DNA materials engineer. Integrates AI workflows. Ships AI products.
+    <div class="md:col-span-4 relative z-10">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight text-primary md:[margin-right:-10rem]">
+        From experiments to AI products. Grounded in a decade of scientific research. Integrates AI workflows. Ships AI tools.
       </h1>
       <p class="text-base md:text-lg text-base-content/70 mb-6 leading-relaxed">
-        I turn messy scientific problems into AI-executable workflows. Grounded in a decade of DNA materials and real experiments, I ship tools that make research run faster and cleaner.
+        Cornell Ph.D. in <mark class="stem-highlight">Biological</mark> & <mark class="stem-highlight">Environmental</mark> Engineering (DNA <mark class="stem-highlight">Materials</mark> Lab) — grounded in <mark class="stem-highlight">Chemistry</mark> and <mark class="stem-highlight">Computer Science</mark> — integrating AI into workflows and building AI-powered tools that make it out of the lab.
       </p>
       <a href="#research" class="btn btn-primary no-underline">
         See how I work ↓
@@ -48,4 +48,16 @@
   initHeroVideo();
   document.addEventListener('astro:page-load', initHeroVideo);
 </script>
+
+<style>
+  .stem-highlight {
+    background: linear-gradient(180deg, transparent 50%, rgba(17, 94, 89, 0.15) 50%);
+    color: inherit !important;
+    padding: 0 0.15em;
+    border-radius: 2px;
+    font-style: normal;
+    text-decoration: none !important;
+    border: none !important;
+  }
+</style>
 

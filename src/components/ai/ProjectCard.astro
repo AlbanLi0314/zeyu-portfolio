@@ -5,6 +5,7 @@ interface Props {
   title: string;
   description: string;
   imageSrc: ImageMetadata;
+  images?: ImageMetadata[];
   tags: string[];
   metrics: string;
   href: string;
@@ -14,9 +15,13 @@ interface Props {
   featured?: boolean;
   href2?: string;
   ctaText2?: string;
+  href3?: string;
+  ctaText3?: string;
+  tagLinks?: Record<string, string>;
 }
 
-const { title, description, imageSrc, tags, metrics, href, status, ctaText, external, featured, href2, ctaText2 } = Astro.props;
+const { title, description, imageSrc, images, tags, metrics, href, status, ctaText, external, featured, href2, ctaText2, href3, ctaText3, tagLinks = {} } = Astro.props;
+const allImages = images && images.length > 0 ? images : [imageSrc];
 ---
 
 {featured ? (
@@ -24,14 +29,35 @@ const { title, description, imageSrc, tags, metrics, href, status, ctaText, exte
   <div class="stagger-card project-card project-card-featured rounded-2xl overflow-hidden bg-base-100 border border-base-300">
     <div class="flex flex-col md:flex-row">
       <figure class="relative md:w-[45%] flex-shrink-0">
-        <div class="aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden">
-          <Image
-            src={imageSrc}
-            alt={title}
-            class="w-full h-full object-cover transition-transform duration-500 project-card-img"
-            widths={[480, 640, 960]}
-            sizes="(max-width: 768px) 100vw, 45vw"
-          />
+        <div class="carousel-wrapper aspect-[16/10] md:aspect-auto md:h-full w-full overflow-hidden relative">
+          <div class="carousel-track flex h-full transition-transform duration-300 ease-in-out">
+            {allImages.map((img, i) => (
+              <div class="carousel-slide w-full h-full flex-shrink-0">
+                <Image
+                  src={img}
+                  alt={`${title} - image ${i + 1}`}
+                  class="w-full h-full object-contain project-card-img"
+                  widths={[480, 640, 960]}
+                  sizes="(max-width: 768px) 100vw, 45vw"
+                />
+              </div>
+            ))}
+          </div>
+          {allImages.length > 1 && (
+            <>
+              <button class="carousel-btn carousel-prev absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm border border-base-300 flex items-center justify-center hover:bg-white transition-colors z-10" aria-label="Previous image">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-base-content/70"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+              </button>
+              <button class="carousel-btn carousel-next absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm border border-base-300 flex items-center justify-center hover:bg-white transition-colors z-10" aria-label="Next image">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-base-content/70"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+              </button>
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                {allImages.map((_, i) => (
+                  <span class={`carousel-dot w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-primary' : 'bg-base-300'} transition-colors`}></span>
+                ))}
+              </div>
+            </>
+          )}
         </div>
         {status === 'wip' && (
           <span class="absolute top-3 right-3 text-xs font-mono text-base-content/40 bg-white/90 px-2 py-0.5 rounded">WIP</span>
@@ -66,10 +92,24 @@ const { title, description, imageSrc, tags, metrics, href, status, ctaText, exte
               {ctaText2 || 'Try it'} →
             </a>
           )}
+          {href3 && (
+            <a
+              href={href3}
+              class="text-sm font-semibold text-primary hover:text-secondary project-card-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {ctaText3 || 'More'} →
+            </a>
+          )}
         </div>
         <div class="flex flex-wrap gap-1.5 mt-auto pt-3">
           {tags.map((tag) => (
-            <span class="tag-chip">{tag}</span>
+            tagLinks[tag] ? (
+              <a href={tagLinks[tag]} target="_blank" rel="noopener noreferrer" class={`tag-chip tag-link ${tag.includes('Hackathon') ? 'tag-hackathon' : ''} ${tag === 'Winner' ? 'tag-prize' : ''}`}>{tag}</a>
+            ) : (
+              <span class={`tag-chip ${tag.includes('Hackathon') ? 'tag-hackathon' : ''} ${tag === 'Winner' ? 'tag-prize' : ''}`}>{tag}</span>
+            )
           ))}
         </div>
       </div>
@@ -83,7 +123,7 @@ const { title, description, imageSrc, tags, metrics, href, status, ctaText, exte
         <Image
           src={imageSrc}
           alt={title}
-          class="w-full h-full object-cover transition-transform duration-500 project-card-img"
+          class="w-full h-full object-contain transition-transform duration-500 project-card-img"
           widths={[320, 480, 640]}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
@@ -114,14 +154,54 @@ const { title, description, imageSrc, tags, metrics, href, status, ctaText, exte
       </div>
       <div class="flex flex-wrap gap-1.5 mt-auto pt-2">
         {tags.map((tag) => (
-          <span class="tag-chip">{tag}</span>
+          tagLinks[tag] ? (
+              <a href={tagLinks[tag]} target="_blank" rel="noopener noreferrer" class={`tag-chip tag-link ${tag.includes('Hackathon') ? 'tag-hackathon' : ''} ${tag === 'Winner' ? 'tag-prize' : ''}`}>{tag}</a>
+            ) : (
+              <span class={`tag-chip ${tag.includes('Hackathon') ? 'tag-hackathon' : ''} ${tag === 'Winner' ? 'tag-prize' : ''}`}>{tag}</span>
+            )
         ))}
       </div>
     </div>
   </div>
 )}
 
+<script>
+  function initCarousels() {
+    document.querySelectorAll('.carousel-wrapper').forEach((wrapper) => {
+      const track = wrapper.querySelector('.carousel-track');
+      const slides = wrapper.querySelectorAll('.carousel-slide');
+      const dots = wrapper.querySelectorAll('.carousel-dot');
+      const prev = wrapper.querySelector('.carousel-prev');
+      const next = wrapper.querySelector('.carousel-next');
+      if (!track || slides.length <= 1) return;
+
+      let current = 0;
+      const go = (i) => {
+        current = (i + slides.length) % slides.length;
+        (track as HTMLElement).style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, j) => {
+          d.classList.toggle('bg-primary', j === current);
+          d.classList.toggle('bg-base-300', j !== current);
+        });
+      };
+      prev?.addEventListener('click', (e) => { e.stopPropagation(); go(current - 1); });
+      next?.addEventListener('click', (e) => { e.stopPropagation(); go(current + 1); });
+    });
+  }
+  initCarousels();
+  document.addEventListener('astro:page-load', initCarousels);
+</script>
+
 <style>
+  .carousel-btn {
+    opacity: 0;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
+    text-decoration: none !important;
+  }
+  .carousel-wrapper:hover .carousel-btn {
+    opacity: 1;
+  }
   .project-card {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     cursor: default;
@@ -150,6 +230,29 @@ const { title, description, imageSrc, tags, metrics, href, status, ctaText, exte
     background-color: #f1f5f9;
     color: #64748b;
     line-height: 1.5;
+  }
+  a.tag-link {
+    text-decoration: none !important;
+    cursor: pointer;
+  }
+  a.tag-link:hover {
+    opacity: 0.8;
+  }
+  a.tag-hackathon {
+    color: #ffffff !important;
+  }
+  a.tag-prize {
+    color: #92400e !important;
+  }
+  .tag-hackathon {
+    background-color: #115e59 !important;
+    color: #ffffff !important;
+    font-weight: 600;
+  }
+  .tag-prize {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+    font-weight: 600;
   }
   @media (prefers-reduced-motion: reduce) {
     .project-card,

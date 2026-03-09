@@ -1,5 +1,28 @@
 ---
 import CompactCard from './CompactCard.astro';
+import { Image } from 'astro:assets';
+
+import slide01 from '@/assets/ai/slide-01-uncertainty.png';
+import slide02 from '@/assets/ai/slide-02-attention.png';
+import slide03 from '@/assets/ai/slide-03-context-eng.png';
+import slide04 from '@/assets/ai/slide-04-context-components.png';
+import slide05 from '@/assets/ai/slide-05-agent.png';
+import slide06 from '@/assets/ai/slide-06-40-20-40.png';
+import slide07 from '@/assets/ai/slide-07-planning-team.png';
+import slide08 from '@/assets/ai/slide-08-test-iterate.png';
+import slide09 from '@/assets/ai/slide-09-vibe-hard.png';
+
+const slides = [
+  { src: slide01, label: 'Embrace Uncertainty' },
+  { src: slide02, label: 'Transformer: Attention' },
+  { src: slide03, label: 'Context Engineering' },
+  { src: slide04, label: 'Components of Context' },
+  { src: slide05, label: 'What is an Agent?' },
+  { src: slide07, label: 'AI Planning Team' },
+  { src: slide06, label: 'The 40-20-40 Rule' },
+  { src: slide08, label: 'Test & Iterate' },
+  { src: slide09, label: 'Where It Gets Hard' },
+];
 ---
 
 <section id="teaching" class="mb-16 md:mb-20 scroll-mt-28 md:scroll-mt-32 pt-8 border-t border-base-300 fade-in-up">
@@ -30,4 +53,329 @@ import CompactCard from './CompactCard.astro';
       />
     </div>
   </div>
+
+  <!-- Slide Deck Gallery — Fanned Stack -->
+  <div class="mt-12 fade-in-up">
+    <h3 class="text-lg font-semibold text-primary mb-8">From the Lecture Slides</h3>
+    <div class="slide-fan-wrapper">
+      <div class="slide-fan">
+        {slides.map((slide, i) => (
+          <div class={`slide-card slide-card-${i + 1}`} data-slide-index={i}>
+            <div class="slide-inner">
+              <Image
+                src={slide.src}
+                alt={slide.label}
+                class="w-full h-full object-cover"
+                widths={[320, 480]}
+                sizes="320px"
+              />
+              <div class="slide-label">{String(i + 1).padStart(2, '0')}</div>
+            </div>
+            <div class="slide-title">{slide.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <p class="text-xs text-base-content/40 text-center mt-2">Click any slide to view full size</p>
+  </div>
+
+
 </section>
+
+<!-- Lightbox — outside section to avoid transform/perspective breaking fixed positioning -->
+<div class="slide-lightbox" id="slide-lightbox">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-prev" aria-label="Previous">&#8249;</button>
+  <button class="lightbox-next" aria-label="Next">&#8250;</button>
+  <div class="lightbox-content">
+    <img id="lightbox-img" src="" alt="" />
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+</div>
+
+<script>
+  function initSlideLightbox() {
+    const cards = document.querySelectorAll('.slide-card');
+    const lightbox = document.getElementById('slide-lightbox');
+    const lbImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    const lbCaption = document.getElementById('lightbox-caption');
+    const lbCounter = document.getElementById('lightbox-counter');
+    const closeBtn = lightbox?.querySelector('.lightbox-close');
+    const prevBtn = lightbox?.querySelector('.lightbox-prev');
+    const nextBtn = lightbox?.querySelector('.lightbox-next');
+
+    if (!lightbox || !lbImg || !cards.length) return;
+
+    let current = 0;
+    let savedScrollY = 0;
+    const srcs: string[] = [];
+    const labels: string[] = [];
+
+    cards.forEach((card) => {
+      const img = card.querySelector('img');
+      const title = card.querySelector('.slide-title');
+      srcs.push(img?.src || '');
+      labels.push(title?.textContent || '');
+    });
+
+    const show = (i: number) => {
+      current = (i + srcs.length) % srcs.length;
+      lbImg.src = srcs[current];
+      lbImg.alt = labels[current];
+      if (lbCaption) lbCaption.textContent = labels[current];
+      if (lbCounter) lbCounter.textContent = `${current + 1} / ${srcs.length}`;
+      savedScrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${savedScrollY}px`;
+      document.body.style.width = '100%';
+      lightbox.classList.add('active');
+    };
+
+    const hide = () => {
+      lightbox.classList.remove('active');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, savedScrollY);
+    };
+
+    cards.forEach((card, i) => {
+      card.addEventListener('click', () => show(i));
+    });
+
+    closeBtn?.addEventListener('click', hide);
+    prevBtn?.addEventListener('click', () => show(current - 1));
+    nextBtn?.addEventListener('click', () => show(current + 1));
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) hide();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') hide();
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+  }
+
+  initSlideLightbox();
+  document.addEventListener('astro:page-load', initSlideLightbox);
+</script>
+
+<style>
+  /* Fan layout */
+  .slide-fan-wrapper {
+    perspective: 1200px;
+    padding: 2rem 0 4rem;
+    overflow: visible;
+  }
+
+  .slide-fan {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0;
+    position: relative;
+    height: 300px;
+  }
+
+  .slide-card {
+    width: 260px;
+    aspect-ratio: 16 / 10;
+    position: absolute;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+    transform-origin: bottom center;
+  }
+
+  .slide-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+
+  .slide-label {
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.55rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .slide-title {
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: transparent;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+    pointer-events: none;
+  }
+
+  /* 9 cards fanned */
+  .slide-card-1 { transform: translateX(-340px) rotate(-10deg); z-index: 1; }
+  .slide-card-2 { transform: translateX(-255px) rotate(-7.5deg); z-index: 2; }
+  .slide-card-3 { transform: translateX(-170px) rotate(-5deg); z-index: 3; }
+  .slide-card-4 { transform: translateX(-85px) rotate(-2.5deg); z-index: 4; }
+  .slide-card-5 { transform: translateX(0px) rotate(0deg); z-index: 5; }
+  .slide-card-6 { transform: translateX(85px) rotate(2.5deg); z-index: 4; }
+  .slide-card-7 { transform: translateX(170px) rotate(5deg); z-index: 3; }
+  .slide-card-8 { transform: translateX(255px) rotate(7.5deg); z-index: 2; }
+  .slide-card-9 { transform: translateX(340px) rotate(10deg); z-index: 1; }
+
+  /* Hover: gentle lift only */
+  .slide-card:hover {
+    z-index: 10 !important;
+  }
+  .slide-card:hover .slide-inner {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: #115e59;
+  }
+  .slide-card:hover .slide-title {
+    color: #115e59;
+  }
+
+  /* Lightbox */
+  .slide-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .slide-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lightbox-content {
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .lightbox-content img {
+    max-width: 90vw;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .lightbox-caption {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .lightbox-counter {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #ffffff;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    text-decoration: none !important;
+  }
+  .lightbox-close:hover { opacity: 1; }
+
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    text-decoration: none !important;
+  }
+  .lightbox-prev { left: 1rem; }
+  .lightbox-next { right: 1rem; }
+  .lightbox-prev:hover,
+  .lightbox-next:hover { opacity: 1; }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .slide-fan {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      height: auto;
+      overflow-x: auto;
+      padding: 1rem 0.5rem 2rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .slide-card {
+      position: relative;
+      width: 240px;
+      flex-shrink: 0;
+      transform: none !important;
+      scroll-snap-align: center;
+    }
+    .slide-fan-wrapper {
+      padding: 1rem 0;
+    }
+    .slide-title {
+      color: #115e59;
+      position: static;
+      transform: none;
+      display: block;
+      text-align: center;
+      padding-top: 6px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide-card { transition: none; }
+    .slide-lightbox { transition: none; }
+  }
+</style>
