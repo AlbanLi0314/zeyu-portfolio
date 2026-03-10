@@ -3,11 +3,13 @@ import Layout from '../layouts/Layout.astro'
 import { profile, template } from '@/settings'
 import ProfilePictures from '@/assets/profile_pictures.jpg'
 import { Image } from 'astro:assets'
+import { personJsonLd } from '@/data/jsonld'
 
 const { fullName, title, institute } = profile
 ---
 
 <Layout>
+	<script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
 	
 	<!-- Hero Section -->
 	<section class='flex flex-col items-center text-center py-8 sm:py-12'>

@@ -3,373 +3,83 @@ import Layout from '@/layouts/Layout.astro'
 import { profile } from '@/settings'
 
 const { fullName } = profile
+
+const cvVersions = [
+	{
+		title: 'AI',
+		description: 'Full-stack AI products, LLM integration & data pipelines',
+		pdf: '/cv/Alban_Resume_AI.pdf',
+		docx: '/cv/Alban_Resume_AI.docx',
+		ats: '/cv/Alban_ATS_AI.docx',
+		color: 'border-secondary',
+		accent: 'bg-secondary',
+	},
+	{
+		title: 'Materials',
+		description: 'Polymers, hydrogels, functional surfaces & advanced characterization',
+		pdf: '/cv/Alban_Resume_M.pdf',
+		docx: '/cv/Alban_Resume_M.docx',
+		ats: '/cv/Alban_ATS_M.docx',
+		color: 'border-primary',
+		accent: 'bg-primary',
+	},
+	{
+		title: 'Biotech',
+		description: 'Nucleic acid production, purification & biosensing',
+		pdf: '/cv/Alban_Resume_B.pdf',
+		docx: '/cv/Alban_Resume_B.docx',
+		ats: '/cv/Alban_ATS_B.docx',
+		color: 'border-accent',
+		accent: 'bg-accent',
+	},
+]
 ---
 
 <Layout title="Curriculum Vitae - Zeyu Li">
-	<div class='max-w-6xl mx-auto'>
+	<div class='max-w-5xl mx-auto'>
 		<!-- Hero Section -->
-		<div class='mb-8 md:mb-12'>
-			<div class='flex flex-col sm:flex-row justify-between items-start gap-4'>
-				<div>
-					<h1 class='text-3xl md:text-4xl font-bold mb-2 md:mb-4'>Curriculum Vitae</h1>
-					<p class='text-base md:text-lg lg:text-xl text-base-content/70'>{fullName}</p>
-					<div class="mt-4 inline-flex items-center px-3 py-1.5 rounded bg-primary text-white text-sm font-medium">
-						Available for full-time roles starting May 2026.
-					</div>
-				</div>
-				<div class='flex flex-col sm:flex-row gap-3 w-full sm:w-auto'>
-					<a href='/cv.pdf' class='btn btn-primary flex-shrink-0' download>
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-						</svg>
-						Download PDF
-					</a>
-					<button type="button" class='btn btn-accent flex-shrink-0' onclick="cv_modal.showModal()">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-						</svg>
-						Email Me This CV
-					</button>
-				</div>
+		<div class='mb-10 md:mb-14'>
+			<h1 class='text-3xl md:text-4xl font-bold mb-2 md:mb-4'>Curriculum Vitae</h1>
+			<p class='text-base md:text-lg lg:text-xl text-base-content/70'>{fullName}</p>
+			<div class="mt-4 inline-flex items-center px-3 py-1.5 rounded bg-primary text-white text-sm font-medium">
+				Available for full-time roles starting May 2026.
 			</div>
 		</div>
 
-		<!-- Education -->
-		<section class='mb-8 md:mb-12'>
-			<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6'>Education</h2>
-			<div class='space-y-4'>
-				<!-- Cornell University -->
-				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
-					<div class='flex flex-col gap-4'>
-						<!-- Institution Header -->
-						<div class='pb-3 border-b-2 border-base-300'>
-							<div class='font-bold text-xl md:text-2xl text-base-content'>Cornell University</div>
-							<div class='text-base text-base-content/60 mt-1'>Ithaca, NY</div>
-						</div>
-						
-						<!-- Degrees -->
-						<div class='space-y-4'>
-							<!-- PhD -->
-							<div class='pl-4 border-l-4 border-primary'>
-								<div class='font-bold text-lg md:text-xl text-base-content'>Ph.D., Biological & Environmental Engineering</div>
-								<div class='text-base text-base-content/60 mt-1'>Expected May 2026</div>
-								<div class='text-sm md:text-base text-base-content/70 mt-2 italic'>DNA Materials Lab · Advisor: Dan Luo</div>
-							</div>
-							
-							<!-- MS -->
-							<div class='pl-4 border-l-4 border-accent'>
-								<div class='font-bold text-lg text-base-content'>M.S., Biological & Environmental Engineering</div>
-								<div class='text-base text-base-content/60 mt-1'>August 2024</div>
-							</div>
-							
-							<!-- MEng -->
-							<div class='pl-4 border-l-4 border-secondary'>
-								<div class='font-bold text-lg text-base-content'>M.Eng., Biological & Environmental Engineering</div>
-								<div class='text-base text-base-content/60 mt-1'>May 2020</div>
+		<!-- CV Cards -->
+		<div class='grid md:grid-cols-3 gap-6'>
+			{cvVersions.map((cv) => (
+				<div class={`bg-base-100 border-2 border-base-300 rounded-lg overflow-hidden flex flex-col`}>
+					<!-- Color top bar -->
+					<div class={`${cv.accent} h-1.5`} />
+					<div class='p-6 md:p-8 flex flex-col flex-1'>
+						<h2 class='text-xl md:text-2xl font-bold text-base-content mb-2'>{cv.title}</h2>
+						<p class='text-base text-base-content/60 mb-6 flex-1'>{cv.description}</p>
+						<div class='flex flex-col gap-3'>
+							<a href={cv.pdf} class='btn btn-primary btn-sm' download>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+								</svg>
+								PDF
+							</a>
+							<a href={cv.docx} class='btn btn-outline btn-sm' download>
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+								</svg>
+								Word
+							</a>
+							<div class="tooltip tooltip-bottom w-full [--tooltip-color:theme(colors.base-200)] [--tooltip-text-color:theme(colors.base-content/0.6)]" data-tip="Formatted for applicant tracking systems">
+								<a href={cv.ats} class='btn btn-outline btn-sm w-full' download>
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+									</svg>
+									ATS Optimized
+								</a>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<!-- Hong Kong Baptist University -->
-				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
-					<div class='flex flex-col gap-4'>
-						<!-- Institution Header -->
-						<div class='pb-3 border-b-2 border-base-300'>
-							<div class='font-bold text-xl md:text-2xl text-base-content'>Hong Kong Baptist University</div>
-							<div class='text-base text-base-content/60 mt-1'>Kowloon, Hong Kong</div>
-						</div>
-						
-						<!-- Degree -->
-						<div class='pl-4 border-l-4 border-primary'>
-							<div class='font-bold text-lg md:text-xl text-base-content'>B.Sc. (Hons.) Chemistry (Major), Computer Science (Minor)</div>
-							<div class='text-base text-base-content/60 mt-1'>June 2019</div>
-							<div class='text-sm md:text-base text-base-content/70 mt-2 italic'>Microfabrication & Surface Materials Lab · Supervisor: Kangning Ren</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Experience -->
-		<section class='mb-8 md:mb-12'>
-			<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6'>Experience</h2>
-			<div class='space-y-6'>
-				<!-- Graduate Research Assistant -->
-				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
-					<div class='font-bold text-lg md:text-xl text-base-content mb-2'>Graduate Research Assistant</div>
-					<div class='text-base text-base-content/60 mb-1'>DNA Materials Lab, Cornell University · Ithaca, NY</div>
-					<div class='text-base text-base-content/60 mb-4'>Feb 2021 – Present</div>
-					<ul class='list-disc list-outside space-y-2 text-base md:text-lg ml-5 text-base-content'>
-						<li><strong>DNA-polymer nanoparticle tracers:</strong> fabricated via emulsion and electrospray; field-deployed across an 11 km² sector of Cayuga Lake; coordinated four disciplines; achieved qPCR detection 7 km from release with only 1 mg DNA; generated datasets now used to calibrate 3D hydrodynamic eDNA-transport models (first author, ES&T, 2025).</li>
-						<li><strong>Self-healing DNA hydrogels for ceramic composite repair:</strong> DNA–Al³⁺ hydrogels integrated into CAD-designed, 3D-printed vascular tiles; multi-cycle healing validated by tensile testing and EDS mapping (ACADIA 2024).</li>
-						<li><strong>Photo/thermo-reversible psoralen-clamped DNA hydrogels:</strong> enabling 3D-printable, time-programmed shape fixing and repeated repair.</li>
-						<li><strong>Automated high-throughput DNA-purification platform:</strong> perfluorocarbon pod system delivering ~200 mg per pod (chainable to gram scale) and ~91% cost reduction.</li>
-						<li><strong>Advanced characterization:</strong> tensile & rheology; SEM/DLS; UV-Vis/fluorescence; contact angle; EDS mapping.</li>
-						<li><strong>Leadership:</strong> mentored 3 undergrads; coordinated field team; presented at ACADIA 2024, ACS Fall 2023, Belt-and-Road Youth Forum 2023.</li>
-					</ul>
-				</div>
-
-				<!-- Graduate Teaching Assistant -->
-				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
-					<div class='font-bold text-lg md:text-xl text-base-content mb-2'>Graduate Teaching Assistant</div>
-					<div class='text-base text-base-content/60 mb-1'>Department of Biological & Environmental Engineering, Cornell University · Ithaca, NY</div>
-					<div class='text-base text-base-content/60 mb-4'>Feb 2021 – Present</div>
-					<ul class='list-disc list-outside space-y-2 text-base md:text-lg ml-5 text-base-content'>
-						<li><strong>Course instruction and lab support:</strong> across bio-design, molecular & cellular engineering, watershed systems, engineering professionalism, and sustainable development; created recitation slides, demonstrations, and Canvas materials.</li>
-						<li><strong>AI-driven teaching and curriculum:</strong> delivered guest lectures and integrated AI tools into assignments, review sessions, and data analysis.</li>
-					</ul>
-				</div>
-
-				<!-- Undergraduate Research Assistant -->
-				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
-					<div class='font-bold text-lg md:text-xl text-base-content mb-2'>Undergraduate Research Assistant & Senior Research Assistant</div>
-					<div class='text-base text-base-content/60 mb-1'>Hong Kong Baptist University · Kowloon, Hong Kong</div>
-					<div class='text-base text-base-content/60 mb-4'>Jun 2017 – Aug 2019 & Oct 2020 – Jan 2021</div>
-					<ul class='list-disc list-outside space-y-2 text-base md:text-lg ml-5 text-base-content'>
-						<li><strong>Superhydrophobic fluoropolymer surfaces:</strong> engineered nanopatterned Teflon films via photolithography, two-photon lithography, and chemical etching; achieved ultra-low wettability and high durability; contributed to a peer-reviewed article and a U.S. patent on hierarchical surface architectures.</li>
-						<li><strong>Environmental-simulation platform:</strong> designed an automated chamber controlling humidity, temperature, and airflow for wetting-behavior and coating-durability testing.</li>
-						<li><strong>Static-electricity anti-icing study:</strong> led an investigation of charge-mediated ice shedding, resulting in a top-rated undergraduate thesis.</li>
-					</ul>
-				</div>
-
-				<!-- Research Exchange Program -->
-				<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
-					<div class='font-bold text-lg md:text-xl text-base-content mb-2'>Research Exchange Program</div>
-					<div class='text-base text-base-content/60 mb-1'>Georgia State University · Atlanta, GA</div>
-					<div class='text-base text-base-content/60 mb-4'>Jun 2018 – Aug 2018</div>
-					<ul class='list-disc list-outside space-y-2 text-base md:text-lg ml-5 text-base-content'>
-						<li><strong>Protein–DNA interaction kinetics:</strong> characterized PU.1 transcription-factor binding to DNA using localized surface plasmon resonance (LSPR).</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-
-		<!-- Publications & Patents -->
-		<section class='mb-8 md:mb-12'>
-			<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6'>Publications & Patents</h2>
-			<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
-				<div class='mb-6'>
-					<h3 class='font-bold text-lg md:text-xl text-base-content mb-4'>Papers</h3>
-					<div class='space-y-4'>
-						<p class='text-base md:text-lg text-base-content'>Tracing Environmental DNA Transport in a Large Lake with Synthetic DNA Microparticles and Hydrodynamic Modeling. <span class='text-base-content/60'>Environmental Science & Technology, 2025</span>. <a href='https://doi.org/10.1021/acs.est.5c11071' class='link link-hover text-sm' target='_blank' rel='noopener noreferrer'>DOI</a></p>
-						<p class='text-base md:text-lg text-base-content'>PolyTile 4.0: Self-healing Ceramic Tiles. <span class='text-base-content/60'>ACADIA, 2024</span>.</p>
-						<p class='text-base md:text-lg text-base-content'>All-perfluoropolymer, nonlinear stability-assisted monolithic surface combines topology-specific superwettability with ultradurability. <span class='text-base-content/60'>The Innovation, 2023</span>.</p>
-					</div>
-				</div>
-
-				<div class='border-t-2 border-base-300 pt-6'>
-					<h3 class='font-bold text-lg md:text-xl text-base-content mb-4'>Patents</h3>
-					<div class='space-y-4'>
-						<p class='text-base md:text-lg text-base-content'>Crack engineering as a new route for the construction of arbitrary hierarchical architectures. <span class='text-base-content/60'>US 11,839,998 (2023)</span>.</p>
-						<p class='text-base md:text-lg text-base-content'>Reactor and method of spiral propulsion biomass continuous thermal cracking. <span class='text-base-content/60'>CN 201711214139.6 (2017)</span>.</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Conference Presentations -->
-		<section class='mb-8 md:mb-12'>
-			<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6'>Conference Presentations</h2>
-			<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8 space-y-6'>
-				<div>
-					<div class='mb-2'>
-						<span class='font-semibold text-base md:text-lg text-base-content'>"DNA Nano Tracer for Hydrological and Environmental Investigations."</span>
-					</div>
-					<div class='text-base text-base-content/60'>International Forum for Green Low Carbon Innovation and Development, Anji, China (2023).</div>
-				</div>
-				<div>
-					<div class='mb-2'>
-						<span class='font-semibold text-base md:text-lg text-base-content'>"DNA-PLGA Nanosphere Tracers: A reliable Tool for Studying Environmental DNA (eDNA) Transport in Aquatic Ecosystems."</span>
-					</div>
-					<div class='text-base text-base-content/60'>ACS Fall 2023 National Meeting, San Francisco, CA (2023).</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Skills -->
-		<section class='mb-8 md:mb-12'>
-			<h2 class='text-2xl md:text-3xl font-bold mb-4 md:mb-6'>Skills</h2>
-			<div class='bg-base-100 border-2 border-base-300 rounded-lg p-6 md:p-8'>
-				<div class='grid sm:grid-cols-2 gap-6 md:gap-8'>
-					<div>
-						<div class='font-bold text-lg text-base-content mb-2'>Materials Characterization</div>
-						<p class='text-base md:text-lg text-base-content'>SEM, DLS, EDS, UV-Vis, Fluorometry, Rheometry, Electrophoresis, Tensile Testing, Contact Angle</p>
-					</div>
-					<div>
-						<div class='font-bold text-lg text-base-content mb-2'>Fabrication & Processing</div>
-						<p class='text-base md:text-lg text-base-content'>Electrospray, DIW 3D Printing, SLA/FDM Printing, Spin Coating, Mold Casting, Solvent Precipitation, Photolithography, Two-Photon Lithography, Nanopatterning</p>
-					</div>
-					<div>
-						<div class='font-bold text-lg text-base-content mb-2'>Molecular & Bioengineering</div>
-						<p class='text-base md:text-lg text-base-content'>PCR, qPCR, IVT, Electrophoresis (PAGE/Agarose), DNA/RNA Extraction & Purification, Chromatography, Enzyme Recycling, LSPR Assays, Bio-cleanroom Protocols</p>
-					</div>
-					<div>
-						<div class='font-bold text-lg text-base-content mb-2'>Programming & Computational</div>
-						<p class='text-base md:text-lg text-base-content'>Python, Java, ML (TensorFlow, PyTorch), Data Analysis (Pandas, NumPy, Seaborn)</p>
-					</div>
-					<div>
-						<div class='font-bold text-lg text-base-content mb-2'>Design & Visualization</div>
-						<p class='text-base md:text-lg text-base-content'>CAD, SketchUp, 3ds Max, Adobe Creative Suite, Bootstrap Studio, Scientific Figures, Video/Audio Editing</p>
-					</div>
-					<div>
-						<div class='font-bold text-lg text-base-content mb-2'>Languages</div>
-						<p class='text-base md:text-lg text-base-content'>English (Fluent); Mandarin (Native); Cantonese (Proficient)</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Download PDF Button -->
-		<div class='flex justify-center gap-4 flex-wrap mt-8 md:mt-12 mb-8'>
-			<a href='/cv.pdf' class='btn btn-primary btn-lg' download>
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-				</svg>
-				Download PDF
-			</a>
-			<button type="button" class='btn btn-accent btn-lg' onclick="cv_modal.showModal()">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-				</svg>
-				Email Me This CV
-			</button>
+			))}
 		</div>
-
-		<!-- Email Modal -->
-		<dialog id="cv_modal" class="modal">
-			<div class="modal-box max-w-md">
-				<form method="dialog">
-					<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-				</form>
-				<h3 class="font-bold text-xl mb-2">Get CV via Email</h3>
-				<p class="text-sm text-base-content/70 mb-6">Enter your email and I'll send you my CV along with additional information.</p>
-				
-				<form
-					id="cv-email-form"
-					action="https://formspree.io/f/manpllrv"
-					method="POST"
-					class="space-y-4"
-				>
-					<div class="form-control">
-						<label class="label">
-							<span class="label-text font-semibold">Your Name</span>
-						</label>
-						<input 
-							type="text" 
-							name="name" 
-							placeholder="John Doe" 
-							class="input input-bordered w-full" 
-							required 
-						/>
-					</div>
-					
-					<div class="form-control">
-						<label class="label">
-							<span class="label-text font-semibold">Your Email</span>
-						</label>
-						<input 
-							type="email" 
-							name="email" 
-							placeholder="you@example.com" 
-							class="input input-bordered w-full" 
-							required 
-						/>
-					</div>
-					
-					<div class="form-control">
-						<label class="label">
-							<span class="label-text font-semibold">Message (Optional)</span>
-						</label>
-						<textarea 
-							name="message" 
-							placeholder="I'm interested in..." 
-							class="textarea textarea-bordered w-full h-24"
-						></textarea>
-					</div>
-
-					<!-- Hidden field to track this is a CV request -->
-					<input type="hidden" name="_subject" value="CV Request from Portfolio" />
-					
-					<div class="text-xs text-base-content/60 mb-4">
-						By submitting, you agree to receive my CV and occasional updates. Your information is kept private.
-					</div>
-					
-					<div class="modal-action">
-						<button type="button" class="btn btn-ghost" onclick="cv_modal.close()">Cancel</button>
-						<button type="submit" class="btn btn-primary" id="submit-btn">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-							</svg>
-							Send Request
-						</button>
-					</div>
-				</form>
-
-				<!-- Success Message (hidden by default) -->
-				<div id="success-message" class="hidden">
-					<div class="alert alert-success">
-						<svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-						</svg>
-						<span>Thank you! I'll send you my CV shortly.</span>
-					</div>
-					<div class="modal-action">
-						<button class="btn btn-primary" onclick="cv_modal.close(); location.reload();">Close</button>
-					</div>
-				</div>
-			</div>
-			<form method="dialog" class="modal-backdrop">
-				<button>close</button>
-			</form>
-		</dialog>
 	</div>
 </Layout>
-
-<style>
-	@media print {
-		.btn {
-			display: none;
-		}
-	}
-</style>
-
-<script>
-	// Handle form submission with AJAX
-	const form = document.getElementById('cv-email-form') as HTMLFormElement | null;
-	const successMessage = document.getElementById('success-message');
-	const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
-	
-	if (form && successMessage && submitBtn) {
-		form.addEventListener('submit', async (e) => {
-			e.preventDefault();
-			
-			// Disable button and show loading
-			submitBtn.disabled = true;
-			submitBtn.innerHTML = '<span class="loading loading-spinner"></span> Sending...';
-			
-			try {
-				const formData = new FormData(form);
-				const response = await fetch(form.action, {
-					method: 'POST',
-					body: formData,
-					headers: {
-						'Accept': 'application/json'
-					}
-				});
-				
-				if (response.ok) {
-					// Hide form, show success message
-					form.classList.add('hidden');
-					successMessage.classList.remove('hidden');
-				} else {
-					throw new Error('Form submission failed');
-				}
-			} catch (error) {
-				alert('There was an error sending your request. Please try again or contact me directly.');
-				submitBtn.disabled = false;
-				submitBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg> Send Request';
-			}
-		});
-	}
-</script>

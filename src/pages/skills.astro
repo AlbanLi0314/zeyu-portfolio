@@ -56,14 +56,6 @@ const skills = {
 		'Mandarin',
 		'Cantonese'
 	],
-	'AI Tools': [
-		{ tool: 'LLMs: ChatGPT, Claude, Gemini', note: null },
-		{ tool: 'Agentic Workflows & Orchestration: Comet, Manus', note: 'I analyze specific fish genome DNA and process my daily email.' },
-		{ tool: 'Code Generation & Automation: GitHub Copilot (in VS Code)', note: 'I coded this website end to end, and I process and visualize my tracer paper data.' },
-		{ tool: 'ML & Modeling: Keras/TensorFlow, PyTorch, XGBoost', note: 'I train a Keras ImageDataGenerator classifier, run a PyTorch optimization loop, and fit an XGBoost model to predict gel strength, with projects from freeCodeCamp\'s Machine Learning with Python.' },
-		{ tool: 'Image Generation: Prompted scientific schematics', note: 'I generate Python scripts for Blender to create 3D models.' },
-		{ tool: 'Research Workflow & Productivity: Jupyter/Code Interpreter; Notion; GitHub', note: 'I manage all my lab notes in Notion, and I manage my TA work and the class GitHub organization.' }
-	]
 }
 ---
 
@@ -79,49 +71,25 @@ const skills = {
 
 		<!-- Skills Grid -->
 		<div class='grid sm:grid-cols-2 gap-4 md:gap-6 stagger-card'>
-			{Object.entries(skills).map(([category, items]) => {
-				// AI Tools spans both columns
-				const isAITools = category === 'AI Tools';
-				const cardClass = isAITools ? 'sm:col-span-2' : '';
-				
-				return (
-					<div class={`${cardClass} stagger-item`}>
-						<div class='card bg-base-100 border-2 border-base-300 h-full'>
-							<div class='card-body p-4 md:p-6'>
-								<h2 class={`text-lg md:text-xl font-bold mb-3 md:mb-4 ${isAITools ? 'bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent' : ''}`}>
-									{category}
-								</h2>
-								{isAITools ? (
-									<div class='space-y-3 md:space-y-4'>
-										{items.map((item) => (
-											<div>
-												<div class='flex items-start gap-2 text-sm md:text-base'>
-													<span class='text-primary mt-1'>•</span>
-													<span>{item.tool}</span>
-												</div>
-												{item.note && (
-													<div class='ml-5 mt-1.5 text-sm md:text-base text-base-content/60 italic'>
-														{item.note}
-													</div>
-												)}
-											</div>
-										))}
-									</div>
-								) : (
-									<ul class='space-y-1.5 md:space-y-2 text-sm md:text-base'>
-										{items.map((skill) => (
-											<li class='flex items-start gap-2'>
-												<span class='text-primary mt-1'>•</span>
-												<span>{skill}</span>
-											</li>
-										))}
-									</ul>
-								)}
-							</div>
+			{Object.entries(skills).map(([category, items]) => (
+				<div class='stagger-item'>
+					<div class='card bg-base-100 border-2 border-base-300 h-full'>
+						<div class='card-body p-4 md:p-6'>
+							<h2 class='text-lg md:text-xl font-bold mb-3 md:mb-4'>
+								{category}
+							</h2>
+							<ul class='space-y-1.5 md:space-y-2 text-sm md:text-base'>
+								{items.map((skill) => (
+									<li class='flex items-start gap-2'>
+										<span class='text-primary mt-1'>•</span>
+										<span>{skill}</span>
+									</li>
+								))}
+							</ul>
 						</div>
 					</div>
-				);
-			})}
+				</div>
+			))}
 		</div>
 	</div>
 </Layout>

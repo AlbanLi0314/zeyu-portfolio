@@ -1,21 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { personJsonLd } from '@/data/jsonld'
 
 import HeroSection from '@/components/ai/HeroSection.astro'
 import ProductsSection from '@/components/ai/ProductsSection.astro'
 import ResearchPipeline from '@/components/ai/ResearchPipeline.astro'
 import PhilosophySection from '@/components/ai/PhilosophySection.astro'
 import TeachingSection from '@/components/ai/TeachingSection.astro'
+import AIFluencyIndex from '@/components/ai/AIFluencyIndex.jsx'
 
 const navItems = [
   { id: 'research', label: 'Research' },
   { id: 'products', label: 'Products' },
   { id: 'philosophy', label: 'Philosophy' },
   { id: 'teaching', label: 'Teaching' },
+  { id: 'fluency', label: 'AI Fluency Index' },
 ]
 ---
 
 <Layout title="AI Integration - Zeyu Li">
+  <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
   <Fragment slot="top-nav">
     {navItems.map((item) => (
       <a
@@ -34,6 +38,9 @@ const navItems = [
     <ProductsSection />
     <PhilosophySection />
     <TeachingSection />
+    <section id="fluency" class="mb-16 md:mb-20 scroll-mt-28 md:scroll-mt-32 pt-8 border-t border-base-300 fade-in-up">
+      <AIFluencyIndex client:visible />
+    </section>
   </div>
 </Layout>
 
