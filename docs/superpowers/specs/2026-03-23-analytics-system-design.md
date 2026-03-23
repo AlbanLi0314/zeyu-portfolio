@@ -91,7 +91,7 @@ CREATE TABLE events (
   http_protocol TEXT,
   tls_version   TEXT,
 
-  -- Bot detection
+  -- Bot detection (request.cf.clientTrustScore, available on free tier)
   trust_score   INTEGER,
   dnt           INTEGER,
 
@@ -247,8 +247,14 @@ INSERT INTO url_labels VALUES
   ('https://www.youtube.com/watch?v=sfNbcSTc1aE', 'ER Companion Software Demo'),
   ('https://www.youtube.com/watch?v=PdG9uu5Dodc', 'ER Companion Hardware Demo'),
   ('/cv/Alban_Resume_AI.pdf', 'CV AI PDF'),
+  ('/cv/Alban_Resume_AI.docx', 'CV AI Word'),
+  ('/cv/Alban_ATS_AI.docx', 'CV AI ATS'),
   ('/cv/Alban_Resume_M.pdf', 'CV Materials PDF'),
-  ('/cv/Alban_Resume_B.pdf', 'CV Biotech PDF');
+  ('/cv/Alban_Resume_M.docx', 'CV Materials Word'),
+  ('/cv/Alban_ATS_M.docx', 'CV Materials ATS'),
+  ('/cv/Alban_Resume_B.pdf', 'CV Biotech PDF'),
+  ('/cv/Alban_Resume_B.docx', 'CV Biotech Word'),
+  ('/cv/Alban_ATS_B.docx', 'CV Biotech ATS');
 ```
 
 For new URLs with no label, dashboard displays raw URL as fallback.
@@ -289,24 +295,35 @@ else:
     is_new_session = 0
 ```
 
+### Routing priority
+
+The Worker matches paths in this order — first match wins:
+1. `/_a/dashboard` → Dashboard
+2. `/_a/stats` → Stats API
+3. `/go` → Click redirect
+4. Everything else → Proxy + pageview
+
 ### `/_a/dashboard` — Dashboard
 
-1. Check KV for auth session token
+1. Check KV for auth session token (key: `auth:<token>`)
 2. Invalid → return login HTML (password form)
-3. Valid → return dashboard HTML (Chart.js, fetches `/_a/stats`)
+3. On login POST: verify password against Worker secret `DASHBOARD_PASSWORD` (set via `wrangler secret put`)
+4. On success: generate token, `KV.put('auth:<token>', '1', { expirationTtl: 86400 })`, set cookie `_a_token=<token>`
+5. Valid → return dashboard HTML (Chart.js, fetches `/_a/stats`)
 
 ### `/_a/stats?metric=<m>&range=<r>` — Stats API
 
-1. Verify auth session token (401 if invalid)
+1. Verify auth session token from `_a_token` cookie (401 if invalid)
 2. Query appropriate `agg_*` table with date range
 3. For cross-range UV: query `events` directly with `COUNT(DISTINCT ip)`
-4. Return JSON
+4. Return JSON (same-origin only, no CORS headers)
 
 ### `/go?url=<target>` — Click redirect
 
 1. Extract `target_url` from query params
-2. `ctx.waitUntil(writeEvent('click', visitorInfo, session_id, is_new_session, target_url))`
-3. Return `Response.redirect(target_url, 302)`
+2. **Validate URL:** must start with `https://` or `http://` or `/` (relative). Reject `javascript:`, `data:`, or empty — return 400.
+3. `ctx.waitUntil(writeEvent('click', visitorInfo, session_id, is_new_session, target_url))`
+4. Return `Response.redirect(target_url, 302)`
 
 ### All other paths — Proxy + pageview
 
@@ -318,7 +335,7 @@ else:
 
 ## Cron Job
 
-**Schedule:** `0 5 * * *` (00:05 UTC daily)
+**Schedule:** `5 0 * * *` (00:05 UTC daily)
 
 Processes yesterday's data. All queries filter `WHERE trust_score IS NULL OR trust_score >= 50` to exclude bots. Each step runs independently:
 
@@ -346,8 +363,8 @@ Stack: static HTML + Chart.js served directly from Worker
 
 | Block | Chart Type | Data Source |
 |-------|-----------|-------------|
-| Daily visits / PV trend | Line chart | `agg_daily` |
-| Page ranking | Horizontal bar | `agg_daily` |
+| Daily visits / PV trend | Line chart | `agg_daily` (sum all paths) |
+| Top paths ranking | Horizontal bar | `agg_daily` (raw path granularity) |
 | Referrer source distribution | Pie chart | `agg_referrer` |
 | Country / region distribution | Horizontal bar (US/CN expandable) | `agg_geo` |
 | Org / network ranking | Horizontal bar | `agg_org` |
@@ -373,13 +390,14 @@ All tracked external links rewritten to go through `/go`:
 
 **Files to modify:**
 - `src/pages/publications.astro` — paper DOIs, patent links
-- `src/pages/research.astro` — paper full text, PolyTile PDF
+- `src/pages/research.astro` — paper full text link (Cell Press), PolyTile PDF (Squarespace). Collaborator profiles and funding agency links are NOT rewritten.
 - `src/components/ai/ProductsSection.astro` — GitHub repos, demos, YouTube
-- `src/pages/cv.astro` — CV download links
+- `src/pages/cv.astro` — all CV download links (PDF, Word, ATS)
 
 **Not rewritten:**
 - Social profile links (LinkedIn, GitHub profile, Google Scholar, ORCID) in sidebar/footer
-- Collaborator faculty profile links
+- Collaborator faculty profile links on research page
+- Funding agency links (SERDP, etc.)
 - Internal navigation links (captured as pageviews automatically)
 
 ### Footer privacy notice
@@ -398,6 +416,7 @@ Add to `src/layouts/Layout.astro` footer:
 - At Porkbun: change nameservers to Cloudflare's
 - Wait for DNS propagation
 - Add DNS records pointing to GitHub Pages (same `CNAME` or `A` records as before)
+- Ensure `CNAME` file containing `zeyuli.net` exists in repo root (already present) — GitHub Pages requires this to accept proxied requests
 
 ### 2. Cloudflare resource creation
 - Create KV namespace: `ANALYTICS_KV`
@@ -407,12 +426,31 @@ Add to `src/layouts/Layout.astro` footer:
 
 ### 3. Worker deployment
 - `wrangler init` → write Worker code
-- Bind KV and D1 in `wrangler.toml`
-- Route: `zeyuli.net/*`
+- Set dashboard password: `wrangler secret put DASHBOARD_PASSWORD`
+- Sample `wrangler.toml`:
+  ```toml
+  name = "zeyuli-analytics"
+  main = "src/index.js"
+  compatibility_date = "2024-01-01"
+
+  routes = [{ pattern = "zeyuli.net/*", zone_name = "zeyuli.net" }]
+
+  [[kv_namespaces]]
+  binding = "KV"
+  id = "<kv-namespace-id>"
+
+  [[d1_databases]]
+  binding = "DB"
+  database_name = "ANALYTICS_DB"
+  database_id = "<d1-database-id>"
+
+  [triggers]
+  crons = ["5 0 * * *"]
+  ```
 - Origin: `https://albanli0314.github.io`
 
 ### 4. Cron Job
-- Configure in `wrangler.toml`: `[triggers] crons = ["0 5 * * *"]`
+- Configure in `wrangler.toml`: `[triggers] crons = ["5 0 * * *"]`
 - Implement `scheduled` handler in Worker
 
 ### 5. Astro site changes
