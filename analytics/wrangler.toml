@@ -1,0 +1,17 @@
+name = "zeyuli-analytics"
+main = "src/index.js"
+compatibility_date = "2024-12-01"
+
+routes = [{ pattern = "zeyuli.net/*", zone_name = "zeyuli.net" }]
+
+[[kv_namespaces]]
+binding = "KV"
+id = "<fill-after-creating>"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ANALYTICS_DB"
+database_id = "<fill-after-creating>"
+
+[triggers]
+crons = ["5 0 * * *"]

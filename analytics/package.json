@@ -1,0 +1,15 @@
+{
+  "name": "zeyuli-analytics",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "db:init": "wrangler d1 execute ANALYTICS_DB --local --file=schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4",
+    "vitest": "^3",
+    "@cloudflare/vitest-pool-workers": "^0.8"
+  }
+}
