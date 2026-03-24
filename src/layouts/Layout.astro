@@ -793,13 +793,29 @@ const {
 
 <script>
 	// Global Intersection Observer for scroll animations
+	let currentObserver = null;
+
 	const setupAnimations = () => {
+		// Disconnect previous observer to avoid duplicates on view transitions
+		if (currentObserver) {
+			currentObserver.disconnect();
+			currentObserver = null;
+		}
+
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		// Skip stagger-item if its parent is already a stagger-card (avoid double animation)
 		const animatedElements = document.querySelectorAll('.fade-in-up, .stagger-card, .stagger-item');
+		const filtered = Array.from(animatedElements).filter(el => {
+			if (el.classList.contains('stagger-item') && el.closest('.stagger-card')) {
+				return false; // parent handles the animation
+			}
+			return true;
+		});
 
 		// If user prefers reduced motion, make everything visible immediately
 		if (prefersReducedMotion) {
-			animatedElements.forEach(el => el.classList.add('is-visible'));
+			filtered.forEach(el => el.classList.add('is-visible'));
 			return;
 		}
 
@@ -809,7 +825,7 @@ const {
 			threshold: 0.1
 		};
 
-		const observer = new IntersectionObserver((entries) => {
+		currentObserver = new IntersectionObserver((entries) => {
 			let staggerDelay = 0;
 
 			entries.forEach(entry => {
@@ -829,7 +845,7 @@ const {
 			});
 		}, observerOptions);
 
-		animatedElements.forEach(el => observer.observe(el));
+		filtered.forEach(el => currentObserver.observe(el));
 	};
 
 	// Run on initial load
