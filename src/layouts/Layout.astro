@@ -831,7 +831,17 @@ const {
 			entries.forEach(entry => {
 				const target = entry.target;
 				if (entry.isIntersecting) {
-					if (target.classList.contains('stagger-card') || target.classList.contains('stagger-item')) {
+					if (target.classList.contains('stagger-card')) {
+						target.classList.add('is-visible');
+						// Also stagger-animate child .stagger-item elements
+						const children = target.querySelectorAll('.stagger-item');
+						children.forEach((child, i) => {
+							setTimeout(() => {
+								child.classList.add('is-visible');
+							}, (staggerDelay + i) * 75);
+						});
+						staggerDelay += children.length;
+					} else if (target.classList.contains('stagger-item')) {
 						setTimeout(() => {
 							target.classList.add('is-visible');
 						}, staggerDelay * 75);
@@ -841,6 +851,11 @@ const {
 					}
 				} else {
 					target.classList.remove('is-visible');
+					if (target.classList.contains('stagger-card')) {
+						target.querySelectorAll('.stagger-item').forEach(child => {
+							child.classList.remove('is-visible');
+						});
+					}
 				}
 			});
 		}, observerOptions);
