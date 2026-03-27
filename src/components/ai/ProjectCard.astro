@@ -18,10 +18,12 @@ interface Props {
   href3?: string;
   ctaText3?: string;
   tagLinks?: Record<string, string>;
+  videoEmbed?: string;
 }
 
-const { title, description, imageSrc, images, tags, metrics, href, status, ctaText, external, featured, href2, ctaText2, href3, ctaText3, tagLinks = {} } = Astro.props;
+const { title, description, imageSrc, images, tags, metrics, href, status, ctaText, external, featured, href2, ctaText2, href3, ctaText3, tagLinks = {}, videoEmbed } = Astro.props;
 const allImages = images && images.length > 0 ? images : [imageSrc];
+const totalSlides = allImages.length + (videoEmbed ? 1 : 0);
 ---
 
 {featured ? (
@@ -42,8 +44,22 @@ const allImages = images && images.length > 0 ? images : [imageSrc];
                 />
               </div>
             ))}
+            {videoEmbed && (
+              <div class="carousel-slide w-full h-full flex-shrink-0">
+                <iframe
+                  src={videoEmbed}
+                  title={`${title} demo video`}
+                  class="w-full h-full"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+            )}
           </div>
-          {allImages.length > 1 && (
+          {totalSlides > 1 && (
             <>
               <button class="carousel-btn carousel-prev absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm border border-base-300 flex items-center justify-center hover:bg-white transition-colors z-10" aria-label="Previous image">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-base-content/70"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
@@ -52,7 +68,7 @@ const allImages = images && images.length > 0 ? images : [imageSrc];
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-base-content/70"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
               </button>
               <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-                {allImages.map((_, i) => (
+                {Array.from({ length: totalSlides }).map((_, i) => (
                   <span class={`carousel-dot w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-primary' : 'bg-base-300'} transition-colors`}></span>
                 ))}
               </div>

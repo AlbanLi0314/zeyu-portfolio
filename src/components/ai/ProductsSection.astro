@@ -2,6 +2,7 @@
 import ProjectCard from './ProjectCard.astro';
 import AlsoBuilt from './AlsoBuilt.astro';
 
+import kinapseImg from '@/assets/ai/kinapse.jpg';
 import resonanceImg from '@/assets/ai/resonance.png';
 import echoImg from '@/assets/ai/echo.png';
 import erCompanionImg from '@/assets/ai/er-companion.png';
@@ -12,6 +13,20 @@ import erCompanionHwImg from '@/assets/ai/er-companion-hw.png';
   <h2 class="text-2xl md:text-3xl font-bold mb-10 text-primary">How I Build and Ship AI Tools</h2>
 
   <div class="flex flex-col gap-8">
+    <!-- Featured: Kinapse -->
+    <ProjectCard
+      title="Kinapse"
+      description="Most people talk to AI the way they'd text a friend — vague, unstructured, missing context. Kinapse sits at the OS level: hold a key, speak naturally in English or Chinese, release. It captures your screen, detects the active app, classifies your task into one of 9 types, retrieves your interaction history, and restructures everything into an optimized prompt — pasted directly where you were typing. A 6-dimension AI fluency radar tracks your growth over time."
+      imageSrc={kinapseImg}
+      tags={['Context Engineering', 'Prompt Engineering', 'RAG', 'Streaming', 'Electron', 'Python', 'FastAPI', 'Gemini Live API', 'WebSocket', 'Cloud Run', 'Docker', 'Firestore', 'Firebase Auth', 'PyObjC', 'PyInstaller']}
+      metrics="9 task-type classifiers · Bilingual STT (EN/中文) · 6D AI fluency radar · Real-time floating widget · .dmg packaged"
+      videoEmbed="https://www.youtube.com/embed/7T2k9rD09KE"
+      href="#"
+      ctaText="Available on Request"
+      external={true}
+      featured={true}
+    />
+
     <!-- Featured: ER Companion -->
     <ProjectCard
       title="ER Companion (CareBridge)"
