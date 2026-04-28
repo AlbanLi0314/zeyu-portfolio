@@ -14,7 +14,7 @@ export const personJsonLd = {
 	],
 	"email": "zl788@cornell.edu",
 	"telephone": "+1-626-826-5327",
-	"jobTitle": "Ph.D. Candidate in Biological and Environmental Engineering",
+	"jobTitle": "Ph.D. in Biological and Environmental Engineering",
 	"worksFor": {
 		"@type": "Organization",
 		"name": "Cornell University",
@@ -70,6 +70,9 @@ export const personJsonLd = {
 		"scanning electron microscopy", "SEM", "EDS", "DLS", "UV-Vis spectroscopy", "fluorometry",
 		"PCR", "qPCR", "in vitro transcription", "electrophoresis", "LSPR",
 		"photolithography", "two-photon lithography", "nanopatterning", "electrospinning",
+		"cell-free biomanufacturing", "continuous-flow biomanufacturing", "mRNA manufacturing",
+		"cell-free RNA synthesis", "RNA logic gates", "ribozyme engineering", "split aptamers",
+		"NHS-amine bioconjugation", "microfluidic reactors", "isothermal DNA amplification",
 		"machine learning", "TensorFlow", "PyTorch", "Python", "Java",
 		"LLM integration", "RAG pipelines", "FAISS", "prompt engineering", "agentic workflows",
 		"React", "Firebase", "Vercel", "Streamlit", "full-stack development",
@@ -96,6 +99,7 @@ export const personJsonLd = {
 		}
 	],
 	"award": [
+		"CALS Outstanding Graduate Teaching Assistant, Cornell University (2025-2026)",
 		"Best Hardware Prize, Cornell AI Health Hackathon",
 		"Best Undergraduate Thesis Award, Hong Kong Baptist University (2019)",
 		"Best Poster Presentation Award, Georgia State University (2018)",
@@ -107,9 +111,9 @@ export const personJsonLd = {
 			"@type": "ScholarlyArticle",
 			"name": "A Chip Reactor for Perpetual Nucleic Acid Production and On-chip Information Processing",
 			"author": "Wang, D., Li, Z., et al.",
-			"publisher": { "@type": "Organization", "name": "Nature" },
+			"publisher": { "@type": "Organization", "name": "Nature Sustainability" },
 			"datePublished": "2026",
-			"description": "Under review"
+			"description": "In peer review"
 		},
 		{
 			"@type": "ScholarlyArticle",
@@ -152,6 +156,6 @@ export const personJsonLd = {
 	],
 	"seeks": {
 		"@type": "Demand",
-		"description": "Full-time roles in materials science, biotechnology, or AI engineering starting May 2026"
+		"description": "Full-time roles in materials science, biotechnology, or AI engineering, available immediately"
 	}
 }

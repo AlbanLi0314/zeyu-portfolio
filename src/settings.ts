@@ -1,6 +1,6 @@
 export const profile = {
 	fullName: 'Zeyu (Alban) Li',
-	title: 'Ph.D. Candidate at Cornell',
+	title: 'Ph.D., Cornell University',
 	institute: 'Cornell University',
 	author_name: 'Zeyu Li',
 	research_areas: [
@@ -56,7 +56,7 @@ export const template = {
 }
 
 export const seo = {
-	default_title: 'Zeyu (Alban) Li - Ph.D. Candidate',
-	default_description: 'Personal academic website of Zeyu (Alban) Li, Ph.D. Candidate in Biological and Environmental Engineering at Cornell University.',
+	default_title: 'Zeyu (Alban) Li - Ph.D.',
+	default_description: 'Personal academic website of Zeyu (Alban) Li, Ph.D. in Biological and Environmental Engineering at Cornell University.',
 	default_image: '/images/astro-academia.png',
 }

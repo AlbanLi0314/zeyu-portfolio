@@ -45,11 +45,10 @@ const projects = [
     approach: "We built a biomass-DNA hydrogel platform from salmon and herring DNA and tuned three crosslink modes: thermally reversible physical crosslinks (heat/cool), UV-reversible psoralen crosslinks, and rapid ionic crosslinks with multivalent cations (e.g., Al³⁺). Formulations were tuned for application-specific rheology, stiffness, and swelling.",
     results: "The biomass-DNA hydrogel formed self-supporting networks that healed by thermal re-annealing, could be locked and later released with psoralen under UV, and stiffened rapidly via multivalent-ion crosslinking. Formulations printed cleanly as direct-ink-writing lattices and cast as films or membranes, with stiffness, viscosity, and swelling tuned by DNA concentration and crosslink type and density. As a demo, PolyTile 4.0's embedded channels routed dehydrated DNA precursor to cracks; upon rehydration with salts the gel set in place and sealed damage, validating on-demand delivery and multi-cycle repair in an architected part.",
     impact: "These results position biomass DNA as a materials-grade feedstock for low-cost, water-based processing and true reprocessability, enabling refillable self-healing and printable reinforcements at practical scale. The platform integrates with vascular composites and is extensible to concrete and porous ceramics. It can carry barrier or sensing payloads for environmental modules. Public disclosure at ACADIA 2024 indicates readiness for broader prototyping and cross-disciplinary collaboration.",
-    nextSteps: "We will map the programmability of the biomass DNA hydrogel across thermal, UV psoralen, and multivalent ion crosslinking, quantifying G′, tan δ, swelling ratios, lock and release kinetics, ionic set times, and durability over cycles, with controls and repeatability. We will log results to a compact dataset to fit simple predictors of G′ from DNA wt percent and salt. A manuscript in preparation will focus on the hydrogel as a stand-alone platform and screen gel-only use cases such as barrier membranes, sensing payloads, and direct ink writing, with clear methods and benchmarks.",
+    nextSteps: "We will map the programmability of the biomass DNA hydrogel across thermal, UV psoralen, and multivalent ion crosslinking, quantifying G′, tan δ, swelling ratios, lock and release kinetics, ionic set times, and durability over cycles, with controls and repeatability. We will log results to a compact dataset to fit simple predictors of G′ from DNA wt percent and salt.",
     outcomes: [
       "Co-First author paper published on ACADIA 2024 (Premier Conference in Computational Design)",
       "Supported by Cornell SPROUT Awards",
-      "Another manuscript in preparation",
       "3D-printable via DIW"
     ],
     role: "Co-first author; project lead",
@@ -64,7 +63,36 @@ const projects = [
       { name: "Cornell SPROUT Awards", url: "https://www.engineering.cornell.edu/faculty-resources/sprout-awards/" },
       { name: "Acadia", url: "https://www.acadia.org" }
     ],
-    captions: ["$1 and $1 of DNA (from salmon)", "3D printed DNA hydrogel"]
+    captions: ["Salmon biomass DNA, hydrogel feedstock", "3D printed DNA hydrogel"]
+  },
+  {
+    id: "chip-reactor",
+    title: "A Chip Reactor for Perpetual Nucleic Acid Production and On-chip Information Processing",
+    shortLabel: "Chip reactor",
+    summary: "A continuous-flow chip reactor with covalently immobilized DNA templates (NucleoMesh) sustained 100+ days of perpetual mRNA synthesis at steady-state output, transforming cell-free nucleic-acid production from hours-long batch reactions into months-long continuous flow.",
+    problem: "Demand for nucleic-acid therapeutics (mRNA vaccines, siRNA drugs, CRISPR reagents) is outpacing the throughput of today's biomanufacturing. The two dominant routes both hit walls: cell-based fermentation is capped by homeostatic regulation, and cell-free in vitro transcription, the workhorse for mRNA, saturates within hours as substrates deplete, enzymes inactivate, and inhibitory byproducts accumulate. Manufacturers compensate with massive parallel batches, repeated reagent loads, and aggressive purification, each step adding cost, lot variability, and quality risk to drugs where consistency is non-negotiable. Continuous, long-duration production has remained out of reach because every reaction component eventually decays under static conditions.",
+    approach: "We took the problem in two architectural moves. First, we engineered NucleoMesh: a polyester-mesh-supported PEG organogel bearing NHS groups that covalently anchor amino-modified DNA templates throughout a porous, mass-transport-friendly hydrogel. Second, we packaged NucleoMesh into a replaceable cartridge by sandwiching it between PDMS spacers and PMMA plates, then drove a continuous flow of T7 RNA polymerase, NTPs, and buffer across the immobilized template surface with syringe pumps. The flow continuously replenishes substrates and sweeps away inhibitory byproducts, keeping local reaction kinetics fresh over arbitrarily long runs. By immobilizing the template rather than the enzyme, we exploit the most stable reaction component and convert template DNA into a reusable, solid-phase catalyst.",
+    results: "Three NucleoMesh chip reactors, run in parallel for 7 days, produced six RNA classes (RFP and GFP mRNAs, Mango III aptamer, siRNA, miRNA, hammerhead ribozyme) at steady-state output. A single reactor then ran continuously for 100 days, holding RFP mRNA effluent steady at ~30 ng/μL after startup and yielding milligram-scale product per cartridge by day 100. Gel electrophoresis on days 1, 3, 7, 30, 60, and 100 returned a single sharp full-length band throughout. Against a 300 μL batch IVT (which saturates within 24 hours), chip-reactor template-normalized productivity stayed linear over the full 100-day run, exceeding batch by orders of magnitude on an equivalent-volume basis. Reactor-synthesized products were bioactive: mRNAs translated to fluorescent proteins; siSTAT3 knocked down STAT3 by ~60% in HCT116 cells; anti-miR-33 drove M1-to-M2 macrophage polarization. Crucial for therapeutic-grade RNA, dsRNA impurity stayed well below batch levels across the entire 100-day run. The same platform extended to ssDNA synthesis via isothermal RPA, and three reactors were routed into a three-state FET-like RNA logic gate with fluorescence readout, showing one architecture can serve as both production line and in situ information processor. The work is in peer review at Nature Sustainability and was supported by Cornell University's Moonshot Seed Grant Program.",
+    impact: "By rendering the DNA template a reusable, solid-phase catalyst and decoupling reaction lifetime from enzyme decay, the chip reactor reframes cell-free nucleic-acid manufacturing from a high-cost batch operation into a continuous process. Replaceable cartridges enable scale-out by parallelization rather than expensive scale-up; pause-and-resume operation supports on-demand and distributed production. Lower dsRNA impurity reduces downstream purification burden and aligns with regulatory pressure toward continuous biomanufacturing for therapeutic mRNA. Reducing all process variables to flow rates, temperatures, and concentrations creates a hardware substrate naturally suited to AI-augmented closed-loop control. The same architecture supports both production and on-chip RNA logic, opening a path to integrated synthesis-and-sensing modules.",
+    nextSteps: "Ongoing work moves the platform toward therapeutic-grade operation: integrating 5' capping, inline concentration and purification, and quality analytics so the cartridge can sit upstream of a GMP-aligned mRNA workflow. In parallel, cartridge-to-cartridge consistency is being tightened through stricter DNA-loading and coupling-yield specifications, and multi-reactor manifolds validated for industrial-scale parallelization. Sensor-instrumented cartridges are being built for closed-loop AI process control, exploiting the platform's reduction of state to flow rate, concentration, and temperature. Longer-term extensions include cell-free protein synthesis on the same hardware and inline RNA logic readout for integrated synthesis-and-sensing diagnostic modules.",
+    outcomes: [
+      "Manuscript in peer review at Nature Sustainability (2026, second author)",
+      "100+ days perpetual mRNA synthesis with milligram-scale cumulative yield per cartridge",
+      "Six RNA classes plus ssDNA produced on the same platform",
+      "dsRNA impurity sustained below batch IVT across the 100-day run",
+      "Supported by Cornell Moonshot Seed Grant Program"
+    ],
+    role: "Second author; device fabrication, template engineering, and biochemical characterization",
+    collaborators: [
+      { name: "Dr. Dong Wang", affiliation: "Cornell University", url: "https://cals.cornell.edu/people/dong-wang" },
+      { name: "Prof. Dan Luo", affiliation: "Cornell University", url: "https://cals.cornell.edu/people/dan-luo" },
+      { name: "Dr. Fengqin Li", affiliation: "Shanghai Jiao Tong University", url: "" },
+      { name: "Prof. Peifeng Liu", affiliation: "Shanghai Jiao Tong University", url: "https://www.shsmu.edu.cn/english/info/1305/2376.htm" }
+    ],
+    links: [
+      { name: "Manuscript (Nature Sustainability, in peer review)", url: "/publications" }
+    ],
+    captions: ["Continuous-flow chip reactor in operation", "100-day perpetual mRNA synthesis with steady-state output"]
   },
   {
     id: "extraction",
@@ -140,12 +168,15 @@ const projects = [
         Field-ready DNA technologies for tracing and materials, plus robust superhydrophobic surfaces for icing control.
       </p>
 
-      <!-- Compact metrics -->
+      <!-- Compact metrics: line 1 = totals + chip reactor; line 2 = older project metrics -->
       <div class="flex flex-wrap items-center gap-x-3 md:gap-x-4 gap-y-2 text-sm md:text-base text-base-content/60">
         <span><span class="font-semibold text-primary">4</span> Publications</span>
         <span class="opacity-50 hidden sm:inline">•</span>
         <span><span class="font-semibold text-primary">2</span> Patents</span>
         <span class="opacity-50 hidden sm:inline">•</span>
+        <span><span class="font-semibold text-primary">100-day</span> perpetual mRNA (chip reactor)</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-3 md:gap-x-4 gap-y-2 text-sm md:text-base text-base-content/60 mt-2">
         <span><span class="font-semibold text-primary">91%</span> cost reduction (DNA extraction)</span>
         <span class="opacity-50 hidden sm:inline">•</span>
         <span><span class="font-semibold text-primary">11 km²</span> field deployment (eDNA tracers)</span>
@@ -222,9 +253,9 @@ const projects = [
                 <div class="relative group flex-shrink-0 w-[calc(100%-1rem)] max-w-[500px] sm:w-auto overflow-hidden rounded-2xl shadow-md cursor-pointer snap-center">
                   <div class="aspect-video">
                     <img 
-                      src={`/${project.id === 'tracers' ? 'A1' : project.id === 'hydrogels' ? 'B1' : project.id === 'extraction' ? 'C1' : 'D1'}.jpg`}
+                      src={`/${project.id === 'tracers' ? 'A1' : project.id === 'hydrogels' ? 'B1' : project.id === 'chip-reactor' ? 'E1' : project.id === 'extraction' ? 'C1' : 'D1'}.jpg`}
                       alt={project.captions[0]}
-                      class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-125"
+                      class={`w-full h-full transition-all duration-300 group-hover:brightness-125 ${project.id === 'chip-reactor' ? 'object-contain bg-white' : 'object-cover'}`}
                     />
                   </div>
                   <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
@@ -238,9 +269,9 @@ const projects = [
                 <div class="relative group flex-shrink-0 w-[calc(100%-1rem)] max-w-[500px] sm:w-auto overflow-hidden rounded-2xl shadow-md cursor-pointer snap-center">
                   <div class="aspect-video">
                     <img 
-                      src={`/${project.id === 'tracers' ? 'A2' : project.id === 'hydrogels' ? 'B2' : project.id === 'extraction' ? 'C2' : 'D2'}.jpg`}
+                      src={`/${project.id === 'tracers' ? 'A2' : project.id === 'hydrogels' ? 'B2' : project.id === 'chip-reactor' ? 'E2' : project.id === 'extraction' ? 'C2' : 'D2'}.jpg`}
                       alt={project.captions[1]}
-                      class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-125"
+                      class={`w-full h-full transition-all duration-300 group-hover:brightness-125 ${project.id === 'chip-reactor' ? 'object-contain bg-white' : 'object-cover'}`}
                     />
                   </div>
                   <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
@@ -276,9 +307,13 @@ const projects = [
                           <div class="space-y-2">
                             {project.collaborators.map((collab) => (
                               <div>
-                                <a href={collab.url} target="_blank" rel="noopener noreferrer" class="link link-primary text-xs md:text-sm hover:underline">
-                                  {collab.name}
-                                </a>
+                                {collab.url ? (
+                                  <a href={collab.url} target="_blank" rel="noopener noreferrer" class="link link-primary text-xs md:text-sm hover:underline">
+                                    {collab.name}
+                                  </a>
+                                ) : (
+                                  <span class="text-xs md:text-sm font-medium">{collab.name}</span>
+                                )}
                                 <p class="text-xs text-base-content/60 italic">{collab.affiliation}</p>
                               </div>
                             ))}

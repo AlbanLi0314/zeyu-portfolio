@@ -1,9 +1,9 @@
 ---
 title: "A Chip Reactor for Perpetual Nucleic Acid Production and On-chip Information Processing"
 authors: ["Dong Wang", "Zeyu Li", "Junru Li", "Yongming Han", "Ting Sun", "Fengqin Li", "Peifeng Liu", "Dan Luo"]
-venue: "Nature"
+venue: "Nature Sustainability"
 year: 2026
-status: "under review"
+status: "in peer review"
 doi: ""
 pdf: ""
 keywords: ["chip reactor", "nucleic acid production", "cell-free synthesis", "continuous-flow biomanufacturing", "RNA logic gate", "on-chip information processing"]

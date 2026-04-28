@@ -33,7 +33,7 @@ export const education = [
 	{
 		school: 'Cornell University',
 		time: '2020 - Present',
-		degree: 'Ph.D., Biological & Environmental Engineering (Expected May 2026)',
+		degree: 'Ph.D., Biological & Environmental Engineering (Defended Apr 2026)',
 		location: 'Ithaca, NY',
 		description: 'DNA Materials Lab, Advisor: Dan Luo',
 	},
@@ -91,7 +91,7 @@ export const publications = [
 	{
 		title: 'A Chip Reactor for Perpetual Nucleic Acid Production and On-chip Information Processing',
 		authors: 'Wang, D., Li, Z., Li, J., Han, Y., Sun, T., Li, F., Liu, P., Luo, D.',
-		journal: 'Nature',
+		journal: 'Nature Sustainability (in peer review)',
 		time: '2026',
 		link: '',
 		abstract: '',

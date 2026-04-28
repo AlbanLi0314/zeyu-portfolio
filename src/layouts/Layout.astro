@@ -489,11 +489,25 @@ const {
 	.nav-link-biotech {
 		color: #0f172a !important;
 		text-decoration: none !important;
+		-webkit-tap-highlight-color: transparent;
 	}
-	
+
 	.nav-link-biotech:hover,
 	.nav-link-biotech.active {
 		color: #115e59 !important;
+	}
+
+	/* Override daisyUI menu :active / :focus blue flash on click/tap */
+	.nav-link-biotech:active,
+	.nav-link-biotech:focus,
+	.nav-link-biotech:focus-visible,
+	.menu li > .nav-link-biotech:active,
+	.menu li > .nav-link-biotech:focus,
+	.menu li > .nav-link-biotech.active {
+		background-color: transparent !important;
+		color: #115e59 !important;
+		outline: none !important;
+		box-shadow: none !important;
 	}
 	
 	/* Accent colors - Deep Pine Teal */
