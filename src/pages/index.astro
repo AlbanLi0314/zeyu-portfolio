@@ -19,18 +19,18 @@ const { fullName, title, institute } = profile
 			alt={`Profile picture of ${fullName}`}
 		/>
 		<h1 class='text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 text-primary'>Zeyu (Alban) Li</h1>
-		<h2 class='text-sm sm:text-lg lg:text-xl text-primary mb-2 font-medium px-2'>Ph.D. <span class="mx-2 opacity-50">|</span> Cornell University <span class="mx-2 opacity-50">|</span> DNA Materials Lab</h2>
+		<h2 class='text-sm sm:text-lg lg:text-xl text-primary mb-2 font-medium px-2'>Ph.D., Cornell University <span class="mx-2 opacity-50">|</span> Scientist-Engineer</h2>
 		<p class='text-sm sm:text-lg font-semibold text-base-content/70 mb-8'>
-			Materials Scientist <span class="mx-2 opacity-50">|</span> Nucleic Acid Scientist <span class="mx-2 opacity-50">|</span> Specializing in DNA Technology & Polymer Engineering
+			Applied AI for Scientific R&D <span class="mx-2 opacity-50">|</span> Materials Scientist <span class="mx-2 opacity-50">|</span> Nucleic Acid Scientist
 		</p>
 		
 		<!-- CTA Buttons - Primary action with optimized visibility -->
 		<div class='flex flex-wrap gap-4 justify-center'>
-			<a href={`${template.base}/research`} class='btn btn-accent'>
-				<span class='font-semibold tracking-wide'>View Research</span>
+			<a href={`${template.base}/ai`} class='btn btn-accent'>
+				<span class='font-semibold tracking-wide'>Applied AI</span>
 			</a>
-			<a href={`${template.base}/publications`} class='btn btn-primary'>
-				Publications
+			<a href={`${template.base}/research`} class='btn btn-primary'>
+				<span class='font-semibold tracking-wide'>Scientific R&D</span>
 			</a>
 			<a href={`${template.base}/cv`} class='btn btn-outline btn-primary'>
 				Download CV
@@ -45,56 +45,13 @@ const { fullName, title, institute } = profile
 	<section class='py-8 sm:py-12 border-t border-base-300'>
 		<h2 class='text-xl sm:text-2xl font-semibold mb-10 text-primary fade-in-up'>About</h2>
 		<div class='prose max-w-none prose-base sm:prose-lg'>
-			<p class='text-base sm:text-lg leading-relaxed mb-16 text-base-content fade-in-up'>
-				I bridge DNA biotechnology and materials science to create manufacturable solutions that scale from lab prototype to production. <span class="bg-primary text-white px-2 py-0.5 rounded">(Now available for full-time roles.)</span>
+			<p class='text-base sm:text-lg leading-relaxed !mb-8 text-base-content fade-in-up'>
+				I build reliable AI for scientific R&D, grounded in a decade of hands-on materials and nucleic-acid research and the experimental judgment to keep that AI trustworthy.<br /><span class="inline-block mt-3 bg-primary text-white px-2 py-0.5 rounded">Now available for full-time roles.</span>
 			</p>
 
-		<div class='mb-16'>
-			<h3 class='text-xl sm:text-2xl font-semibold mb-8 text-primary fade-in-up'>
-				Key Achievements
-			</h3>
-			<div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
-				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent stagger-card'>
-					<div class='card-body p-4'>
-						<h4 class='text-lg font-semibold mb-2 text-primary'>Large-Scale Field Deployment</h4>
-						<p class='text-base leading-relaxed text-base-content/80'>
-							Led an <strong>11 km²</strong> field deployment of DNA-barcoded microparticle tracers for a <strong>U.S. Department of Defense (DoD)</strong> funded project; achieved qPCR detection <strong>7 km</strong> downstream from <strong>&lt;1 mg</strong> DNA release. <strong>First-author paper</strong> published on ACS ES&T (<strong>Top 5%</strong> Journal in Environmental Sciences)
-						</p>
-					</div>
-				</div>
-				
-				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent stagger-card'>
-					<div class='card-body p-4'>
-						<h4 class='text-lg font-semibold mb-2 text-primary'>Long-Lifetime Biocatalytic Composite</h4>
-						<p class='text-base leading-relaxed text-base-content/80'>
-							Co-engineered a covalent DNA-PEG hydrogel-mesh composite (NucleoMesh) that withstands continuous enzymatic reaction conditions for <strong>100+ days</strong>, functioning as a reusable solid-phase biocatalyst for nucleic-acid manufacturing. <strong>Second-author paper</strong> in peer review at Nature Sustainability.
-						</p>
-					</div>
-				</div>
-				
-				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent stagger-card'>
-					<div class='card-body p-4'>
-						<h4 class='text-lg font-semibold mb-2 text-primary'>Functional Materials Engineering</h4>
-						<p class='text-base leading-relaxed text-base-content/80'>
-							Developed a DNA–Al³⁺ hydrogel composite that is <strong>3D-printable</strong> and <strong>self-healing</strong> for structural repair applications. <strong>Co-First author</strong> paper published ACADIA 2024 (Premier Conference in Computational Design)
-						</p>
-					</div>
-				</div>
-				
-				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent stagger-card'>
-					<div class='card-body p-4'>
-						<h4 class='text-lg font-semibold mb-2 text-primary'>Leadership, Mentoring & Innovation</h4>
-						<p class='text-base leading-relaxed text-base-content/80'>
-							Co-authored <strong>4 publications</strong> and co-invented <strong>2 patents</strong>; coordinated collaborations across <strong>7 research groups</strong>. Mentored <strong>3 undergraduate researchers</strong> and served as Teaching Assistant/Co-instructor for <strong>7 university courses</strong>.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
+			<h3 class='flex items-center gap-3 text-xl sm:text-2xl font-semibold mb-8 pt-8 border-t border-base-300 text-primary fade-in-up'><span class='w-1.5 h-6 bg-accent rounded'></span>Academic & Research Background</h3>
 
-			<h3 class='text-xl sm:text-2xl font-semibold mb-8 text-primary fade-in-up'>Academic & Research Background</h3>
-			
-			<div class="space-y-12">
+			<div class="space-y-12 mb-8">
 				<!-- Cornell University -->
 				<div class="fade-in-up">
 					<div class="mb-4">
@@ -111,19 +68,6 @@ const { fullName, title, institute } = profile
 						<div class="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-1 sm:gap-4">
 							<span class="text-sm font-semibold text-primary pt-0.5">Concentration</span>
 							<span class="text-base text-secondary font-medium leading-relaxed">Materials Science, Biological Engineering, Bioenvironmental Engineering</span>
-						</div>
-						
-						<div class="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-1 sm:gap-4">
-							<span class="text-sm font-semibold text-primary pt-1.5">Key Skills</span>
-							<div class="flex flex-wrap gap-0.5">
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">DNA Technologies</span>
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">qPCR</span>
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Bio-cleanroom</span>
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Rheometry</span>
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Material characterization</span>
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">3D Printing</span>
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">AI Tools</span>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -145,24 +89,73 @@ const { fullName, title, institute } = profile
 							<span class="text-sm font-semibold text-primary pt-0.5">Research</span>
 							<span class="text-base text-secondary font-medium leading-relaxed">Micro-fabrication and Surface Materials Engineering</span>
 						</div>
-						
-						<div class="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-1 sm:gap-4">
-							<span class="text-sm font-semibold text-primary pt-1.5">Key Skills</span>
-							<div class="flex flex-wrap gap-0.5">
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Photolithography</span>
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Nanopatterning</span>
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Surface Chemistry</span>
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Python</span>
-								<span class="px-1.5 py-1 rounded bg-base-200 text-xs font-medium text-secondary">Java</span>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
 
-		<div class="mb-16"></div>
+		<h3 class='flex items-center gap-3 text-xl sm:text-2xl font-semibold mb-8 pt-8 border-t border-base-300 text-primary fade-in-up'><span class='w-1.5 h-6 bg-accent rounded'></span>Applied AI</h3>
 
-		<h3 class='text-xl sm:text-2xl font-semibold mb-8 text-primary fade-in-up'>Value & Approach</h3>
+		<p class='text-lg leading-relaxed mb-6 text-base-content fade-in-up'>
+			Beyond using AI, I build it: agents, retrieval, and evaluation systems for scientific and high-stakes work, engineered to stay reliable and grounded in real evidence.
+		</p>
+
+		<ul class='list-disc list-outside ml-0 space-y-4 text-base leading-relaxed text-base-content/80 !mb-8 fade-in-up'>
+			<li>
+				<strong>Agentic AI for research:</strong> I built Research Harness, an agentic framework that turns LLMs into reliable research assistants, with built-in checks, evidence-aware guardrails, and a trail from every output back to its source data. The work became my first-author paper at ICML's AI for Science workshop.
+			</li>
+			<li>
+				<strong>AI applications I've shipped:</strong> I design and deploy retrieval systems and real-time voice agents, from Resonance, which helps researchers find the right collaborators, to ER Companion, a multilingual ER-intake agent that won the Cornell AI Health Hackathon.
+			</li>
+			<li>
+				<strong>Reliability is the difference:</strong> I build the evaluation and guardrail layers most AI work skips, and I draw on a decade in the lab to catch when a model is confidently wrong.
+			</li>
+			<li>
+				<strong>Teaching it forward:</strong> As a Cornell co-instructor and guest lecturer, I teach building agents, prompt and context engineering, and how to put AI to work in real scientific workflows.
+			</li>
+		</ul>
+
+		<div class='border-t border-base-300 pt-8 mb-8'>
+			<h3 class='flex items-center gap-3 text-xl sm:text-2xl font-semibold mb-8 text-primary fade-in-up'><span class='w-1.5 h-6 bg-accent rounded'></span>Key Achievements</h3>
+			<div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent stagger-card'>
+					<div class='card-body p-4'>
+						<h4 class='text-lg font-semibold mb-2 text-primary'>Large-Scale Field Deployment</h4>
+						<p class='text-base leading-relaxed text-base-content/80'>
+							Led an <strong>11 km²</strong> field deployment of DNA-barcoded microparticle tracers for a <strong>U.S. Department of Defense (DoD)</strong> funded project; achieved qPCR detection <strong>7 km</strong> downstream from <strong>&lt;1 mg</strong> DNA release. <strong>First-author paper</strong> published on ACS ES&T (<strong>Top 5%</strong> Journal in Environmental Sciences)
+						</p>
+					</div>
+				</div>
+
+				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent stagger-card'>
+					<div class='card-body p-4'>
+						<h4 class='text-lg font-semibold mb-2 text-primary'>Long-Lifetime Biocatalytic Composite</h4>
+						<p class='text-base leading-relaxed text-base-content/80'>
+							Co-engineered a covalent DNA-PEG hydrogel-mesh composite (NucleoMesh) that withstands continuous enzymatic reaction conditions for <strong>100+ days</strong>, functioning as a reusable solid-phase biocatalyst for nucleic-acid manufacturing. <strong>Second-author paper</strong> in peer review at Nature Sustainability.
+						</p>
+					</div>
+				</div>
+
+				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent stagger-card'>
+					<div class='card-body p-4'>
+						<h4 class='text-lg font-semibold mb-2 text-primary'>Functional Materials Engineering</h4>
+						<p class='text-base leading-relaxed text-base-content/80'>
+							Developed a DNA–Al³⁺ hydrogel composite that is <strong>3D-printable</strong> and <strong>self-healing</strong> for structural repair applications. <strong>Co-First author</strong> paper published ACADIA 2024 (Premier Conference in Computational Design)
+						</p>
+					</div>
+				</div>
+
+				<div class='card bg-base-200 hover:shadow-lg transition-all duration-300 border-l-2 border-accent stagger-card'>
+					<div class='card-body p-4'>
+						<h4 class='text-lg font-semibold mb-2 text-primary'>Leadership, Mentoring & Innovation</h4>
+						<p class='text-base leading-relaxed text-base-content/80'>
+							Co-authored <strong>5 publications</strong> and co-invented <strong>2 patents</strong>; coordinated collaborations across <strong>7 research groups</strong>. Mentored <strong>3 undergraduate researchers</strong> and served as Teaching Assistant/Co-instructor for <strong>7 university courses</strong>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h3 class='flex items-center gap-3 text-xl sm:text-2xl font-semibold mb-8 pt-8 border-t border-base-300 text-primary fade-in-up'><span class='w-1.5 h-6 bg-accent rounded'></span>Value & Approach</h3>
 		
 		<div class='grid grid-cols-1 md:grid-cols-2 gap-6 mb-16'>
 			<div class='card bg-base-200 hover:shadow-lg transition-shadow duration-300 fade-in-up'>
@@ -198,27 +191,12 @@ const { fullName, title, institute } = profile
 			</div>
 		</div>
 
-		<h3 class='text-xl sm:text-2xl font-semibold mb-8 text-primary fade-in-up'>Computational R&D & AI Integration</h3>
-		
-		<p class='text-lg leading-relaxed mb-6 text-base-content fade-in-up'>
-			I engineer AI tools to automate the unmanageable and achieve the unreachable, while teaching others to do the same.
-		</p>
-
-		<ul class='list-disc list-outside ml-0 space-y-4 text-base leading-relaxed text-base-content/80 mb-12 fade-in-up'>
-			<li>
-				<strong>Workflow Automation & Standardization:</strong> Integrate AI via data pipelines and lightweight agents to solve automation bottlenecks—standardizing documentation and significantly shortening the path from prototype to production.
-			</li>
-			<li>
-				<strong>Applied Impact:</strong> Engineered AI-assisted Python workflows for my 11 km² tracer study, automating analysis that would be impossible manually, transforming raw sensor data into publication-ready insights with unprecedented speed.
-			</li>
-			<li>
-				<strong>AI Leadership & Education:</strong> Leveraging my CS Minor and ML-with-Python certification, I serve as a Co-Instructor and Guest Lecturer at Cornell. I teach building AI agents, prompt engineering, data analysis, and web coding—empowering students and researchers to upgrade their scientific toolkit.
-			</li>
-		</ul>
-
-		<div class='mt-8 text-center'>
-			<a href={`${template.base}/research`} class='btn btn-accent btn-lg'>
-				<span class='font-semibold tracking-wide'>Explore My Work →</span>
+		<div class='mt-8 flex flex-wrap gap-4 justify-center'>
+			<a href={`${template.base}/ai`} class='btn btn-accent btn-lg'>
+				<span class='font-semibold tracking-wide'>Explore Applied AI →</span>
+			</a>
+			<a href={`${template.base}/research`} class='btn btn-primary btn-lg'>
+				<span class='font-semibold tracking-wide'>Explore Scientific R&D →</span>
 			</a>
 		</div>
 		</div>

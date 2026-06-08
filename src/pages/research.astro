@@ -11,7 +11,7 @@ const projects = [
     problem: "Large water bodies like lakes pose a challenge for environmental monitoring because it is difficult to track where water (and the substances in water) travels over time. Traditional tracers (dyes, salts, etc.) require prohibitively large quantities and still don't allow precise source tracking. We faced the need for a sensitive, environmental-friendly tracer that could map water flow paths across kilometers and attribute detections to specific release sources in a complex lake system.",
     approach: "We developed a synthetic eDNA tracer by encapsulating unique DNA barcodes in biodegradable PLGA microspheres. These particles were released into a lake and tracked via quantitative PCR (qPCR) detection of their DNA tags, while a 3D hydrodynamic model was used in parallel to map dispersion patterns and infer source locations. This approach combined polymer engineering (for particle design), molecular biology (DNA barcoding and qPCR), and environmental modeling.",
     results: "We executed a lake-scale field trial on Cayuga Lake, releasing uniquely barcoded DNA-PLGA microspheres and sampling 278 points over ~11 km² for ~33 hours. qPCR detected tracers to ~7 km from release with milligram-scale DNA input, and dispersion patterns aligned with a calibrated 3D hydrodynamic/Lagrangian model. The deployment validated multiplexable barcoding in one experiment and produced a robust dataset suitable for model tuning and source-attribution mapping. Outcomes to date include publication in Environmental Science & Technology, program support from DoD SERDP, and seminars delivered at ACS, UIUC, Penn State, and Cornell, underscoring both technical rigor and community interest.",
-    impact: "This work provided one of the first lake-scale demonstration that precise spatiotemporal source tracking of eDNA is achievable. By using synthetic DNA particles, the team established a robust, standardized benchmark for eDNA transport studies. The result is a transferable tracer platform tunable by particle size and assay design for sensitive, multiplexed monitoring of water flows and contaminants. Utilities and environmental agencies could deploy such DNA tracers to map pollution sources or verify water circulation patterns with unprecedented sensitivity.",
+    impact: "This work provided one of the first lake-scale demonstrations that precise spatiotemporal source tracking of eDNA is achievable. By using synthetic DNA particles, the team established a robust, standardized benchmark for eDNA transport studies. The result is a transferable tracer platform tunable by particle size and assay design for sensitive, multiplexed monitoring of water flows and contaminants. Utilities and environmental agencies could deploy such DNA tracers to map pollution sources or verify water circulation patterns with unprecedented sensitivity.",
     nextSteps: "Ongoing work is shifting to cheap, biomass-derived DNA tracers to enable 10⁴–10⁶ times higher tracer quantities while maintaining the similar cost, and direct field detection without PCR amplification. In parallel, a portable detection device is being designed for rapid on-site readout, and new field deployments of biomass DNA tracers are planned in diverse environments to further validate and refine the approach.",
     outcomes: [
       "First-author paper published on ES&T (Top 5% Journal in Environmental Sciences)",
@@ -98,7 +98,7 @@ const projects = [
     id: "extraction",
     title: "Low Cost Nucleic Acid Extraction Method Inspired by Espresso Machine",
     shortLabel: "Nucleic acid extraction",
-    summary: "Pod-based, espresso-style extraction captured >90% DNA in 0.01–4 M salts and ~200 mg per pod, cutting ~91% using ethanol-free method toward <$1 per gram.",
+    summary: "Pod-based, espresso-style extraction captured >90% DNA in 0.01–4 M salts and ~200 mg per pod, cutting consumables ~91% with an ethanol-free recovery step, toward <$1 per gram.",
     problem: "Bulk DNA/RNA extraction in labs still relies on manual, batch protocols with solvent-intensive precipitation. Phenol–chloroform, silica, and magnetic-bead methods consume large ethanol volumes and require repeated handling, which slows gram-scale production and raises cost.",
     approach: "We designed an espresso-style continuous-flow extractor with a continuous inlet and outlet. Samples pass through pod cartridges packed with a custom fluoropolymer-based capture medium that adsorbs DNA/RNA in-line while permeate exits. After bind and wash, we recover nucleic acids by vapor-removing the capture medium, then recycling it for reuse. We built bench prototypes and outlined throughput scaling via pod swapping and parallelization.",
     results: "Bench prototypes yielded ~200 mg DNA/RNA per pod (modeled capacity ~209 mg). Using fluoropolymer capture media, we observed >90% DNA capture across 0.01–4 M salts and 10–500 ng/µL inputs. Apparent adsorption capacity exceeded common silica media and was comparable to ion-exchange under our test conditions. Bound DNA showed reduced nuclease degradation in preliminary tests. An ethanol-free vapor recovery step cut estimated consumables by ~91% versus ethanol precipitation. Modeling indicates a path to < $1 per gram with pod reuse.",
@@ -147,7 +147,7 @@ const projects = [
 ];
 ---
 
-<Layout title="Research - Zeyu Li">
+<Layout title="Scientific R&D - Zeyu Li">
   <Fragment slot="top-nav">
     {projects.map((project) => (
       <a
@@ -163,14 +163,14 @@ const projects = [
   <div class="max-w-6xl mx-auto">
     <!-- Hero Section -->
     <div class="mb-8 md:mb-12">
-      <h1 class="text-3xl md:text-4xl font-bold mb-4 md:mb-8">Research</h1>
+      <h1 class="text-3xl md:text-4xl font-bold mb-4 md:mb-8">Scientific R&D</h1>
       <p class="text-base md:text-lg lg:text-xl text-base-content/70 mb-4 md:mb-6">
-        Field-ready DNA technologies for tracing and materials, plus robust superhydrophobic surfaces for icing control.
+        Field-ready DNA technologies for tracing, materials, perpetual nucleic-acid production, and low-cost extraction, plus robust superhydrophobic surfaces for icing control.
       </p>
 
       <!-- Compact metrics: line 1 = totals + chip reactor; line 2 = older project metrics -->
       <div class="flex flex-wrap items-center gap-x-3 md:gap-x-4 gap-y-2 text-sm md:text-base text-base-content/60">
-        <span><span class="font-semibold text-primary">4</span> Publications</span>
+        <span><span class="font-semibold text-primary">5</span> Publications</span>
         <span class="opacity-50 hidden sm:inline">•</span>
         <span><span class="font-semibold text-primary">2</span> Patents</span>
         <span class="opacity-50 hidden sm:inline">•</span>

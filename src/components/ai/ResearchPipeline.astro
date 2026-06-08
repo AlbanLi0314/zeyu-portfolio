@@ -9,9 +9,29 @@ import vizImg from '@/assets/ai/pipeline-viz.png';
 <section id="research" class="mb-16 md:mb-20 scroll-mt-28 md:scroll-mt-32 pt-8 border-t border-base-300 fade-in-up">
   <h2 class="text-2xl md:text-3xl font-bold mb-4 text-primary">How I Integrate AI into Research Workflows</h2>
 
-  <p class="text-base text-base-content/70 leading-relaxed mb-12 max-w-3xl">
-    From a 33-hour, 11 km² eDNA tracer campaign (~1,000 qPCR measurements; ~1,400 GPS coordinates) to a 100-day continuous nucleic-acid reactor, I use AI-assisted coding to turn raw outputs into reproducible analyses, publication figures, and structured reports.
-  </p>
+  <!-- Research Harness — lead / centerpiece -->
+  <div class="mb-12 rounded-2xl border border-base-300 border-l-4 border-l-accent bg-base-200/40 p-6 md:p-8">
+    <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
+      <h3 class="text-xl md:text-2xl font-bold text-primary">Research Harness</h3>
+      <span class="text-xs font-medium text-base-content">First-author paper at ICML's AI for Science workshop</span>
+    </div>
+    <p class="text-base text-base-content/80 leading-relaxed mb-4 max-w-3xl">
+      When AI works from a lab's records, it can't see what those records don't carry: the judgment that forms at the bench and never makes it into a file. It fills the gap with fluent, hedged prose that reads like reasoning but isn't grounded in any measurement. Research Harness is the system I built to catch that. Over 130+ research sessions it externalizes experimental context, makes the model show it understands before it can argue, and runs a PASS/FAIL evidence check on every claim: measured, cited, inference, or don't write it.
+    </p>
+    <img src="/research-teaser.webp" alt="Iceberg diagram contrasting what AI for Science can access (papers, public datasets, code, reviews: a curated, structured, relatively clean network) with what happens in the physical lab (exploratory intent, setup conditions, hands-on adjustments, material observations: thousands of failed or abandoned branches, of which a few become publishable results). Only the visible tip is public; the hidden process stays private." class="w-full mx-auto mb-6" style="max-width: 720px" />
+    <img src="/research-harness-figure.svg" alt="Research Harness at a glance: 13 agentic skills, 130+ research sessions, 33 researcher-defined rules, organized into six core capabilities — context engineering, scientific judgment capture, evidence-aware guardrails, LLM evaluation and review, bidirectional traceability, and human-in-the-loop." class="w-full mx-auto mb-6" style="max-width: 720px" />
+    <div class="flex flex-wrap gap-3">
+      <a href="/publications" class="btn btn-primary btn-sm">Read the paper →</a>
+      <a href="/go?url=https://github.com/AlbanLi0314/research-harness-skills" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-primary btn-sm">View on GitHub →</a>
+    </div>
+  </div>
+
+  <!-- Data & Figure Pipeline — verifiable execution -->
+  <div class="rounded-2xl border border-base-300 border-l-4 border-l-accent bg-base-200/40 p-6 md:p-8">
+    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3">Data &amp; Figure Pipeline</h3>
+    <p class="text-base text-base-content/70 leading-relaxed mb-10 max-w-3xl">
+      Where the output can be checked against the source, AI can take over the execution. From a 33-hour, 11 km² eDNA tracer campaign (~1,000 qPCR measurements; ~1,400 GPS coordinates) to a 100-day continuous nucleic-acid reactor, I use AI-assisted coding to turn raw outputs into reproducible analyses, publication figures, and structured reports.
+    </p>
 
   <div class="pipeline-steps relative">
     <!-- Vertical progress line (desktop only) -->
@@ -92,6 +112,7 @@ import vizImg from '@/assets/ai/pipeline-viz.png';
       </div>
 
     </div>
+  </div>
   </div>
 </section>
 

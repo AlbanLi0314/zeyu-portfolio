@@ -24,12 +24,12 @@ export const profile = {
 
 export const NAV_LINKS = [
 	{ title: 'Home', href: '/' },
-	{ title: 'Research', href: '/research' },
+	{ title: 'Applied AI', href: '/ai' },
+	{ title: 'Scientific R&D', href: '/research' },
 	{ title: 'Publications', href: '/publications' },
 	{ title: 'Teaching & Coursework', href: '/teaching' },
 	{ title: 'Skills', href: '/skills' },
 	{ title: 'CV', href: '/cv' },
-	{ title: 'AI Integration', href: '/ai' },
 ]
 
 export const social = {

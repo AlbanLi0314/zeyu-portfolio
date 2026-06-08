@@ -8,16 +8,16 @@ import Layout from '../layouts/Layout.astro'
 		<div class='mb-8 md:mb-12'>
 			<h1 class='text-3xl md:text-4xl font-bold mb-4 md:mb-8'>Publications & Patents</h1>
 			<p class='text-base md:text-lg lg:text-xl text-base-content/70 mb-4 md:mb-6'>
-				Research papers and patents on DNA materials, environmental sensing, and surface engineering.
+				Research papers and patents on AI for scientific research, DNA materials, environmental sensing, and surface engineering.
 			</p>
 			
 			<!-- Compact metrics -->
 			<div class='flex flex-wrap items-center gap-x-3 md:gap-x-4 gap-y-2 text-sm md:text-base text-base-content/60'>
-				<span><span class='font-semibold text-primary'>4</span> Research Papers</span>
+				<span><span class='font-semibold text-primary'>5</span> Research Papers</span>
 				<span class='opacity-50 hidden sm:inline'>•</span>
 				<span><span class='font-semibold text-primary'>2</span> Patents</span>
 				<span class='opacity-50 hidden sm:inline'>•</span>
-				<span class='text-xs italic'>Last updated: April 2026</span>
+				<span class='text-xs italic'>Last updated: June 2026</span>
 			</div>
 		</div>
 		
@@ -25,7 +25,29 @@ import Layout from '../layouts/Layout.astro'
 		<section class='mb-12 md:mb-16'>
 			<h2 class='text-xl md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8 fade-in-up'>Research Papers</h2>
 			<ul class='space-y-12 md:space-y-16'>
-				<!-- Paper 1: Chip Reactor (Nature Sustainability, In peer review) -->
+				<!-- Paper 1: ICML 2026 AI4S Workshop (What the Records Don't Carry) -->
+				<li class="stagger-item">
+					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
+						What the Records Don&rsquo;t Carry: A Position on Researcher&ndash;AI Co-Adaptation in Exploratory Laboratory Research
+					</h3>
+					<p class='text-base md:text-lg text-base-content/80 mb-2'>
+						<strong>Zeyu Li</strong>, Ziang Liu, Xiaoman Yang, Dan Luo
+					</p>
+					<p class='text-sm md:text-base italic mb-3 text-base-content/70'>
+						<em>ICML AI for Science Workshop 2026</em>
+					</p>
+					<div class='prose max-w-none mb-4 md:mb-6'>
+						<p class='text-base md:text-lg leading-relaxed text-base-content/80'>
+							<strong>Summary:</strong> AI systems trained on published artifacts cannot see the tacit judgment and abandoned attempts that lab records leave out; through sustained researcher&ndash;LLM collaboration in a biomaterials lab, argues that integrating AI into exploratory research requires co-adaptation between researcher and AI.
+						</p>
+					</div>
+					<div class='flex gap-3 items-center text-sm md:text-base flex-wrap'>
+						<span class='badge badge-outline'>Accepted</span>
+						<span class='badge badge-outline'>2026</span>
+					</div>
+				</li>
+
+				<!-- Paper 2: Chip Reactor (Nature Sustainability, In peer review) -->
 				<li class="stagger-item">
 					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
 						A Chip Reactor for Perpetual Nucleic Acid Production and On-chip Information Processing
@@ -47,7 +69,7 @@ import Layout from '../layouts/Layout.astro'
 					</div>
 				</li>
 
-				<!-- Paper 2: eDNA Tracers -->
+				<!-- Paper 3: eDNA Tracers -->
 				<li class="stagger-item">
 					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
 						<a href='/go?url=https://doi.org/10.1021/acs.est.5c11071' class='link link-primary hover:underline' target='_blank' rel='noopener noreferrer'>
@@ -74,7 +96,7 @@ import Layout from '../layouts/Layout.astro'
 					</div>
 				</li>
 
-				<!-- Paper 2: PolyTile -->
+				<!-- Paper 4: PolyTile -->
 				<li class="stagger-item">
 					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
 						<a href='/go?url=https://papers.cumincad.org/cgi-bin/works/paper/acadia24_v1_14' class='link link-primary hover:underline' target='_blank' rel='noopener noreferrer'>
@@ -85,7 +107,7 @@ import Layout from '../layouts/Layout.astro'
 						Chenming He*, <strong>Zeyu Li*</strong>, Lucy Xiaorui Wang, Dong Wang, Dan Luo, Jenny E. Sabin <span class='text-sm text-base-content/60'>(*Co-first author)</span>
 					</p>
 					<p class='text-sm md:text-base italic mb-3 text-base-content/70'>
-						<em>ACADIA 2024: Designing Change – Proceedings</em> (2024)
+						<em>ACADIA 2024: Designing Change – Proceedings</em>
 					</p>
 					<div class='prose max-w-none mb-4 md:mb-6'>
 						<p class='text-base md:text-lg leading-relaxed text-base-content/80'>
@@ -104,7 +126,7 @@ import Layout from '../layouts/Layout.astro'
 					</div>
 				</li>
 
-				<!-- Paper 3: Superhydrophobic -->
+				<!-- Paper 5: Superhydrophobic -->
 				<li class="stagger-item">
 					<h3 class='text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary leading-tight'>
 						<a href='/go?url=https://doi.org/10.1016/j.xinn.2023.100389' class='link link-primary hover:underline' target='_blank' rel='noopener noreferrer'>
@@ -115,7 +137,7 @@ import Layout from '../layouts/Layout.astro'
 						Wanbo Li, Chiu-Wing Chan, <strong>Zeyu Li</strong>, Sin-Yung Siu, Siyu Chen, Han Sun, Zeyu Liu, Yisu Wang, Chong Hu, Nicola Maria Pugno, Richard N. Zare, Hongkai Wu, Kangning Ren
 					</p>
 					<p class='text-sm md:text-base italic mb-3 text-base-content/70'>
-						<em>The Innovation</em> (Cell Press) 4(2):100389 (2023)
+						<em>The Innovation</em> (Cell Press) (2023)
 					</p>
 					<div class='prose max-w-none mb-4 md:mb-6'>
 						<p class='text-base md:text-lg leading-relaxed text-base-content/80'>
@@ -181,6 +203,7 @@ import Layout from '../layouts/Layout.astro'
 					<div class='flex gap-3 items-center text-sm md:text-base flex-wrap'>
 						<span class='font-mono text-xs bg-base-200 px-2 py-1 rounded'>CN 201711214139.6</span>
 						<span class='font-mono text-xs bg-base-200 px-2 py-1 rounded'>CN 107903925A</span>
+						<span class='badge badge-outline'>Granted</span>
 						<span class='badge badge-outline'>2018</span>
 						<a href='/go?url=https://patents.google.com/patent/CN107903925A/en' class='link link-secondary text-xs md:text-sm' target='_blank' rel='noopener noreferrer'>
 							Link

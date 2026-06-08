@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 496" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <filter id="cardShadow" x="-6%" y="-12%" width="112%" height="134%">
+      <feDropShadow dx="0" dy="2" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <!-- warm panel background -->
+  <rect x="0" y="0" width="800" height="496" rx="18" fill="#FFF7ED" stroke="#f3e4d6" stroke-width="1"/>
+
+  <!-- stats -->
+  <text x="32"  y="84" font-size="48" font-weight="800" fill="#C0552E">13</text>
+  <text x="32"  y="106" font-size="14" font-weight="500" fill="#6b7280">agentic skills</text>
+  <text x="32"  y="122" font-size="11" font-weight="400" fill="#a8927f">composable &amp; reusable</text>
+
+  <text x="300" y="84" font-size="48" font-weight="800" fill="#C0552E">130+</text>
+  <text x="300" y="106" font-size="14" font-weight="500" fill="#6b7280">research sessions</text>
+  <text x="300" y="122" font-size="11" font-weight="400" fill="#a8927f">built &amp; iterated over</text>
+
+  <text x="560" y="84" font-size="48" font-weight="800" fill="#C0552E">33</text>
+  <text x="560" y="106" font-size="14" font-weight="500" fill="#6b7280">transferable rules</text>
+  <text x="560" y="122" font-size="11" font-weight="400" fill="#a8927f">for research work</text>
+
+  <line x1="32" y1="140" x2="768" y2="140" stroke="#ecdccd" stroke-width="1"/>
+  <text x="32" y="166" font-size="12" font-weight="600" fill="#a8927f" letter-spacing="1.4">SIX CORE CAPABILITIES</text>
+
+  <!-- card A -->
+  <rect x="32" y="190" width="359" height="82" rx="12" fill="#ffffff" stroke="#f1e4d8" stroke-width="1" filter="url(#cardShadow)"/>
+  <text x="54" y="217" font-size="13" font-weight="700" fill="#C0552E">A</text>
+  <text x="54" y="237" font-size="18" font-weight="700" fill="#0f172a">Context Engineering</text>
+  <text x="54" y="257" font-size="13" font-weight="400" fill="#6b7280">Cross-session handoffs, INDEX, layered context</text>
+
+  <!-- card B -->
+  <rect x="409" y="190" width="359" height="82" rx="12" fill="#ffffff" stroke="#f1e4d8" stroke-width="1" filter="url(#cardShadow)"/>
+  <text x="431" y="217" font-size="13" font-weight="700" fill="#C0552E">B</text>
+  <text x="431" y="237" font-size="18" font-weight="700" fill="#0f172a">Scientific Judgment Capture</text>
+  <text x="431" y="257" font-size="13" font-weight="400" fill="#6b7280">Structured pre-output clarification</text>
+
+  <!-- card C -->
+  <rect x="32" y="286" width="359" height="82" rx="12" fill="#ffffff" stroke="#f1e4d8" stroke-width="1" filter="url(#cardShadow)"/>
+  <text x="54" y="313" font-size="13" font-weight="700" fill="#C0552E">C</text>
+  <text x="54" y="333" font-size="18" font-weight="700" fill="#0f172a">Evidence-Aware Guardrails</text>
+  <text x="54" y="353" font-size="13" font-weight="400" fill="#6b7280">PASS/FAIL checks; refuse when evidence is thin</text>
+
+  <!-- card D -->
+  <rect x="409" y="286" width="359" height="82" rx="12" fill="#ffffff" stroke="#f1e4d8" stroke-width="1" filter="url(#cardShadow)"/>
+  <text x="431" y="313" font-size="13" font-weight="700" fill="#C0552E">D</text>
+  <text x="431" y="333" font-size="18" font-weight="700" fill="#0f172a">LLM Evaluation &amp; Review</text>
+  <text x="431" y="353" font-size="13" font-weight="400" fill="#6b7280">Cross-model + multi-agent review</text>
+
+  <!-- card E -->
+  <rect x="32" y="382" width="359" height="82" rx="12" fill="#ffffff" stroke="#f1e4d8" stroke-width="1" filter="url(#cardShadow)"/>
+  <text x="54" y="409" font-size="13" font-weight="700" fill="#C0552E">E</text>
+  <text x="54" y="429" font-size="18" font-weight="700" fill="#0f172a">Bidirectional Traceability</text>
+  <text x="54" y="449" font-size="13" font-weight="400" fill="#6b7280">Outputs traced to source, claims, constraints</text>
+
+  <!-- card F -->
+  <rect x="409" y="382" width="359" height="82" rx="12" fill="#ffffff" stroke="#f1e4d8" stroke-width="1" filter="url(#cardShadow)"/>
+  <text x="431" y="409" font-size="13" font-weight="700" fill="#C0552E">F</text>
+  <text x="431" y="429" font-size="18" font-weight="700" fill="#0f172a">Human-in-the-Loop</text>
+  <text x="431" y="449" font-size="13" font-weight="400" fill="#6b7280">Researcher confirms or overrides every check</text>
+</svg>
