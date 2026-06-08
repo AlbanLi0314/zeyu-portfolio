@@ -57,6 +57,6 @@ export const template = {
 
 export const seo = {
 	default_title: 'Zeyu (Alban) Li - Ph.D.',
-	default_description: 'Personal academic website of Zeyu (Alban) Li, Ph.D. in Biological and Environmental Engineering at Cornell University.',
-	default_image: '/images/astro-academia.png',
+	default_description: 'Portfolio of Zeyu (Alban) Li, Ph.D. (Cornell): applied AI for scientific R&D, materials science, and nucleic-acid engineering.',
+	default_image: '/og.png',
 }

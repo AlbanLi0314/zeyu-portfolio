@@ -16,10 +16,10 @@ Developed and field-deployed DNA-polymer nanoparticle tracers across an 11 km² 
 
 ## Key Achievements
 
-- Achieved robust qPCR detection 7 km from release point using only 1 mg of DNA
+- Achieved robust qPCR detection 7 km from release point using less than 1 mg of DNA
 - Generated calibration data for 3D hydrodynamic eDNA-transport models
 - Demonstrated viability of synthetic tracers for large-scale aquatic ecosystem monitoring
 
 ## Status
 
-Manuscript under review (2025)
+Published in Environmental Science & Technology (2025)

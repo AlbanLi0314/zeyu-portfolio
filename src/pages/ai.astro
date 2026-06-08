@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { personJsonLd } from '@/data/jsonld'
 
 import HeroSection from '@/components/ai/HeroSection.astro'
 import ProductsSection from '@/components/ai/ProductsSection.astro'
@@ -18,8 +17,7 @@ const navItems = [
 ]
 ---
 
-<Layout title="Applied AI - Zeyu Li">
-  <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+<Layout title="Applied AI - Zeyu Li" description="Applied AI by Zeyu (Alban) Li: agents, retrieval, and evaluation systems for high-stakes scientific work, including Research Harness (ICML AI for Science 2026).">
   <Fragment slot="top-nav">
     {navItems.map((item) => (
       <a
@@ -32,7 +30,7 @@ const navItems = [
     ))}
   </Fragment>
 
-  <div class="max-w-6xl mx-auto">
+  <div class="w-full min-w-0 max-w-6xl mx-auto">
     <HeroSection />
     <ResearchPipeline />
     <ProductsSection />

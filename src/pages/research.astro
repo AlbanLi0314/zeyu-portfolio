@@ -147,7 +147,7 @@ const projects = [
 ];
 ---
 
-<Layout title="Scientific R&D - Zeyu Li">
+<Layout title="Scientific R&D - Zeyu Li" description="Scientific R&D by Zeyu (Alban) Li: DNA-based materials, synthetic eDNA tracers, nucleic-acid manufacturing, and durable surface engineering from lab to field.">
   <Fragment slot="top-nav">
     {projects.map((project) => (
       <a
@@ -204,27 +204,27 @@ const projects = [
                     </summary>
                     <div class="collapse-content px-0">
                       <div class="prose max-w-none pt-4">
-                      <h4 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Problem</h4>
+                      <h3 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Problem</h3>
                       <p class="text-sm md:text-base leading-relaxed text-base-content/80 mb-4">
                         {project.problem}
                       </p>
 
-                      <h4 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Approach</h4>
+                      <h3 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Approach</h3>
                       <p class="text-sm md:text-base leading-relaxed text-base-content/80 mb-4">
                         {project.approach}
                       </p>
 
-                      <h4 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Results</h4>
+                      <h3 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Results</h3>
                       <p class="text-sm md:text-base leading-relaxed text-base-content/80 mb-4">
                         {project.results}
                       </p>
 
-                      <h4 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Impact</h4>
+                      <h3 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Impact</h3>
                       <p class="text-sm md:text-base leading-relaxed text-base-content/80 mb-4">
                         {project.impact}
                       </p>
 
-                      <h4 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Next Steps</h4>
+                      <h3 class="text-base md:text-lg font-semibold text-primary mt-4 mb-2">Next Steps</h3>
                       <p class="text-sm md:text-base leading-relaxed text-base-content/80">
                         {project.nextSteps}
                       </p>
@@ -236,7 +236,7 @@ const projects = [
 
               <!-- Key Outcomes - Highlighted -->
               <div class="mb-4 md:mb-6 p-3 md:p-4 bg-accent/5 border-l-4 border-accent rounded-r-lg">
-                <h4 class="text-sm md:text-base font-semibold text-accent mb-2 md:mb-3">Key Outcomes</h4>
+                <h3 class="text-sm md:text-base font-semibold text-accent mb-2 md:mb-3">Key Outcomes</h3>
                 <ul class="space-y-1.5 md:space-y-2">
                   {project.outcomes.map((outcome) => (
                     <li class="flex items-start gap-2 text-sm md:text-base">
@@ -291,7 +291,7 @@ const projects = [
                 <!-- Project Info Card -->
                 <div class="card bg-accent/5 border border-accent/20">
                   <div class="card-body p-3 md:p-4">
-                    <h5 class="text-sm md:text-base font-semibold text-primary mb-3">Project Info</h5>
+                    <h3 class="text-sm md:text-base font-semibold text-primary mb-3">Project Info</h3>
                     
                     <div class="space-y-3 text-sm">
                       <!-- Role -->

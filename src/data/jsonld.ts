@@ -150,8 +150,8 @@ export const personJsonLd = {
 		{
 			"@type": "CreativeWork",
 			"name": "Reactor and method of spiral propulsion biomass continuous thermal cracking",
-			"identifier": "Chinese Patent 201711214139.6",
-			"datePublished": "2017"
+			"identifier": "Chinese Patent CN107903925A (Application 201711214139.6)",
+			"datePublished": "2018"
 		}
 	],
 	"seeks": {

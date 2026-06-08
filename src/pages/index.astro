@@ -3,14 +3,11 @@ import Layout from '../layouts/Layout.astro'
 import { profile, template } from '@/settings'
 import ProfilePictures from '@/assets/profile_pictures.jpg'
 import { Image } from 'astro:assets'
-import { personJsonLd } from '@/data/jsonld'
 
 const { fullName, title, institute } = profile
 ---
 
-<Layout>
-	<script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
-	
+<Layout description="Zeyu (Alban) Li, Cornell Ph.D. building reliable applied AI for scientific R&D, grounded in a decade of hands-on materials and nucleic-acid research.">
 	<!-- Hero Section -->
 	<section class='flex flex-col items-center text-center py-8 sm:py-12'>
 		<Image
@@ -101,7 +98,7 @@ const { fullName, title, institute } = profile
 
 		<ul class='list-disc list-outside ml-0 space-y-4 text-base leading-relaxed text-base-content/80 !mb-8 fade-in-up'>
 			<li>
-				<strong>Agentic AI for research:</strong> I built Research Harness, an agentic framework that turns LLMs into reliable research assistants, with built-in checks, evidence-aware guardrails, and a trail from every output back to its source data. The work became my first-author paper at ICML's AI for Science workshop.
+				<strong>Agentic AI for research:</strong> I built Research Harness, an agentic framework that turns LLMs into reliable research assistants, with built-in checks, evidence-aware guardrails, and a trail from every output back to its source data. The work became my first-author paper at the ICML AI for Science Workshop 2026.
 			</li>
 			<li>
 				<strong>AI applications I've shipped:</strong> I design and deploy retrieval systems and real-time voice agents, from Resonance, which helps researchers find the right collaborators, to ER Companion, a multilingual ER-intake agent that won the Cornell AI Health Hackathon.

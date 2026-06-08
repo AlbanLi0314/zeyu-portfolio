@@ -78,7 +78,7 @@ Create a \`.jsx\` file as an Artifact containing:
 
 - Base your evaluation **only** on conversations you actually retrieved — do not fabricate evidence.
 - In the methodology section, explicitly state: *this is Claude self-assessing the user, which introduces inherent bias.*
-- The population baseline data comes from Anthropic's January 2026 study (n = 9,830); my personal sample is far smaller.
+- The population baseline data comes from Anthropic's February 2026 AI Fluency Index report (data collected January 2026; n = 9,830); my personal sample is far smaller.
 - If evidence for a given indicator is insufficient, **honestly note this** rather than speculating.
 - Anthropic's report publishes only population means, not distributional data — therefore **percentile rankings cannot be calculated**.`;
 
@@ -247,7 +247,7 @@ export default function AIFluencyIndex() {
             <div style={{ fontSize: "2.5rem", fontWeight: 700, color: "#115e59", lineHeight: 1.1 }}>
               {overall}
             </div>
-            <div style={{ fontSize: "0.75rem", color: "#94a3b8", marginTop: "0.125rem" }}>
+            <div style={{ fontSize: "0.78rem", color: "#64748b", marginTop: "0.125rem" }}>
               vs. {overallPop} population avg
             </div>
           </div>
@@ -269,10 +269,10 @@ export default function AIFluencyIndex() {
                 <div style={{ fontSize: "1.5rem", fontWeight: 700, color: cat.color, lineHeight: 1.1 }}>
                   {cat.avg}
                 </div>
-                <div style={{ fontSize: "0.625rem", color: "#94a3b8", marginTop: "0.125rem" }}>
+                <div style={{ fontSize: "0.72rem", color: "#64748b", marginTop: "0.125rem" }}>
                   vs. {cat.popAvg}
                 </div>
-                <div style={{ fontSize: "0.625rem", color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", marginTop: "0.25rem" }}>
+                <div style={{ fontSize: "0.72rem", color: "#475569", textTransform: "uppercase", letterSpacing: "0.05em", marginTop: "0.25rem" }}>
                   {cat.label}
                 </div>
               </div>
@@ -295,7 +295,7 @@ export default function AIFluencyIndex() {
           </div>
 
           {/* Source note */}
-          <p style={{ fontSize: "0.6875rem", color: "#94a3b8", marginTop: "0.75rem", lineHeight: 1.5 }}>
+          <p style={{ fontSize: "0.75rem", color: "#64748b", marginTop: "0.75rem", lineHeight: 1.5 }}>
             Framework: Anthropic 4D AI Fluency (Dakan & Feller, 2026). Baselines from 9,830 conversations.
           </p>
         </div>

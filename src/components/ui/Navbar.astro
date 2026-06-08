@@ -30,7 +30,7 @@ const { fullName, title } = profile
 				
 				<!-- Text info for desktop (below headshot) -->
 				<div class="text-center mt-4 hidden lg:block">
-					<h1 class="text-xl font-bold mb-1">{fullName}</h1>
+					<div class="text-xl font-bold mb-1 text-secondary">{fullName}</div>
 					<p class="text-base text-base-content/70 leading-tight px-2">{title}</p>
 					<button 
 						id="copy-email-btn"
@@ -43,7 +43,7 @@ const { fullName, title } = profile
 				
 				<!-- Text info for mobile (no headshot) -->
 				<div class="text-center lg:hidden w-full px-2">
-					<h1 class="text-lg font-bold mb-2">{fullName}</h1>
+					<div class="text-lg font-bold mb-2 text-secondary">{fullName}</div>
 					<p class="text-sm text-base-content/70 leading-tight mb-2">{title}</p>
 					<button 
 						id="copy-email-btn-mobile"

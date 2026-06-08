@@ -61,10 +61,10 @@ const totalSlides = allImages.length + (videoEmbed ? 1 : 0);
           </div>
           {totalSlides > 1 && (
             <>
-              <button class="carousel-btn carousel-prev absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm border border-base-300 flex items-center justify-center hover:bg-white transition-colors z-10" aria-label="Previous image">
+              <button class="carousel-btn carousel-prev absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/80 backdrop-blur-sm border border-base-300 flex items-center justify-center hover:bg-white transition-colors z-10" aria-label="Previous image">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-base-content/70"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
               </button>
-              <button class="carousel-btn carousel-next absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm border border-base-300 flex items-center justify-center hover:bg-white transition-colors z-10" aria-label="Next image">
+              <button class="carousel-btn carousel-next absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/80 backdrop-blur-sm border border-base-300 flex items-center justify-center hover:bg-white transition-colors z-10" aria-label="Next image">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-base-content/70"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
               </button>
               <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
@@ -76,7 +76,7 @@ const totalSlides = allImages.length + (videoEmbed ? 1 : 0);
           )}
         </div>
         {status === 'wip' && (
-          <span class="absolute top-3 right-3 text-xs font-mono text-base-content/40 bg-white/90 px-2 py-0.5 rounded">WIP</span>
+          <span class="absolute top-3 right-3 text-xs font-mono text-base-content/60 bg-white/90 px-2 py-0.5 rounded">WIP</span>
         )}
       </figure>
 
@@ -145,7 +145,7 @@ const totalSlides = allImages.length + (videoEmbed ? 1 : 0);
         />
       </div>
       {status === 'wip' && (
-        <span class="absolute top-3 right-3 text-xs font-mono text-base-content/40 bg-white/90 px-2 py-0.5 rounded">WIP</span>
+        <span class="absolute top-3 right-3 text-xs font-mono text-base-content/60 bg-white/90 px-2 py-0.5 rounded">WIP</span>
       )}
     </figure>
 
@@ -218,6 +218,12 @@ const totalSlides = allImages.length + (videoEmbed ? 1 : 0);
   .carousel-wrapper:hover .carousel-btn {
     opacity: 1;
   }
+  /* Touch devices have no hover: keep carousel controls visible */
+  @media (hover: none) {
+    .carousel-btn {
+      opacity: 1;
+    }
+  }
   .project-card {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     cursor: default;
@@ -238,7 +244,7 @@ const totalSlides = allImages.length + (videoEmbed ? 1 : 0);
   }
   .tag-chip {
     display: inline-block;
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.02em;
     padding: 0.15rem 0.5rem;
