@@ -109,6 +109,14 @@ export const personJsonLd = {
 	"publication": [
 		{
 			"@type": "ScholarlyArticle",
+			"name": "What the Records Don't Carry: A Position on Researcher-AI Co-Adaptation in Exploratory Laboratory Research",
+			"author": "Li, Z., Liu, Z., Yang, X., Luo, D.",
+			"publisher": { "@type": "Organization", "name": "ICML AI for Science Workshop" },
+			"datePublished": "2026",
+			"url": "https://openreview.net/forum?id=JLyfiAehuj"
+		},
+		{
+			"@type": "ScholarlyArticle",
 			"name": "A Chip Reactor for Perpetual Nucleic Acid Production and On-chip Information Processing",
 			"author": "Wang, D., Li, Z., et al.",
 			"publisher": { "@type": "Organization", "name": "Nature Sustainability" },
